@@ -27,6 +27,12 @@ jobs:
       - name: Certification gate self-test (clean skill passes, dirty skill is blocked)
         run: pnpm gate:selftest
 
+      - name: Manifest generator self-test (source shapes + install strings)
+        run: pnpm generate:selftest
+
+      - name: No-drift (committed marketplace.json + catalog.json match config)
+        run: pnpm generate:check
+
 # Note: per-skill certification of upstream skill bytes (gitleaks + semgrep +
 # osv-scanner + the SKILL.md LLM-judge, run on the fetched commit in an isolated,
 # no-secrets, egress-restricted job) is added with the fetch-and-scan step, not
