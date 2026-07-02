@@ -1,0 +1,26 @@
+# Example skill config illustrating the schema (config/skill.schema.json).
+# status: draft means it is NOT published to the marketplace or storefront.
+# Real listings are added in the import step, each pinned to a real commit SHA
+# and passed through the certification gate. Delete or replace this file once
+# real skills land.
+slug: example
+name: Example Skill
+description: A template entry showing the shape of a skill config. Not a real listing.
+version: 0.0.0
+status: draft
+
+upstream:
+  repo: example-org/example-skill
+  sha: "0000000000000000000000000000000000000000"
+  # path: skills/example   # set when the skill lives in a subdirectory
+
+author:
+  name: Example Author
+  url: https://github.com/example-org
+
+license: MIT
+homepage: https://github.com/example-org/example-skill
+category: productivity
+tags:
+  - example
+  - template

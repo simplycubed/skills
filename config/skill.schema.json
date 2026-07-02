@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SimplyCubed Skill Config",
+  "description": "Authored metadata for one listed Agent Skill (the open, cross-tool SKILL.md format read by Claude Code, OpenAI Codex, Gemini CLI, and others). The skill source is referenced (not vendored) at an immutable upstream commit SHA. Certification/scan results are produced by CI into <slug>.scan.json and are NOT authored here.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slug", "name", "description", "version", "status", "upstream", "author", "license"],
+  "properties": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "URL/install slug and plugin name; must match the filename. In Claude Code, install is /plugin install <slug>@simplycubed; for other agents the skill folder installs into the agent's skills directory (e.g. .agents/skills/)."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "description": "Human-readable display name."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 300,
+      "description": "One-line description shown in the catalog."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "SemVer label for this listing. The upstream SHA is the true identity; bump this only on a re-certified change."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "draft", "archived"],
+      "description": "Only 'active' skills are published to the marketplace + storefront."
+    },
+    "upstream": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repo", "sha"],
+      "properties": {
+        "repo": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9-_.]*/[A-Za-z0-9-_.]+$",
+          "description": "GitHub 'owner/name' of the upstream source."
+        },
+        "sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$",
+          "description": "Full 40-hex commit SHA. Immutable pin: never a tag or branch. Certification and install both bind to this exact commit."
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^[^/].*[^/]$|^[^/]$",
+          "description": "Optional subdirectory within the repo when the skill lives in a subfolder (no leading/trailing slash)."
+        }
+      }
+    },
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "description": "Original author, credited." },
+        "url": { "type": "string", "description": "Optional link to the author." }
+      }
+    },
+    "license": {
+      "type": "string",
+      "description": "SPDX identifier of the upstream skill's license. Permissive licenses only; copyleft and unlicensed are rejected.",
+      "enum": ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "0BSD", "Unlicense", "Zlib"]
+    },
+    "homepage": {
+      "type": "string",
+      "description": "Optional canonical homepage/source URL (defaults to the upstream repo)."
+    },
+    "category": {
+      "type": "string",
+      "enum": ["productivity", "coding", "data", "content", "research", "devops", "integration", "other"],
+      "description": "Optional catalog category."
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+      "maxItems": 12,
+      "uniqueItems": true,
+      "description": "Optional lowercase tags for filtering."
+    }
+  }
+}

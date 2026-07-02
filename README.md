@@ -1,12 +1,23 @@
 # SimplyCubed Skills
 
-A curated marketplace of [Claude Agent Skills](https://docs.claude.com/en/docs/claude-code). We scan and verify each skill before listing it, and it's free to install.
+A curated marketplace of [Agent Skills](https://agentskills.io) — the open, cross-tool `SKILL.md` format read by Claude Code, OpenAI Codex, Gemini CLI, and a growing set of agents. We scan and verify each skill before listing it, and it's free to install.
 
 > **Status: early and curated.** We import a small, hand-picked set of popular open-source skills, scan each one, and publish the ones that pass. We are not taking open developer submissions yet.
 
 ## Install
 
-This repo is a Claude Code plugin marketplace. Add it once, then install any skill:
+Every listed skill is a plain `SKILL.md` folder in the open Agent Skills format, so it installs into any compatible agent — Claude Code, OpenAI Codex, Gemini CLI, Cursor, and others.
+
+**Any agent (vendor-neutral).** Install the skill folder into your agent's skills directory. The `.agents/skills/` path is the interop location that Codex and Gemini CLI read directly:
+
+| Agent | Project scope | Global scope |
+| --- | --- | --- |
+| Vendor-neutral | `.agents/skills/` | `~/.agents/skills/` |
+| Claude Code | — | `~/.claude/skills/` |
+| OpenAI Codex | `.agents/skills/` | `~/.agents/skills/` |
+| Gemini CLI | `.gemini/skills/` or `.agents/skills/` | `~/.gemini/skills/` or `~/.agents/skills/` |
+
+**Claude Code (one command).** SimplyCubed is also a Claude Code plugin marketplace, so you can install without touching the filesystem:
 
 ```
 /plugin marketplace add simplycubed/skills
