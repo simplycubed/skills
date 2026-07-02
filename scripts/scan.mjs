@@ -84,7 +84,7 @@ export function runOsv(path, unit) {
 // Run every scanner tier over an ALREADY-ASSEMBLED unit (no network). Split out
 // from scan() so the fail-closed behaviour (a required scanner missing =>
 // passed:false) is unit-testable without a live fetch.
-export function scanUnit(slug, assembled, { now = new Date().toISOString() } = {}) {
+export function scanUnit(slug, assembled, { now = new Date().toISOString(), allowMissing = false } = {}) {
   const unit = assembled.unitDir;
   // Scanner scratch (gitleaks report) goes to a temp dir — never beside the unit,
   // which for a snapshot is a committed directory we must not pollute.
@@ -93,17 +93,23 @@ export function scanUnit(slug, assembled, { now = new Date().toISOString() } = {
   // Built-in static tier over the assembled unit (LICENSE now present).
   const c = certify(unit);
 
-  // External scanners. A required scanner that isn't installed fails the scan.
+  // External scanners. By default a required scanner that isn't installed fails
+  // the scan (fail-closed). With allowMissing (local dev only, never CI), a
+  // missing scanner is recorded "skipped" and the record is marked incomplete —
+  // an incomplete record can never be shown as "certified".
   const gitleaksBin = bin("gitleaks", "GITLEAKS_BIN");
   const osvBin = bin("osv-scanner", "OSV_BIN");
   const tools = { certify: "builtin" };
   const scanErrors = [];
+  let incomplete = false;
 
   let secrets = [];
   if (gitleaksBin) {
     tools.gitleaks = toolVersion(gitleaksBin, ["version"]);
     const g = runGitleaks(gitleaksBin, unit, work);
     if (!g.ran) scanErrors.push(g.error); else secrets = g.findings;
+  } else if (allowMissing) {
+    tools.gitleaks = "skipped"; incomplete = true;
   } else {
     scanErrors.push("gitleaks not installed (required)");
   }
@@ -113,6 +119,8 @@ export function scanUnit(slug, assembled, { now = new Date().toISOString() } = {
     tools["osv-scanner"] = toolVersion(osvBin, ["--version"]);
     const o = runOsv(osvBin, unit);
     if (!o.ran) scanErrors.push(o.error); else vulnerabilities = o.findings;
+  } else if (allowMissing) {
+    tools["osv-scanner"] = "skipped"; incomplete = true;
   } else {
     scanErrors.push("osv-scanner not installed (required)");
   }
@@ -146,6 +154,7 @@ export function scanUnit(slug, assembled, { now = new Date().toISOString() } = {
     checks,
     review: c.review, // non-blocking, surfaced for LLM-judge / human review
     scan_errors: scanErrors,
+    incomplete, // a required scanner was skipped (allowMissing) — never "certified"
     passed,
     finding_count: blocking.length,
     review_count: c.review.length,
@@ -153,10 +162,10 @@ export function scanUnit(slug, assembled, { now = new Date().toISOString() } = {
   };
 }
 
-export function scan(slug, { now = new Date().toISOString() } = {}) {
+export function scan(slug, { now = new Date().toISOString(), allowMissing = false } = {}) {
   const cfg = loadConfig(slug);
   const assembled = assembleUnit(cfg);
-  return scanUnit(slug, assembled, { now });
+  return scanUnit(slug, assembled, { now, allowMissing });
 }
 
 // Re-verify a skill from its committed SNAPSHOT — no upstream fetch. This is what
@@ -183,10 +192,11 @@ export function scanSnapshot(slug, { now = new Date().toISOString() } = {}) {
 function main() {
   const args = process.argv.slice(2);
   const write = args.includes("--write");
+  const allowMissing = args.includes("--allow-missing-scanners"); // local dev only; never CI
   const slug = args.find((a) => !a.startsWith("--"));
-  if (!slug) { console.error("usage: node scripts/scan.mjs <slug> [--write]"); process.exit(2); }
+  if (!slug) { console.error("usage: node scripts/scan.mjs <slug> [--write] [--allow-missing-scanners]"); process.exit(2); }
 
-  const record = scan(slug);
+  const record = scan(slug, { allowMissing });
   const json = JSON.stringify(record, null, 2) + "\n";
   if (write) {
     const out = join(SKILLS_DIR, `${slug}.scan.json`);
@@ -200,7 +210,7 @@ function main() {
       (record.scan_errors.length ? `, scan errors: ${record.scan_errors.join("; ")}` : ""));
     process.exit(1);
   }
-  console.error(`✓ ${slug}: certified (${record.review_count} review flag(s))`);
+  console.error(`${record.incomplete ? "⚠" : "✓"} ${slug}: ${record.incomplete ? "INCOMPLETE (scanners skipped) — not certifiable" : "certified"} (${record.review_count} review flag(s))`);
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) main();

@@ -26,4 +26,40 @@ offline OSV database (for a fully air-gapped re-scan) or accept `osv.dev` as an
 operational dependency (same class as the scanner-binary download). Tracked in
 METHODOLOGY.md under "Not yet in v1 → Fully offline OSV."
 
-_No other escalations yet._
+## 2. semgrep SAST tier (Item 3) — deferred, needs a decision
+
+**What:** Add a `semgrep` static-analysis tier to the scanner suite.
+
+**Why deferred (not shipped):**
+- The salvageable invocation from PR #5 is `semgrep scan --config auto`, which
+  **downloads rules from the registry at scan time** → network-dependent and
+  **non-deterministic**: a skill could pass today and fail tomorrow on a rule
+  update with no code change. That contradicts the deterministic, reproducible
+  fail-closed gate (and the snapshot's reproducibility guarantee). Shipping it
+  as-is would add a *bad* gate.
+- **No current value:** the only listed skill (linus-level) contains no code
+  (`.md`/`.yaml`/`.png` only) — SAST has nothing to analyze.
+- **Couldn't verify locally** (semgrep vs the local Python 3.14), so it couldn't
+  be test-first'd before shipping.
+
+**Recommendation:** add semgrep with a **pinned local ruleset** (`--config
+./rules/…`, no registry download → deterministic), gated to run only when a
+unit actually contains executable code, at the point the first script-bearing
+skill is listed. Decision needed: curate/pin a rules file vs. accept `--config
+auto`'s non-determinism.
+
+## 3. Commit-hash verification of the fetched tree (Item 4, part a) — deferred
+
+**What:** PR #5 wanted to "verify the checked-out commit hash equals the pin."
+
+**Why deferred:** that assumed a **git-based** fetch (`clone` + `rev-parse`).
+This pipeline fetches via `codeload.github.com/<repo>/tar.gz/<sha>`, which is
+GitHub's authoritative export of *exactly that commit's tree* and 404s on a bad
+SHA — so the fetch already binds to the pinned commit and fails closed. Adding
+independent commit-hash recomputation would require switching from the tarball to
+a git fetch + comparing tree objects, disproportionate to the marginal assurance.
+
+**Recommendation:** revisit only if we move to a git-based fetch for another
+reason. The `--allow-missing-scanners` half of Item 4 IS shipped (see the PR).
+
+_No other escalations open._
