@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "SimplyCubed Skill Config",
-  "description": "Authored metadata for one listed Claude Agent Skill. The skill source is referenced (not vendored) at an immutable upstream commit SHA. Certification/scan results are produced by CI into <slug>.scan.json and are NOT authored here.",
+  "description": "Authored metadata for one listed Agent Skill (the open, cross-tool SKILL.md format read by Claude Code, OpenAI Codex, Gemini CLI, and others). The skill source is referenced (not vendored) at an immutable upstream commit SHA. Certification/scan results are produced by CI into <slug>.scan.json and are NOT authored here.",
   "type": "object",
   "additionalProperties": false,
   "required": ["slug", "name", "description", "version", "status", "upstream", "author", "license"],
@@ -9,7 +9,7 @@
     "slug": {
       "type": "string",
       "pattern": "^[a-z][a-z0-9-]*$",
-      "description": "URL/install slug and plugin name; must match the filename. Install is /plugin install <slug>@simplycubed."
+      "description": "URL/install slug and plugin name; must match the filename. In Claude Code, install is /plugin install <slug>@simplycubed; for other agents the skill folder installs into the agent's skills directory (e.g. .agents/skills/)."
     },
     "name": {
       "type": "string",

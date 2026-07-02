@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "SimplyCubed Skills marketplace: schema, validation, and generators for certified Claude Agent Skills.",
+  "description": "SimplyCubed Skills marketplace: schema, validation, and generators for certified Agent Skills (the open, cross-tool SKILL.md format).",
   "license": "MIT",
+  "packageManager": "pnpm@10.17.0",
   "scripts": {
-    "validate": "node scripts/validate-skills.mjs"
+    "validate": "node scripts/validate-skills.mjs",
+    "certify": "node scripts/certify.mjs",
+    "gate:selftest": "node scripts/gate-selftest.mjs"
   },
   "devDependencies": {
     "ajv": "^8.17.1",

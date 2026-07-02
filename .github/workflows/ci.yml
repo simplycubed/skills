@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# The gate runs on untrusted config in PRs; give it read-only, no secrets.
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      # Actions pinned by commit SHA (never a mutable tag).
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+
+      - name: Validate skill configs (schema + permissive-license allowlist + slug==filename)
+        run: pnpm validate
+
+      - name: Certification gate self-test (clean skill passes, dirty skill is blocked)
+        run: pnpm gate:selftest
+
+# Note: per-skill certification of upstream skill bytes (gitleaks + semgrep +
+# osv-scanner + the SKILL.md LLM-judge, run on the fetched commit in an isolated,
+# no-secrets, egress-restricted job) is added with the fetch-and-scan step, not
+# here. Running those scanners over this repo's own tooling would false-positive
+# on the injection PATTERNS that certify.mjs itself contains.
