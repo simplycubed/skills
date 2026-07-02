@@ -59,16 +59,16 @@ function fetchSrc(repo, sha, dest) {
   return src;
 }
 
-export function assembleUnit(cfg, { work = WORK } = {}) {
+// Assemble the published unit from an ALREADY-EXTRACTED source tree. Pure of the
+// network, so it is unit-testable: given a src dir + config, it produces the exact
+// bytes we publish and the license verdict. `dest` is where the unit is written.
+export function assembleFromSrc(cfg, src, dest) {
   const { slug } = cfg;
   const { repo, sha, path: subpath } = cfg.upstream;
-  const dest = join(work, slug);
-  rmSync(dest, { recursive: true, force: true });
-  const src = fetchSrc(repo, sha, dest);
-
   const unitSrc = subpath ? join(src, subpath) : src;
   if (!existsSync(unitSrc)) throw new Error(`path '${subpath}' not found in ${repo}@${sha}`);
   const unit = join(dest, "unit");
+  rmSync(unit, { recursive: true, force: true });
   cpSync(unitSrc, unit, { recursive: true });
 
   // Ensure a LICENSE travels with the published unit.
@@ -106,6 +106,13 @@ export function assembleUnit(cfg, { work = WORK } = {}) {
     declaredLicense: cfg.license,
     licenseMatches,
   };
+}
+
+export function assembleUnit(cfg, { work = WORK } = {}) {
+  const dest = join(work, cfg.slug);
+  rmSync(dest, { recursive: true, force: true });
+  const src = fetchSrc(cfg.upstream.repo, cfg.upstream.sha, dest);
+  return assembleFromSrc(cfg, src, dest);
 }
 
 function main() {

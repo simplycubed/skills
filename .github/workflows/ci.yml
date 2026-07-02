@@ -28,8 +28,11 @@ jobs:
       - name: Validate skill configs (schema + permissive-license allowlist + slug==filename)
         run: pnpm validate
 
-      - name: Certification gate self-test (clean skill passes, dirty skill is blocked)
+      - name: Certification gate self-test (clean passes, dirty blocked, review-only passes)
         run: pnpm gate:selftest
+
+      - name: Unit self-test (license assembly, fail-closed scanner, validator, structure guards)
+        run: pnpm unit:selftest
 
       - name: Manifest generator self-test (source shapes + install strings)
         run: pnpm generate:selftest

@@ -12,20 +12,32 @@ const certify = join(root, "scripts/certify.mjs");
 
 function run(dir) {
   const r = spawnSync(process.execPath, [certify, join(root, dir)], { encoding: "utf8" });
-  return r.status;
+  let verdict = null;
+  try { verdict = JSON.parse(r.stdout); } catch { /* non-JSON on usage error */ }
+  return { status: r.status, verdict };
 }
 
 const cases = [
   { dir: "fixtures/clean-skill", expect: 0, label: "clean fixture passes" },
   { dir: "fixtures/dirty-skill", expect: 1, label: "dirty fixture is blocked" },
+  // REVIEW-tier vocabulary (defensive security guidance) must PASS but be surfaced,
+  // not auto-failed — the behaviour that lets legitimate security skills through.
+  { dir: "fixtures/review-skill", expect: 0, label: "review-only fixture passes with findings surfaced",
+    review: true },
 ];
 
 let ok = true;
 for (const c of cases) {
-  const status = run(c.dir);
-  const pass = status === c.expect;
+  const { status, verdict } = run(c.dir);
+  let pass = status === c.expect;
+  if (c.review) {
+    const surfaced = verdict && verdict.finding_count === 0 && verdict.review_count > 0;
+    pass = pass && surfaced;
+    console.log(`${pass ? "✓" : "✗"} ${c.label} (exit ${status}, review_count ${verdict?.review_count})`);
+  } else {
+    console.log(`${pass ? "✓" : "✗"} ${c.label} (exit ${status}, expected ${c.expect})`);
+  }
   if (!pass) ok = false;
-  console.log(`${pass ? "✓" : "✗"} ${c.label} (exit ${status}, expected ${c.expect})`);
 }
 
 if (!ok) {

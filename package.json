@@ -13,6 +13,7 @@
     "validate": "node scripts/validate-skills.mjs",
     "certify": "node scripts/certify.mjs",
     "gate:selftest": "node scripts/gate-selftest.mjs",
+    "unit:selftest": "node scripts/unit-selftest.mjs",
     "fetch": "node scripts/fetch.mjs",
     "scan": "node scripts/scan.mjs",
     "scan:selftest": "node scripts/scan-selftest.mjs",
