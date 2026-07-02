@@ -18,6 +18,10 @@ jobs:
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: 24
+          # v5 defaults package-manager-cache: true, which runs pnpm to prime a
+          # cache before `corepack enable` puts pnpm on PATH. We don't use that
+          # cache (frozen install is fast), so disable it to avoid the ordering fail.
+          package-manager-cache: false
       - run: corepack enable
       - run: pnpm install --frozen-lockfile
 
