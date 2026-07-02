@@ -1,0 +1,23 @@
+slug: linus-level
+name: Linus Level
+description: 'A 1.0–10.0 "engineering working-mode" dial for coding agents — tunes agency, assumption budget, verification, and security posture from fast prototyping to maintainer-grade rigor. Triggers on "Linus Level", "LL <n>", or set-rigor / maintainer-mode requests.'
+version: 1.0.0
+status: active
+
+upstream:
+  repo: rsoffer/linus-level-skill
+  sha: "6837cd8bf844863aab887017f006fbd67036ccad"
+  path: skills/linus-level
+
+author:
+  name: Ron Soffer
+  url: https://github.com/rsoffer
+
+license: MIT
+homepage: https://github.com/rsoffer/linus-level-skill
+category: coding
+tags:
+  - agent
+  - workflow
+  - engineering
+  - code-review
