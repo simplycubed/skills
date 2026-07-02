@@ -18,6 +18,8 @@
     "scan": "node scripts/scan.mjs",
     "scan:selftest": "node scripts/scan-selftest.mjs",
     "certify:active": "node scripts/certify-active.mjs",
+    "snapshot": "node scripts/snapshot.mjs",
+    "snapshot:check": "node scripts/snapshot-check.mjs",
     "generate": "node scripts/generate.mjs",
     "generate:check": "node scripts/generate.mjs --check",
     "generate:selftest": "node scripts/generate-selftest.mjs",

@@ -1,13 +1,14 @@
 // certify-active.mjs
 //
-// CI's fail-closed integrity gate. Independently re-runs the full fetch-and-scan
-// over every status:active skill (fresh fetch at the pinned SHA + all scanner
-// tiers) and fails if any skill's LIVE verdict isn't a pass. This is what stops
-// a hand-edited <slug>.scan.json from smuggling a failing skill into the
-// catalog: the committed record is the display copy, but merge requires the
-// scan to still pass here on the real upstream bytes.
+// CI's fail-closed integrity gate. Independently re-runs the full scanner suite
+// over every status:active skill's committed SNAPSHOT (no upstream fetch) and
+// fails if any skill's verdict isn't a pass. This stops a hand-edited
+// <slug>.scan.json from smuggling a failing skill into the catalog — the
+// committed record is the display copy, but merge requires the live re-scan to
+// pass — and, because it reads the snapshot, certification stays green even if
+// the upstream repo disappears.
 import { readActiveSkills } from "./generate.mjs";
-import { scan } from "./scan.mjs";
+import { scanSnapshot } from "./scan.mjs";
 
 const skills = readActiveSkills();
 if (skills.length === 0) {
@@ -19,7 +20,7 @@ let ok = true;
 for (const cfg of skills) {
   let r;
   try {
-    r = scan(cfg.slug);
+    r = scanSnapshot(cfg.slug);
   } catch (e) {
     ok = false;
     console.log(`✗ ${cfg.slug}: scan threw — ${e.message}`);

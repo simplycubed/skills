@@ -48,23 +48,35 @@ The exact tool **versions** used for each scan are recorded in that skill's
 `<slug>.scan.json` under `tools`, alongside every finding and every review flag —
 so the record shows precisely what was checked, when, and with what.
 
+## Durability: the content-addressed snapshot
+
+At certification we vendor the exact published unit into `snapshots/<slug>/`, with
+a `manifest.json` recording the upstream `{repo, sha}` and a sha256 over the unit
+bytes. From then on, **re-verification reads the snapshot, not the upstream** — so
+a skill stays available and auditable even if its upstream repo disappears. The
+`snapshot:check` gate re-derives the content hash on every CI run, so a tampered
+or drifted snapshot fails closed.
+
 ## How the gate stays honest
 
 - **Self-test.** CI proves each scanner actually fires: planted-dirty fixtures
   must be flagged and a clean fixture must pass. A gate never seen to go red is a
   false-clear.
-- **Live re-verification.** CI re-fetches every active skill at its pinned SHA and
-  re-runs the full scan. The committed `scan.json` is only a display copy; merge
-  requires the live re-scan to still pass.
-- **Re-scan on change.** A new upstream release is a new commit, so it goes back
-  through the gate before we offer it.
+- **Snapshot re-verification.** CI re-runs the full scan over every active skill's
+  committed snapshot (no upstream fetch). The committed `scan.json` is only a
+  display copy; merge requires this re-scan to still pass.
+- **Re-scan on change.** A new upstream release is a new commit + a new snapshot,
+  so it goes back through the gate before we offer it.
 - **Revocation.** If a listed skill later fails (a newly disclosed vuln, a leaked
-  secret), its status flips to `revoked` and we pull it from the catalog.
+  secret), its status flips to `revoked` and we pull it — and its snapshot — from
+  the catalog.
 
 ## Not yet in v1 (planned)
 
 - **`SKILL.md` LLM-judge** — an LLM review of instruction text to adjudicate the
   intent behind REVIEW-tier findings (attack vs. defensive mention).
 - **SAST** — `semgrep` static analysis over bundled scripts.
-- **Content-addressed snapshot** — a durable, offline snapshot so certification
-  no longer depends on the live upstream or network.
+- **Fully offline OSV** — re-verification no longer fetches the upstream (it reads
+  the snapshot), but the vulnerability check still consults the OSV database over
+  the network. Bundling/caching an offline OSV database for a fully air-gapped
+  re-scan is a further hardening step.

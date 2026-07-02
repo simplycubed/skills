@@ -36,10 +36,11 @@ const INSTALL_TARGETS = [
   { agent: "Gemini CLI", dir: "~/.gemini/skills/" },
 ];
 
-// Browsable source of the exact published folder, pinned to the certified SHA.
+// Browsable source of the exact published folder. Points at our durable,
+// content-addressed snapshot (not the upstream), so the folder stays available
+// and byte-stable even if the upstream repo disappears.
 function folderSourceUrl(c) {
-  const base = `https://github.com/${c.upstream.repo}/tree/${c.upstream.sha}`;
-  return c.upstream.path ? `${base}/${c.upstream.path}` : base;
+  return `https://github.com/${MARKETPLACE_NAME}/skills/tree/main/snapshots/${c.slug}/unit`;
 }
 
 export function readActiveSkills(dir = SKILLS_DIR) {
