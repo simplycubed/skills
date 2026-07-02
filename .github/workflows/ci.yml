@@ -13,11 +13,15 @@ jobs:
   gate:
     runs-on: ubuntu-latest
     steps:
-      # Actions pinned by commit SHA (never a mutable tag).
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+      # Actions pinned by commit SHA (never a mutable tag). v5 line runs on Node 24.
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
-          node-version: 22
+          node-version: 24
+          # v5 defaults package-manager-cache: true, which runs pnpm to prime a
+          # cache before `corepack enable` puts pnpm on PATH. We don't use that
+          # cache (frozen install is fast), so disable it to avoid the ordering fail.
+          package-manager-cache: false
       - run: corepack enable
       - run: pnpm install --frozen-lockfile
 
