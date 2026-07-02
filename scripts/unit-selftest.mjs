@@ -68,6 +68,18 @@ console.log("— 1c: scanUnit fails closed when a required scanner is missing �
   finally { process.env.PATH = savedPath; if (savedGl) process.env.GITLEAKS_BIN = savedGl; if (savedOsv) process.env.OSV_BIN = savedOsv; }
   assert.equal(rec.passed, false, "missing required scanner => passed:false");
   assert.ok(rec.scan_errors.length >= 2, "both missing scanners recorded as errors");
+
+  // With --allow-missing-scanners: skipped, marked incomplete, NOT an error.
+  const savedPath2 = process.env.PATH;
+  process.env.PATH = "/nonexistent-xyz";
+  delete process.env.GITLEAKS_BIN; delete process.env.OSV_BIN;
+  let rec2;
+  try { rec2 = scanUnit("q", assembled, { allowMissing: true }); }
+  finally { process.env.PATH = savedPath2; }
+  assert.equal(rec2.incomplete, true, "allowMissing => record marked incomplete");
+  assert.equal(rec2.scan_errors.length, 0, "allowMissing => skipped scanners are not errors");
+  assert.equal(rec2.tools.gitleaks, "skipped");
+  assert.equal(rec2.tools["osv-scanner"], "skipped");
 }
 console.log("  ✓ 1c passed");
 

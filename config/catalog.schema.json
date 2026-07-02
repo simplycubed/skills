@@ -100,8 +100,8 @@
           "properties": {
             "status": {
               "type": "string",
-              "enum": ["certified", "revoked", "pending"],
-              "description": "certified = passed the scan; revoked = a prior pass now fails; pending = not yet scanned."
+              "enum": ["certified", "revoked", "pending", "incomplete"],
+              "description": "certified = passed the scan; revoked = a prior pass now fails; pending = not yet scanned; incomplete = a required scanner was skipped, never certifiable."
             },
             "scannedAt": { "type": ["string", "null"], "description": "ISO-8601 timestamp of the scan, or null when pending." },
             "record": {

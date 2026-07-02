@@ -88,6 +88,12 @@ export function buildMarketplace(configs) {
   };
 }
 
+// A scan that skipped a required scanner (incomplete) is NEVER "certified".
+function certStatus(scan) {
+  if (scan.incomplete) return "incomplete";
+  return scan.passed ? "certified" : "revoked";
+}
+
 export function catalogEntry(c, scan) {
   return {
     slug: c.slug,
@@ -114,7 +120,7 @@ export function catalogEntry(c, scan) {
       },
     },
     certification: scan
-      ? { status: scan.passed ? "certified" : "revoked", scannedAt: scan.scanned_at || null, record: scan }
+      ? { status: certStatus(scan), scannedAt: scan.scanned_at || null, record: scan }
       : { status: "pending", scannedAt: null, record: null },
   };
 }

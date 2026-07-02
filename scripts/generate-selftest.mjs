@@ -77,5 +77,8 @@ const certified = buildCatalog([rootSkill], () => ({ passed: true, scanned_at: "
 assert.equal(certified.skills[0].certification.status, "certified");
 const revoked = buildCatalog([rootSkill], () => ({ passed: false }));
 assert.equal(revoked.skills[0].certification.status, "revoked");
+// an incomplete scan (a required scanner was skipped) is NEVER certified
+const incomplete = buildCatalog([rootSkill], () => ({ passed: true, incomplete: true }));
+assert.equal(incomplete.skills[0].certification.status, "incomplete");
 
 console.log("✓ generate self-test passed (source shapes, install strings, certification mapping)");
