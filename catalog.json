@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "marketplace": "simplycubed",
   "skills": [
     {
@@ -25,8 +26,28 @@
       },
       "sourceUrl": "https://github.com/rsoffer/linus-level-skill",
       "install": {
-        "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
-        "install": "/plugin install linus-level@simplycubed"
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install linus-level@simplycubed"
+        },
+        "folder": {
+          "dirName": "linus-level",
+          "source": "https://github.com/rsoffer/linus-level-skill/tree/6837cd8bf844863aab887017f006fbd67036ccad/skills/linus-level",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
       },
       "certification": {
         "status": "certified",

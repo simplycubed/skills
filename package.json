@@ -19,7 +19,8 @@
     "certify:active": "node scripts/certify-active.mjs",
     "generate": "node scripts/generate.mjs",
     "generate:check": "node scripts/generate.mjs --check",
-    "generate:selftest": "node scripts/generate-selftest.mjs"
+    "generate:selftest": "node scripts/generate-selftest.mjs",
+    "catalog:check": "node scripts/validate-catalog.mjs"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
