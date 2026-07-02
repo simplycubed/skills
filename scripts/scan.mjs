@@ -79,9 +79,10 @@ export function runOsv(path, unit) {
   return { ran: true, findings };
 }
 
-export function scan(slug, { now = new Date().toISOString() } = {}) {
-  const cfg = loadConfig(slug);
-  const assembled = assembleUnit(cfg);
+// Run every scanner tier over an ALREADY-ASSEMBLED unit (no network). Split out
+// from scan() so the fail-closed behaviour (a required scanner missing =>
+// passed:false) is unit-testable without a live fetch.
+export function scanUnit(slug, assembled, { now = new Date().toISOString() } = {}) {
   const unit = assembled.unitDir;
   const work = dirname(unit);
 
@@ -146,6 +147,12 @@ export function scan(slug, { now = new Date().toISOString() } = {}) {
     review_count: c.review.length,
     note: "v1: built-in static tier + gitleaks (secrets) + osv-scanner (deps). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up.",
   };
+}
+
+export function scan(slug, { now = new Date().toISOString() } = {}) {
+  const cfg = loadConfig(slug);
+  const assembled = assembleUnit(cfg);
+  return scanUnit(slug, assembled, { now });
 }
 
 function main() {
