@@ -45,6 +45,15 @@ function findLicense(dir) {
   return LICENSE_NAMES.map((n) => join(dir, n)).find(existsSync) || null;
 }
 
+// License verdict for an already-assembled unit dir (used when re-verifying a
+// committed snapshot, where there is no fetch to run).
+export function licenseVerdict(unitDir, declaredLicense) {
+  const lic = findLicense(unitDir);
+  if (!lic) return { licensePresent: false, licenseMatches: null };
+  const sig = LICENSE_SIGNATURES[declaredLicense];
+  return { licensePresent: true, licenseMatches: sig ? sig.test(readFileSync(lic, "utf8")) : null };
+}
+
 // Download + extract the repo at the exact SHA. Returns the extracted src dir.
 function fetchSrc(repo, sha, dest) {
   mkdirSync(dest, { recursive: true });

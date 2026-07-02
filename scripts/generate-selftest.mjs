@@ -63,13 +63,13 @@ const catRoot = cat.skills.find((s) => s.slug === "root-skill");
 // Claude Code install commands
 assert.equal(catRoot.install.claudeCode.marketplaceAdd, "/plugin marketplace add simplycubed/skills");
 assert.equal(catRoot.install.claudeCode.command, "/plugin install root-skill@simplycubed");
-// Vendor-neutral folder install: root skill has no path, source is the repo tree at the SHA
+// Vendor-neutral folder install: source points at our durable snapshot, not upstream
 assert.equal(catRoot.install.folder.dirName, "root-skill");
-assert.equal(catRoot.install.folder.source, `https://github.com/acme/root/tree/${"a".repeat(40)}`);
+assert.equal(catRoot.install.folder.source, "https://github.com/simplycubed/skills/tree/main/snapshots/root-skill/unit");
 assert.ok(catRoot.install.folder.targets.some((t) => t.dir === ".agents/skills/"), "vendor-neutral target present");
-// Subdir skill: folder source includes the path
+// Subdir skill: also snapshot-based (keyed by slug, independent of upstream path)
 const catSub = cat.skills.find((s) => s.slug === "sub-skill");
-assert.equal(catSub.install.folder.source, `https://github.com/acme/mono/tree/${"b".repeat(40)}/skills/sub`);
+assert.equal(catSub.install.folder.source, "https://github.com/simplycubed/skills/tree/main/snapshots/sub-skill/unit");
 assert.equal(catRoot.certification.status, "pending", "no scan record => pending");
 
 // certification maps from a scan record

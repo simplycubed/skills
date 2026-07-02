@@ -32,7 +32,7 @@
         },
         "folder": {
           "dirName": "linus-level",
-          "source": "https://github.com/rsoffer/linus-level-skill/tree/6837cd8bf844863aab887017f006fbd67036ccad/skills/linus-level",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/linus-level/unit",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",

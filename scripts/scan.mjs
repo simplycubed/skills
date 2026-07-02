@@ -14,12 +14,14 @@
 // generate.mjs turns into the catalog's certification badge. CI re-runs this on
 // the freshly fetched bytes and fails if the live verdict isn't a pass, so a
 // hand-edited scan.json cannot smuggle a failing skill through.
-import { writeFileSync, readFileSync, existsSync } from "node:fs";
+import { writeFileSync, readFileSync, existsSync, mkdtempSync } from "node:fs";
 import { join, dirname } from "node:path";
+import { tmpdir } from "node:os";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { spawnSync } from "node:child_process";
-import { loadConfig, assembleUnit } from "./fetch.mjs";
+import { loadConfig, assembleUnit, licenseVerdict } from "./fetch.mjs";
 import { certify } from "./certify.mjs";
+import { readManifest, SNAP_DIR } from "./snapshot.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SKILLS_DIR = join(ROOT, "config/skills");
@@ -84,7 +86,9 @@ export function runOsv(path, unit) {
 // passed:false) is unit-testable without a live fetch.
 export function scanUnit(slug, assembled, { now = new Date().toISOString() } = {}) {
   const unit = assembled.unitDir;
-  const work = dirname(unit);
+  // Scanner scratch (gitleaks report) goes to a temp dir — never beside the unit,
+  // which for a snapshot is a committed directory we must not pollute.
+  const work = mkdtempSync(join(tmpdir(), `scan-${slug}-`));
 
   // Built-in static tier over the assembled unit (LICENSE now present).
   const c = certify(unit);
@@ -152,6 +156,27 @@ export function scanUnit(slug, assembled, { now = new Date().toISOString() } = {
 export function scan(slug, { now = new Date().toISOString() } = {}) {
   const cfg = loadConfig(slug);
   const assembled = assembleUnit(cfg);
+  return scanUnit(slug, assembled, { now });
+}
+
+// Re-verify a skill from its committed SNAPSHOT — no upstream fetch. This is what
+// certify:active runs in CI, so certification stays green even if the upstream
+// repo disappears (the README's durability promise).
+export function scanSnapshot(slug, { now = new Date().toISOString() } = {}) {
+  const cfg = loadConfig(slug);
+  const manifest = readManifest(slug);
+  if (!manifest) throw new Error(`no snapshot for ${slug} — run: pnpm snapshot ${slug} --write`);
+  const unit = join(SNAP_DIR, slug, "unit");
+  const lv = licenseVerdict(unit, cfg.license);
+  const assembled = {
+    unitDir: unit,
+    repo: manifest.upstream.repo,
+    sha: manifest.upstream.sha,
+    path: manifest.upstream.path,
+    licenseSource: "snapshot",
+    declaredLicense: cfg.license,
+    licenseMatches: lv.licenseMatches,
+  };
   return scanUnit(slug, assembled, { now });
 }
 
