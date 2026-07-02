@@ -30,8 +30,8 @@
     },
     "status": {
       "type": "string",
-      "enum": ["active", "draft", "archived"],
-      "description": "Only 'active' skills are published to the marketplace + storefront."
+      "enum": ["active", "draft", "archived", "revoked"],
+      "description": "Only 'active' skills are published to the marketplace + storefront. 'revoked' = pulled after a later safety failure (its snapshot is removed too)."
     },
     "upstream": {
       "type": "object",

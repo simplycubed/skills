@@ -20,6 +20,8 @@
     "certify:active": "node scripts/certify-active.mjs",
     "snapshot": "node scripts/snapshot.mjs",
     "snapshot:check": "node scripts/snapshot-check.mjs",
+    "revoke": "node scripts/revoke.mjs",
+    "revoke:selftest": "node scripts/revoke-selftest.mjs",
     "generate": "node scripts/generate.mjs",
     "generate:check": "node scripts/generate.mjs --check",
     "generate:selftest": "node scripts/generate-selftest.mjs",
