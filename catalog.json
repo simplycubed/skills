@@ -1,4 +1,73 @@
 {
   "marketplace": "simplycubed",
-  "skills": []
+  "skills": [
+    {
+      "slug": "linus-level",
+      "name": "Linus Level",
+      "description": "A 1.0–10.0 \"engineering working-mode\" dial for coding agents — tunes agency, assumption budget, verification, and security posture from fast prototyping to maintainer-grade rigor. Triggers on \"Linus Level\", \"LL <n>\", or set-rigor / maintainer-mode requests.",
+      "version": "1.0.0",
+      "category": "coding",
+      "tags": [
+        "agent",
+        "workflow",
+        "engineering",
+        "code-review"
+      ],
+      "author": {
+        "name": "Ron Soffer",
+        "url": "https://github.com/rsoffer"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "rsoffer/linus-level-skill",
+        "sha": "6837cd8bf844863aab887017f006fbd67036ccad",
+        "path": "skills/linus-level"
+      },
+      "sourceUrl": "https://github.com/rsoffer/linus-level-skill",
+      "install": {
+        "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+        "install": "/plugin install linus-level@simplycubed"
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-02T14:39:51.048Z",
+        "record": {
+          "slug": "linus-level",
+          "upstream": {
+            "repo": "rsoffer/linus-level-skill",
+            "sha": "6837cd8bf844863aab887017f006fbd67036ccad",
+            "path": "skills/linus-level"
+          },
+          "scanned_at": "2026-07-02T14:39:51.048Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": []
+          },
+          "review": [
+            "security-ladder.md: reference to secret/credential files",
+            "security-ladder.md: exfiltration vocabulary",
+            "standards-core.md: exfiltration vocabulary"
+          ],
+          "scan_errors": [],
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 3,
+          "note": "v1: built-in static tier + gitleaks (secrets) + osv-scanner (deps). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    }
+  ]
 }

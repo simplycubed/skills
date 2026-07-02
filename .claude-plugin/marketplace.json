@@ -6,5 +6,30 @@
     "name": "SimplyCubed",
     "url": "https://simplycubed.com"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "linus-level",
+      "description": "A 1.0–10.0 \"engineering working-mode\" dial for coding agents — tunes agency, assumption budget, verification, and security posture from fast prototyping to maintainer-grade rigor. Triggers on \"Linus Level\", \"LL <n>\", or set-rigor / maintainer-mode requests.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ron Soffer",
+        "url": "https://github.com/rsoffer"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/rsoffer/linus-level-skill",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/rsoffer/linus-level-skill.git",
+        "path": "skills/linus-level",
+        "sha": "6837cd8bf844863aab887017f006fbd67036ccad"
+      },
+      "category": "coding",
+      "keywords": [
+        "agent",
+        "workflow",
+        "engineering",
+        "code-review"
+      ]
+    }
+  ]
 }

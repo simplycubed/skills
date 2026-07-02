@@ -1,0 +1,174 @@
+// scan.mjs <slug> [--write]
+//
+// The fetch-and-scan certification step. Assembles the published unit
+// (fetch.mjs), then runs every certification tier over exactly those bytes and
+// emits a scan record:
+//   - built-in static (certify.mjs): structure, license, blocking-injection,
+//     plus surfaced REVIEW findings
+//   - gitleaks:     secret scanning
+//   - osv-scanner:  known-vulnerability check on any dependency manifests
+//
+// `passed` = no blocking findings across all tiers AND every required scanner
+// actually ran (missing scanner => fail closed, never a silent skip). With
+// --write the record is saved to config/skills/<slug>.scan.json, which
+// generate.mjs turns into the catalog's certification badge. CI re-runs this on
+// the freshly fetched bytes and fails if the live verdict isn't a pass, so a
+// hand-edited scan.json cannot smuggle a failing skill through.
+import { writeFileSync, readFileSync, existsSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { spawnSync } from "node:child_process";
+import { loadConfig, assembleUnit } from "./fetch.mjs";
+import { certify } from "./certify.mjs";
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+const SKILLS_DIR = join(ROOT, "config/skills");
+
+export function bin(name, envVar) {
+  const override = envVar ? process.env[envVar] : null;
+  if (override && existsSync(override)) return override;
+  const which = spawnSync("command", ["-v", name], { shell: true, encoding: "utf8" });
+  return which.status === 0 ? which.stdout.trim() : null;
+}
+
+function toolVersion(path, args) {
+  const r = spawnSync(path, args, { encoding: "utf8" });
+  const out = ((r.stdout || "") + (r.stderr || "")).trim();
+  const m = out.match(/\d+\.\d+\.\d+/); // extract the semver from e.g. "osv-scanner version: 2.4.0"
+  return m ? m[0] : (out.split("\n")[0] || "unknown");
+}
+
+// gitleaks: scan the unit as a plain directory (no git history). We force
+// exit-code 0 and read the JSON report so a "leaks found" exit doesn't look like
+// a tool crash; findings are counted from the report itself.
+export function runGitleaks(path, unit, work) {
+  const report = join(work, "gitleaks.json");
+  const r = spawnSync(path, [
+    "detect", "--no-git", "--source", unit,
+    "--report-format", "json", "--report-path", report,
+    "--exit-code", "0", "--no-banner",
+  ], { encoding: "utf8" });
+  if (r.status !== 0 && !existsSync(report)) {
+    return { ran: false, error: `gitleaks failed: ${(r.stderr || "").trim() || r.status}`, findings: [] };
+  }
+  let leaks = [];
+  try { leaks = JSON.parse(readFileSync(report, "utf8")) || []; } catch { leaks = []; }
+  const findings = leaks.map((l) => `${l.File || l.file || "?"}: ${l.RuleID || l.Description || "secret"}`);
+  return { ran: true, findings };
+}
+
+// osv-scanner: check any dependency manifests in the unit for known vulns. Exit
+// 1 = vulns found, 0 = clean, 128 = "no packages found" (a skill with no
+// lockfiles) which we treat as a clean pass, not an error.
+export function runOsv(path, unit) {
+  const r = spawnSync(path, ["--format", "json", "--recursive", unit], { encoding: "utf8" });
+  if (r.status === 128 || /No package sources found|no files/i.test(r.stderr || "")) {
+    return { ran: true, findings: [], note: "no dependency manifests" };
+  }
+  let data;
+  try { data = JSON.parse(r.stdout || "{}"); } catch {
+    return { ran: false, error: `osv-scanner output unparseable: ${(r.stderr || "").trim() || r.status}`, findings: [] };
+  }
+  const findings = [];
+  for (const res of data.results || []) {
+    for (const pkg of res.packages || []) {
+      const name = pkg.package?.name || "?";
+      for (const v of pkg.vulnerabilities || []) findings.push(`${name}: ${v.id}`);
+    }
+  }
+  return { ran: true, findings };
+}
+
+export function scan(slug, { now = new Date().toISOString() } = {}) {
+  const cfg = loadConfig(slug);
+  const assembled = assembleUnit(cfg);
+  const unit = assembled.unitDir;
+  const work = dirname(unit);
+
+  // Built-in static tier over the assembled unit (LICENSE now present).
+  const c = certify(unit);
+
+  // External scanners. A required scanner that isn't installed fails the scan.
+  const gitleaksBin = bin("gitleaks", "GITLEAKS_BIN");
+  const osvBin = bin("osv-scanner", "OSV_BIN");
+  const tools = { certify: "builtin" };
+  const scanErrors = [];
+
+  let secrets = [];
+  if (gitleaksBin) {
+    tools.gitleaks = toolVersion(gitleaksBin, ["version"]);
+    const g = runGitleaks(gitleaksBin, unit, work);
+    if (!g.ran) scanErrors.push(g.error); else secrets = g.findings;
+  } else {
+    scanErrors.push("gitleaks not installed (required)");
+  }
+
+  let vulnerabilities = [];
+  if (osvBin) {
+    tools["osv-scanner"] = toolVersion(osvBin, ["--version"]);
+    const o = runOsv(osvBin, unit);
+    if (!o.ran) scanErrors.push(o.error); else vulnerabilities = o.findings;
+  } else {
+    scanErrors.push("osv-scanner not installed (required)");
+  }
+
+  // License must be present AND match the declared SPDX id in the published unit.
+  const licenseChecks = [...c.checks.license];
+  if (assembled.licenseMatches === false) {
+    licenseChecks.push(`LICENSE text does not match declared '${assembled.declaredLicense}'`);
+  }
+
+  const checks = {
+    structure: c.checks.structure,
+    license: licenseChecks,
+    injection: c.checks.injection, // blocking tier
+    secrets,
+    vulnerabilities,
+  };
+  const blocking = Object.values(checks).flat();
+  const passed = blocking.length === 0 && scanErrors.length === 0;
+
+  return {
+    slug,
+    upstream: { repo: assembled.repo, sha: assembled.sha, path: assembled.path },
+    scanned_at: now,
+    unit: {
+      licenseSource: assembled.licenseSource,
+      declaredLicense: assembled.declaredLicense,
+      licenseMatches: assembled.licenseMatches,
+    },
+    tools,
+    checks,
+    review: c.review, // non-blocking, surfaced for LLM-judge / human review
+    scan_errors: scanErrors,
+    passed,
+    finding_count: blocking.length,
+    review_count: c.review.length,
+    note: "v1: built-in static tier + gitleaks (secrets) + osv-scanner (deps). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up.",
+  };
+}
+
+function main() {
+  const args = process.argv.slice(2);
+  const write = args.includes("--write");
+  const slug = args.find((a) => !a.startsWith("--"));
+  if (!slug) { console.error("usage: node scripts/scan.mjs <slug> [--write]"); process.exit(2); }
+
+  const record = scan(slug);
+  const json = JSON.stringify(record, null, 2) + "\n";
+  if (write) {
+    const out = join(SKILLS_DIR, `${slug}.scan.json`);
+    writeFileSync(out, json);
+    console.error(`wrote ${out}`);
+  } else {
+    process.stdout.write(json);
+  }
+  if (!record.passed) {
+    console.error(`✗ ${slug}: ${record.finding_count} blocking finding(s)` +
+      (record.scan_errors.length ? `, scan errors: ${record.scan_errors.join("; ")}` : ""));
+    process.exit(1);
+  }
+  console.error(`✓ ${slug}: certified (${record.review_count} review flag(s))`);
+}
+
+if (import.meta.url === pathToFileURL(process.argv[1]).href) main();

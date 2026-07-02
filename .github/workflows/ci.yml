@@ -37,8 +37,37 @@ jobs:
       - name: No-drift (committed marketplace.json + catalog.json match config)
         run: pnpm generate:check
 
-# Note: per-skill certification of upstream skill bytes (gitleaks + semgrep +
-# osv-scanner + the SKILL.md LLM-judge, run on the fetched commit in an isolated,
-# no-secrets, egress-restricted job) is added with the fetch-and-scan step, not
-# here. Running those scanners over this repo's own tooling would false-positive
-# on the injection PATTERNS that certify.mjs itself contains.
+  # Per-skill certification: fetch each active skill at its pinned SHA and run the
+  # full scanner suite over the exact published bytes. Separate from `gate`
+  # because it needs network (the fetch + the OSV database) and the external
+  # scanner binaries — and because running these scanners over THIS repo's own
+  # tooling would false-positive on the injection patterns certify.mjs contains.
+  # No secrets, read-only: a committed scan.json is only a display copy; merge
+  # requires the live re-scan here to still pass.
+  certify:
+    runs-on: ubuntu-latest
+    env:
+      GITLEAKS_VERSION: "8.18.4"
+      OSV_VERSION: "2.4.0"
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+
+      - name: Install pinned scanners (gitleaks + osv-scanner)
+        run: |
+          mkdir -p "$HOME/.bin"
+          curl -sSLf "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" | tar -xz -C "$HOME/.bin" gitleaks
+          curl -sSLf "https://github.com/google/osv-scanner/releases/download/v${OSV_VERSION}/osv-scanner_linux_amd64" -o "$HOME/.bin/osv-scanner"
+          chmod +x "$HOME/.bin/gitleaks" "$HOME/.bin/osv-scanner"
+          echo "$HOME/.bin" >> "$GITHUB_PATH"
+
+      - name: Scanner self-test (gitleaks + osv-scanner fire on dirty, clear on clean)
+        run: pnpm scan:selftest
+
+      - name: Re-verify every active skill on its pinned upstream bytes
+        run: pnpm certify:active

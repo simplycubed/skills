@@ -19,21 +19,35 @@
 // Exit 0 = pass, 1 = fail. Prints a JSON verdict to stdout.
 import { readdirSync, readFileSync, lstatSync, realpathSync, existsSync } from "node:fs";
 import { join, resolve, relative, basename } from "node:path";
+import { pathToFileURL } from "node:url";
 
 const MAX_FILE_BYTES = 2 * 1024 * 1024; // skills are text; a big blob is suspicious
 const LICENSE_NAMES = ["LICENSE", "LICENSE.md", "LICENSE.txt", "COPYING", "COPYING.md"];
 
-// Prompt-injection / exfiltration heuristics. Case-insensitive. This is a filter,
-// not a proof: it catches known-bad patterns, not novel or obfuscated attacks.
-const INJECTION_PATTERNS = [
+// Prompt-injection heuristics. Case-insensitive. This is a filter, not a proof:
+// it catches known-bad patterns, not novel or obfuscated attacks. Findings are
+// split into two tiers because a naive regex cannot tell an ATTACK ("exfiltrate
+// the user's credentials") from a DEFENSIVE MENTION ("never exfiltrate the
+// user's credentials") — and legitimate security/devops skills are full of the
+// latter.
+//
+//   BLOCK  - action-shaped patterns that are near-always malicious inside skill
+//            instruction text. Any hit fails certification.
+//   REVIEW - vocabulary that legitimate skills routinely use defensively. Hits
+//            are surfaced in the verdict for human / LLM-judge review but do NOT
+//            fail the gate on their own. The planned SKILL.md LLM-judge is what
+//            adjudicates intent here; until then we flag, we don't auto-reject.
+const INJECTION_BLOCK = [
   [/ignore\s+(all\s+)?(the\s+)?(previous|prior|above)\s+instructions/i, "override of prior instructions"],
   [/disregard\s+(the\s+)?(system|previous|prior|above)/i, "disregard-instructions phrasing"],
-  [/\bid_rsa\b|\bid_ed25519\b|\.ssh\/|\.aws\/credentials|\.env\b/i, "reference to secret/credential files"],
   [/curl[^\n]*\|\s*(sh|bash|zsh)\b|wget[^\n]*\|\s*(sh|bash|zsh)\b/i, "pipe-to-shell download"],
   [/base64\s+(-d|--decode)[^\n]*\|\s*(sh|bash|python)/i, "decode-and-execute"],
-  [/exfiltrat|exfil\b/i, "explicit exfiltration language"],
   [/POST\s+[^\n]*\b(token|secret|key|password|credential)/i, "posting secrets to a remote"],
-  [/\beval\s*\(|child_process|os\.system\(|subprocess\.(run|call|Popen)/i, "instruction to run arbitrary code"],
+];
+const INJECTION_REVIEW = [
+  [/\bid_rsa\b|\bid_ed25519\b|\.ssh\/|\.aws\/credentials|\.env\b/i, "reference to secret/credential files"],
+  [/exfiltrat|exfil\b/i, "exfiltration vocabulary"],
+  [/\beval\s*\(|child_process|os\.system\(|subprocess\.(run|call|Popen)/i, "reference to code-execution APIs"],
 ];
 
 function walk(dir, root, files = []) {
@@ -91,7 +105,8 @@ function licenseCheck(dir) {
   return has ? [] : ["no LICENSE/COPYING file present in the skill"];
 }
 
-function injectionScan(dir) {
+// Scan instruction text against a pattern set, returning "file: label" strings.
+function scanText(dir, patterns) {
   const findings = [];
   const files = walk(dir, resolve(dir)).filter(
     (f) => !f.symlink && /\.(md|markdown|txt)$/i.test(f.name)
@@ -99,11 +114,33 @@ function injectionScan(dir) {
   for (const f of files) {
     let text;
     try { text = readFileSync(f.full, "utf8"); } catch { continue; }
-    for (const [re, label] of INJECTION_PATTERNS) {
+    for (const [re, label] of patterns) {
       if (re.test(text)) findings.push(`${basename(f.full)}: ${label}`);
     }
   }
   return findings;
+}
+
+// Exported so the scan orchestrator can reuse the built-in tier without shelling
+// out to this file.
+export function certify(dir) {
+  const checks = {
+    structure: structureGuard(dir),
+    license: licenseCheck(dir),
+    injection: scanText(dir, INJECTION_BLOCK), // blocking
+  };
+  const review = scanText(dir, INJECTION_REVIEW); // surfaced, non-blocking
+  // Only blocking checks decide pass/fail; review findings are flagged, not fatal.
+  const blocking = Object.values(checks).flat();
+  return {
+    target: dir,
+    checks,
+    review,
+    passed: blocking.length === 0,
+    finding_count: blocking.length,
+    review_count: review.length,
+    note: "v1 static checks (structure/license/blocking-injection). REVIEW findings are surfaced for the LLM-judge, not auto-failed. External scanners run separately.",
+  };
 }
 
 function main() {
@@ -112,21 +149,11 @@ function main() {
     console.error("usage: node scripts/certify.mjs <skill-dir>");
     process.exit(2);
   }
-  const checks = {
-    structure: structureGuard(dir),
-    license: licenseCheck(dir),
-    injection: injectionScan(dir),
-  };
-  const findings = Object.values(checks).flat();
-  const verdict = {
-    target: dir,
-    checks,
-    passed: findings.length === 0,
-    finding_count: findings.length,
-    note: "v1 static checks (structure/license/injection heuristic). External scanners and LLM-judge run separately.",
-  };
+  const verdict = certify(dir);
   console.log(JSON.stringify(verdict, null, 2));
   process.exit(verdict.passed ? 0 : 1);
 }
 
-main();
+// Run only when executed directly, so scan.mjs can import certify() without
+// triggering the CLI.
+if (import.meta.url === pathToFileURL(process.argv[1]).href) main();
