@@ -9,7 +9,10 @@
   "scripts": {
     "validate": "node scripts/validate-skills.mjs",
     "certify": "node scripts/certify.mjs",
-    "gate:selftest": "node scripts/gate-selftest.mjs"
+    "gate:selftest": "node scripts/gate-selftest.mjs",
+    "generate": "node scripts/generate.mjs",
+    "generate:check": "node scripts/generate.mjs --check",
+    "generate:selftest": "node scripts/generate-selftest.mjs"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
