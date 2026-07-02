@@ -46,6 +46,9 @@ jobs:
       - name: Snapshot integrity (every active skill has an intact content-addressed snapshot)
         run: pnpm snapshot:check
 
+      - name: Revocation self-test (revoked skills drop from both manifests; snapshot removed)
+        run: pnpm revoke:selftest
+
   # Per-skill certification: re-scan each active skill's committed SNAPSHOT (no
   # upstream fetch) with the full scanner suite. Separate from `gate` because it
   # needs the external scanner binaries and the OSV database — and because running
