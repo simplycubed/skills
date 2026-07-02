@@ -6,6 +6,9 @@
   "description": "SimplyCubed Skills marketplace: schema, validation, and generators for certified Agent Skills (the open, cross-tool SKILL.md format).",
   "license": "MIT",
   "packageManager": "pnpm@10.17.0",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "validate": "node scripts/validate-skills.mjs",
     "certify": "node scripts/certify.mjs",
