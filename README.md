@@ -36,7 +36,7 @@ Each listed skill carries an evidence-backed certification, not an absolute guar
 
 **Safety.** The skill passed our automated static scan on a stated date: secret scanning, static analysis, dependency and license checks, and a review of `SKILL.md` for prompt injection. This is a point-in-time review, re-run on every new version. It lowers risk. It does not prove a skill is safe to run. Skills can still execute code and make network calls, so review anything before you trust it with sensitive access.
 
-Our full methodology is published and versioned, and it describes only the checks we actually run.
+Our [full methodology](METHODOLOGY.md) is published and versioned, and it describes only the checks we actually run.
 
 ## How it works
 

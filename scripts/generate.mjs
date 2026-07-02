@@ -22,6 +22,26 @@ const OWNER = { name: "SimplyCubed", url: "https://simplycubed.com" };
 const MARKETPLACE_PATH = join(ROOT, ".claude-plugin/marketplace.json");
 const CATALOG_PATH = join(ROOT, "catalog.json");
 
+// Bump when catalog.json's shape changes in a way consumers (the storefront)
+// must adapt to. Validated against config/catalog.schema.json in CI.
+const CATALOG_SCHEMA_VERSION = 1;
+
+// Where an agent drops a skill folder, mirroring the README install table. Every
+// listed skill is a plain SKILL.md folder, so it installs into any compatible
+// agent; the vendor-neutral .agents/skills/ path is what Codex and Gemini CLI
+// read directly.
+const INSTALL_TARGETS = [
+  { agent: "Vendor-neutral (Codex, Gemini CLI, …)", dir: ".agents/skills/" },
+  { agent: "Claude Code", dir: "~/.claude/skills/" },
+  { agent: "Gemini CLI", dir: "~/.gemini/skills/" },
+];
+
+// Browsable source of the exact published folder, pinned to the certified SHA.
+function folderSourceUrl(c) {
+  const base = `https://github.com/${c.upstream.repo}/tree/${c.upstream.sha}`;
+  return c.upstream.path ? `${base}/${c.upstream.path}` : base;
+}
+
 export function readActiveSkills(dir = SKILLS_DIR) {
   const configs = readdirSync(dir)
     .filter((f) => f.endsWith(".yaml"))
@@ -80,8 +100,17 @@ export function catalogEntry(c, scan) {
     upstream: c.upstream,
     sourceUrl: c.homepage || `https://github.com/${c.upstream.repo}`,
     install: {
-      marketplaceAdd: `/plugin marketplace add ${MARKETPLACE_NAME}/skills`,
-      install: `/plugin install ${c.slug}@${MARKETPLACE_NAME}`,
+      // Claude Code one-command install via the plugin marketplace.
+      claudeCode: {
+        marketplaceAdd: `/plugin marketplace add ${MARKETPLACE_NAME}/skills`,
+        command: `/plugin install ${c.slug}@${MARKETPLACE_NAME}`,
+      },
+      // Vendor-neutral: drop the skill folder into any agent's skills directory.
+      folder: {
+        dirName: c.slug,
+        source: folderSourceUrl(c),
+        targets: INSTALL_TARGETS,
+      },
     },
     certification: scan
       ? { status: scan.passed ? "certified" : "revoked", scannedAt: scan.scanned_at || null, record: scan }
@@ -91,6 +120,7 @@ export function catalogEntry(c, scan) {
 
 export function buildCatalog(configs, scanFor = readScan) {
   return {
+    schemaVersion: CATALOG_SCHEMA_VERSION,
     marketplace: MARKETPLACE_NAME,
     skills: configs.map((c) => catalogEntry(c, scanFor(c.slug))),
   };

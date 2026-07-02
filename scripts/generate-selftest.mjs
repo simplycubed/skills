@@ -58,9 +58,18 @@ assert.deepEqual(
 
 // --- catalog.json ---
 const cat = buildCatalog(configs, () => null);
+assert.equal(cat.schemaVersion, 1, "catalog carries a schemaVersion");
 const catRoot = cat.skills.find((s) => s.slug === "root-skill");
-assert.equal(catRoot.install.marketplaceAdd, "/plugin marketplace add simplycubed/skills");
-assert.equal(catRoot.install.install, "/plugin install root-skill@simplycubed");
+// Claude Code install commands
+assert.equal(catRoot.install.claudeCode.marketplaceAdd, "/plugin marketplace add simplycubed/skills");
+assert.equal(catRoot.install.claudeCode.command, "/plugin install root-skill@simplycubed");
+// Vendor-neutral folder install: root skill has no path, source is the repo tree at the SHA
+assert.equal(catRoot.install.folder.dirName, "root-skill");
+assert.equal(catRoot.install.folder.source, `https://github.com/acme/root/tree/${"a".repeat(40)}`);
+assert.ok(catRoot.install.folder.targets.some((t) => t.dir === ".agents/skills/"), "vendor-neutral target present");
+// Subdir skill: folder source includes the path
+const catSub = cat.skills.find((s) => s.slug === "sub-skill");
+assert.equal(catSub.install.folder.source, `https://github.com/acme/mono/tree/${"b".repeat(40)}/skills/sub`);
 assert.equal(catRoot.certification.status, "pending", "no scan record => pending");
 
 // certification maps from a scan record

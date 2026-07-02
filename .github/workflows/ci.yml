@@ -37,6 +37,9 @@ jobs:
       - name: No-drift (committed marketplace.json + catalog.json match config)
         run: pnpm generate:check
 
+      - name: Catalog contract (catalog.json matches config/catalog.schema.json)
+        run: pnpm catalog:check
+
   # Per-skill certification: fetch each active skill at its pinned SHA and run the
   # full scanner suite over the exact published bytes. Separate from `gate`
   # because it needs network (the fetch + the OSV database) and the external
