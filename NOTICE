@@ -1,0 +1,18 @@
+SimplyCubed Skills
+Copyright (c) 2026 SimplyCubed, GK
+
+This repository's own code (schema, generators, CI, and configuration) is
+licensed under the MIT License (see LICENSE).
+
+Listed skills are THIRD-PARTY works. This marketplace references them at pinned
+upstream commits; it does not re-license them. Each listed skill retains the
+license issued by its original author, and each is credited to its author.
+
+Only skills under a recognized permissive open-source license are accepted
+(for example: MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, 0BSD, Unlicense,
+Zlib). Skills under copyleft licenses (GPL, LGPL, AGPL, MPL, EPL, CDDL) or with
+no license are not accepted.
+
+Per-skill attribution (author, upstream source, pinned commit, and license) is
+recorded with each catalog entry under config/skills/ and shown on the skill's
+page at https://simplycubed.com/skills.

@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log*
+pnpm-debug.log*
+
+# NOTE: .claude-plugin/marketplace.json and catalog.json are GENERATED but COMMITTED
+# (Claude Code reads marketplace.json from the repo; catalog.json feeds the storefront).
+# CI regenerates them and a no-drift check fails the build if they don't match config/skills/.
+
+# Local env / scan working dirs
+.env
+.env.local
+/tmp/
+/.scan-work/
