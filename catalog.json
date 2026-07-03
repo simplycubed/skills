@@ -23,6 +23,7 @@
         "sha": "1b48564898e999219882660237fde01bf4843a0f"
       },
       "sourceUrl": "https://github.com/blader/humanizer",
+      "tier": "free",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -110,6 +111,7 @@
         "path": "skills/linus-level"
       },
       "sourceUrl": "https://github.com/rsoffer/linus-level-skill",
+      "tier": "free",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -200,6 +202,7 @@
         "path": "nothing-design"
       },
       "sourceUrl": "https://github.com/dominikmartn/nothing-design-skill",
+      "tier": "free",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -287,6 +290,7 @@
         "path": "skills/playwright-skill"
       },
       "sourceUrl": "https://github.com/lackeyjb/playwright-skill",
+      "tier": "free",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",

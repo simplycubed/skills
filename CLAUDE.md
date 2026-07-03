@@ -48,7 +48,13 @@ in this repo is part of the contract.
 ## Each `Skill`
 `slug`, `name`, `description`, `version`, `category` (string|null), `tags` (string[]),
 `author` ({name, url?}), `license` (SPDX id), `upstream` ({repo, sha, path?}),
-`sourceUrl`, `install`, `certification`.
+`sourceUrl`, `tier` (`"free"` | `"premium"`), `install`, `certification`.
+
+**`tier`** — `"free"` today for every skill. `"premium"` is the seam for future
+subscription-gated skills: a premium skill is listed in `catalog.json` (render a
+badge + a subscribe CTA) but is **omitted from the public plugin manifest** and its
+bytes are **not** in this public repo — it'll be delivered by a separate entitlement
+service. Don't render free install commands for a `premium` skill.
 
 ## `install` — render this; it IS the multi-provider pitch
 ```jsonc

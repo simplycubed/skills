@@ -25,7 +25,7 @@
     "skill": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["slug", "name", "description", "version", "author", "license", "upstream", "sourceUrl", "install", "certification"],
+      "required": ["slug", "name", "description", "version", "author", "license", "upstream", "sourceUrl", "tier", "install", "certification"],
       "properties": {
         "slug": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$", "description": "URL/install identifier." },
         "name": { "type": "string", "description": "Display name." },
@@ -53,6 +53,11 @@
           }
         },
         "sourceUrl": { "type": "string", "description": "Canonical upstream/source page for the skill." },
+        "tier": {
+          "type": "string",
+          "enum": ["free", "premium"],
+          "description": "free = openly installable; premium = subscription-gated (delivered via the entitlement service, not this repo). Premium skills are omitted from the public plugin manifest."
+        },
         "install": {
           "type": "object",
           "additionalProperties": false,
