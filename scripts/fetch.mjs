@@ -10,8 +10,8 @@
 // redistribution (e.g. MIT) requires: the copyright/permission notice must
 // travel with copies. We then confirm the LICENSE text matches the declared
 // SPDX id and fail closed on a mismatch, so a config can't mislabel a license.
-import { readFileSync, existsSync, rmSync, mkdirSync, cpSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { readFileSync, existsSync, rmSync, mkdirSync, cpSync, lstatSync, realpathSync, readdirSync } from "node:fs";
+import { join, dirname, relative, isAbsolute } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { spawnSync } from "node:child_process";
 import yaml from "js-yaml";
@@ -68,6 +68,32 @@ function fetchSrc(repo, sha, dest) {
   return src;
 }
 
+// Recursively copy src -> dest, DEREFERENCING symlinks so the published unit is
+// self-contained (no symlinks at all): a link whose target stays inside the
+// fetched repo is replaced by a real copy of the target's bytes. A link that
+// escapes the repo, is dangling, or forms a cycle is NOT copied and is recorded
+// as a finding (which fails certification). This keeps the "exact bytes an agent
+// installs" guarantee — no dangling/escaping links reach an installed skill —
+// while accepting legitimate multi-layout repos that share a folder via symlink.
+function copyDeref(srcPath, destPath, srcReal, findings, chain = []) {
+  const st = lstatSync(srcPath);
+  if (st.isSymbolicLink()) {
+    let target;
+    try { target = realpathSync(srcPath); } catch { findings.push(`dangling symlink: ${srcPath.slice(srcReal.length + 1)}`); return; }
+    const rel = relative(srcReal, target);
+    if (rel.startsWith("..") || isAbsolute(rel)) { findings.push(`symlink escapes repo: ${srcPath.slice(srcReal.length + 1)} -> ${target}`); return; }
+    if (chain.includes(target)) { findings.push(`symlink cycle: ${srcPath.slice(srcReal.length + 1)}`); return; }
+    copyDeref(target, destPath, srcReal, findings, [...chain, target]);
+    return;
+  }
+  if (st.isDirectory()) {
+    mkdirSync(destPath, { recursive: true });
+    for (const name of readdirSync(srcPath)) copyDeref(join(srcPath, name), join(destPath, name), srcReal, findings, chain);
+    return;
+  }
+  cpSync(srcPath, destPath); // regular file
+}
+
 // Assemble the published unit from an ALREADY-EXTRACTED source tree. Pure of the
 // network, so it is unit-testable: given a src dir + config, it produces the exact
 // bytes we publish and the license verdict. `dest` is where the unit is written.
@@ -78,7 +104,8 @@ export function assembleFromSrc(cfg, src, dest) {
   if (!existsSync(unitSrc)) throw new Error(`path '${subpath}' not found in ${repo}@${sha}`);
   const unit = join(dest, "unit");
   rmSync(unit, { recursive: true, force: true });
-  cpSync(unitSrc, unit, { recursive: true });
+  const symlinkFindings = [];
+  copyDeref(unitSrc, unit, realpathSync(src), symlinkFindings);
 
   // Ensure a LICENSE travels with the published unit.
   let licenseSource = "unit";
@@ -114,6 +141,7 @@ export function assembleFromSrc(cfg, src, dest) {
     licenseSource,
     declaredLicense: cfg.license,
     licenseMatches,
+    symlinkFindings, // escaping/dangling/cyclic links — blocking (empty = clean)
   };
 }
 
@@ -131,6 +159,7 @@ function main() {
   console.log(JSON.stringify(r, null, 2));
   if (!r.licensePresent) { console.error("✗ no LICENSE in published unit or repo root"); process.exit(1); }
   if (r.licenseMatches === false) { console.error(`✗ LICENSE text does not match declared '${r.declaredLicense}'`); process.exit(1); }
+  if (r.symlinkFindings.length) { console.error(`✗ symlink issue(s): ${r.symlinkFindings.join("; ")}`); process.exit(1); }
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) main();

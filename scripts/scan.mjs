@@ -179,7 +179,8 @@ export function scanUnit(slug, assembled, { now = new Date().toISOString(), allo
   }
 
   const checks = {
-    structure: c.checks.structure,
+    // structure guard (certify) + escaping/dangling symlinks caught during assembly
+    structure: [...c.checks.structure, ...(assembled.symlinkFindings || [])],
     license: licenseChecks,
     injection: c.checks.injection, // blocking tier
     secrets,
@@ -233,6 +234,7 @@ export function scanSnapshot(slug, { now = new Date().toISOString() } = {}) {
     licenseSource: "snapshot",
     declaredLicense: cfg.license,
     licenseMatches: lv.licenseMatches,
+    symlinkFindings: [], // snapshots are assembled symlink-free
   };
   return scanUnit(slug, assembled, { now });
 }

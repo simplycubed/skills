@@ -6,7 +6,7 @@
 // (validate-skills.mjs), and the structure guards (certify.mjs). Synthesizes
 // throwaway trees in a temp dir; asserts with node:assert.
 import assert from "node:assert/strict";
-import { mkdtempSync, mkdirSync, writeFileSync, symlinkSync, rmSync } from "node:fs";
+import { mkdtempSync, mkdirSync, writeFileSync, symlinkSync, rmSync, existsSync, lstatSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { assembleFromSrc } from "./fetch.mjs";
@@ -113,5 +113,33 @@ console.log("— 1e: certify structure guards each fire —");
 }
 console.log("  ✓ 1e passed");
 
+console.log("— 1f: assembleFromSrc dereferences in-repo symlinks, rejects escaping ones —");
+{
+  // benign: a skill subdir shares a repo-level folder via a relative symlink
+  const src = scratch();
+  writeFileSync(join(src, "LICENSE"), MIT);
+  mkdirSync(join(src, "shared"), { recursive: true });
+  writeFileSync(join(src, "shared/note.md"), "shared content");
+  mkdirSync(join(src, "skill"), { recursive: true });
+  writeFileSync(join(src, "skill/SKILL.md"), "---\nname: s\ndescription: d\n---\n");
+  symlinkSync("../shared", join(src, "skill/refs")); // relative, resolves inside the repo
+  const r = assembleFromSrc({ slug: "s", license: "MIT", upstream: { repo: "a/b", sha: SHA, path: "skill" } }, src, scratch());
+  assert.equal(r.symlinkFindings.length, 0, "benign in-repo symlink accepted");
+  assert.equal(existsSync(join(r.unitDir, "refs/note.md")), true, "symlink target inlined into the unit");
+  assert.equal(lstatSync(join(r.unitDir, "refs")).isSymbolicLink(), false, "published unit is symlink-free");
+}
+{
+  // malicious: a symlink escaping the repo must be flagged and NOT copied
+  const src = scratch();
+  writeFileSync(join(src, "LICENSE"), MIT);
+  mkdirSync(join(src, "skill"), { recursive: true });
+  writeFileSync(join(src, "skill/SKILL.md"), "---\nname: e\ndescription: d\n---\n");
+  symlinkSync("/etc/hosts", join(src, "skill/evil")); // absolute path, escapes the repo
+  const r = assembleFromSrc({ slug: "e", license: "MIT", upstream: { repo: "a/b", sha: SHA, path: "skill" } }, src, scratch());
+  assert.ok(r.symlinkFindings.length >= 1, "escaping symlink flagged");
+  assert.equal(existsSync(join(r.unitDir, "evil")), false, "escaping symlink NOT copied into the unit");
+}
+console.log("  ✓ 1f passed");
+
 rmSync(tmp, { recursive: true, force: true });
-console.log("✓ unit self-test passed (assembly/license, fail-closed scanner, validator, structure guards)");
+console.log("✓ unit self-test passed (assembly/license, fail-closed scanner, validator, structure guards, symlinks)");
