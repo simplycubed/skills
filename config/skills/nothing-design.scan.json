@@ -1,0 +1,35 @@
+{
+  "slug": "nothing-design",
+  "upstream": {
+    "repo": "dominikmartn/nothing-design-skill",
+    "sha": "74affbb786af098b18503467b205c10a7df30126",
+    "path": "nothing-design"
+  },
+  "scanned_at": "2026-07-03T05:18:32.207Z",
+  "unit": {
+    "licenseSource": "repo-root",
+    "declaredLicense": "MIT",
+    "licenseMatches": true
+  },
+  "tools": {
+    "certify": "builtin",
+    "gitleaks": "8.18.4",
+    "osv-scanner": "2.4.0",
+    "semgrep": "n/a (no code)"
+  },
+  "checks": {
+    "structure": [],
+    "license": [],
+    "injection": [],
+    "secrets": [],
+    "vulnerabilities": [],
+    "sast": []
+  },
+  "review": [],
+  "scan_errors": [],
+  "incomplete": false,
+  "passed": true,
+  "finding_count": 0,
+  "review_count": 0,
+  "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+}

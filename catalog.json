@@ -3,6 +3,91 @@
   "marketplace": "simplycubed",
   "skills": [
     {
+      "slug": "humanizer",
+      "name": "Humanizer",
+      "description": "Removes signs of AI-generated writing so text reads naturally — detects and fixes inflated symbolism, promotional language, vague attributions, rule-of-three, and other tells from Wikipedia's \"Signs of AI writing\" guide. Use when editing or reviewing text.",
+      "version": "1.0.0",
+      "category": "content",
+      "tags": [
+        "writing",
+        "editing",
+        "content"
+      ],
+      "author": {
+        "name": "Siqi Chen",
+        "url": "https://github.com/blader"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "blader/humanizer",
+        "sha": "1b48564898e999219882660237fde01bf4843a0f"
+      },
+      "sourceUrl": "https://github.com/blader/humanizer",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install humanizer@simplycubed"
+        },
+        "folder": {
+          "dirName": "humanizer",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/humanizer/unit",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-03T05:16:49.052Z",
+        "record": {
+          "slug": "humanizer",
+          "upstream": {
+            "repo": "blader/humanizer",
+            "sha": "1b48564898e999219882660237fde01bf4843a0f",
+            "path": null
+          },
+          "scanned_at": "2026-07-03T05:16:49.052Z",
+          "unit": {
+            "licenseSource": "unit",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
       "slug": "linus-level",
       "name": "Linus Level",
       "description": "A 1.0–10.0 \"engineering working-mode\" dial for coding agents — tunes agency, assumption budget, verification, and security posture from fast prototyping to maintainer-grade rigor. Triggers on \"Linus Level\", \"LL n\", or set-rigor / maintainer-mode requests.",
@@ -89,6 +174,181 @@
           "passed": true,
           "finding_count": 0,
           "review_count": 3,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "nothing-design",
+      "name": "Nothing Design System",
+      "description": "Applies the Nothing design system to UI work. Use when the user explicitly asks for \"Nothing style\", \"Nothing design\", or to apply the Nothing design system — never automatically for generic UI tasks.",
+      "version": "1.0.0",
+      "category": "content",
+      "tags": [
+        "design",
+        "ui",
+        "frontend"
+      ],
+      "author": {
+        "name": "Dominik Martin",
+        "url": "https://github.com/dominikmartn"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "dominikmartn/nothing-design-skill",
+        "sha": "74affbb786af098b18503467b205c10a7df30126",
+        "path": "nothing-design"
+      },
+      "sourceUrl": "https://github.com/dominikmartn/nothing-design-skill",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install nothing-design@simplycubed"
+        },
+        "folder": {
+          "dirName": "nothing-design",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/nothing-design/unit",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-03T05:18:32.207Z",
+        "record": {
+          "slug": "nothing-design",
+          "upstream": {
+            "repo": "dominikmartn/nothing-design-skill",
+            "sha": "74affbb786af098b18503467b205c10a7df30126",
+            "path": "nothing-design"
+          },
+          "scanned_at": "2026-07-03T05:18:32.207Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "playwright",
+      "name": "Playwright Browser Automation",
+      "description": "Browser automation with Playwright: auto-detects dev servers, writes test scripts, fills forms, takes screenshots, checks responsive design, validates UX, and tests login flows and links. Use to test websites or automate browser interactions.",
+      "version": "1.0.0",
+      "category": "coding",
+      "tags": [
+        "testing",
+        "browser",
+        "playwright",
+        "automation"
+      ],
+      "author": {
+        "name": "Bryan Lackey",
+        "url": "https://github.com/lackeyjb"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "lackeyjb/playwright-skill",
+        "sha": "bb7e920d376022958214e349ef25498a2644e189",
+        "path": "skills/playwright-skill"
+      },
+      "sourceUrl": "https://github.com/lackeyjb/playwright-skill",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install playwright@simplycubed"
+        },
+        "folder": {
+          "dirName": "playwright",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/playwright/unit",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-03T05:18:28.368Z",
+        "record": {
+          "slug": "playwright",
+          "upstream": {
+            "repo": "lackeyjb/playwright-skill",
+            "sha": "bb7e920d376022958214e349ef25498a2644e189",
+            "path": "skills/playwright-skill"
+          },
+          "scanned_at": "2026-07-03T05:18:28.368Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "1.168.0"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [
+            "API_REFERENCE.md: reference to secret/credential files"
+          ],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 1,
           "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
         }
       }
