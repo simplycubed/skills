@@ -32,20 +32,20 @@ PR that passed CI before merge; no gate was ever weakened to pass.
   removes the snapshot; revoked skills drop out of both manifests. `revoke:selftest`
   proves it.
 
-## What was escalated (see `ESCALATIONS.md`) — maintainer decisions
+## Deferred items — all resolved
 
-1. **semgrep SAST** — the salvageable `--config auto` is non-deterministic
-   (registry download; verdict can flip with no code change) and the only listed
-   skill has no code; wants a **pinned local ruleset**. Not shipped rather than
-   add a non-deterministic gate.
-2. **Commit-hash verification of the fetched tree** — `codeload …/tar.gz/<sha>`
-   already binds to the exact commit tree and 404s on a bad SHA; independent
-   recomputation needs a git-based fetch, disproportionate.
+1. **semgrep SAST** — SHIPPED deterministically. Runs with a pinned local ruleset
+   (`config/semgrep-rules.yml`, never `--config auto`), code-gated so docs-only
+   skills are unaffected. The non-deterministic `--config auto` approach was
+   rejected.
+2. **Commit-hash verification of the fetched tree** — ACCEPTED as-is (no change).
+   `codeload …/tar.gz/<sha>` is GitHub's authoritative export of exactly that
+   commit's tree and 404s on a bad SHA, so the fetch already binds to the pinned
+   commit; independent recomputation would need a git-based fetch, disproportionate.
 3. **Fully network-off re-scan** — RESOLVED. The snapshot removes the *upstream*
-   dependency (the README's promise). The stretch idea of a fully air-gapped
-   re-scan (bundling an offline OSV database) was dropped by decision: this is a
-   cloud-native stack with no air-gap requirement, so `osv.dev` is an accepted
-   operational dependency. See `ESCALATIONS.md` #1.
+   dependency (the README's promise). A fully air-gapped re-scan (bundling an
+   offline OSV database) was dropped by decision: this is a cloud-native stack with
+   no air-gap requirement, so `osv.dev` is an accepted operational dependency.
 
 ## Out of scope (left planned, as the goal specified)
 - `SKILL.md` LLM-judge (needs an API credential + design).
