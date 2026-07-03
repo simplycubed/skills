@@ -81,5 +81,5 @@ or drifted snapshot fails closed.
   intent behind REVIEW-tier findings (attack vs. defensive mention).
 <!-- Fully offline OSV was considered and deliberately not pursued: this is a
      cloud-native project with no air-gap requirement, so the osv.dev lookup is an
-     accepted operational dependency (see ESCALATIONS.md #1). -->
+     accepted operational dependency. -->
 
