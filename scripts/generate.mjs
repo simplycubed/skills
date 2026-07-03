@@ -43,6 +43,21 @@ function folderSourceUrl(c) {
   return `https://github.com/${MARKETPLACE_NAME}/skills/tree/main/snapshots/${c.slug}/unit`;
 }
 
+// Clean a description for display. Skill descriptions (often lifted from upstream
+// SKILL.md frontmatter) can contain markup-like noise — most commonly
+// angle-bracket placeholders such as "LL <n>" — that render as broken tags or
+// literal junk in the storefront. Strip angle brackets, normalize whitespace,
+// and remove any space left dangling before punctuation or a closing quote.
+// Runs at generation time on every published description.
+export function sanitizeDescription(desc) {
+  return String(desc ?? "")
+    .replace(/<([^<>]*)>/g, "$1")   // "<n>" -> "n" (drop the tag-like brackets, keep content)
+    .replace(/[<>]/g, "")           // any remaining stray angle brackets
+    .replace(/\s{2,}/g, " ")        // collapse doubled whitespace
+    .replace(/\s+([,.;:!?])/g, "$1") // no space before punctuation
+    .trim();
+}
+
 export function readActiveSkills(dir = SKILLS_DIR) {
   const configs = readdirSync(dir)
     .filter((f) => f.endsWith(".yaml"))
@@ -66,7 +81,7 @@ export function pluginEntry(c) {
     : { source: "github", repo: c.upstream.repo, sha: c.upstream.sha };
   const entry = {
     name: c.slug,
-    description: c.description,
+    description: sanitizeDescription(c.description),
     version: c.version,
     author: c.author.url ? { name: c.author.name, url: c.author.url } : { name: c.author.name },
     license: c.license,
@@ -98,7 +113,7 @@ export function catalogEntry(c, scan) {
   return {
     slug: c.slug,
     name: c.name,
-    description: c.description,
+    description: sanitizeDescription(c.description),
     version: c.version,
     category: c.category || null,
     tags: c.tags || [],

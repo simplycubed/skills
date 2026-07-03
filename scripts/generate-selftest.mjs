@@ -5,7 +5,19 @@
 // and asserts the Claude Code source object (github vs git-subdir), the install
 // strings, and the certification status mapping.
 import assert from "node:assert/strict";
-import { buildMarketplace, buildCatalog } from "./generate.mjs";
+import { buildMarketplace, buildCatalog, sanitizeDescription } from "./generate.mjs";
+
+// --- description sanitization (strip angle-bracket placeholders like "<n>") ---
+assert.equal(sanitizeDescription('Triggers on "LL <n>", or set-rigor.'), 'Triggers on "LL n", or set-rigor.');
+assert.equal(sanitizeDescription("plain text"), "plain text", "clean text is unchanged");
+assert.ok(!/[<>]/.test(sanitizeDescription("a <b> <c> d")), "no angle brackets survive");
+// ...and it is applied through the generators:
+{
+  const dirty = { slug: "d", name: "D", description: "use <flag> now", version: "1.0.0", status: "active",
+    upstream: { repo: "a/b", sha: "a".repeat(40) }, author: { name: "A" }, license: "MIT" };
+  assert.equal(buildMarketplace([dirty]).plugins[0].description, "use flag now", "marketplace description sanitized");
+  assert.equal(buildCatalog([dirty], () => null).skills[0].description, "use flag now", "catalog description sanitized");
+}
 
 const rootSkill = {
   slug: "root-skill",
