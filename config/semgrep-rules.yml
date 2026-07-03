@@ -1,0 +1,39 @@
+# Pinned, local SAST ruleset for bundled skill scripts.
+#
+# DETERMINISTIC BY DESIGN: the certifier runs semgrep with `--config` pointed at
+# THIS file (never `--config auto`), so no rules are downloaded at scan time and a
+# skill's verdict cannot change without a change to this committed file. High-
+# signal, high-precision patterns only — extend deliberately, never broaden into
+# false-positive-prone rules.
+rules:
+  - id: py-eval-exec
+    languages: [python]
+    severity: ERROR
+    message: "eval()/exec() executes arbitrary code — dangerous in a distributed skill"
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: exec(...)
+
+  - id: py-os-system
+    languages: [python]
+    severity: ERROR
+    message: "os.system() runs a shell command — command-injection risk"
+    pattern: os.system(...)
+
+  - id: py-subprocess-shell-true
+    languages: [python]
+    severity: ERROR
+    message: "subprocess with shell=True — command-injection risk"
+    pattern: subprocess.$F(..., shell=True, ...)
+
+  - id: py-pickle-loads
+    languages: [python]
+    severity: ERROR
+    message: "pickle.loads() deserializes arbitrary objects — code-execution risk"
+    pattern: pickle.loads(...)
+
+  - id: js-eval
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: "eval() executes arbitrary code"
+    pattern: eval(...)

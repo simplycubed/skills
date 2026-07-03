@@ -10,7 +10,7 @@ import { mkdtempSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { tmpdir } from "node:os";
 import { fileURLToPath } from "node:url";
-import { bin, runGitleaks, runOsv } from "./scan.mjs";
+import { bin, runGitleaks, runOsv, runSemgrep } from "./scan.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const fx = (name) => join(ROOT, "fixtures", name);
@@ -24,8 +24,10 @@ function check(label, cond) {
 
 const gitleaks = bin("gitleaks", "GITLEAKS_BIN");
 const osv = bin("osv-scanner", "OSV_BIN");
+const semgrep = bin("semgrep", "SEMGREP_BIN");
 check("gitleaks binary present", !!gitleaks);
 check("osv-scanner binary present", !!osv);
+check("semgrep binary present", !!semgrep);
 
 if (gitleaks) {
   const dirty = runGitleaks(gitleaks, fx("dirty-secret"), work);
@@ -39,6 +41,13 @@ if (osv) {
   const clean = runOsv(osv, fx("clean-skill"));
   check(`osv-scanner FLAGS planted vuln dependency (${dirty.findings.length} finding(s))`, dirty.ran && dirty.findings.length > 0);
   check("osv-scanner CLEARS clean fixture (no manifests)", clean.ran && clean.findings.length === 0);
+}
+
+if (semgrep) {
+  const dirty = runSemgrep(semgrep, fx("dirty-sast"));
+  const clean = runSemgrep(semgrep, fx("clean-skill"));
+  check(`semgrep FLAGS dangerous code (${dirty.findings.length} finding(s))`, dirty.ran && dirty.findings.length > 0);
+  check("semgrep CLEARS clean fixture", clean.ran && clean.findings.length === 0);
 }
 
 if (!ok) {

@@ -5,7 +5,7 @@
     "sha": "6837cd8bf844863aab887017f006fbd67036ccad",
     "path": "skills/linus-level"
   },
-  "scanned_at": "2026-07-02T14:39:51.048Z",
+  "scanned_at": "2026-07-03T04:10:49.668Z",
   "unit": {
     "licenseSource": "repo-root",
     "declaredLicense": "MIT",
@@ -14,14 +14,16 @@
   "tools": {
     "certify": "builtin",
     "gitleaks": "8.18.4",
-    "osv-scanner": "2.4.0"
+    "osv-scanner": "2.4.0",
+    "semgrep": "n/a (no code)"
   },
   "checks": {
     "structure": [],
     "license": [],
     "injection": [],
     "secrets": [],
-    "vulnerabilities": []
+    "vulnerabilities": [],
+    "sast": []
   },
   "review": [
     "security-ladder.md: reference to secret/credential files",
@@ -29,8 +31,9 @@
     "standards-core.md: exfiltration vocabulary"
   ],
   "scan_errors": [],
+  "incomplete": false,
   "passed": true,
   "finding_count": 0,
   "review_count": 3,
-  "note": "v1: built-in static tier + gitleaks (secrets) + osv-scanner (deps). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+  "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
 }
