@@ -41,10 +41,11 @@ PR that passed CI before merge; no gate was ever weakened to pass.
 2. **Commit-hash verification of the fetched tree** — `codeload …/tar.gz/<sha>`
    already binds to the exact commit tree and 404s on a bad SHA; independent
    recomputation needs a git-based fetch, disproportionate.
-3. **Fully network-off re-scan** — the snapshot removes the *upstream* dependency
-   (the README's promise); a fully air-gapped re-scan additionally needs a bundled
-   offline OSV database. Decision: bundle it, or accept `osv.dev` as an operational
-   dependency.
+3. **Fully network-off re-scan** — RESOLVED. The snapshot removes the *upstream*
+   dependency (the README's promise). The stretch idea of a fully air-gapped
+   re-scan (bundling an offline OSV database) was dropped by decision: this is a
+   cloud-native stack with no air-gap requirement, so `osv.dev` is an accepted
+   operational dependency. See `ESCALATIONS.md` #1.
 
 ## Out of scope (left planned, as the goal specified)
 - `SKILL.md` LLM-judge (needs an API credential + design).
