@@ -43,6 +43,10 @@ SPDX identifier.
 5. **Dependency vulnerabilities** — [`osv-scanner`](https://github.com/google/osv-scanner)
    over any dependency manifests in the unit, against the OSV database. Known
    vulnerabilities fail certification.
+6. **SAST** — [`semgrep`](https://github.com/semgrep/semgrep) over any bundled
+   scripts, using a **pinned local ruleset** (`config/semgrep-rules.yml`, never
+   `--config auto`) so the result is deterministic and no rules are fetched at scan
+   time. Runs only when the unit contains code; a match fails certification.
 
 The exact tool **versions** used for each scan are recorded in that skill's
 `<slug>.scan.json` under `tools`, alongside every finding and every review flag —
@@ -75,7 +79,6 @@ or drifted snapshot fails closed.
 
 - **`SKILL.md` LLM-judge** — an LLM review of instruction text to adjudicate the
   intent behind REVIEW-tier findings (attack vs. defensive mention).
-- **SAST** — `semgrep` static analysis over bundled scripts.
 <!-- Fully offline OSV was considered and deliberately not pursued: this is a
      cloud-native project with no air-gap requirement, so the osv.dev lookup is an
      accepted operational dependency (see ESCALATIONS.md #1). -->

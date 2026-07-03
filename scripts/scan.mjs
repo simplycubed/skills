@@ -14,8 +14,8 @@
 // generate.mjs turns into the catalog's certification badge. CI re-runs this on
 // the freshly fetched bytes and fails if the live verdict isn't a pass, so a
 // hand-edited scan.json cannot smuggle a failing skill through.
-import { writeFileSync, readFileSync, existsSync, mkdtempSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { writeFileSync, readFileSync, existsSync, mkdtempSync, readdirSync, lstatSync } from "node:fs";
+import { join, dirname, basename } from "node:path";
 import { tmpdir } from "node:os";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { spawnSync } from "node:child_process";
@@ -25,6 +25,19 @@ import { readManifest, SNAP_DIR } from "./snapshot.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SKILLS_DIR = join(ROOT, "config/skills");
+const SEMGREP_RULES = join(ROOT, "config/semgrep-rules.yml");
+
+// Extensions that mean "this unit contains executable code" — the trigger for the
+// SAST tier. A docs-only skill (no code) has nothing for semgrep to analyze.
+const CODE_EXTS = new Set(["py","js","mjs","cjs","ts","tsx","jsx","sh","bash","rb","go","php","java","pl","lua","ps1"]);
+function hasCode(dir) {
+  for (const name of readdirSync(dir)) {
+    const full = join(dir, name);
+    if (lstatSync(full).isDirectory()) { if (hasCode(full)) return true; }
+    else if (CODE_EXTS.has((name.split(".").pop() || "").toLowerCase())) return true;
+  }
+  return false;
+}
 
 export function bin(name, envVar) {
   const override = envVar ? process.env[envVar] : null;
@@ -84,6 +97,22 @@ export function runOsv(path, unit) {
 // Run every scanner tier over an ALREADY-ASSEMBLED unit (no network). Split out
 // from scan() so the fail-closed behaviour (a required scanner missing =>
 // passed:false) is unit-testable without a live fetch.
+// semgrep SAST over bundled scripts. Deterministic: --config points at our pinned
+// local ruleset (never --config auto), and telemetry/version checks are disabled,
+// so no rules are fetched and the verdict can't drift with the registry.
+export function runSemgrep(path, unit) {
+  const r = spawnSync(path, [
+    "scan", "--config", SEMGREP_RULES,
+    "--json", "--quiet", "--metrics", "off", "--disable-version-check", unit,
+  ], { encoding: "utf8", maxBuffer: 100 * 1024 * 1024 });
+  let data;
+  try { data = JSON.parse(r.stdout || "{}"); } catch {
+    return { ran: false, error: `semgrep output unparseable: ${(r.stderr || "").trim() || r.status}`, findings: [] };
+  }
+  const findings = (data.results || []).map((f) => `${basename(f.path)}: ${f.check_id}`);
+  return { ran: true, findings };
+}
+
 export function scanUnit(slug, assembled, { now = new Date().toISOString(), allowMissing = false } = {}) {
   const unit = assembled.unitDir;
   // Scanner scratch (gitleaks report) goes to a temp dir — never beside the unit,
@@ -125,6 +154,24 @@ export function scanUnit(slug, assembled, { now = new Date().toISOString(), allo
     scanErrors.push("osv-scanner not installed (required)");
   }
 
+  // SAST — only when the unit actually contains code. A docs-only skill has
+  // nothing for semgrep to analyze, so it is not required there (stays certified).
+  let sast = [];
+  if (hasCode(unit)) {
+    const semgrepBin = bin("semgrep", "SEMGREP_BIN");
+    if (semgrepBin) {
+      tools.semgrep = toolVersion(semgrepBin, ["--version"]);
+      const sg = runSemgrep(semgrepBin, unit);
+      if (!sg.ran) scanErrors.push(sg.error); else sast = sg.findings;
+    } else if (allowMissing) {
+      tools.semgrep = "skipped"; incomplete = true;
+    } else {
+      scanErrors.push("semgrep not installed (required for skills containing code)");
+    }
+  } else {
+    tools.semgrep = "n/a (no code)";
+  }
+
   // License must be present AND match the declared SPDX id in the published unit.
   const licenseChecks = [...c.checks.license];
   if (assembled.licenseMatches === false) {
@@ -137,6 +184,7 @@ export function scanUnit(slug, assembled, { now = new Date().toISOString(), allo
     injection: c.checks.injection, // blocking tier
     secrets,
     vulnerabilities,
+    sast, // semgrep, blocking (empty when the unit has no code)
   };
   const blocking = Object.values(checks).flat();
   const passed = blocking.length === 0 && scanErrors.length === 0;
@@ -158,7 +206,7 @@ export function scanUnit(slug, assembled, { now = new Date().toISOString(), allo
     passed,
     finding_count: blocking.length,
     review_count: c.review.length,
-    note: "v1: built-in static tier + gitleaks (secrets) + osv-scanner (deps). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up.",
+    note: "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up.",
   };
 }
 
