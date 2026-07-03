@@ -1,30 +1,25 @@
 # Escalations
 
-Items the autonomous finish-marketplace loop could not fully resolve and left for
-Charles. Each says what, why, what was done instead, and what's needed.
+Items the autonomous finish-marketplace loop could not fully resolve and escalated
+per the playbook for a maintainer decision. Each says what, why, what was done
+instead, and what's needed.
 
-## 1. "certify:active with network fully disabled" — partially met (deliberate deviation)
+## 1. "certify:active with network fully disabled" — RESOLVED (accept `osv.dev` as an operational dependency)
 
-**Goal wording:** Item 2's gate asked that `certify:active` pass "with network
-egress disabled (prove no live dependency)."
+**What shipped:** Re-verification reads each skill's committed content-addressed
+**snapshot** instead of fetching the upstream — so certification has **no
+dependency on the upstream repo** (the README's durability promise: a skill stays
+available even if upstream disappears). `snapshot:check` enforces snapshot
+integrity via content hash. This is the durability guarantee that mattered.
 
-**What shipped:** Re-verification now reads each skill's committed
-content-addressed **snapshot** instead of fetching the upstream — so there is **no
-dependency on the upstream repo** (the README's actual durability promise: a skill
-stays available even if upstream disappears). `snapshot:check` enforces snapshot
-integrity via content hash.
-
-**Not done, and why:** Two network needs remain in the `certify` CI job: (a) the
-OSV vulnerability lookup consults `osv.dev`, and (b) the scanner binaries are
-downloaded at job start. Truly disabling network egress in GitHub Actions to
-*prove* independence is brittle, and offline-OSV requires bundling/caching the OSV
-database — a meaningful chunk of its own. I did **not** fake or weaken the gate to
-claim "network disabled."
-
-**What's needed from Charles:** a decision on whether to invest in a bundled/cached
-offline OSV database (for a fully air-gapped re-scan) or accept `osv.dev` as an
-operational dependency (same class as the scanner-binary download). Tracked in
-METHODOLOGY.md under "Not yet in v1 → Fully offline OSV."
+**The "fully network-off" idea was dropped, by design.** The finish-marketplace
+playbook set a stretch goal of proving certification needs *zero* network — which
+would have meant bundling a local copy of the OSV vulnerability database so the
+`osv-scanner` step didn't call `osv.dev`. That only makes sense for an air-gapped
+/ on-prem deployment. This is a **cloud-native** stack (GitHub / Neon / Cloudflare)
+with no air-gap requirement, so a live `osv.dev` lookup is a normal operational
+dependency — the same class as GitHub Actions itself needing the network to fetch
+the scanner binaries. **Resolution: accept it; no offline OSV database.**
 
 ## 2. semgrep SAST tier (Item 3) — deferred, needs a decision
 

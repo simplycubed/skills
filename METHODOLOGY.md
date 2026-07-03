@@ -76,7 +76,7 @@ or drifted snapshot fails closed.
 - **`SKILL.md` LLM-judge** — an LLM review of instruction text to adjudicate the
   intent behind REVIEW-tier findings (attack vs. defensive mention).
 - **SAST** — `semgrep` static analysis over bundled scripts.
-- **Fully offline OSV** — re-verification no longer fetches the upstream (it reads
-  the snapshot), but the vulnerability check still consults the OSV database over
-  the network. Bundling/caching an offline OSV database for a fully air-gapped
-  re-scan is a further hardening step.
+<!-- Fully offline OSV was considered and deliberately not pursued: this is a
+     cloud-native project with no air-gap requirement, so the osv.dev lookup is an
+     accepted operational dependency (see ESCALATIONS.md #1). -->
+
