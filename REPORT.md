@@ -32,7 +32,7 @@ PR that passed CI before merge; no gate was ever weakened to pass.
   removes the snapshot; revoked skills drop out of both manifests. `revoke:selftest`
   proves it.
 
-## What was escalated (see `ESCALATIONS.md`) — decisions for Charles
+## What was escalated (see `ESCALATIONS.md`) — maintainer decisions
 
 1. **semgrep SAST** — the salvageable `--config auto` is non-deterministic
    (registry download; verdict can flip with no code change) and the only listed
