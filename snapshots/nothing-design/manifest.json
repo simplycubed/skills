@@ -1,0 +1,11 @@
+{
+  "slug": "nothing-design",
+  "upstream": {
+    "repo": "dominikmartn/nothing-design-skill",
+    "sha": "74affbb786af098b18503467b205c10a7df30126",
+    "path": "nothing-design"
+  },
+  "contentHash": "sha256:c307ff621a2ca2b50f937443b71a3db8cc250f015880637ecdf6c767347068fc",
+  "byteSize": 24481,
+  "fileCount": 5
+}

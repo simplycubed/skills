@@ -1,0 +1,37 @@
+{
+  "slug": "playwright",
+  "upstream": {
+    "repo": "lackeyjb/playwright-skill",
+    "sha": "bb7e920d376022958214e349ef25498a2644e189",
+    "path": "skills/playwright-skill"
+  },
+  "scanned_at": "2026-07-03T05:18:28.368Z",
+  "unit": {
+    "licenseSource": "repo-root",
+    "declaredLicense": "MIT",
+    "licenseMatches": true
+  },
+  "tools": {
+    "certify": "builtin",
+    "gitleaks": "8.18.4",
+    "osv-scanner": "2.4.0",
+    "semgrep": "1.168.0"
+  },
+  "checks": {
+    "structure": [],
+    "license": [],
+    "injection": [],
+    "secrets": [],
+    "vulnerabilities": [],
+    "sast": []
+  },
+  "review": [
+    "API_REFERENCE.md: reference to secret/credential files"
+  ],
+  "scan_errors": [],
+  "incomplete": false,
+  "passed": true,
+  "finding_count": 0,
+  "review_count": 1,
+  "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+}

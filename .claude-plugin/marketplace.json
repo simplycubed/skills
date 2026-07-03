@@ -8,6 +8,28 @@
   },
   "plugins": [
     {
+      "name": "humanizer",
+      "description": "Removes signs of AI-generated writing so text reads naturally — detects and fixes inflated symbolism, promotional language, vague attributions, rule-of-three, and other tells from Wikipedia's \"Signs of AI writing\" guide. Use when editing or reviewing text.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Siqi Chen",
+        "url": "https://github.com/blader"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/blader/humanizer",
+      "source": {
+        "source": "github",
+        "repo": "blader/humanizer",
+        "sha": "1b48564898e999219882660237fde01bf4843a0f"
+      },
+      "category": "content",
+      "keywords": [
+        "writing",
+        "editing",
+        "content"
+      ]
+    },
+    {
       "name": "linus-level",
       "description": "A 1.0–10.0 \"engineering working-mode\" dial for coding agents — tunes agency, assumption budget, verification, and security posture from fast prototyping to maintainer-grade rigor. Triggers on \"Linus Level\", \"LL n\", or set-rigor / maintainer-mode requests.",
       "version": "1.0.0",
@@ -29,6 +51,53 @@
         "workflow",
         "engineering",
         "code-review"
+      ]
+    },
+    {
+      "name": "nothing-design",
+      "description": "Applies the Nothing design system to UI work. Use when the user explicitly asks for \"Nothing style\", \"Nothing design\", or to apply the Nothing design system — never automatically for generic UI tasks.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Dominik Martin",
+        "url": "https://github.com/dominikmartn"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/dominikmartn/nothing-design-skill",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/dominikmartn/nothing-design-skill.git",
+        "path": "nothing-design",
+        "sha": "74affbb786af098b18503467b205c10a7df30126"
+      },
+      "category": "content",
+      "keywords": [
+        "design",
+        "ui",
+        "frontend"
+      ]
+    },
+    {
+      "name": "playwright",
+      "description": "Browser automation with Playwright: auto-detects dev servers, writes test scripts, fills forms, takes screenshots, checks responsive design, validates UX, and tests login flows and links. Use to test websites or automate browser interactions.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Bryan Lackey",
+        "url": "https://github.com/lackeyjb"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/lackeyjb/playwright-skill",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/lackeyjb/playwright-skill.git",
+        "path": "skills/playwright-skill",
+        "sha": "bb7e920d376022958214e349ef25498a2644e189"
+      },
+      "category": "coding",
+      "keywords": [
+        "testing",
+        "browser",
+        "playwright",
+        "automation"
       ]
     }
   ]

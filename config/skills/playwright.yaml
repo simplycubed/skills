@@ -1,0 +1,23 @@
+slug: playwright
+name: Playwright Browser Automation
+description: 'Browser automation with Playwright: auto-detects dev servers, writes test scripts, fills forms, takes screenshots, checks responsive design, validates UX, and tests login flows and links. Use to test websites or automate browser interactions.'
+version: 1.0.0
+status: active
+
+upstream:
+  repo: lackeyjb/playwright-skill
+  sha: "bb7e920d376022958214e349ef25498a2644e189"
+  path: skills/playwright-skill
+
+author:
+  name: Bryan Lackey
+  url: https://github.com/lackeyjb
+
+license: MIT
+homepage: https://github.com/lackeyjb/playwright-skill
+category: coding
+tags:
+  - testing
+  - browser
+  - playwright
+  - automation

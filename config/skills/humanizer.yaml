@@ -1,0 +1,21 @@
+slug: humanizer
+name: Humanizer
+description: 'Removes signs of AI-generated writing so text reads naturally — detects and fixes inflated symbolism, promotional language, vague attributions, rule-of-three, and other tells from Wikipedia''s "Signs of AI writing" guide. Use when editing or reviewing text.'
+version: 1.0.0
+status: active
+
+upstream:
+  repo: blader/humanizer
+  sha: "1b48564898e999219882660237fde01bf4843a0f"
+
+author:
+  name: Siqi Chen
+  url: https://github.com/blader
+
+license: MIT
+homepage: https://github.com/blader/humanizer
+category: content
+tags:
+  - writing
+  - editing
+  - content
