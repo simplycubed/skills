@@ -84,6 +84,11 @@
       "maxItems": 12,
       "uniqueItems": true,
       "description": "Optional lowercase tags for filtering."
+    },
+    "tier": {
+      "type": "string",
+      "enum": ["free", "premium"],
+      "description": "Optional; defaults to 'free'. 'premium' = subscription-gated (excluded from the public plugin manifest; delivered through the entitlement service, not this repo)."
     }
   }
 }

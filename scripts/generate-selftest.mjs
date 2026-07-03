@@ -93,4 +93,14 @@ assert.equal(revoked.skills[0].certification.status, "revoked");
 const incomplete = buildCatalog([rootSkill], () => ({ passed: true, incomplete: true }));
 assert.equal(incomplete.skills[0].certification.status, "incomplete");
 
+// tier seam: defaults to free; premium is listed in the catalog but EXCLUDED from
+// the public plugin manifest (a paid skill can't be freely installable).
+assert.equal(buildCatalog([rootSkill], () => null).skills[0].tier, "free", "tier defaults to free");
+const premium = { ...rootSkill, slug: "paid-skill", tier: "premium" };
+const mixed = buildCatalog([rootSkill, premium], () => null);
+assert.equal(mixed.skills.find((s) => s.slug === "paid-skill").tier, "premium", "premium tier surfaced in catalog");
+const mktMixed = buildMarketplace([rootSkill, premium]);
+assert.ok(!mktMixed.plugins.some((p) => p.name === "paid-skill"), "premium skill excluded from public plugin manifest");
+assert.ok(mktMixed.plugins.some((p) => p.name === "root-skill"), "free skill still in plugin manifest");
+
 console.log("✓ generate self-test passed (source shapes, install strings, certification mapping)");

@@ -99,7 +99,9 @@ export function buildMarketplace(configs) {
     name: MARKETPLACE_NAME,
     description: "SimplyCubed certified Agent Skills — scanned and verified. https://simplycubed.com/skills",
     owner: OWNER,
-    plugins: configs.map(pluginEntry),
+    // Only FREE skills go in the public plugin manifest — premium skills are
+    // gated (a paid skill can't be freely installable from a public marketplace).
+    plugins: configs.filter((c) => (c.tier || "free") === "free").map(pluginEntry),
   };
 }
 
@@ -121,6 +123,8 @@ export function catalogEntry(c, scan) {
     license: c.license,
     upstream: c.upstream,
     sourceUrl: c.homepage || `https://github.com/${c.upstream.repo}`,
+    tier: c.tier || "free", // "free" | "premium" — the seam for subscription-gated skills
+
     install: {
       // Claude Code one-command install via the plugin marketplace.
       claudeCode: {
