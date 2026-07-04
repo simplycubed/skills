@@ -1,0 +1,18 @@
+slug: code-review
+name: Code Review & Quality
+description: 'Conducts multi-axis code review before merging any change. Use when reviewing code written by yourself, another agent, or a human, to assess quality across multiple dimensions before it enters the main branch.'
+version: 1.0.0
+status: active
+upstream:
+  repo: addyosmani/agent-skills
+  sha: "8c6530305396f341b5da7201cf1f7e390fdb863f"
+  path: skills/code-review-and-quality
+author:
+  name: Addy Osmani
+  url: https://github.com/addyosmani
+license: MIT
+homepage: https://github.com/addyosmani/agent-skills
+category: coding
+tags:
+  - code-review
+  - quality
