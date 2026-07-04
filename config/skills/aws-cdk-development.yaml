@@ -1,0 +1,20 @@
+slug: aws-cdk-development
+name: AWS CDK Development
+description: 'AWS CDK expert for infrastructure-as-code in TypeScript/Python — CDK stacks, constructs, stack composition, and deployment workflows. Use for CDK, CloudFormation, cdk synth/deploy, or defining AWS infrastructure programmatically.'
+version: 1.0.0
+status: active
+upstream:
+  repo: zxkane/aws-skills
+  sha: "68530c6f296ccd2f5e99c79782f3e0fbf962c51a"
+  path: plugins/aws-iac/skills/aws-cdk-development
+author:
+  name: Mengxin Zhu
+  url: https://github.com/zxkane
+license: MIT
+homepage: https://github.com/zxkane/aws-skills
+category: devops
+tags:
+  - aws
+  - iac
+  - cdk
+  - devops

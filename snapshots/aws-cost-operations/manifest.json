@@ -1,0 +1,11 @@
+{
+  "slug": "aws-cost-operations",
+  "upstream": {
+    "repo": "zxkane/aws-skills",
+    "sha": "68530c6f296ccd2f5e99c79782f3e0fbf962c51a",
+    "path": "plugins/aws-cost-ops/skills/aws-cost-operations"
+  },
+  "contentHash": "sha256:3b45d4c42684f73f7ba4a4dd21f76c7e674020d1dc396de32b627c0e5e206a18",
+  "byteSize": 34757,
+  "fileCount": 4
+}
