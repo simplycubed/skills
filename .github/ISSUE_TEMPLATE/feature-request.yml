@@ -1,0 +1,21 @@
+name: Feature request / feedback
+description: Suggest an improvement to the marketplace, the certification, or the site.
+title: "Feature: <summary>"
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For suggesting a *skill* to list, use the "Add a skill or directory" form instead.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to see?
+    validations:
+      required: false

@@ -1,0 +1,62 @@
+name: Bug report
+description: Report something broken — a listed skill, the certification, the catalog data, or the site.
+title: "Bug: <summary>"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please include enough detail for us to reproduce it.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - A listed skill (misbehaves / broken)
+        - Certification or scan result
+        - Catalog data (catalog.json / marketplace.json)
+        - Install instructions
+        - Storefront site (simplycubed.com/skills)
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: skill
+    attributes:
+      label: Which skill? (if applicable)
+      description: The catalog slug.
+      placeholder: e.g. playwright
+    validations:
+      required: false
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: false
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Which agent were you using? (if applicable)
+      options:
+        - Claude Code
+        - OpenAI Codex
+        - Gemini CLI
+        - Other / N/A
+    validations:
+      required: false
+  - type: textarea
+    id: extra
+    attributes:
+      label: Logs, links, or screenshots
+    validations:
+      required: false

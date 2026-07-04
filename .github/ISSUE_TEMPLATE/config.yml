@@ -1,4 +1,5 @@
-blank_issues_enabled: true
+# All issues go through a formatted form (bug / feature / add-skill / removal).
+blank_issues_enabled: false
 contact_links:
   - name: Browse the catalog
     url: https://simplycubed.com/skills
