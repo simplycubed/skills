@@ -1,0 +1,37 @@
+{
+  "slug": "docs-adrs",
+  "upstream": {
+    "repo": "addyosmani/agent-skills",
+    "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
+    "path": "skills/documentation-and-adrs"
+  },
+  "scanned_at": "2026-07-04T04:49:53.603Z",
+  "unit": {
+    "licenseSource": "repo-root",
+    "declaredLicense": "MIT",
+    "licenseMatches": true
+  },
+  "tools": {
+    "certify": "builtin",
+    "gitleaks": "8.18.4",
+    "osv-scanner": "2.4.0",
+    "semgrep": "n/a (no code)"
+  },
+  "checks": {
+    "structure": [],
+    "license": [],
+    "injection": [],
+    "secrets": [],
+    "vulnerabilities": [],
+    "sast": []
+  },
+  "review": [
+    "SKILL.md: reference to secret/credential files"
+  ],
+  "scan_errors": [],
+  "incomplete": false,
+  "passed": true,
+  "finding_count": 0,
+  "review_count": 1,
+  "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+}

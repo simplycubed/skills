@@ -3,6 +3,270 @@
   "marketplace": "simplycubed",
   "skills": [
     {
+      "slug": "ci-cd-automation",
+      "name": "CI/CD & Automation",
+      "description": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines, automating quality gates, configuring test runners in CI, or establishing deployment strategies.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "ci-cd",
+        "devops",
+        "automation"
+      ],
+      "author": {
+        "name": "Addy Osmani",
+        "url": "https://github.com/addyosmani"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
+        "path": "skills/ci-cd-and-automation"
+      },
+      "sourceUrl": "https://github.com/addyosmani/agent-skills",
+      "tier": "free",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install ci-cd-automation@simplycubed"
+        },
+        "folder": {
+          "dirName": "ci-cd-automation",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/ci-cd-automation/unit",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-04T04:49:52.031Z",
+        "record": {
+          "slug": "ci-cd-automation",
+          "upstream": {
+            "repo": "addyosmani/agent-skills",
+            "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
+            "path": "skills/ci-cd-and-automation"
+          },
+          "scanned_at": "2026-07-04T04:49:52.031Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [
+            "SKILL.md: reference to secret/credential files"
+          ],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 1,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "code-review",
+      "name": "Code Review & Quality",
+      "description": "Conducts multi-axis code review before merging any change. Use when reviewing code written by yourself, another agent, or a human, to assess quality across multiple dimensions before it enters the main branch.",
+      "version": "1.0.0",
+      "category": "coding",
+      "tags": [
+        "code-review",
+        "quality"
+      ],
+      "author": {
+        "name": "Addy Osmani",
+        "url": "https://github.com/addyosmani"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
+        "path": "skills/code-review-and-quality"
+      },
+      "sourceUrl": "https://github.com/addyosmani/agent-skills",
+      "tier": "free",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install code-review@simplycubed"
+        },
+        "folder": {
+          "dirName": "code-review",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/code-review/unit",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-04T04:49:53.174Z",
+        "record": {
+          "slug": "code-review",
+          "upstream": {
+            "repo": "addyosmani/agent-skills",
+            "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
+            "path": "skills/code-review-and-quality"
+          },
+          "scanned_at": "2026-07-04T04:49:53.174Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "docs-adrs",
+      "name": "Documentation & ADRs",
+      "description": "Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or recording context that future engineers and agents need to understand the codebase.",
+      "version": "1.0.0",
+      "category": "coding",
+      "tags": [
+        "documentation",
+        "adr",
+        "architecture"
+      ],
+      "author": {
+        "name": "Addy Osmani",
+        "url": "https://github.com/addyosmani"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
+        "path": "skills/documentation-and-adrs"
+      },
+      "sourceUrl": "https://github.com/addyosmani/agent-skills",
+      "tier": "free",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install docs-adrs@simplycubed"
+        },
+        "folder": {
+          "dirName": "docs-adrs",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/docs-adrs/unit",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-04T04:49:53.603Z",
+        "record": {
+          "slug": "docs-adrs",
+          "upstream": {
+            "repo": "addyosmani/agent-skills",
+            "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
+            "path": "skills/documentation-and-adrs"
+          },
+          "scanned_at": "2026-07-04T04:49:53.603Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [
+            "SKILL.md: reference to secret/credential files"
+          ],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 1,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
       "slug": "humanizer",
       "name": "Humanizer",
       "description": "Removes signs of AI-generated writing so text reads naturally — detects and fixes inflated symbolism, promotional language, vague attributions, rule-of-three, and other tells from Wikipedia's \"Signs of AI writing\" guide. Use when editing or reviewing text.",
@@ -268,6 +532,93 @@
       }
     },
     {
+      "slug": "observability",
+      "name": "Observability & Instrumentation",
+      "description": "Instruments code so production behavior is visible and diagnosable — logging, metrics, tracing, alerting. Use when shipping features that run in production or when you cannot tell what happened from available data.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "observability",
+        "monitoring",
+        "sre"
+      ],
+      "author": {
+        "name": "Addy Osmani",
+        "url": "https://github.com/addyosmani"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
+        "path": "skills/observability-and-instrumentation"
+      },
+      "sourceUrl": "https://github.com/addyosmani/agent-skills",
+      "tier": "free",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install observability@simplycubed"
+        },
+        "folder": {
+          "dirName": "observability",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/observability/unit",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-04T04:49:52.638Z",
+        "record": {
+          "slug": "observability",
+          "upstream": {
+            "repo": "addyosmani/agent-skills",
+            "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
+            "path": "skills/observability-and-instrumentation"
+          },
+          "scanned_at": "2026-07-04T04:49:52.638Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
       "slug": "playwright",
       "name": "Playwright Browser Automation",
       "description": "Browser automation with Playwright: auto-detects dev servers, writes test scripts, fills forms, takes screenshots, checks responsive design, validates UX, and tests login flows and links. Use to test websites or automate browser interactions.",
@@ -353,6 +704,97 @@
           "passed": true,
           "finding_count": 0,
           "review_count": 1,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "security-hardening",
+      "name": "Security & Hardening",
+      "description": "Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations, or building any feature that accepts untrusted data, manages sessions, or calls third-party services.",
+      "version": "1.0.0",
+      "category": "coding",
+      "tags": [
+        "security",
+        "hardening",
+        "code-review",
+        "appsec"
+      ],
+      "author": {
+        "name": "Addy Osmani",
+        "url": "https://github.com/addyosmani"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "addyosmani/agent-skills",
+        "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
+        "path": "skills/security-and-hardening"
+      },
+      "sourceUrl": "https://github.com/addyosmani/agent-skills",
+      "tier": "free",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install security-hardening@simplycubed"
+        },
+        "folder": {
+          "dirName": "security-hardening",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/security-hardening/unit",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-04T04:49:50.837Z",
+        "record": {
+          "slug": "security-hardening",
+          "upstream": {
+            "repo": "addyosmani/agent-skills",
+            "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
+            "path": "skills/security-and-hardening"
+          },
+          "scanned_at": "2026-07-04T04:49:50.837Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [
+            "SKILL.md: reference to secret/credential files",
+            "SKILL.md: reference to code-execution APIs"
+          ],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 2,
           "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
         }
       }

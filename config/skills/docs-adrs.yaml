@@ -1,0 +1,19 @@
+slug: docs-adrs
+name: Documentation & ADRs
+description: 'Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or recording context that future engineers and agents need to understand the codebase.'
+version: 1.0.0
+status: active
+upstream:
+  repo: addyosmani/agent-skills
+  sha: "8c6530305396f341b5da7201cf1f7e390fdb863f"
+  path: skills/documentation-and-adrs
+author:
+  name: Addy Osmani
+  url: https://github.com/addyosmani
+license: MIT
+homepage: https://github.com/addyosmani/agent-skills
+category: coding
+tags:
+  - documentation
+  - adr
+  - architecture

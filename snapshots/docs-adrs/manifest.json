@@ -1,0 +1,11 @@
+{
+  "slug": "docs-adrs",
+  "upstream": {
+    "repo": "addyosmani/agent-skills",
+    "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
+    "path": "skills/documentation-and-adrs"
+  },
+  "contentHash": "sha256:67dfa51e9b8746c80ded6e74712e88a15a670e38c78c924e0fe1d7703de06909",
+  "byteSize": 9802,
+  "fileCount": 2
+}

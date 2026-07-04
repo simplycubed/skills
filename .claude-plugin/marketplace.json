@@ -8,6 +8,74 @@
   },
   "plugins": [
     {
+      "name": "ci-cd-automation",
+      "description": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines, automating quality gates, configuring test runners in CI, or establishing deployment strategies.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Addy Osmani",
+        "url": "https://github.com/addyosmani"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/addyosmani/agent-skills",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/addyosmani/agent-skills.git",
+        "path": "skills/ci-cd-and-automation",
+        "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f"
+      },
+      "category": "devops",
+      "keywords": [
+        "ci-cd",
+        "devops",
+        "automation"
+      ]
+    },
+    {
+      "name": "code-review",
+      "description": "Conducts multi-axis code review before merging any change. Use when reviewing code written by yourself, another agent, or a human, to assess quality across multiple dimensions before it enters the main branch.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Addy Osmani",
+        "url": "https://github.com/addyosmani"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/addyosmani/agent-skills",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/addyosmani/agent-skills.git",
+        "path": "skills/code-review-and-quality",
+        "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f"
+      },
+      "category": "coding",
+      "keywords": [
+        "code-review",
+        "quality"
+      ]
+    },
+    {
+      "name": "docs-adrs",
+      "description": "Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or recording context that future engineers and agents need to understand the codebase.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Addy Osmani",
+        "url": "https://github.com/addyosmani"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/addyosmani/agent-skills",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/addyosmani/agent-skills.git",
+        "path": "skills/documentation-and-adrs",
+        "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f"
+      },
+      "category": "coding",
+      "keywords": [
+        "documentation",
+        "adr",
+        "architecture"
+      ]
+    },
+    {
       "name": "humanizer",
       "description": "Removes signs of AI-generated writing so text reads naturally — detects and fixes inflated symbolism, promotional language, vague attributions, rule-of-three, and other tells from Wikipedia's \"Signs of AI writing\" guide. Use when editing or reviewing text.",
       "version": "1.0.0",
@@ -77,6 +145,29 @@
       ]
     },
     {
+      "name": "observability",
+      "description": "Instruments code so production behavior is visible and diagnosable — logging, metrics, tracing, alerting. Use when shipping features that run in production or when you cannot tell what happened from available data.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Addy Osmani",
+        "url": "https://github.com/addyosmani"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/addyosmani/agent-skills",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/addyosmani/agent-skills.git",
+        "path": "skills/observability-and-instrumentation",
+        "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f"
+      },
+      "category": "devops",
+      "keywords": [
+        "observability",
+        "monitoring",
+        "sre"
+      ]
+    },
+    {
       "name": "playwright",
       "description": "Browser automation with Playwright: auto-detects dev servers, writes test scripts, fills forms, takes screenshots, checks responsive design, validates UX, and tests login flows and links. Use to test websites or automate browser interactions.",
       "version": "1.0.0",
@@ -98,6 +189,30 @@
         "browser",
         "playwright",
         "automation"
+      ]
+    },
+    {
+      "name": "security-hardening",
+      "description": "Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations, or building any feature that accepts untrusted data, manages sessions, or calls third-party services.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Addy Osmani",
+        "url": "https://github.com/addyosmani"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/addyosmani/agent-skills",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/addyosmani/agent-skills.git",
+        "path": "skills/security-and-hardening",
+        "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f"
+      },
+      "category": "coding",
+      "keywords": [
+        "security",
+        "hardening",
+        "code-review",
+        "appsec"
       ]
     }
   ]

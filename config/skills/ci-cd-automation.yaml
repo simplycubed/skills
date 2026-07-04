@@ -1,0 +1,19 @@
+slug: ci-cd-automation
+name: CI/CD & Automation
+description: 'Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines, automating quality gates, configuring test runners in CI, or establishing deployment strategies.'
+version: 1.0.0
+status: active
+upstream:
+  repo: addyosmani/agent-skills
+  sha: "8c6530305396f341b5da7201cf1f7e390fdb863f"
+  path: skills/ci-cd-and-automation
+author:
+  name: Addy Osmani
+  url: https://github.com/addyosmani
+license: MIT
+homepage: https://github.com/addyosmani/agent-skills
+category: devops
+tags:
+  - ci-cd
+  - devops
+  - automation

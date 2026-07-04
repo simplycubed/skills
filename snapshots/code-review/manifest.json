@@ -1,0 +1,11 @@
+{
+  "slug": "code-review",
+  "upstream": {
+    "repo": "addyosmani/agent-skills",
+    "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
+    "path": "skills/code-review-and-quality"
+  },
+  "contentHash": "sha256:18534dba914088343228107f6d048bca28699e4809dd10dfa6af258f2219e321",
+  "byteSize": 19524,
+  "fileCount": 2
+}

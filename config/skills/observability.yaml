@@ -1,0 +1,19 @@
+slug: observability
+name: Observability & Instrumentation
+description: 'Instruments code so production behavior is visible and diagnosable — logging, metrics, tracing, alerting. Use when shipping features that run in production or when you cannot tell what happened from available data.'
+version: 1.0.0
+status: active
+upstream:
+  repo: addyosmani/agent-skills
+  sha: "8c6530305396f341b5da7201cf1f7e390fdb863f"
+  path: skills/observability-and-instrumentation
+author:
+  name: Addy Osmani
+  url: https://github.com/addyosmani
+license: MIT
+homepage: https://github.com/addyosmani/agent-skills
+category: devops
+tags:
+  - observability
+  - monitoring
+  - sre
