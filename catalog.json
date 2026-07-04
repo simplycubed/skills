@@ -3,6 +3,273 @@
   "marketplace": "simplycubed",
   "skills": [
     {
+      "slug": "agent-governance",
+      "name": "Agent Governance",
+      "description": "Patterns for adding governance, safety, and trust controls to AI-agent systems — policy-based tool access, intent classification, trust scoring, audit trails, rate limits, and content filters for agents that call external tools.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "governance",
+        "security",
+        "policy",
+        "audit"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/agent-governance"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install agent-governance@simplycubed"
+        },
+        "folder": {
+          "dirName": "agent-governance",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/agent-governance/unit",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-04T04:53:08.828Z",
+        "record": {
+          "slug": "agent-governance",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/agent-governance"
+          },
+          "scanned_at": "2026-07-04T04:53:08.828Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [
+            "SKILL.md: exfiltration vocabulary"
+          ],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 1,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "agent-owasp-compliance",
+      "name": "Agent OWASP Compliance",
+      "description": "Checks an AI-agent codebase against the OWASP Agentic Security Initiative (ASI) Top 10 risks. Use to evaluate an agent system security posture, run a compliance check, map controls to the 10 agentic risks, or generate an audit report.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "owasp",
+        "security",
+        "compliance",
+        "audit"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/agent-owasp-compliance"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install agent-owasp-compliance@simplycubed"
+        },
+        "folder": {
+          "dirName": "agent-owasp-compliance",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/agent-owasp-compliance/unit",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-04T04:53:04.328Z",
+        "record": {
+          "slug": "agent-owasp-compliance",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/agent-owasp-compliance"
+          },
+          "scanned_at": "2026-07-04T04:53:04.328Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [
+            "SKILL.md: reference to code-execution APIs"
+          ],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 1,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "agent-supply-chain",
+      "name": "Agent Supply Chain Integrity",
+      "description": "Verifies supply-chain integrity for AI-agent plugins, tools, and dependencies — SHA-256 integrity manifests, tamper detection, dependency-pinning audits, and dev-to-prod provenance chains for agent components.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "supply-chain",
+        "security",
+        "integrity"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/agent-supply-chain"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install agent-supply-chain@simplycubed"
+        },
+        "folder": {
+          "dirName": "agent-supply-chain",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/agent-supply-chain/unit",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-04T04:53:13.602Z",
+        "record": {
+          "slug": "agent-supply-chain",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/agent-supply-chain"
+          },
+          "scanned_at": "2026-07-04T04:53:13.602Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
       "slug": "ci-cd-automation",
       "name": "CI/CD & Automation",
       "description": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines, automating quality gates, configuring test runners in CI, or establishing deployment strategies.",
