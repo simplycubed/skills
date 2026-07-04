@@ -1,0 +1,11 @@
+{
+  "slug": "agent-supply-chain",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/agent-supply-chain"
+  },
+  "contentHash": "sha256:2fab2fde8aea10c241247505ba6f0ca9b701269e6f1718c6260e551692aa0829",
+  "byteSize": 11791,
+  "fileCount": 2
+}

@@ -1,0 +1,19 @@
+slug: agent-supply-chain
+name: Agent Supply Chain Integrity
+description: 'Verifies supply-chain integrity for AI-agent plugins, tools, and dependencies — SHA-256 integrity manifests, tamper detection, dependency-pinning audits, and dev-to-prod provenance chains for agent components.'
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: "e986f49695491311df2774030ebe11efabd0fb77"
+  path: skills/agent-supply-chain
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - supply-chain
+  - security
+  - integrity

@@ -8,6 +8,77 @@
   },
   "plugins": [
     {
+      "name": "agent-governance",
+      "description": "Patterns for adding governance, safety, and trust controls to AI-agent systems — policy-based tool access, intent classification, trust scoring, audit trails, rate limits, and content filters for agents that call external tools.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/agent-governance",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "devops",
+      "keywords": [
+        "governance",
+        "security",
+        "policy",
+        "audit"
+      ]
+    },
+    {
+      "name": "agent-owasp-compliance",
+      "description": "Checks an AI-agent codebase against the OWASP Agentic Security Initiative (ASI) Top 10 risks. Use to evaluate an agent system security posture, run a compliance check, map controls to the 10 agentic risks, or generate an audit report.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/agent-owasp-compliance",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "devops",
+      "keywords": [
+        "owasp",
+        "security",
+        "compliance",
+        "audit"
+      ]
+    },
+    {
+      "name": "agent-supply-chain",
+      "description": "Verifies supply-chain integrity for AI-agent plugins, tools, and dependencies — SHA-256 integrity manifests, tamper detection, dependency-pinning audits, and dev-to-prod provenance chains for agent components.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/agent-supply-chain",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "devops",
+      "keywords": [
+        "supply-chain",
+        "security",
+        "integrity"
+      ]
+    },
+    {
       "name": "ci-cd-automation",
       "description": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines, automating quality gates, configuring test runners in CI, or establishing deployment strategies.",
       "version": "1.0.0",
