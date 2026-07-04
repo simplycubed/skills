@@ -25,7 +25,7 @@
     "skill": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["slug", "name", "description", "version", "author", "license", "upstream", "sourceUrl", "tier", "install", "certification"],
+      "required": ["slug", "name", "description", "version", "author", "license", "upstream", "sourceUrl", "tier", "removalUrl", "install", "certification"],
       "properties": {
         "slug": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$", "description": "URL/install identifier." },
         "name": { "type": "string", "description": "Display name." },
@@ -57,6 +57,10 @@
           "type": "string",
           "enum": ["free", "premium"],
           "description": "free = openly installable; premium = subscription-gated (delivered via the entitlement service, not this repo). Premium skills are omitted from the public plugin manifest."
+        },
+        "removalUrl": {
+          "type": "string",
+          "description": "Deep link to a pre-filled GitHub issue form for the skill's author/rights-holder to request removal (collects ownership proof). Render as a 'Request removal' link on the skill page."
         },
         "install": {
           "type": "object",

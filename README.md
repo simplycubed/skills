@@ -46,7 +46,9 @@ Certification is a gate: a skill is listed only after it passes the scan in CI. 
 
 ## Contributing
 
-Submissions are curated for now. If you maintain a skill you'd like us to consider, or you're an author who wants attribution fixed or a skill removed, open an issue.
+Submissions are curated for now. If you maintain a skill you'd like us to consider, or you're an author who wants attribution fixed, open an issue.
+
+**Are you the author of a listed skill and want it removed?** Every skill page has a **Request removal** link, or use the [skill removal request form](https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml) directly. It collects proof of ownership; on a verified request we pull the skill from the catalog and stop serving its snapshot.
 
 ## Licensing
 

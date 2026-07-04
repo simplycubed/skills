@@ -26,6 +26,7 @@
       },
       "sourceUrl": "https://github.com/github/awesome-copilot",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+agent-governance&skill=agent-governance&upstream=github%2Fawesome-copilot",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -116,6 +117,7 @@
       },
       "sourceUrl": "https://github.com/github/awesome-copilot",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+agent-owasp-compliance&skill=agent-owasp-compliance&upstream=github%2Fawesome-copilot",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -205,6 +207,7 @@
       },
       "sourceUrl": "https://github.com/github/awesome-copilot",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+agent-supply-chain&skill=agent-supply-chain&upstream=github%2Fawesome-copilot",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -293,6 +296,7 @@
       },
       "sourceUrl": "https://github.com/zxkane/aws-skills",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+aws-cdk-development&skill=aws-cdk-development&upstream=zxkane%2Faws-skills",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -381,6 +385,7 @@
       },
       "sourceUrl": "https://github.com/zxkane/aws-skills",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+aws-cost-operations&skill=aws-cost-operations&upstream=zxkane%2Faws-skills",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -468,6 +473,7 @@
       },
       "sourceUrl": "https://github.com/addyosmani/agent-skills",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+ci-cd-automation&skill=ci-cd-automation&upstream=addyosmani%2Fagent-skills",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -556,6 +562,7 @@
       },
       "sourceUrl": "https://github.com/addyosmani/agent-skills",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+code-review&skill=code-review&upstream=addyosmani%2Fagent-skills",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -643,6 +650,7 @@
       },
       "sourceUrl": "https://github.com/addyosmani/agent-skills",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+docs-adrs&skill=docs-adrs&upstream=addyosmani%2Fagent-skills",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -731,6 +739,7 @@
       },
       "sourceUrl": "https://github.com/blader/humanizer",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+humanizer&skill=humanizer&upstream=blader%2Fhumanizer",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -819,6 +828,7 @@
       },
       "sourceUrl": "https://github.com/rsoffer/linus-level-skill",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+linus-level&skill=linus-level&upstream=rsoffer%2Flinus-level-skill",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -910,6 +920,7 @@
       },
       "sourceUrl": "https://github.com/dominikmartn/nothing-design-skill",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+nothing-design&skill=nothing-design&upstream=dominikmartn%2Fnothing-design-skill",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -997,6 +1008,7 @@
       },
       "sourceUrl": "https://github.com/addyosmani/agent-skills",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+observability&skill=observability&upstream=addyosmani%2Fagent-skills",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -1085,6 +1097,7 @@
       },
       "sourceUrl": "https://github.com/lackeyjb/playwright-skill",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+playwright&skill=playwright&upstream=lackeyjb%2Fplaywright-skill",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
@@ -1175,6 +1188,7 @@
       },
       "sourceUrl": "https://github.com/addyosmani/agent-skills",
       "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+security-hardening&skill=security-hardening&upstream=addyosmani%2Fagent-skills",
       "install": {
         "claudeCode": {
           "marketplaceAdd": "/plugin marketplace add simplycubed/skills",

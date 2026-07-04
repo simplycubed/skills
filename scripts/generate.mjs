@@ -43,6 +43,19 @@ function folderSourceUrl(c) {
   return `https://github.com/${MARKETPLACE_NAME}/skills/tree/main/snapshots/${c.slug}/unit`;
 }
 
+// Deep link to a pre-filled GitHub issue form for authors/rights-holders to
+// request removal of their skill. Pre-fills the slug + upstream; the form
+// collects ownership proof (see .github/ISSUE_TEMPLATE/skill-removal.yml).
+function removalUrl(c) {
+  const q = new URLSearchParams({
+    template: "skill-removal.yml",
+    title: `Remove skill: ${c.slug}`,
+    skill: c.slug,
+    upstream: c.upstream.repo,
+  });
+  return `https://github.com/${MARKETPLACE_NAME}/skills/issues/new?${q}`;
+}
+
 // Clean a description for display. Skill descriptions (often lifted from upstream
 // SKILL.md frontmatter) can contain markup-like noise — most commonly
 // angle-bracket placeholders such as "LL <n>" — that render as broken tags or
@@ -124,6 +137,8 @@ export function catalogEntry(c, scan) {
     upstream: c.upstream,
     sourceUrl: c.homepage || `https://github.com/${c.upstream.repo}`,
     tier: c.tier || "free", // "free" | "premium" — the seam for subscription-gated skills
+    removalUrl: removalUrl(c), // author/rights-holder "request removal" deep link
+
 
     install: {
       // Claude Code one-command install via the plugin marketplace.

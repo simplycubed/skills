@@ -48,7 +48,11 @@ in this repo is part of the contract.
 ## Each `Skill`
 `slug`, `name`, `description`, `version`, `category` (string|null), `tags` (string[]),
 `author` ({name, url?}), `license` (SPDX id), `upstream` ({repo, sha, path?}),
-`sourceUrl`, `tier` (`"free"` | `"premium"`), `install`, `certification`.
+`sourceUrl`, `tier` (`"free"` | `"premium"`), `removalUrl`, `install`, `certification`.
+
+**`removalUrl`** — a deep link to a pre-filled GitHub issue form for the skill's
+author/rights-holder to request removal (the form collects ownership proof).
+Render it as a small **"Request removal"** link on each skill's page.
 
 **`tier`** — `"free"` today for every skill. `"premium"` is the seam for future
 subscription-gated skills: a premium skill is listed in `catalog.json` (render a
