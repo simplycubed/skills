@@ -1,0 +1,81 @@
+name: Add a skill or directory
+description: Suggest a skill (or a whole collection/directory) to be certified and listed in the marketplace.
+title: "Add: <owner/repo>"
+labels: ["inclusion-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggest a skill — or a whole collection/directory of skills — for the marketplace.
+
+        **What we can list:** we *reference* skills (we don't re-host them), certify them, and
+        keep a content-addressed snapshot. To be eligible a skill must:
+        - be under a **recognized permissive license** (MIT, Apache-2.0, BSD, ISC, 0BSD, Unlicense, Zlib) — **copyleft/unlicensed cannot be listed**;
+        - contain a valid `SKILL.md`;
+        - pass our automated certification scan.
+
+        Listing is **curated** — a suggestion is not a guarantee. For a collection, we follow
+        the source of each individual skill and certify them one by one.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What are you suggesting?
+      options:
+        - A single skill
+        - A whole directory / collection (multiple skills)
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: Source repository
+      description: The ORIGINAL source repo (owner/name or URL) — not an aggregator/awesome-list copy.
+      placeholder: e.g. addyosmani/agent-skills
+    validations:
+      required: true
+  - type: input
+    id: path
+    attributes:
+      label: Path within the repo (for a single skill in a subdirectory)
+      placeholder: e.g. skills/security-and-hardening
+    validations:
+      required: false
+  - type: input
+    id: license
+    attributes:
+      label: License (SPDX)
+      description: Must be permissive. We re-verify the actual LICENSE during certification.
+      placeholder: e.g. MIT
+    validations:
+      required: true
+  - type: input
+    id: author
+    attributes:
+      label: Author / attribution
+    validations:
+      required: false
+  - type: dropdown
+    id: are-you-author
+    attributes:
+      label: Are you the author of this skill?
+      options:
+        - "Yes"
+        - "No — suggesting someone else's work"
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What does it do, and who is it for?
+      description: A short description and the use case — especially relevance to IT/Security teams.
+    validations:
+      required: true
+  - type: checkboxes
+    id: eligibility
+    attributes:
+      label: Eligibility
+      options:
+        - label: The source is under a recognized permissive license (not copyleft, not unlicensed).
+          required: true
+        - label: The repository contains a valid SKILL.md.
+          required: true
