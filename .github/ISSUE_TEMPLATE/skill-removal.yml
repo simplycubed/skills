@@ -1,0 +1,75 @@
+name: Skill removal request
+description: Request removal of a listed skill (for the skill's author or rights-holder).
+title: "Remove skill: <slug>"
+labels: ["removal-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to request removal of a skill **you authored or hold the rights to**.
+
+        We reference skills at a pinned commit and keep a content-addressed snapshot; on a
+        **verified** request we pull the skill from the catalog and stop serving its snapshot.
+
+        **To prove ownership, please open this issue from the GitHub account that owns the
+        upstream repository** — that account name is recorded on this issue automatically and
+        is the strongest signal you control the source.
+  - type: input
+    id: skill
+    attributes:
+      label: Skill slug
+      description: The catalog slug of the skill to remove (pre-filled from the storefront link).
+      placeholder: e.g. security-hardening
+    validations:
+      required: true
+  - type: input
+    id: upstream
+    attributes:
+      label: Upstream repository
+      description: The source repository the skill is referenced from (owner/name).
+      placeholder: e.g. addyosmani/agent-skills
+    validations:
+      required: true
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your relationship to this skill
+      options:
+        - I am the author
+        - I own / control the upstream repository
+        - I am an authorized representative of the rights-holder
+        - Other (explain under "Proof of ownership")
+    validations:
+      required: true
+  - type: input
+    id: github-username
+    attributes:
+      label: Your GitHub username
+      description: Ideally the account that owns the upstream repository. (This issue's author is also recorded automatically.)
+    validations:
+      required: true
+  - type: textarea
+    id: proof
+    attributes:
+      label: Proof of ownership / authority
+      description: >
+        How can we verify you own or represent this skill? For example: you are opening this
+        issue from the repo-owner account; a link or commit you authored; or contact from an
+        email/domain tied to the repository. Requests we cannot verify will not be actioned.
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason for removal (optional)
+    validations:
+      required: false
+  - type: checkboxes
+    id: attestations
+    attributes:
+      label: Attestations
+      options:
+        - label: I attest that I am the author of, or hold the rights to, the skill named above and am authorized to request its removal.
+          required: true
+        - label: I understand SimplyCubed references (does not re-host) upstream skills, and that removal pulls the listing from the catalog and stops serving its snapshot.
+          required: true

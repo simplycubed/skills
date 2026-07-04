@@ -79,6 +79,11 @@ assert.equal(catRoot.install.claudeCode.command, "/plugin install root-skill@sim
 assert.equal(catRoot.install.folder.dirName, "root-skill");
 assert.equal(catRoot.install.folder.source, "https://github.com/simplycubed/skills/tree/main/snapshots/root-skill/unit");
 assert.ok(catRoot.install.folder.targets.some((t) => t.dir === ".agents/skills/"), "vendor-neutral target present");
+// removal request deep link: pre-fills the issue form with slug + upstream
+assert.match(catRoot.removalUrl, /issues\/new\?/, "removalUrl points at a new issue");
+assert.match(catRoot.removalUrl, /template=skill-removal\.yml/, "removalUrl selects the removal form");
+assert.match(catRoot.removalUrl, /skill=root-skill/, "removalUrl pre-fills the slug");
+assert.match(catRoot.removalUrl, /upstream=acme%2Froot/, "removalUrl pre-fills (url-encoded) the upstream repo");
 // Subdir skill: also snapshot-based (keyed by slug, independent of upstream path)
 const catSub = cat.skills.find((s) => s.slug === "sub-skill");
 assert.equal(catSub.install.folder.source, "https://github.com/simplycubed/skills/tree/main/snapshots/sub-skill/unit");
