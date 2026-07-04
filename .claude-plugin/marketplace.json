@@ -79,6 +79,54 @@
       ]
     },
     {
+      "name": "aws-cdk-development",
+      "description": "AWS CDK expert for infrastructure-as-code in TypeScript/Python — CDK stacks, constructs, stack composition, and deployment workflows. Use for CDK, CloudFormation, cdk synth/deploy, or defining AWS infrastructure programmatically.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Mengxin Zhu",
+        "url": "https://github.com/zxkane"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/zxkane/aws-skills",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/zxkane/aws-skills.git",
+        "path": "plugins/aws-iac/skills/aws-cdk-development",
+        "sha": "68530c6f296ccd2f5e99c79782f3e0fbf962c51a"
+      },
+      "category": "devops",
+      "keywords": [
+        "aws",
+        "iac",
+        "cdk",
+        "devops"
+      ]
+    },
+    {
+      "name": "aws-cost-operations",
+      "description": "AWS cost optimization, monitoring, and operational excellence — analyze bills, estimate costs, set CloudWatch alarms, query logs, audit CloudTrail, and assess security posture. Use for AWS costs, budgets, observability, or auditing.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Mengxin Zhu",
+        "url": "https://github.com/zxkane"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/zxkane/aws-skills",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/zxkane/aws-skills.git",
+        "path": "plugins/aws-cost-ops/skills/aws-cost-operations",
+        "sha": "68530c6f296ccd2f5e99c79782f3e0fbf962c51a"
+      },
+      "category": "devops",
+      "keywords": [
+        "aws",
+        "finops",
+        "observability",
+        "audit"
+      ]
+    },
+    {
       "name": "ci-cd-automation",
       "description": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines, automating quality gates, configuring test runners in CI, or establishing deployment strategies.",
       "version": "1.0.0",

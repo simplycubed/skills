@@ -270,6 +270,182 @@
       }
     },
     {
+      "slug": "aws-cdk-development",
+      "name": "AWS CDK Development",
+      "description": "AWS CDK expert for infrastructure-as-code in TypeScript/Python — CDK stacks, constructs, stack composition, and deployment workflows. Use for CDK, CloudFormation, cdk synth/deploy, or defining AWS infrastructure programmatically.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "aws",
+        "iac",
+        "cdk",
+        "devops"
+      ],
+      "author": {
+        "name": "Mengxin Zhu",
+        "url": "https://github.com/zxkane"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "zxkane/aws-skills",
+        "sha": "68530c6f296ccd2f5e99c79782f3e0fbf962c51a",
+        "path": "plugins/aws-iac/skills/aws-cdk-development"
+      },
+      "sourceUrl": "https://github.com/zxkane/aws-skills",
+      "tier": "free",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install aws-cdk-development@simplycubed"
+        },
+        "folder": {
+          "dirName": "aws-cdk-development",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/aws-cdk-development/unit",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-04T04:59:11.885Z",
+        "record": {
+          "slug": "aws-cdk-development",
+          "upstream": {
+            "repo": "zxkane/aws-skills",
+            "sha": "68530c6f296ccd2f5e99c79782f3e0fbf962c51a",
+            "path": "plugins/aws-iac/skills/aws-cdk-development"
+          },
+          "scanned_at": "2026-07-04T04:59:11.885Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "1.168.0"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "aws-cost-operations",
+      "name": "AWS Cost & Operations",
+      "description": "AWS cost optimization, monitoring, and operational excellence — analyze bills, estimate costs, set CloudWatch alarms, query logs, audit CloudTrail, and assess security posture. Use for AWS costs, budgets, observability, or auditing.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "aws",
+        "finops",
+        "observability",
+        "audit"
+      ],
+      "author": {
+        "name": "Mengxin Zhu",
+        "url": "https://github.com/zxkane"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "zxkane/aws-skills",
+        "sha": "68530c6f296ccd2f5e99c79782f3e0fbf962c51a",
+        "path": "plugins/aws-cost-ops/skills/aws-cost-operations"
+      },
+      "sourceUrl": "https://github.com/zxkane/aws-skills",
+      "tier": "free",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install aws-cost-operations@simplycubed"
+        },
+        "folder": {
+          "dirName": "aws-cost-operations",
+          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/aws-cost-operations/unit",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-04T04:59:10.910Z",
+        "record": {
+          "slug": "aws-cost-operations",
+          "upstream": {
+            "repo": "zxkane/aws-skills",
+            "sha": "68530c6f296ccd2f5e99c79782f3e0fbf962c51a",
+            "path": "plugins/aws-cost-ops/skills/aws-cost-operations"
+          },
+          "scanned_at": "2026-07-04T04:59:10.910Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
       "slug": "ci-cd-automation",
       "name": "CI/CD & Automation",
       "description": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines, automating quality gates, configuring test runners in CI, or establishing deployment strategies.",

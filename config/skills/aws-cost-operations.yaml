@@ -1,0 +1,20 @@
+slug: aws-cost-operations
+name: AWS Cost & Operations
+description: 'AWS cost optimization, monitoring, and operational excellence — analyze bills, estimate costs, set CloudWatch alarms, query logs, audit CloudTrail, and assess security posture. Use for AWS costs, budgets, observability, or auditing.'
+version: 1.0.0
+status: active
+upstream:
+  repo: zxkane/aws-skills
+  sha: "68530c6f296ccd2f5e99c79782f3e0fbf962c51a"
+  path: plugins/aws-cost-ops/skills/aws-cost-operations
+author:
+  name: Mengxin Zhu
+  url: https://github.com/zxkane
+license: MIT
+homepage: https://github.com/zxkane/aws-skills
+category: devops
+tags:
+  - aws
+  - finops
+  - observability
+  - audit

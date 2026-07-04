@@ -1,0 +1,35 @@
+{
+  "slug": "aws-cdk-development",
+  "upstream": {
+    "repo": "zxkane/aws-skills",
+    "sha": "68530c6f296ccd2f5e99c79782f3e0fbf962c51a",
+    "path": "plugins/aws-iac/skills/aws-cdk-development"
+  },
+  "scanned_at": "2026-07-04T04:59:11.885Z",
+  "unit": {
+    "licenseSource": "repo-root",
+    "declaredLicense": "MIT",
+    "licenseMatches": true
+  },
+  "tools": {
+    "certify": "builtin",
+    "gitleaks": "8.18.4",
+    "osv-scanner": "2.4.0",
+    "semgrep": "1.168.0"
+  },
+  "checks": {
+    "structure": [],
+    "license": [],
+    "injection": [],
+    "secrets": [],
+    "vulnerabilities": [],
+    "sast": []
+  },
+  "review": [],
+  "scan_errors": [],
+  "incomplete": false,
+  "passed": true,
+  "finding_count": 0,
+  "review_count": 0,
+  "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+}
