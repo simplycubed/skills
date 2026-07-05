@@ -1,0 +1,43 @@
+# Upload every active skill's snapshot blob + scan record to R2 (one-time backfill).
+# Idempotent + content-addressed, so safe to re-run. After uploading, it reads each
+# blob back off the live CDN and re-hashes it against the git manifest — the upload
+# isn't "done" until the published bytes verify end to end.
+#
+# Manual only (workflow_dispatch), under the `prod` GitHub Environment that holds the
+# skills-scoped CLOUDFLARE_API_TOKEN (Workers R2 Storage: Edit). Requires the bucket +
+# CDN from the Provision workflow to already exist.
+name: Upload snapshots to R2 (backfill)
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    environment: prod
+    env:
+      WRANGLER_VERSION: "4" # TODO: pin to an exact version once confirmed
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      R2_BUCKET: simplycubed-skills
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: npm install -g "wrangler@${WRANGLER_VERSION}"
+
+      - name: Preflight — confirm the token/account resolve
+        run: wrangler whoami
+
+      - name: Upload blobs + records (fail-closed re-verify vs git manifest before each PUT)
+        run: pnpm r2:migrate
+
+      - name: Verify — every blob re-hashes from the live CDN back to the git manifest
+        run: pnpm r2:migrate:verify
