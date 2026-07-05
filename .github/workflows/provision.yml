@@ -1,0 +1,62 @@
+# Provision the Cloudflare infra for the snapshot store, as code (IaC).
+# Creates the R2 bucket and deploys the CDN Worker (which also creates the
+# cdn.simplycubed.com DNS record + route). Idempotent + safe to re-run.
+#
+# Manual only (workflow_dispatch) so it never runs before the token exists.
+# Runs under the `prod` GitHub Environment, which holds the single skills-scoped
+# CLOUDFLARE_API_TOKEN (Workers R2:Edit + Workers Scripts:Edit + zone DNS/Routes).
+name: Provision Cloudflare (R2 bucket + CDN Worker)
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  provision:
+    runs-on: ubuntu-latest
+    environment: prod
+    env:
+      WRANGLER_VERSION: "4" # TODO: pin to an exact version once confirmed
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      R2_BUCKET: simplycubed-skills
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: npm install -g "wrangler@${WRANGLER_VERSION}"
+
+      # Fail fast + diagnostic: print which account the token resolves to BEFORE
+      # creating anything, so a wrong CLOUDFLARE_ACCOUNT_ID surfaces at the top of
+      # the log rather than as a cryptic mid-run auth error.
+      - name: Preflight — confirm the token/account resolve
+        run: wrangler whoami
+
+      - name: Create the R2 bucket (idempotent)
+        run: node scripts/r2-bootstrap.mjs
+
+      - name: Deploy the CDN Worker (creates cdn.simplycubed.com DNS + route)
+        working-directory: workers/cdn
+        run: wrangler deploy
+
+      # First-time custom-domain + edge-cert provisioning isn't live the instant
+      # `wrangler deploy` returns — an immediate curl can hit an SSL/52x race. Poll
+      # for the clean 404 for ~150s so propagation delay doesn't fail the job (and
+      # burn a prod re-approval) spuriously.
+      - name: Smoke — the live CDN returns 404 for a missing object
+        run: |
+          hex=$(printf '%064d' 0)
+          url="https://cdn.simplycubed.com/blobs/sha256/${hex}/unit.tar.gz"
+          code=000
+          for i in $(seq 1 30); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "$url" || echo 000)
+            echo "attempt $i: $code"
+            [ "$code" = "404" ] && { echo "✓ cdn.simplycubed.com is live (404 on missing object)"; exit 0; }
+            sleep 5
+          done
+          echo "✗ cdn.simplycubed.com did not return 404 within ~150s (last: $code)"
+          exit 1

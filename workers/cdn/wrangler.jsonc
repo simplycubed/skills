@@ -1,0 +1,18 @@
+{
+  // The public CDN for skill snapshots. Serves the content-addressed R2 objects
+  // (blobs/records) at cdn.simplycubed.com. Deployed by .github/workflows/provision.yml
+  // under the single skills-scoped CLOUDFLARE_API_TOKEN. account_id comes from the
+  // CLOUDFLARE_ACCOUNT_ID env var in CI (not hard-coded here).
+  "name": "skills-cdn",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-01",
+  "r2_buckets": [
+    { "binding": "BUCKET", "bucket_name": "simplycubed-skills" }
+  ],
+  // wrangler creates the DNS record + attaches the Worker to the whole hostname.
+  "routes": [
+    { "pattern": "cdn.simplycubed.com", "custom_domain": true }
+  ]
+  // fast-follow (slug alias + revocation): add a KV binding
+  // "kv_namespaces": [{ "binding": "SLUGMAP", "id": "<from `wrangler kv namespace create`>" }]
+}
