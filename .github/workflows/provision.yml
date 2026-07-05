@@ -30,6 +30,12 @@ jobs:
           package-manager-cache: false
       - run: npm install -g "wrangler@${WRANGLER_VERSION}"
 
+      # Fail fast + diagnostic: print which account the token resolves to BEFORE
+      # creating anything, so a wrong CLOUDFLARE_ACCOUNT_ID surfaces at the top of
+      # the log rather than as a cryptic mid-run auth error.
+      - name: Preflight — confirm the token/account resolve
+        run: wrangler whoami
+
       - name: Create the R2 bucket (idempotent)
         run: node scripts/r2-bootstrap.mjs
 
@@ -37,10 +43,20 @@ jobs:
         working-directory: workers/cdn
         run: wrangler deploy
 
+      # First-time custom-domain + edge-cert provisioning isn't live the instant
+      # `wrangler deploy` returns — an immediate curl can hit an SSL/52x race. Poll
+      # for the clean 404 for ~150s so propagation delay doesn't fail the job (and
+      # burn a prod re-approval) spuriously.
       - name: Smoke — the live CDN returns 404 for a missing object
         run: |
           hex=$(printf '%064d' 0)
-          code=$(curl -s -o /dev/null -w '%{http_code}' "https://cdn.simplycubed.com/blobs/sha256/${hex}/unit.tar.gz")
-          echo "CDN 404 probe: $code"
-          [ "$code" = "404" ] || { echo "✗ expected 404 from the live CDN Worker"; exit 1; }
-          echo "✓ cdn.simplycubed.com is live"
+          url="https://cdn.simplycubed.com/blobs/sha256/${hex}/unit.tar.gz"
+          code=000
+          for i in $(seq 1 30); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "$url" || echo 000)
+            echo "attempt $i: $code"
+            [ "$code" = "404" ] && { echo "✓ cdn.simplycubed.com is live (404 on missing object)"; exit 0; }
+            sleep 5
+          done
+          echo "✗ cdn.simplycubed.com did not return 404 within ~150s (last: $code)"
+          exit 1
