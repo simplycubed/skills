@@ -1,0 +1,49 @@
+# Storefront catalog sync — SENDER (skills -> web).
+#
+# When catalog.json changes on main, fire a repository_dispatch to
+# simplycubed/web so the storefront rebuilds against the live catalog. This is
+# the skills-repo half of the cross-repo contract documented in the web repo's
+# CLAUDE.md ("storefront catalog sync"). The web repo owns the receiver + the
+# build-time live fetch; this repo owns this sender.
+#
+# Contract (must match the web receiver): event_type is EXACTLY
+# "simplycubed-catalog-updated". Dev-only auto-redeploy; prod stays gated behind
+# a v*-prod tag on the web side.
+#
+# Auth: uses WEB_DISPATCH_TOKEN — a token authorized to trigger
+# repository_dispatch on simplycubed/web (a fine-grained PAT with Contents:
+# write on that repo, or a GitHub App installation token). Charles populates it
+# as a repo secret (Actions hold the creds). The default GITHUB_TOKEN cannot
+# dispatch to another repo, so a scoped token is required. If the secret is
+# absent the step no-ops with a warning rather than failing.
+name: Notify web on catalog change
+
+on:
+  push:
+    branches: [main]
+    paths: ["catalog.json"]
+  workflow_dispatch: {} # manual "refresh the storefront" button
+
+permissions:
+  contents: read
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fire repository_dispatch to simplycubed/web
+        env:
+          TOKEN: ${{ secrets.WEB_DISPATCH_TOKEN }}
+          SHA: ${{ github.sha }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::warning::WEB_DISPATCH_TOKEN not set — skipping storefront redeploy dispatch. Add the secret to enable auto-sync."
+            exit 0
+          fi
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/simplycubed/web/dispatches \
+            -d "{\"event_type\":\"simplycubed-catalog-updated\",\"client_payload\":{\"sha\":\"${SHA}\",\"source\":\"simplycubed/skills\"}}"
+          echo "✓ dispatched simplycubed-catalog-updated to simplycubed/web (catalog @ ${SHA})"

@@ -21,6 +21,13 @@ certified in CI. This repo produces three artifacts:
 - **Never hand-edit** `marketplace.json` / `catalog.json` (generated) or
   `<slug>.scan.json` (produced by `scan.mjs`) — CI's no-drift + re-scan gates reject it.
 - Certification methodology: [`METHODOLOGY.md`](METHODOLOGY.md).
+- **Storefront sync (skills → web):** when `catalog.json` changes on `main`,
+  `.github/workflows/notify-web.yml` fires a `repository_dispatch`
+  (`simplycubed-catalog-updated`) to `simplycubed/web`, which rebuilds the
+  storefront against the live catalog. This repo owns the **sender**; the web repo
+  owns the receiver + the build-time live fetch (see the web repo's CLAUDE.md
+  "storefront catalog sync"). Auth is the `WEB_DISPATCH_TOKEN` secret (Charles
+  populates it). Neither session commits into the other's repo.
 
 ---
 
