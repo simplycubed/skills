@@ -7,10 +7,10 @@
 // re-extract and re-hash the tree and compare to the git manifest. So this
 // module deliberately hashes nothing.
 //
-// READS (CI gate, no credentials): public GET from the bucket's custom domain.
-// WRITES (push:main / migration Actions only): R2 S3-compatible API via a lazily
-// imported `aws4fetch`, so this module loads and self-tests without the dep or
-// any credentials present.
+// READS (everywhere, no credentials): public GET via the CDN Worker.
+// WRITES: not here — uploads are `wrangler r2 object put` in scripts/r2-sync.mjs,
+// run only by the provisioning/sync Actions under one CLOUDFLARE_API_TOKEN. This
+// module is therefore credential-free and loads with no extra dependency.
 import { mkdtempSync, rmSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
@@ -53,23 +53,10 @@ export function fetchUnitFromCdn(hex) {
   return dir;
 }
 
-// WRITE (main/migration only): idempotent PUT to R2 (S3 API), one bucket.
-// Lazily imports aws4fetch so this module needs neither the dep nor creds to load.
-function reqEnv(k) { const v = process.env[k]; if (!v) throw new Error(`r2.mjs: missing env ${k}`); return v; }
-async function client() {
-  const { AwsClient } = await import("aws4fetch");
-  return new AwsClient({ accessKeyId: reqEnv("R2_ACCESS_KEY_ID"), secretAccessKey: reqEnv("R2_SECRET_ACCESS_KEY"), region: "auto", service: "s3" });
+// Is a content-addressed object already public on the CDN? Used by r2-sync to
+// skip re-uploads (content-addressed keys are write-once, so this is idempotency,
+// not correctness).
+export function existsOnCdn(key) {
+  const r = spawnSync("curl", ["-sSIf", "-o", "/dev/null", cdnUrl(key)], { encoding: "utf8" });
+  return r.status === 0;
 }
-const objectUrl = (key) => `https://${reqEnv("R2_ACCOUNT_ID")}.r2.cloudflarestorage.com/${reqEnv("R2_BUCKET")}/${key}`;
-
-async function putIfAbsent(key, body, contentType) {
-  const aws = await client();
-  const head = await aws.fetch(objectUrl(key), { method: "HEAD" });
-  if (head.ok) return { skipped: true }; // content-addressed ⇒ write-once
-  const put = await aws.fetch(objectUrl(key), { method: "PUT", body, headers: { "content-type": contentType } });
-  if (!put.ok) throw new Error(`r2 PUT ${key} failed: ${put.status} ${await put.text().catch(() => "")}`);
-  return { skipped: false };
-}
-
-export const putBlob = (hex, buf) => putIfAbsent(blobKey(hex), buf, "application/gzip");
-export const putRecord = (hex, json) => putIfAbsent(recordKey(hex), typeof json === "string" ? json : JSON.stringify(json), "application/json");
