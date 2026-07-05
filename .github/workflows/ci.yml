@@ -34,6 +34,9 @@ jobs:
       - name: Unit self-test (license assembly, fail-closed scanner, validator, structure guards)
         run: pnpm unit:selftest
 
+      - name: R2 transport self-test (pack/unpack is contentHash-lossless)
+        run: pnpm r2:selftest
+
       - name: Manifest generator self-test (source shapes + install strings)
         run: pnpm generate:selftest
 
