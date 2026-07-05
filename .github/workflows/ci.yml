@@ -49,6 +49,9 @@ jobs:
       - name: Snapshot integrity (every active skill has an intact content-addressed snapshot)
         run: pnpm snapshot:check
 
+      - name: R2 migration dry-run (every active snapshot re-verifies + packs, no upload/creds)
+        run: pnpm r2:migrate:check
+
       - name: Revocation self-test (revoked skills drop from both manifests; snapshot removed)
         run: pnpm revoke:selftest
 
