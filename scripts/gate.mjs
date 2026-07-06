@@ -11,6 +11,7 @@ const scannersPresent = scanners.every(has);
 
 // [script, requiresScanners]
 const steps = [
+  ["workflow:lint", false],
   ["validate", false],
   ["gate:selftest", false],
   ["unit:selftest", false],

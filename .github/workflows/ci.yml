@@ -25,6 +25,9 @@ jobs:
       - run: corepack enable
       - run: pnpm install --frozen-lockfile
 
+      - name: Workflow YAML lint (every .github/workflows/*.yml parses)
+        run: pnpm workflow:lint
+
       - name: Validate skill configs (schema + permissive-license allowlist + slug==filename)
         run: pnpm validate
 
@@ -46,7 +49,7 @@ jobs:
       - name: Catalog contract (catalog.json matches config/catalog.schema.json)
         run: pnpm catalog:check
 
-      - name: Snapshot seam self-test (materializeUnit: local source + fail-closed on drift)
+      - name: "Snapshot seam self-test (materializeUnit local source + fail-closed on drift)"
         run: pnpm snapshot:selftest
 
       - name: Snapshot integrity (every active skill has an intact content-addressed snapshot)

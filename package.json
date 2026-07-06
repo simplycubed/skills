@@ -26,6 +26,7 @@
     "snapshot": "node scripts/snapshot.mjs",
     "snapshot:check": "node scripts/snapshot-check.mjs",
     "snapshot:selftest": "node scripts/snapshot-selftest.mjs",
+    "workflow:lint": "node scripts/workflow-lint.mjs",
     "gate": "node scripts/gate.mjs",
     "revoke": "node scripts/revoke.mjs",
     "revoke:selftest": "node scripts/revoke-selftest.mjs",
