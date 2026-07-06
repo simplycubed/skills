@@ -1,0 +1,52 @@
+# Auto-upload snapshots to R2 on merge — "always upload it; if the check fails,
+# remove it." On every push to main (and on demand), reconcile the R2 store: for
+# each active skill, re-hash the local bytes vs the manifest (fail-closed), upload
+# any blob/record not already on the CDN, verify it back off the CDN, and ROLL BACK
+# (delete) anything whose post-upload verify fails. Idempotent + content-addressed,
+# so a merge with no new skills is a fast no-op.
+#
+# WHY THIS IS SAFE TO RUN UNATTENDED (no per-merge human gate): every write is
+# content-addressed (can't clobber another skill), re-verified, and auto-rolled-back
+# on failure — a reversible prod action. It therefore runs under a dedicated
+# `r2-write` Environment scoped to R2 writes only, NOT the reviewer-gated `prod`
+# Environment used for irreversible ops.
+#
+# BOOTSTRAP GATE: the job only runs when the repo variable R2_AUTOUPLOAD == 'true'.
+# Until you create the `r2-write` Environment + token and flip that variable, the
+# job shows as "skipped" (never a false green, never a broken main).
+name: Sync snapshots to R2 (auto-upload on merge)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    # Explicit opt-in — skipped (not passed, not failed) until creds are wired.
+    if: ${{ vars.R2_AUTOUPLOAD == 'true' }}
+    runs-on: ubuntu-latest
+    environment: r2-write
+    env:
+      WRANGLER_VERSION: "4" # TODO: pin to an exact version once confirmed
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      R2_BUCKET: simplycubed-skills
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: npm install -g "wrangler@${WRANGLER_VERSION}"
+
+      - name: Preflight — confirm the token/account resolve
+        run: wrangler whoami
+
+      - name: Sync (upload absent → verify off CDN → roll back on fail)
+        run: pnpm r2:sync

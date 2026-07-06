@@ -18,6 +18,7 @@
     "r2:migrate": "node scripts/r2-migrate.mjs",
     "r2:migrate:check": "node scripts/r2-migrate.mjs --dry-run",
     "r2:migrate:verify": "node scripts/r2-migrate.mjs --verify",
+    "r2:sync": "node scripts/r2-migrate.mjs --sync",
     "fetch": "node scripts/fetch.mjs",
     "scan": "node scripts/scan.mjs",
     "scan:selftest": "node scripts/scan-selftest.mjs",
