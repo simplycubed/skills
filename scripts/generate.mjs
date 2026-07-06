@@ -24,7 +24,7 @@ const CATALOG_PATH = join(ROOT, "catalog.json");
 
 // Bump when catalog.json's shape changes in a way consumers (the storefront)
 // must adapt to. Validated against config/catalog.schema.json in CI.
-const CATALOG_SCHEMA_VERSION = 1;
+const CATALOG_SCHEMA_VERSION = 2;
 
 // Where an agent drops a skill folder, mirroring the README install table. Every
 // listed skill is a plain SKILL.md folder, so it installs into any compatible
@@ -36,11 +36,29 @@ const INSTALL_TARGETS = [
   { agent: "Gemini CLI", dir: "~/.gemini/skills/" },
 ];
 
-// Browsable source of the exact published folder. Points at our durable,
-// content-addressed snapshot (not the upstream), so the folder stays available
-// and byte-stable even if the upstream repo disappears.
+// Source of the exact published folder. Points at our durable, content-addressed
+// snapshot in R2 (the CDN tarball), so the folder stays available and byte-stable
+// even if the upstream repo disappears — and survives PR-7 deleting the in-git unit
+// bytes. It is a `.tar.gz` (download + extract), NOT a browsable tree — a UX change
+// the storefront must adopt at schemaVersion 2. Falls back to the pinned upstream
+// tree only for a skill with no snapshot manifest (not normally published).
+export function folderSource(c, hex) {
+  if (hex) return `https://cdn.simplycubed.com/blobs/sha256/${hex}/unit.tar.gz`;
+  const path = c.upstream.path ? `/${c.upstream.path}` : "";
+  return `https://github.com/${c.upstream.repo}/tree/${c.upstream.sha}${path}`;
+}
+
+// The content hash from a skill's committed snapshot manifest (which PR-7 keeps),
+// used to build the content-addressed CDN URL. null if not yet snapshotted.
+function contentHexOf(slug) {
+  const p = join(ROOT, "snapshots", slug, "manifest.json");
+  if (!existsSync(p)) return null;
+  try { return String(JSON.parse(readFileSync(p, "utf8")).contentHash).replace(/^sha256:/, ""); }
+  catch { return null; }
+}
+
 function folderSourceUrl(c) {
-  return `https://github.com/${MARKETPLACE_NAME}/skills/tree/main/snapshots/${c.slug}/unit`;
+  return folderSource(c, contentHexOf(c.slug));
 }
 
 // Deep link to a pre-filled GitHub issue form for authors/rights-holders to
