@@ -27,6 +27,9 @@ const cases = [
   // Bidi "Trojan Source" obfuscation must BLOCK (folded into the injection tier).
   { dir: "fixtures/obfuscated-skill", expect: 1, label: "bidi-obfuscated fixture is blocked",
     obfuscation: true },
+  // An install-time lifecycle hook must PASS but be surfaced as review, not blocked.
+  { dir: "fixtures/install-hook-skill", expect: 0, label: "install-hook fixture passes with the hook surfaced",
+    installHook: true },
 ];
 
 let ok = true;
@@ -42,6 +45,11 @@ for (const c of cases) {
     const flagged = (verdict?.checks?.injection || []).some((s) => /bidirectional override/i.test(s));
     pass = pass && flagged;
     console.log(`${pass ? "✓" : "✗"} ${c.label} (exit ${status}, bidi flagged ${flagged})`);
+  } else if (c.installHook) {
+    // Must pass, with the install hook surfaced (not blocked).
+    const flagged = verdict && verdict.finding_count === 0 && (verdict.review || []).some((s) => /lifecycle script/i.test(s));
+    pass = pass && flagged;
+    console.log(`${pass ? "✓" : "✗"} ${c.label} (exit ${status}, hook flagged ${flagged})`);
   } else {
     console.log(`${pass ? "✓" : "✗"} ${c.label} (exit ${status}, expected ${c.expect})`);
   }

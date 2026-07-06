@@ -77,6 +77,29 @@ function obfuscationScan(dir) {
   return { block, review };
 }
 
+// Install-time auto-run hooks — code that executes when the skill is installed
+// rather than when the agent deliberately invokes it (a classic supply-chain vector,
+// e.g. an npm postinstall). Surfaced as REVIEW (non-blocking): sometimes legitimate,
+// but the agent/human should see it before trusting the skill.
+const LIFECYCLE_SCRIPTS = ["preinstall", "install", "postinstall", "prepare", "prepublish", "prepublishOnly"];
+const HOOK_FILE = /^(pre|post)?install\.(sh|js|py|mjs|cjs|ts)$|^setup\.sh$/i;
+
+function installHookScan(dir) {
+  const review = [];
+  for (const f of walk(dir, resolve(dir))) {
+    if (f.symlink) continue;
+    if (f.name === "package.json") {
+      try {
+        const pkg = JSON.parse(readFileSync(f.full, "utf8"));
+        const hooks = LIFECYCLE_SCRIPTS.filter((k) => pkg.scripts && pkg.scripts[k]);
+        if (hooks.length) review.push(`${basename(f.full)}: lifecycle script(s) auto-run on install (${hooks.join(", ")})`);
+      } catch { /* not valid JSON — ignore */ }
+    }
+    if (HOOK_FILE.test(f.name)) review.push(`${f.name}: install-time hook script present`);
+  }
+  return review;
+}
+
 function walk(dir, root, files = []) {
   for (const name of readdirSync(dir)) {
     if (name === ".git") continue;
@@ -159,7 +182,7 @@ export function certify(dir) {
     // record key — keeps the certification record shape and catalog.json stable).
     injection: [...scanText(dir, INJECTION_BLOCK), ...obf.block],
   };
-  const review = [...scanText(dir, INJECTION_REVIEW), ...obf.review]; // surfaced, non-blocking
+  const review = [...scanText(dir, INJECTION_REVIEW), ...obf.review, ...installHookScan(dir)]; // surfaced, non-blocking
   // Only blocking checks decide pass/fail; review findings are flagged, not fatal.
   const blocking = Object.values(checks).flat();
   return {

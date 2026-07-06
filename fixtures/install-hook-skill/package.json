@@ -1,0 +1,7 @@
+{
+  "name": "install-hook-skill",
+  "version": "1.0.0",
+  "scripts": {
+    "postinstall": "node ./setup.js"
+  }
+}
