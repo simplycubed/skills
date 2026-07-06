@@ -23,7 +23,7 @@ import { tmpdir } from "node:os";
 import { spawnSync } from "node:child_process";
 import { setTimeout as sleep } from "node:timers/promises";
 import { readActiveSkills } from "./generate.mjs";
-import { readManifest, contentHash, SNAP_DIR } from "./snapshot.mjs";
+import { readManifest, contentHash, SNAP_DIR, materializeUnit } from "./snapshot.mjs";
 import { hexOf, blobKey, recordKey, packUnit, fetchUnitFromCdn, cdnUrl } from "./r2.mjs";
 
 const SYNC = process.argv.includes("--sync");
@@ -86,25 +86,31 @@ for (const cfg of skills) {
 
   // SYNC = the auto-upload path: always push, verify off the CDN, roll back on fail.
   if (SYNC) {
-    // Source bytes are the local unit (fail-closed vs manifest). Post-PR-7, when the
-    // git bytes are gone, this is where an upstream re-fetch@SHA would substitute.
-    if (!existsSync(unit) || contentHash(unit) !== manifest.contentHash) {
-      ok = false;
-      console.log(`✗ ${slug}: local unit missing or drifted — cannot source bytes to upload`);
-      continue;
-    }
+    // Idempotent: skip whatever already re-hashes clean on the CDN (content-addressed).
     if (onCdn(blobKey(hex)) && onCdn(recordKey(hex))) {
       console.log(`• ${slug}: already on CDN (content-addressed) — skip`);
+      continue;
+    }
+    // Source the bytes: local -> R2 -> upstream reproduce @ pinned SHA (fail-closed vs
+    // manifest). Post-migration, a new skill has no local unit, so this reproduces from
+    // the true source before packing + uploading the blob to R2.
+    let mat;
+    try {
+      mat = materializeUnit(slug, manifest);
+    } catch (e) {
+      ok = false;
+      console.log(`✗ ${slug}: cannot source bytes to upload — ${e.message}`);
       continue;
     }
     const tmp = mkdtempSync(join(tmpdir(), `r2-sync-${slug}-`));
     try {
       const tar = join(tmp, "unit.tar.gz");
-      writeFileSync(tar, packUnit(unit));
+      writeFileSync(tar, packUnit(mat.dir));
       wranglerPut(blobKey(hex), tar, "application/gzip");
       wranglerPut(recordKey(hex), record, "application/json");
     } finally {
       rmSync(tmp, { recursive: true, force: true });
+      mat.cleanup();
     }
     if (await cdnVerifies(hex, manifest)) {
       done++;
