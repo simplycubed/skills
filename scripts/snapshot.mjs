@@ -9,7 +9,7 @@
 // drift or tampering. The snapshot is created ONCE from the upstream at its
 // pinned SHA (the point of trust); re-verification thereafter reads the snapshot,
 // never the network.
-import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, existsSync, readdirSync, statSync, lstatSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync, statSync, lstatSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
@@ -74,16 +74,33 @@ export function materializeUnit(slug, manifest, { snapDir = SNAP_DIR } = {}) {
     return { dir: local, source: "local", cleanup() {} };
   }
 
+  // 2. R2/CDN blob — the durable store for already-published skills.
   const hex = hexOf(manifest.contentHash);
   const got = fetchUnitFromCdn(hex); // extracts into a fresh temp tree, or null on 404
-  if (!got) throw new Error(`${slug}: unit absent locally and on the CDN (${blobKey(hex)})`);
-  const cleanup = () => rmSync(dirname(got), { recursive: true, force: true });
-  const h = contentHash(got);
+  if (got) {
+    const cleanup = () => rmSync(dirname(got), { recursive: true, force: true });
+    const h = contentHash(got);
+    if (h !== manifest.contentHash) {
+      cleanup();
+      throw new Error(`${slug}: CDN unit hash ${h} != manifest ${manifest.contentHash}`);
+    }
+    return { dir: got, source: "r2", cleanup };
+  }
+
+  // 3. Upstream reproduce @ the pinned SHA — for a NEW skill whose blob isn't in R2
+  //    yet: its PR verifies against the TRUE SOURCE (fetch + assemble + re-hash vs the
+  //    manifest, fail-closed); the blob is uploaded to R2 on merge. FORCE_R2 forbids
+  //    this fallback so the R2-availability proof can't be silently satisfied upstream.
+  if (forceR2) throw new Error(`${slug}: unit absent on the CDN (${blobKey(hex)}); SKILLS_FORCE_R2 forbids upstream fallback`);
+  const assembled = assembleUnit(loadConfig(slug)); // network fetch of the pinned SHA
+  const dir = assembled.unitDir;
+  const cleanup = () => rmSync(dir, { recursive: true, force: true });
+  const h = contentHash(dir);
   if (h !== manifest.contentHash) {
     cleanup();
-    throw new Error(`${slug}: CDN unit hash ${h} != manifest ${manifest.contentHash}`);
+    throw new Error(`${slug}: upstream-reproduced hash ${h} != manifest ${manifest.contentHash} (re-run: pnpm snapshot ${slug} --write)`);
   }
-  return { dir: got, source: "r2", cleanup };
+  return { dir, source: "upstream", cleanup };
 }
 
 export function snapshot(slug, { write = false } = {}) {
@@ -102,10 +119,12 @@ export function snapshot(slug, { write = false } = {}) {
     fileCount: walkFiles(unit).length,
   };
   if (write) {
+    // Manifest-only: the unit BYTES live in R2 (content-addressed), never in git —
+    // the anti-bloat guard rejects a committed snapshots/*/unit tree. We keep just the
+    // tiny trust anchor; the blob is uploaded to R2 (from upstream) on merge.
     const dest = join(SNAP_DIR, slug);
     rmSync(dest, { recursive: true, force: true });
     mkdirSync(dest, { recursive: true });
-    cpSync(unit, join(dest, "unit"), { recursive: true });
     writeFileSync(join(dest, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n");
   }
   return manifest;
