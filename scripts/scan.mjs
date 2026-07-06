@@ -21,7 +21,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { spawnSync } from "node:child_process";
 import { loadConfig, assembleUnit, licenseVerdict } from "./fetch.mjs";
 import { certify } from "./certify.mjs";
-import { readManifest, SNAP_DIR } from "./snapshot.mjs";
+import { readManifest, materializeUnit } from "./snapshot.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SKILLS_DIR = join(ROOT, "config/skills");
@@ -224,19 +224,26 @@ export function scanSnapshot(slug, { now = new Date().toISOString() } = {}) {
   const cfg = loadConfig(slug);
   const manifest = readManifest(slug);
   if (!manifest) throw new Error(`no snapshot for ${slug} — run: pnpm snapshot ${slug} --write`);
-  const unit = join(SNAP_DIR, slug, "unit");
-  const lv = licenseVerdict(unit, cfg.license);
-  const assembled = {
-    unitDir: unit,
-    repo: manifest.upstream.repo,
-    sha: manifest.upstream.sha,
-    path: manifest.upstream.path,
-    licenseSource: "snapshot",
-    declaredLicense: cfg.license,
-    licenseMatches: lv.licenseMatches,
-    symlinkFindings: [], // snapshots are assembled symlink-free
-  };
-  return scanUnit(slug, assembled, { now });
+  // Source the unit from local OR R2 (content-addressed, re-hashed vs manifest,
+  // fail-closed). Survives PR-7 deleting the local bytes; SKILLS_FORCE_R2=1 forces R2.
+  const mat = materializeUnit(slug, manifest);
+  try {
+    const unit = mat.dir;
+    const lv = licenseVerdict(unit, cfg.license);
+    const assembled = {
+      unitDir: unit,
+      repo: manifest.upstream.repo,
+      sha: manifest.upstream.sha,
+      path: manifest.upstream.path,
+      licenseSource: "snapshot",
+      declaredLicense: cfg.license,
+      licenseMatches: lv.licenseMatches,
+      symlinkFindings: [], // snapshots are assembled symlink-free
+    };
+    return scanUnit(slug, assembled, { now });
+  } finally {
+    mat.cleanup();
+  }
 }
 
 function main() {
