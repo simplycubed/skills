@@ -1,0 +1,11 @@
+{
+  "slug": "aws-resource-health",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/aws-resource-health-diagnose"
+  },
+  "contentHash": "sha256:c6831175067e4c4f8d2e20f2a19ce7fafa5a42dc556ca6d9675e1b982153141d",
+  "byteSize": 8073,
+  "fileCount": 2
+}

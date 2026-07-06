@@ -1,0 +1,22 @@
+slug: audit-integrity
+name: Audit Integrity
+description: >-
+  A shared audit-integrity framework for AppSec agents: output-quality gates, anti-rationalization guards, self-critique
+  loops, retry protocols, and a lesson/memory governance system for security-analysis agents.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/audit-integrity
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - security
+  - audit
+  - appsec
+  - quality

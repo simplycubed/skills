@@ -1,0 +1,11 @@
+{
+  "slug": "centos-linux-triage",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/centos-linux-triage"
+  },
+  "contentHash": "sha256:6bd7ff45f1eeb732418361b8a4e8cb4761a21ae3ca8a9f45c320895257bc64c1",
+  "byteSize": 2018,
+  "fileCount": 2
+}
