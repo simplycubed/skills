@@ -1,0 +1,40 @@
+# R2 drift monitor — the ongoing "does R2 still serve the right bytes?" signal.
+# Runs daily (and on demand) with NO credentials (public CDN read, fork-safe): for
+# every active skill it fetches the blob off cdn.simplycubed.com, re-extracts, and
+# re-hashes it against the git manifest — failing loud on any miss or mismatch. No
+# local fallback: this is precisely the availability check that must NOT be masked.
+#
+# It also runs snapshot:check in SKILLS_FORCE_R2 mode, which ignores the local
+# committed bytes entirely — proving the no-local read path works WHILE the git
+# bytes still exist. That green run is PR-7's precondition (safe to delete local).
+#
+# NOTE (see ESCALATIONS.md): a red run surfaces in the Actions tab + GitHub's default
+# failure email. A one-time "demonstrate it goes red" dispatch against a tampered hex,
+# and a Slack/webhook failure notification, are recommended follow-ups.
+name: R2 drift monitor
+
+on:
+  schedule:
+    - cron: "17 7 * * *" # daily 07:17 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+
+      - name: Every blob re-hashes off the live CDN to its git manifest (no fallback)
+        run: pnpm r2:migrate:verify
+
+      - name: No-local read path works — verify from R2 ignoring the committed bytes
+        run: SKILLS_FORCE_R2=1 pnpm snapshot:check

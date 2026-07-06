@@ -50,6 +50,56 @@ const INJECTION_REVIEW = [
   [/\beval\s*\(|child_process|os\.system\(|subprocess\.(run|call|Popen)/i, "reference to code-execution APIs"],
 ];
 
+// Invisible/bidi obfuscation — instruction text that renders differently from its
+// bytes, so a human reviewer sees something other than what the agent parses.
+//   BLOCK  - bidirectional override/isolate controls (the "Trojan Source" attack):
+//            no legitimate use in skill instructions; can reorder/hide logic.
+//   REVIEW - zero-width / invisible characters (minus a single leading BOM): can
+//            smuggle hidden text, but also occur benignly (e.g. emoji ZWJ) — surfaced.
+const BIDI_OVERRIDE = new Set([0x202A, 0x202B, 0x202C, 0x202D, 0x202E, 0x2066, 0x2067, 0x2068, 0x2069]);
+const ZERO_WIDTH = new Set([0x200B, 0x200C, 0x200D, 0x2060, 0xFEFF]);
+const hasCodePoint = (text, set) => { for (const ch of text) if (set.has(ch.codePointAt(0))) return true; return false; };
+
+function obfuscationScan(dir) {
+  const block = [], review = [];
+  const files = walk(dir, resolve(dir)).filter((f) => !f.symlink && /\.(md|markdown|txt)$/i.test(f.name));
+  for (const f of files) {
+    let text;
+    try { text = readFileSync(f.full, "utf8"); } catch { continue; }
+    if (hasCodePoint(text, BIDI_OVERRIDE)) {
+      block.push(`${basename(f.full)}: bidirectional override control (Trojan Source obfuscation)`);
+    }
+    const body = text.charCodeAt(0) === 0xfeff ? text.slice(1) : text; // ignore a single leading BOM
+    if (hasCodePoint(body, ZERO_WIDTH)) {
+      review.push(`${basename(f.full)}: zero-width/invisible character(s)`);
+    }
+  }
+  return { block, review };
+}
+
+// Install-time auto-run hooks — code that executes when the skill is installed
+// rather than when the agent deliberately invokes it (a classic supply-chain vector,
+// e.g. an npm postinstall). Surfaced as REVIEW (non-blocking): sometimes legitimate,
+// but the agent/human should see it before trusting the skill.
+const LIFECYCLE_SCRIPTS = ["preinstall", "install", "postinstall", "prepare", "prepublish", "prepublishOnly"];
+const HOOK_FILE = /^(pre|post)?install\.(sh|js|py|mjs|cjs|ts)$|^setup\.sh$/i;
+
+function installHookScan(dir) {
+  const review = [];
+  for (const f of walk(dir, resolve(dir))) {
+    if (f.symlink) continue;
+    if (f.name === "package.json") {
+      try {
+        const pkg = JSON.parse(readFileSync(f.full, "utf8"));
+        const hooks = LIFECYCLE_SCRIPTS.filter((k) => pkg.scripts && pkg.scripts[k]);
+        if (hooks.length) review.push(`${basename(f.full)}: lifecycle script(s) auto-run on install (${hooks.join(", ")})`);
+      } catch { /* not valid JSON — ignore */ }
+    }
+    if (HOOK_FILE.test(f.name)) review.push(`${f.name}: install-time hook script present`);
+  }
+  return review;
+}
+
 function walk(dir, root, files = []) {
   for (const name of readdirSync(dir)) {
     if (name === ".git") continue;
@@ -124,12 +174,15 @@ function scanText(dir, patterns) {
 // Exported so the scan orchestrator can reuse the built-in tier without shelling
 // out to this file.
 export function certify(dir) {
+  const obf = obfuscationScan(dir);
   const checks = {
     structure: structureGuard(dir),
     license: licenseCheck(dir),
-    injection: scanText(dir, INJECTION_BLOCK), // blocking
+    // Blocking injection tier + bidi-obfuscation BLOCK findings (folded in, no new
+    // record key — keeps the certification record shape and catalog.json stable).
+    injection: [...scanText(dir, INJECTION_BLOCK), ...obf.block],
   };
-  const review = scanText(dir, INJECTION_REVIEW); // surfaced, non-blocking
+  const review = [...scanText(dir, INJECTION_REVIEW), ...obf.review, ...installHookScan(dir)]; // surfaced, non-blocking
   // Only blocking checks decide pass/fail; review findings are flagged, not fatal.
   const blocking = Object.values(checks).flat();
   return {

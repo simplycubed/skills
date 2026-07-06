@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "marketplace": "simplycubed",
   "skills": [
     {
@@ -34,7 +34,7 @@
         },
         "folder": {
           "dirName": "agent-governance",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/agent-governance/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/12b7bf6cfb48ee5ee088c8b0eb9448929b9e63eacb7fd0fa15be47734b05d4e9/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
@@ -125,7 +125,7 @@
         },
         "folder": {
           "dirName": "agent-owasp-compliance",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/agent-owasp-compliance/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/17815bf5783ce364776ac8c17306650038cf8d7191eac5662f618782eb1459c5/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
@@ -215,7 +215,7 @@
         },
         "folder": {
           "dirName": "agent-supply-chain",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/agent-supply-chain/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/2fab2fde8aea10c241247505ba6f0ca9b701269e6f1718c6260e551692aa0829/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
@@ -304,7 +304,7 @@
         },
         "folder": {
           "dirName": "aws-cdk-development",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/aws-cdk-development/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/e7a5511175dfefe20fb3093c591bc8bb09f622d711d09141b509cc6c72438e90/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
@@ -393,7 +393,7 @@
         },
         "folder": {
           "dirName": "aws-cost-operations",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/aws-cost-operations/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/3b45d4c42684f73f7ba4a4dd21f76c7e674020d1dc396de32b627c0e5e206a18/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
@@ -481,7 +481,7 @@
         },
         "folder": {
           "dirName": "ci-cd-automation",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/ci-cd-automation/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/3f425aa84b61ad87bd9a8b44cd5f68ac810dde48f5e12a0c1fff250876933332/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
@@ -570,7 +570,7 @@
         },
         "folder": {
           "dirName": "code-review",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/code-review/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/18534dba914088343228107f6d048bca28699e4809dd10dfa6af258f2219e321/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
@@ -658,7 +658,7 @@
         },
         "folder": {
           "dirName": "docs-adrs",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/docs-adrs/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/67dfa51e9b8746c80ded6e74712e88a15a670e38c78c924e0fe1d7703de06909/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
@@ -747,7 +747,7 @@
         },
         "folder": {
           "dirName": "humanizer",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/humanizer/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/8504cc461e02bd3cad69c482d23dc097ddc3f31c46818e2cfad8fc42300e1ce5/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
@@ -836,7 +836,7 @@
         },
         "folder": {
           "dirName": "linus-level",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/linus-level/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/5e043dc357a1418104d1b0f10318ac1500e262362b471f0b318942bd62d81bd8/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
@@ -928,7 +928,7 @@
         },
         "folder": {
           "dirName": "nothing-design",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/nothing-design/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/c307ff621a2ca2b50f937443b71a3db8cc250f015880637ecdf6c767347068fc/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
@@ -1016,7 +1016,7 @@
         },
         "folder": {
           "dirName": "observability",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/observability/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/fa0c773037d824f5a05a1d338dda4580fe2410ee94e68899431a7eb9971b2b82/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
@@ -1105,7 +1105,7 @@
         },
         "folder": {
           "dirName": "playwright",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/playwright/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/3fd72906cba7387b747e08122f76a5df50cf5f323ac591cb33d0686b9a7651f2/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
@@ -1196,7 +1196,7 @@
         },
         "folder": {
           "dirName": "security-hardening",
-          "source": "https://github.com/simplycubed/skills/tree/main/snapshots/security-hardening/unit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/d7415af33296a7b8ccbc556bcbf83c13311dffb97bd556ec9007c76702a76858/unit.tar.gz",
           "targets": [
             {
               "agent": "Vendor-neutral (Codex, Gemini CLI, …)",

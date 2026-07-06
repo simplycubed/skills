@@ -14,6 +14,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
 import { loadConfig, assembleUnit } from "./fetch.mjs";
+import { hexOf, blobKey, fetchUnitFromCdn } from "./r2.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 export const SNAP_DIR = join(ROOT, "snapshots");
@@ -47,6 +48,42 @@ function byteSize(unitDir) {
 export function readManifest(slug) {
   const p = join(SNAP_DIR, slug, "manifest.json");
   return existsSync(p) ? JSON.parse(readFileSync(p, "utf8")) : null;
+}
+
+// Produce a verified unit directory for a skill, sourced from the local committed
+// snapshot when present, else fetched from R2/CDN. EITHER way the tree is re-hashed
+// against the manifest's contentHash and throws on mismatch/absence — fail-closed,
+// so a tampered/served-wrong/missing unit can never silently verify. This is the
+// seam that lets certification survive PR-7 deleting the local `unit/` bytes: no
+// local copy → read the content-addressed blob from R2 and re-hash it.
+//
+// SKILLS_FORCE_R2=1 skips the local copy entirely and forces the R2 path — so CI can
+// prove the no-local read works WHILE the git bytes still exist (PR-7's precondition).
+//
+// Returns { dir, source: "local"|"r2", cleanup() }. Callers MUST call cleanup().
+export function materializeUnit(slug, manifest, { snapDir = SNAP_DIR } = {}) {
+  if (!manifest) throw new Error(`materializeUnit(${slug}): no manifest`);
+  const local = join(snapDir, slug, "unit");
+  const forceR2 = process.env.SKILLS_FORCE_R2 === "1";
+
+  if (!forceR2 && existsSync(local)) {
+    const h = contentHash(local);
+    if (h !== manifest.contentHash) {
+      throw new Error(`${slug}: local unit hash ${h} != manifest ${manifest.contentHash}`);
+    }
+    return { dir: local, source: "local", cleanup() {} };
+  }
+
+  const hex = hexOf(manifest.contentHash);
+  const got = fetchUnitFromCdn(hex); // extracts into a fresh temp tree, or null on 404
+  if (!got) throw new Error(`${slug}: unit absent locally and on the CDN (${blobKey(hex)})`);
+  const cleanup = () => rmSync(dirname(got), { recursive: true, force: true });
+  const h = contentHash(got);
+  if (h !== manifest.contentHash) {
+    cleanup();
+    throw new Error(`${slug}: CDN unit hash ${h} != manifest ${manifest.contentHash}`);
+  }
+  return { dir: got, source: "r2", cleanup };
 }
 
 export function snapshot(slug, { write = false } = {}) {

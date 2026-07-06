@@ -5,7 +5,7 @@
 // and asserts the Claude Code source object (github vs git-subdir), the install
 // strings, and the certification status mapping.
 import assert from "node:assert/strict";
-import { buildMarketplace, buildCatalog, sanitizeDescription } from "./generate.mjs";
+import { buildMarketplace, buildCatalog, sanitizeDescription, folderSource } from "./generate.mjs";
 
 // --- description sanitization (strip angle-bracket placeholders like "<n>") ---
 assert.equal(sanitizeDescription('Triggers on "LL <n>", or set-rigor.'), 'Triggers on "LL n", or set-rigor.');
@@ -69,15 +69,24 @@ assert.deepEqual(
 );
 
 // --- catalog.json ---
+// folderSource: CDN tarball when a snapshot hash exists, else the pinned upstream tree
+assert.equal(folderSource(rootSkill, "deadbeef"),
+  "https://cdn.simplycubed.com/blobs/sha256/deadbeef/unit.tar.gz", "hash => content-addressed CDN tarball");
+assert.equal(folderSource(rootSkill, null),
+  `https://github.com/acme/root/tree/${"a".repeat(40)}`, "no hash => pinned upstream tree (root)");
+assert.equal(folderSource(subSkill, null),
+  `https://github.com/acme/mono/tree/${"b".repeat(40)}/skills/sub`, "no hash => pinned upstream tree (subdir)");
+
 const cat = buildCatalog(configs, () => null);
-assert.equal(cat.schemaVersion, 1, "catalog carries a schemaVersion");
+assert.equal(cat.schemaVersion, 2, "catalog carries schemaVersion 2");
 const catRoot = cat.skills.find((s) => s.slug === "root-skill");
 // Claude Code install commands
 assert.equal(catRoot.install.claudeCode.marketplaceAdd, "/plugin marketplace add simplycubed/skills");
 assert.equal(catRoot.install.claudeCode.command, "/plugin install root-skill@simplycubed");
-// Vendor-neutral folder install: source points at our durable snapshot, not upstream
+// Vendor-neutral folder install. These synthetic skills have no snapshot manifest,
+// so the source falls back to the pinned upstream tree (real skills => CDN tarball).
 assert.equal(catRoot.install.folder.dirName, "root-skill");
-assert.equal(catRoot.install.folder.source, "https://github.com/simplycubed/skills/tree/main/snapshots/root-skill/unit");
+assert.equal(catRoot.install.folder.source, `https://github.com/acme/root/tree/${"a".repeat(40)}`);
 assert.ok(catRoot.install.folder.targets.some((t) => t.dir === ".agents/skills/"), "vendor-neutral target present");
 // removal request deep link: pre-fills the issue form with slug + upstream
 assert.match(catRoot.removalUrl, /issues\/new\?/, "removalUrl points at a new issue");
@@ -86,7 +95,7 @@ assert.match(catRoot.removalUrl, /skill=root-skill/, "removalUrl pre-fills the s
 assert.match(catRoot.removalUrl, /upstream=acme%2Froot/, "removalUrl pre-fills (url-encoded) the upstream repo");
 // Subdir skill: also snapshot-based (keyed by slug, independent of upstream path)
 const catSub = cat.skills.find((s) => s.slug === "sub-skill");
-assert.equal(catSub.install.folder.source, "https://github.com/simplycubed/skills/tree/main/snapshots/sub-skill/unit");
+assert.equal(catSub.install.folder.source, `https://github.com/acme/mono/tree/${"b".repeat(40)}/skills/sub`);
 assert.equal(catRoot.certification.status, "pending", "no scan record => pending");
 
 // certification maps from a scan record
