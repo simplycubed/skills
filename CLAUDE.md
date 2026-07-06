@@ -48,9 +48,11 @@ in this repo is part of the contract.
 
 ## Top-level shape
 ```json
-{ "schemaVersion": 1, "marketplace": "simplycubed", "skills": [ /* Skill */ ] }
+{ "schemaVersion": 2, "marketplace": "simplycubed", "skills": [ /* Skill */ ] }
 ```
-`schemaVersion` is bumped on any breaking shape change.
+`schemaVersion` is bumped on any breaking shape change. **v2 (current)** changed
+`install.folder.source` from a browsable upstream tree to a durable, content-addressed
+**CDN tarball** (see `install` below) — the only shape change from v1.
 
 ## Each `Skill`
 `slug`, `name`, `description`, `version`, `category` (string|null), `tags` (string[]),
@@ -74,7 +76,7 @@ service. Don't render free install commands for a `premium` skill.
                   "command": "/plugin install <slug>@simplycubed" },
   "folder": {
     "dirName": "<slug>",
-    "source": "https://github.com/<repo>/tree/<sha>/<path>",   // browsable, pinned
+    "source": "https://cdn.simplycubed.com/blobs/sha256/<hash>/unit.tar.gz", // durable CDN tarball (download + extract)
     "targets": [ { "agent": "Vendor-neutral (Codex, Gemini CLI, …)", "dir": ".agents/skills/" },
                  { "agent": "Claude Code", "dir": "~/.claude/skills/" },
                  { "agent": "Gemini CLI",  "dir": "~/.gemini/skills/" } ]
@@ -82,9 +84,10 @@ service. Don't render free install commands for a `premium` skill.
 }
 ```
 - `claudeCode` → show the two commands.
-- `folder` → "download the folder at `source`, drop it into your agent's skills
-  directory," rendering `targets` as an agent → directory table. This is what makes
-  a skill installable in **any** SKILL.md-aware agent, not just Claude Code.
+- `folder` → "download the `.tar.gz` at `source` and **extract** it into your agent's
+  skills directory," rendering `targets` as an agent → directory table. (`source` is a
+  content-addressed archive, not a browsable tree — present it as download-and-extract.)
+  This is what makes a skill installable in **any** SKILL.md-aware agent, not just Claude Code.
 
 ## `certification` — render the badge
 ```jsonc
@@ -108,9 +111,14 @@ For the "what we checked" detail, read from `record`:
   no-drift gate).
 - A `revoked` skill must be delisted or clearly badged — never shown as certified.
 
+## Now available (v2)
+- **Snapshot download** — the durable content-addressed snapshot is **live**:
+  `install.folder.source` points at `https://cdn.simplycubed.com/blobs/sha256/<hash>/unit.tar.gz`
+  (served from R2, byte-stable even if upstream disappears). It's a `.tar.gz` to
+  **download + extract**, not a browsable tree — the storefront must present it that way.
+
 ## Not yet available (don't build UI that depends on these)
-- **Snapshot download** — the README promises a durable content-addressed snapshot,
-  but it isn't served yet. For now `install.folder.source` points at the pinned
-  **upstream** tree. When the snapshot lands, `source` will point at it instead
-  (same field, so build against the field, not the host).
 - **semgrep SAST** and the **`SKILL.md` LLM-judge** are planned, not in v1.
+- **Record-by-reference + trust-tier badge** — proposed for a future schemaVersion
+  (embedded `certification.record` today; a `certification.trustTier` T0–T3 field and a
+  CDN `recordUrl` are the seam). Don't build UI against them until the version bumps.
