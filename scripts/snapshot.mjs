@@ -61,9 +61,9 @@ export function readManifest(slug) {
 // prove the no-local read works WHILE the git bytes still exist (PR-7's precondition).
 //
 // Returns { dir, source: "local"|"r2", cleanup() }. Callers MUST call cleanup().
-export function materializeUnit(slug, manifest) {
+export function materializeUnit(slug, manifest, { snapDir = SNAP_DIR } = {}) {
   if (!manifest) throw new Error(`materializeUnit(${slug}): no manifest`);
-  const local = join(SNAP_DIR, slug, "unit");
+  const local = join(snapDir, slug, "unit");
   const forceR2 = process.env.SKILLS_FORCE_R2 === "1";
 
   if (!forceR2 && existsSync(local)) {

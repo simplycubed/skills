@@ -52,11 +52,11 @@ jobs:
       - name: "Snapshot seam self-test (materializeUnit local source + fail-closed on drift)"
         run: pnpm snapshot:selftest
 
-      - name: Snapshot integrity (every active skill has an intact content-addressed snapshot)
+      - name: Snapshot integrity (every active skill verifies from R2/local vs its manifest)
         run: pnpm snapshot:check
 
-      - name: R2 migration dry-run (every active snapshot re-verifies + packs, no upload/creds)
-        run: pnpm r2:migrate:check
+      - name: Anti-bloat guard (no snapshot unit bytes tracked in git — they live in R2)
+        run: pnpm bloat:guard
 
       - name: Revocation self-test (revoked skills drop from both manifests; snapshot removed)
         run: pnpm revoke:selftest
