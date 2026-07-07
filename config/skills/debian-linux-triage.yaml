@@ -1,0 +1,19 @@
+slug: debian-linux-triage
+name: Debian Linux Triage
+description: Triage and resolve Debian Linux issues with apt, systemd, and AppArmor-aware guidance.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/debian-linux-triage
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - debian
+  - linux
+  - triage

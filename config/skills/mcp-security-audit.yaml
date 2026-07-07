@@ -1,0 +1,22 @@
+slug: mcp-security-audit
+name: MCP Security Audit
+description: >-
+  Audit MCP (Model Context Protocol) server configurations for security issues. Use this skill when: - Reviewing
+  .mcp.json files for security risks - Checking MCP server args for hardcoded secrets or shell injection patterns -
+  Validating that MCP servers use pinned versions (not @latest) -…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/mcp-security-audit
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: integration
+tags:
+  - mcp
+  - security
+  - audit

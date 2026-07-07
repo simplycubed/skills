@@ -1,0 +1,11 @@
+{
+  "slug": "javax-to-jakarta-migration",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/javax-to-jakarta-migration"
+  },
+  "contentHash": "sha256:9c1580e83f174f8a27a27f9d93b18badbe38f6f77dee36c39cfcd6644a917df9",
+  "byteSize": 3615,
+  "fileCount": 2
+}

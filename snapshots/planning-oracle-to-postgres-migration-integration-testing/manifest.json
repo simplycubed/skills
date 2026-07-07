@@ -1,0 +1,11 @@
+{
+  "slug": "planning-oracle-to-postgres-migration-integration-testing",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/planning-oracle-to-postgres-migration-integration-testing"
+  },
+  "contentHash": "sha256:50c600c9d6d3a5902770cde34f2daa215828cbc10c38ff57e6d8c0e5461aa1e6",
+  "byteSize": 3259,
+  "fileCount": 2
+}

@@ -1,0 +1,23 @@
+slug: github-actions-runtime-upgrade-conventions
+name: Github Actions Runtime Upgrade Conventions
+description: >-
+  Upgrade GitHub Actions to supported runtimes by selecting safe action versions, preserving workflow behavior, and
+  validating post-upgrade execution.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/github-actions-runtime-upgrade-conventions
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - github
+  - actions
+  - runtime
+  - upgrade
+  - conventions

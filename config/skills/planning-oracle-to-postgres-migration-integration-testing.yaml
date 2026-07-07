@@ -1,0 +1,24 @@
+slug: planning-oracle-to-postgres-migration-integration-testing
+name: Planning Oracle To Postgres Migration Integration Testing
+description: >-
+  Creates an integration testing plan for .NET data access artifacts during Oracle-to-PostgreSQL database migrations.
+  Analyzes a single project to identify repositories, DAOs, and service layers that interact with the database, then
+  produces a structured testing plan. Use when planning integration…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/planning-oracle-to-postgres-migration-integration-testing
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: data
+tags:
+  - planning
+  - oracle
+  - postgres
+  - migration
+  - integration

@@ -1,0 +1,35 @@
+{
+  "slug": "creating-oracle-to-postgres-migration-bug-report",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/creating-oracle-to-postgres-migration-bug-report"
+  },
+  "scanned_at": "2026-07-07T12:42:29.586Z",
+  "unit": {
+    "licenseSource": "repo-root",
+    "declaredLicense": "MIT",
+    "licenseMatches": true
+  },
+  "tools": {
+    "certify": "builtin",
+    "gitleaks": "8.18.4",
+    "osv-scanner": "2.4.0",
+    "semgrep": "n/a (no code)"
+  },
+  "checks": {
+    "structure": [],
+    "license": [],
+    "injection": [],
+    "secrets": [],
+    "vulnerabilities": [],
+    "sast": []
+  },
+  "review": [],
+  "scan_errors": [],
+  "incomplete": false,
+  "passed": true,
+  "finding_count": 0,
+  "review_count": 0,
+  "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+}

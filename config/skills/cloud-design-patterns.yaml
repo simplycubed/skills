@@ -1,0 +1,22 @@
+slug: cloud-design-patterns
+name: Cloud Design Patterns
+description: >-
+  Cloud design patterns for distributed systems architecture covering 42 industry-standard patterns across reliability,
+  performance, messaging, security, and deployment categories. Use when designing, reviewing, or implementing
+  distributed system architectures.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/cloud-design-patterns
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: coding
+tags:
+  - cloud
+  - design
+  - patterns

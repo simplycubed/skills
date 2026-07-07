@@ -1,0 +1,22 @@
+slug: threat-model-analyst
+name: Threat Model Analyst
+description: >-
+  Full STRIDE-A threat model analysis and incremental update skill for repositories and systems. Supports two modes: (1)
+  Single analysis — full STRIDE-A threat model of a repository, producing architecture overviews, DFD diagrams, STRIDE-A
+  analysis, prioritized findings, and executive assessments.…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/threat-model-analyst
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - threat
+  - model
+  - analyst

@@ -1,0 +1,11 @@
+{
+  "slug": "aws-cdk-python-setup",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/aws-cdk-python-setup"
+  },
+  "contentHash": "sha256:b213d935e8e1da54dd830f4eded049c1483ffacc4ad8ce5d47b79cc0c0072f65",
+  "byteSize": 3680,
+  "fileCount": 2
+}

@@ -1,0 +1,11 @@
+{
+  "slug": "pester-migration",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/pester-migration"
+  },
+  "contentHash": "sha256:e28b3ae3dbaca8f60de2ed3d3b6e8881161c1b285088c37b379d2c73ee41383a",
+  "byteSize": 35765,
+  "fileCount": 5
+}

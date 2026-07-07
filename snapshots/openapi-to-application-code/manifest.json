@@ -1,0 +1,11 @@
+{
+  "slug": "openapi-to-application-code",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/openapi-to-application-code"
+  },
+  "contentHash": "sha256:493e224dd4ee7cd6e181c2d0b5335095c411ff50c5c30c8cf1fbe24edec05a30",
+  "byteSize": 5803,
+  "fileCount": 2
+}

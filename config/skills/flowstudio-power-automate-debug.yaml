@@ -1,0 +1,23 @@
+slug: flowstudio-power-automate-debug
+name: Flowstudio Power Automate Debug
+description: >-
+  Debug failing Power Automate cloud flows using the FlowStudio MCP server. The Graph API only shows top-level status
+  codes. This skill gives your agent action-level inputs and outputs to find the actual root cause. Load this skill when
+  asked to: debug a flow, investigate a failed run, why is this…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/flowstudio-power-automate-debug
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - flowstudio
+  - power
+  - automate
+  - debug

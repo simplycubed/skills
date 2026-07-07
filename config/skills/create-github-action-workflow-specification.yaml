@@ -1,0 +1,22 @@
+slug: create-github-action-workflow-specification
+name: Create Github Action Workflow Specification
+description: >-
+  Create a formal specification for an existing GitHub Actions CI/CD workflow, optimized for AI consumption and workflow
+  maintenance.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/create-github-action-workflow-specification
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - github
+  - action
+  - workflow
+  - specification

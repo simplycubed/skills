@@ -1,0 +1,22 @@
+slug: postgresql-code-review
+name: PostgreSQL Code Review
+description: >-
+  PostgreSQL-specific code review assistant focusing on PostgreSQL best practices, anti-patterns, and unique quality
+  standards. Covers JSONB operations, array usage, custom types, schema design, function optimization, and
+  PostgreSQL-exclusive security features like Row Level Security (RLS).
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/postgresql-code-review
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: data
+tags:
+  - postgresql
+  - code
+  - review

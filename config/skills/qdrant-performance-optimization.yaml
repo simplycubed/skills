@@ -1,0 +1,21 @@
+slug: qdrant-performance-optimization
+name: Qdrant Performance Optimization
+description: >-
+  Different techniques to optimize the performance of Qdrant, including indexing strategies, query optimization, and
+  hardware considerations. Use when you want to improve the speed and efficiency of your Qdrant deployment.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/qdrant-performance-optimization
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: data
+tags:
+  - qdrant
+  - performance
+  - optimization

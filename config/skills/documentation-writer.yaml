@@ -1,0 +1,19 @@
+slug: documentation-writer
+name: Documentation Writer
+description: >-
+  Diátaxis Documentation Expert. An expert technical writer specializing in creating high-quality software
+  documentation, guided by the principles and structure of the Diátaxis technical documentation authoring framework.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/documentation-writer
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: coding
+tags:
+  - documentation

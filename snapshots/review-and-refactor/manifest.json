@@ -1,0 +1,11 @@
+{
+  "slug": "review-and-refactor",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/review-and-refactor"
+  },
+  "contentHash": "sha256:924d7a5ce8e50899c5826b4867a230c53bf0df79fe69900baa20628064f3ca73",
+  "byteSize": 1829,
+  "fileCount": 2
+}

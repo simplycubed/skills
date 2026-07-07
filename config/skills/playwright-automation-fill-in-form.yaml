@@ -1,0 +1,20 @@
+slug: playwright-automation-fill-in-form
+name: Playwright Automation Fill In Form
+description: Automate filling in a form using Playwright MCP
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/playwright-automation-fill-in-form
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: coding
+tags:
+  - playwright
+  - automation
+  - fill
+  - form

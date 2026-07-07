@@ -1,0 +1,22 @@
+slug: azure-deployment-preflight
+name: Azure Deployment Preflight
+description: >-
+  Performs comprehensive preflight validation of Bicep deployments to Azure, including template syntax validation,
+  what-if analysis, and permission checks. Use this skill before any deployment to Azure to preview changes, identify
+  potential issues, and ensure the deployment will succeed. Activate…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/azure-deployment-preflight
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - azure
+  - deployment
+  - preflight

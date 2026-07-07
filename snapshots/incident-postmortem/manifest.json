@@ -1,0 +1,11 @@
+{
+  "slug": "incident-postmortem",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/incident-postmortem"
+  },
+  "contentHash": "sha256:a312bf583438f725ca46b90ba874a61b15ee67b6660c6556428d625709af2598",
+  "byteSize": 8408,
+  "fileCount": 2
+}

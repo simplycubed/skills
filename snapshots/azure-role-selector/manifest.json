@@ -1,0 +1,11 @@
+{
+  "slug": "azure-role-selector",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/azure-role-selector"
+  },
+  "contentHash": "sha256:7714a93f5b9bb0d60133ae9608544021fa21c604827481e681a5bb97240cdd7e",
+  "byteSize": 2061,
+  "fileCount": 2
+}

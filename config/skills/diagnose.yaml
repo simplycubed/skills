@@ -1,0 +1,20 @@
+slug: diagnose
+name: Diagnose
+description: >-
+  Perform a systematic diagnostic scan of an AI workflow across 5 quality dimensions — prompt quality, context
+  efficiency, tool health, architecture fitness, and safety — producing a scored report with prioritized remediation
+  actions.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/diagnose
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - diagnose

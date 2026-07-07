@@ -1,0 +1,21 @@
+slug: power-bi-performance-troubleshooting
+name: Power BI Performance Troubleshooting
+description: >-
+  Systematic Power BI performance troubleshooting prompt for identifying, diagnosing, and resolving performance issues
+  in Power BI models, reports, and queries.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/power-bi-performance-troubleshooting
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - power
+  - performance
+  - troubleshooting

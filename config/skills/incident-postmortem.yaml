@@ -1,0 +1,21 @@
+slug: incident-postmortem
+name: Incident Postmortem
+description: >-
+  Use when an outage, production incident, or significant service degradation has occurred and the team needs to write a
+  structured blameless post-mortem. Triggers on phrases like "write a post-mortem", "incident review", "what went
+  wrong", "outage report", "root cause analysis", or "RCA". Covers…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/incident-postmortem
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - incident
+  - postmortem

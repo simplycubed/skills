@@ -1,0 +1,24 @@
+slug: creating-oracle-to-postgres-migration-bug-report
+name: Creating Oracle To Postgres Migration Bug Report
+description: >-
+  Creates structured bug reports for defects found during Oracle-to-PostgreSQL migration. Use when documenting
+  behavioral differences between Oracle and PostgreSQL as actionable bug reports with severity, root cause, and
+  remediation steps.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/creating-oracle-to-postgres-migration-bug-report
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: data
+tags:
+  - creating
+  - oracle
+  - postgres
+  - migration
+  - bug

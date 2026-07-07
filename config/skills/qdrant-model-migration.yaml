@@ -1,0 +1,22 @@
+slug: qdrant-model-migration
+name: Qdrant Model Migration
+description: >-
+  Guides embedding model migration in Qdrant without downtime. Use when someone asks 'how to switch embedding models',
+  'how to migrate vectors', 'how to update to a new model', 'zero-downtime model change', 'how to re-embed my data', or
+  'can I use two models at once'. Also use when upgrading model…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/qdrant-model-migration
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: data
+tags:
+  - qdrant
+  - model
+  - migration
