@@ -1,0 +1,11 @@
+{
+  "slug": "terraform-azurerm-set-diff-analyzer",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/terraform-azurerm-set-diff-analyzer"
+  },
+  "contentHash": "sha256:b5086f6c413088408edbd8864e32427afa4374ddb727a9eb57fd938662cc7922",
+  "byteSize": 49362,
+  "fileCount": 7
+}

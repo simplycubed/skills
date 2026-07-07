@@ -1,0 +1,23 @@
+slug: sql-server-table-reconciliation
+name: SQL Server Table Reconciliation
+description: >-
+  Use when: comparing SQL Server tables across instances, data migration validation, ETL verification, row mismatch
+  detection, schema drift, reconciliation report, production vs staging comparison. Uses mssql-python driver with Apache
+  Arrow for fast columnar data transfer and comparison.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/sql-server-table-reconciliation
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: data
+tags:
+  - sql
+  - server
+  - table
+  - reconciliation

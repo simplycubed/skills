@@ -273,6 +273,93 @@
       }
     },
     {
+      "slug": "appinsights-instrumentation",
+      "name": "App Insights Instrumentation",
+      "description": "Instrument a webapp to send useful telemetry data to Azure App Insights",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "appinsights",
+        "instrumentation"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/appinsights-instrumentation"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+appinsights-instrumentation&skill=appinsights-instrumentation&upstream=github%2Fawesome-copilot",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install appinsights-instrumentation@simplycubed"
+        },
+        "folder": {
+          "dirName": "appinsights-instrumentation",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/9253722952554bc8143652240976d594d6ddb375f830f4929182d412b3ac9e61/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-07T13:31:45.764Z",
+        "record": {
+          "slug": "appinsights-instrumentation",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/appinsights-instrumentation"
+          },
+          "scanned_at": "2026-07-07T13:31:45.764Z",
+          "unit": {
+            "licenseSource": "unit",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "1.168.0"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
       "slug": "arch-linux-triage",
       "name": "Arch Linux Triage",
       "description": "Triage and resolve Arch Linux issues with pacman, systemd, and rolling-release best practices.",
@@ -8665,6 +8752,184 @@
       }
     },
     {
+      "slug": "sql-server-table-reconciliation",
+      "name": "SQL Server Table Reconciliation",
+      "description": "Use when: comparing SQL Server tables across instances, data migration validation, ETL verification, row mismatch detection, schema drift, reconciliation report, production vs staging comparison. Uses mssql-python driver with Apache Arrow for fast columnar data transfer and comparison.",
+      "version": "1.0.0",
+      "category": "data",
+      "tags": [
+        "sql",
+        "server",
+        "table",
+        "reconciliation"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/sql-server-table-reconciliation"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+sql-server-table-reconciliation&skill=sql-server-table-reconciliation&upstream=github%2Fawesome-copilot",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install sql-server-table-reconciliation@simplycubed"
+        },
+        "folder": {
+          "dirName": "sql-server-table-reconciliation",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/c9dc7fed2c68b7fcc8566ff0cbee78a0836063f0e513d328b9f0ad8a2fe96a3a/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-07T13:31:58.929Z",
+        "record": {
+          "slug": "sql-server-table-reconciliation",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/sql-server-table-reconciliation"
+          },
+          "scanned_at": "2026-07-07T13:31:58.929Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "1.168.0"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "terraform-azurerm-set-diff-analyzer",
+      "name": "Terraform AzureRM Set Diff Analyzer",
+      "description": "Analyze Terraform plan JSON output for AzureRM Provider to distinguish between false-positive diffs (order-only changes in Set-type attributes) and actual resource changes. Use when reviewing terraform plan output for Azure resources like Application Gateway, Load Balancer, Firewall, Front Door…",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "terraform",
+        "azurerm",
+        "diff",
+        "analyzer"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/terraform-azurerm-set-diff-analyzer"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+terraform-azurerm-set-diff-analyzer&skill=terraform-azurerm-set-diff-analyzer&upstream=github%2Fawesome-copilot",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install terraform-azurerm-set-diff-analyzer@simplycubed"
+        },
+        "folder": {
+          "dirName": "terraform-azurerm-set-diff-analyzer",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/b5086f6c413088408edbd8864e32427afa4374ddb727a9eb57fd938662cc7922/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-07T13:32:02.895Z",
+        "record": {
+          "slug": "terraform-azurerm-set-diff-analyzer",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/terraform-azurerm-set-diff-analyzer"
+          },
+          "scanned_at": "2026-07-07T13:32:02.895Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "1.168.0"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
       "slug": "threat-model-analyst",
       "name": "Threat Model Analyst",
       "description": "Full STRIDE-A threat model analysis and incremental update skill for repositories and systems. Supports two modes: (1) Single analysis — full STRIDE-A threat model of a repository, producing architecture overviews, DFD diagrams, STRIDE-A analysis, prioritized findings, and executive assessments.…",
@@ -8914,6 +9179,93 @@
             "gitleaks": "8.18.4",
             "osv-scanner": "2.4.0",
             "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "webapp-testing",
+      "name": "Web App Testing",
+      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+      "version": "1.0.0",
+      "category": "coding",
+      "tags": [
+        "webapp",
+        "testing"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/webapp-testing"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+webapp-testing&skill=webapp-testing&upstream=github%2Fawesome-copilot",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install webapp-testing@simplycubed"
+        },
+        "folder": {
+          "dirName": "webapp-testing",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/acb7b3f3da3eb44491d8c85253bb1c15aa8d0ffdc3c13d6efc331b20cf15ce42/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-07T13:32:06.117Z",
+        "record": {
+          "slug": "webapp-testing",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/webapp-testing"
+          },
+          "scanned_at": "2026-07-07T13:32:06.117Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "1.168.0"
           },
           "checks": {
             "structure": [],

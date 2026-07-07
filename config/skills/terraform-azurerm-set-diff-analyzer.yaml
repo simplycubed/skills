@@ -1,0 +1,23 @@
+slug: terraform-azurerm-set-diff-analyzer
+name: Terraform AzureRM Set Diff Analyzer
+description: >-
+  Analyze Terraform plan JSON output for AzureRM Provider to distinguish between false-positive diffs (order-only
+  changes in Set-type attributes) and actual resource changes. Use when reviewing terraform plan output for Azure
+  resources like Application Gateway, Load Balancer, Firewall, Front Door…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/terraform-azurerm-set-diff-analyzer
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - terraform
+  - azurerm
+  - diff
+  - analyzer

@@ -1,0 +1,11 @@
+{
+  "slug": "webapp-testing",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/webapp-testing"
+  },
+  "contentHash": "sha256:acb7b3f3da3eb44491d8c85253bb1c15aa8d0ffdc3c13d6efc331b20cf15ce42",
+  "byteSize": 6394,
+  "fileCount": 3
+}
