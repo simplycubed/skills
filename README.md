@@ -44,6 +44,8 @@ We reference skills, we don't re-host them. Each catalog entry points at the ups
 
 Certification is a gate: a skill is listed only after it passes the scan in CI. A new upstream release is a new commit, so it goes back through the scan before we offer it. If a listed skill later turns out to be unsafe, we pull it from the catalog and stop serving its snapshot.
 
+For the full picture — the Cloudflare + GitHub setup, the content-addressed R2 architecture, the add-a-skill runbook, and every workflow — see [`docs/`](docs/README.md).
+
 ## Contributing
 
 Submissions are curated for now. If you maintain a skill you'd like us to consider, or you're an author who wants attribution fixed, open an issue.
