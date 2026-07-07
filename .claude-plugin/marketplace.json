@@ -79,6 +79,28 @@
       ]
     },
     {
+      "name": "appinsights-instrumentation",
+      "description": "Instrument a webapp to send useful telemetry data to Azure App Insights",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/appinsights-instrumentation",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "devops",
+      "keywords": [
+        "appinsights",
+        "instrumentation"
+      ]
+    },
+    {
       "name": "arch-linux-triage",
       "description": "Triage and resolve Arch Linux issues with pacman, systemd, and rolling-release best practices.",
       "version": "1.0.0",
@@ -2273,6 +2295,54 @@
       ]
     },
     {
+      "name": "sql-server-table-reconciliation",
+      "description": "Use when: comparing SQL Server tables across instances, data migration validation, ETL verification, row mismatch detection, schema drift, reconciliation report, production vs staging comparison. Uses mssql-python driver with Apache Arrow for fast columnar data transfer and comparison.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/sql-server-table-reconciliation",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "data",
+      "keywords": [
+        "sql",
+        "server",
+        "table",
+        "reconciliation"
+      ]
+    },
+    {
+      "name": "terraform-azurerm-set-diff-analyzer",
+      "description": "Analyze Terraform plan JSON output for AzureRM Provider to distinguish between false-positive diffs (order-only changes in Set-type attributes) and actual resource changes. Use when reviewing terraform plan output for Azure resources like Application Gateway, Load Balancer, Firewall, Front Door…",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/terraform-azurerm-set-diff-analyzer",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "devops",
+      "keywords": [
+        "terraform",
+        "azurerm",
+        "diff",
+        "analyzer"
+      ]
+    },
+    {
       "name": "threat-model-analyst",
       "description": "Full STRIDE-A threat model analysis and incremental update skill for repositories and systems. Supports two modes: (1) Single analysis — full STRIDE-A threat model of a repository, producing architecture overviews, DFD diagrams, STRIDE-A analysis, prioritized findings, and executive assessments.…",
       "version": "1.0.0",
@@ -2340,6 +2410,28 @@
         "avm",
         "modules",
         "bicep"
+      ]
+    },
+    {
+      "name": "webapp-testing",
+      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/webapp-testing",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "coding",
+      "keywords": [
+        "webapp",
+        "testing"
       ]
     }
   ]
