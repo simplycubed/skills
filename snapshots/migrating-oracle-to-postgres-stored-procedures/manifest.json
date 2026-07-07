@@ -1,0 +1,11 @@
+{
+  "slug": "migrating-oracle-to-postgres-stored-procedures",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/migrating-oracle-to-postgres-stored-procedures"
+  },
+  "contentHash": "sha256:de45f8103dddaeb4a3e56f1707fa1e1f10edccef754fc8e03c2e869a211d4050",
+  "byteSize": 3363,
+  "fileCount": 2
+}

@@ -1,0 +1,24 @@
+slug: migrating-oracle-to-postgres-stored-procedures
+name: Migrating Oracle To Postgres Stored Procedures
+description: >-
+  Migrates Oracle PL/SQL stored procedures to PostgreSQL PL/pgSQL. Translates Oracle-specific syntax, preserves method
+  signatures and type-anchored parameters, leverages orafce where appropriate, and applies COLLATE "C" for
+  Oracle-compatible text sorting. Use when converting Oracle stored…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/migrating-oracle-to-postgres-stored-procedures
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: data
+tags:
+  - migrating
+  - oracle
+  - postgres
+  - stored
+  - procedures

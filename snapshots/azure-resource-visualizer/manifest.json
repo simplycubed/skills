@@ -1,0 +1,11 @@
+{
+  "slug": "azure-resource-visualizer",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/azure-resource-visualizer"
+  },
+  "contentHash": "sha256:94760247c349af61fe11af6479542d8cb004f79ff86f9e2fff85ce2ba710e2d8",
+  "byteSize": 11820,
+  "fileCount": 3
+}

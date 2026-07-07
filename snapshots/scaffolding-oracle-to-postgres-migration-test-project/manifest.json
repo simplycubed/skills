@@ -1,0 +1,11 @@
+{
+  "slug": "scaffolding-oracle-to-postgres-migration-test-project",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/scaffolding-oracle-to-postgres-migration-test-project"
+  },
+  "contentHash": "sha256:52656b4bd4e62322bdc58fae97f7e0ddb4e46b5e1de49b86f6c8a670affb4927",
+  "byteSize": 3597,
+  "fileCount": 2
+}

@@ -1,0 +1,20 @@
+slug: update-avm-modules-in-bicep
+name: Update AVM Modules In Bicep
+description: Update Azure Verified Modules (AVM) to latest versions in Bicep files.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/update-avm-modules-in-bicep
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - update
+  - avm
+  - modules
+  - bicep

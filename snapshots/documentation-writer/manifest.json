@@ -1,0 +1,11 @@
+{
+  "slug": "documentation-writer",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/documentation-writer"
+  },
+  "contentHash": "sha256:f61876fd320aeca2414d382c233739c9890eae4dd1a988ba99fbe92510aa7d16",
+  "byteSize": 3807,
+  "fileCount": 2
+}

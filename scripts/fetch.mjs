@@ -58,16 +58,25 @@ export function licenseVerdict(unitDir, declaredLicense) {
 }
 
 // Download + extract the repo at the exact SHA. Returns the extracted src dir.
-function fetchSrc(repo, sha, dest) {
-  mkdirSync(dest, { recursive: true });
-  const tarball = join(dest, "repo.tar.gz");
+// Fetch + extract a repo at a pinned SHA, CACHED by (repo, sha). A SHA is immutable,
+// so the extracted tree is content-stable and safe to reuse: N skills from the same
+// repo@sha download it ONCE instead of N times — huge for bulk-add and the CI re-scan
+// (certify:active reproduces every not-yet-in-R2 skill from upstream in one process).
+// The cache lives under WORK/_cache, reused across calls until the temp dir is cleaned.
+function fetchSrc(repo, sha, _dest) {
+  const key = `${repo}@${sha}`.replace(/[^a-zA-Z0-9._-]/g, "_");
+  const cacheDir = join(WORK, "_cache", key);
+  const src = join(cacheDir, "src");
+  if (existsSync(src)) return src; // cache hit — no download
+  mkdirSync(cacheDir, { recursive: true });
+  const tarball = join(cacheDir, "repo.tar.gz");
   const url = `https://codeload.github.com/${repo}/tar.gz/${sha}`;
   const dl = spawnSync("curl", ["-sSLf", url, "-o", tarball], { encoding: "utf8" });
   if (dl.status !== 0) throw new Error(`fetch failed for ${repo}@${sha}: ${dl.stderr || dl.status}`);
-  const src = join(dest, "src");
   mkdirSync(src, { recursive: true });
   const ex = spawnSync("tar", ["-xzf", tarball, "-C", src, "--strip-components=1"], { encoding: "utf8" });
   if (ex.status !== 0) throw new Error(`extract failed: ${ex.stderr || ex.status}`);
+  rmSync(tarball, { force: true });
   return src;
 }
 

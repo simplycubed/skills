@@ -1,0 +1,11 @@
+{
+  "slug": "refactor",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/refactor"
+  },
+  "contentHash": "sha256:cabe431bf421c0ee01966df126fbe187eb2026250960d0146197e32994354ae1",
+  "byteSize": 17902,
+  "fileCount": 2
+}

@@ -1,0 +1,11 @@
+{
+  "slug": "dotnet-design-pattern-review",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/dotnet-design-pattern-review"
+  },
+  "contentHash": "sha256:006f6e4cf471e577d27070ed1d8756cf6bf54053b51a59038801c55b56812a85",
+  "byteSize": 4343,
+  "fileCount": 2
+}

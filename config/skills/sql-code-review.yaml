@@ -1,0 +1,22 @@
+slug: sql-code-review
+name: SQL Code Review
+description: >-
+  Universal SQL code review assistant that performs comprehensive security, maintainability, and code quality analysis
+  across all SQL databases (MySQL, PostgreSQL, SQL Server, Oracle). Focuses on SQL injection prevention, access control,
+  code standards, and anti-pattern detection. Complements SQL…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/sql-code-review
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: data
+tags:
+  - sql
+  - code
+  - review

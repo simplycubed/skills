@@ -1,0 +1,21 @@
+slug: postgresql-optimization
+name: PostgreSQL Optimization
+description: >-
+  PostgreSQL-specific development assistant focusing on unique PostgreSQL features, advanced data types, and
+  PostgreSQL-exclusive capabilities. Covers JSONB operations, array types, custom types, range/geometric types,
+  full-text search, window functions, and PostgreSQL extensions ecosystem.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/postgresql-optimization
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: data
+tags:
+  - postgresql
+  - optimization

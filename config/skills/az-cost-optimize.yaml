@@ -1,0 +1,20 @@
+slug: az-cost-optimize
+name: Azure Cost Optimize
+description: >-
+  Analyze Azure resources used in the app (IaC files and/or resources in a target rg) and optimize costs - creating
+  GitHub issues for identified optimizations.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/az-cost-optimize
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - cost
+  - optimize

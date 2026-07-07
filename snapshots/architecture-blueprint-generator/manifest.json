@@ -1,0 +1,11 @@
+{
+  "slug": "architecture-blueprint-generator",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/architecture-blueprint-generator"
+  },
+  "contentHash": "sha256:a88aa39f6eae9cad7fbbff50e71e5b91cc8f5a92c6e2551b4727d59e114be082",
+  "byteSize": 14417,
+  "fileCount": 2
+}

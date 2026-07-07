@@ -1,0 +1,22 @@
+slug: architecture-blueprint-generator
+name: Architecture Blueprint Generator
+description: >-
+  Comprehensive project architecture blueprint generator that analyzes codebases to create detailed architectural
+  documentation. Automatically detects technology stacks and architectural patterns, generates visual diagrams,
+  documents implementation patterns, and provides extensible blueprints for…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/architecture-blueprint-generator
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: coding
+tags:
+  - architecture
+  - blueprint
+  - generator

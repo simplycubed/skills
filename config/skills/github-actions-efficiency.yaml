@@ -1,0 +1,19 @@
+slug: github-actions-efficiency
+name: Github Actions Efficiency
+description: Audit GitHub Actions workflow efficiency and recommend fixes to reduce CI minutes and costs.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/github-actions-efficiency
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - github
+  - actions
+  - efficiency

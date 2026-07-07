@@ -1,0 +1,11 @@
+{
+  "slug": "azure-deployment-preflight",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/azure-deployment-preflight"
+  },
+  "contentHash": "sha256:22946fa6664fa3c2f509204a81998f1cb9d91b1539d0b6e0b8d2fdfbae386fa0",
+  "byteSize": 33282,
+  "fileCount": 5
+}

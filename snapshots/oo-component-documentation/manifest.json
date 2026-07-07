@@ -1,0 +1,11 @@
+{
+  "slug": "oo-component-documentation",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/oo-component-documentation"
+  },
+  "contentHash": "sha256:5dd5e8c212a2f609723f5636e48c31ef1de19c1dec9a971ed62c0a05d6d2de53",
+  "byteSize": 13306,
+  "fileCount": 5
+}

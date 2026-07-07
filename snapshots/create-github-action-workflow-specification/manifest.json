@@ -1,0 +1,11 @@
+{
+  "slug": "create-github-action-workflow-specification",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/create-github-action-workflow-specification"
+  },
+  "contentHash": "sha256:5b63f2f09218eb1c7aff24d09dfa178c2bbb75febc202a8d41c1c85337c92d04",
+  "byteSize": 8719,
+  "fileCount": 2
+}

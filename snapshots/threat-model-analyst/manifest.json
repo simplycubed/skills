@@ -1,0 +1,11 @@
+{
+  "slug": "threat-model-analyst",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/threat-model-analyst"
+  },
+  "contentHash": "sha256:2d51aebb622ba1637f78346bf885e061ff41eeb368d7f07ca918e3d60ea5fb45",
+  "byteSize": 336065,
+  "fileCount": 18
+}

@@ -1,0 +1,11 @@
+{
+  "slug": "sql-optimization",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/sql-optimization"
+  },
+  "contentHash": "sha256:7c442d9e8b7d1466cbc053ebf5d88ad6273220920dda388228d82a749c18eb70",
+  "byteSize": 10314,
+  "fileCount": 2
+}

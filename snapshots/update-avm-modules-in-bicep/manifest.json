@@ -1,0 +1,11 @@
+{
+  "slug": "update-avm-modules-in-bicep",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/update-avm-modules-in-bicep"
+  },
+  "contentHash": "sha256:db052fb6024e1a6bc9c7ee9d65e1057ec7d400ae5bae36b55723049ec4010e42",
+  "byteSize": 3338,
+  "fileCount": 2
+}

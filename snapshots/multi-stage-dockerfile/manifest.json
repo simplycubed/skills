@@ -1,0 +1,11 @@
+{
+  "slug": "multi-stage-dockerfile",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/multi-stage-dockerfile"
+  },
+  "contentHash": "sha256:0d132e9eed2a06dc83da997963abf1a6f0b1ca4224aa6a79dfb5cc05d0d08e89",
+  "byteSize": 3373,
+  "fileCount": 2
+}

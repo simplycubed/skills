@@ -1,0 +1,11 @@
+{
+  "slug": "prompt-optimizer",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/prompt-optimizer"
+  },
+  "contentHash": "sha256:cead254c9c3c568b8c2911fc219fe0b94178303c06465b9a0276a3486a210275",
+  "byteSize": 20935,
+  "fileCount": 2
+}

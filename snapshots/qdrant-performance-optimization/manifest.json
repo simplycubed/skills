@@ -1,0 +1,11 @@
+{
+  "slug": "qdrant-performance-optimization",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/qdrant-performance-optimization"
+  },
+  "contentHash": "sha256:0d2ebf029a813440305011d61ccbe1149f074214806b15e72c4c0f3dbf65b165",
+  "byteSize": 17353,
+  "fileCount": 5
+}

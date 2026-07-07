@@ -1,0 +1,11 @@
+{
+  "slug": "arch-linux-triage",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/arch-linux-triage"
+  },
+  "contentHash": "sha256:0558054345acaa8c66a5e7f6ccb3987de89e790bda614cb51169a7d10ae49a60",
+  "byteSize": 1989,
+  "fileCount": 2
+}

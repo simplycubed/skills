@@ -1,0 +1,21 @@
+slug: javax-to-jakarta-migration
+name: javax To Jakarta Migration
+description: >-
+  Migrate Java code from javax.* to jakarta.* namespace. Use when upgrading to Tomcat 11, Jakarta EE 10, or when javax
+  imports are detected in the codebase.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/javax-to-jakarta-migration
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - javax
+  - jakarta
+  - migration

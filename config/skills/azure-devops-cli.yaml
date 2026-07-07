@@ -1,0 +1,22 @@
+slug: azure-devops-cli
+name: Azure Devops CLI
+description: >-
+  Manage Azure DevOps resources via CLI including projects, repos, pipelines, builds, pull requests, work items,
+  artifacts, and service endpoints. Use when working with Azure DevOps, az commands, devops automation, CI/CD, or when
+  user mentions Azure DevOps CLI.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/azure-devops-cli
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - azure
+  - devops
+  - cli
