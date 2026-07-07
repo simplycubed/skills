@@ -1,7 +1,7 @@
 // fetch.mjs <slug>
 //
 // Fetches the upstream skill at its pinned commit SHA and assembles the exact
-// "published unit" — the bytes an agent installs — into .scan-work/<slug>/unit.
+// "published unit" — the bytes an agent installs — into a temp work dir (WORK).
 //
 // Why assembly (not just extraction): skills that live in a repo SUBDIRECTORY
 // frequently carry no LICENSE of their own; the repo-root LICENSE covers them.
@@ -13,12 +13,15 @@
 import { readFileSync, existsSync, rmSync, mkdirSync, cpSync, lstatSync, realpathSync, readdirSync } from "node:fs";
 import { join, dirname, relative, isAbsolute } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { tmpdir } from "node:os";
 import { spawnSync } from "node:child_process";
 import yaml from "js-yaml";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SKILLS_DIR = join(ROOT, "config/skills");
-const WORK = join(ROOT, ".scan-work");
+// Transient assembly scratch, in the OS temp dir — NEVER inside the repo, so no local
+// unit/ tree can linger or be committed (callers also remove WORK/<slug> after use).
+export const WORK = join(tmpdir(), "skills-scan-work");
 
 const LICENSE_NAMES = ["LICENSE", "LICENSE.md", "LICENSE.txt", "COPYING", "COPYING.md"];
 

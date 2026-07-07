@@ -79,7 +79,9 @@ for (const cfg of skills) {
   const manifest = readManifest(slug);
   const record = join(ROOT, "config", "skills", `${slug}.scan.json`);
 
-  if (!manifest || !existsSync(unit)) { ok = false; console.log(`✗ ${slug}: no snapshot`); continue; }
+  // Require only the manifest — the UNIT bytes are sourced per-mode (from R2, or
+  // reproduced from upstream). Post-migration there is never a local unit/ tree.
+  if (!manifest) { ok = false; console.log(`✗ ${slug}: no manifest (run: pnpm snapshot ${slug} --write)`); continue; }
   if (!existsSync(record)) { ok = false; console.log(`✗ ${slug}: no scan record`); continue; }
 
   const hex = hexOf(manifest.contentHash);

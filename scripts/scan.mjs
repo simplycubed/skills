@@ -14,12 +14,12 @@
 // generate.mjs turns into the catalog's certification badge. CI re-runs this on
 // the freshly fetched bytes and fails if the live verdict isn't a pass, so a
 // hand-edited scan.json cannot smuggle a failing skill through.
-import { writeFileSync, readFileSync, existsSync, mkdtempSync, readdirSync, lstatSync } from "node:fs";
+import { writeFileSync, readFileSync, existsSync, mkdtempSync, readdirSync, lstatSync, rmSync } from "node:fs";
 import { join, dirname, basename } from "node:path";
 import { tmpdir } from "node:os";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { spawnSync } from "node:child_process";
-import { loadConfig, assembleUnit, licenseVerdict } from "./fetch.mjs";
+import { loadConfig, assembleUnit, licenseVerdict, WORK } from "./fetch.mjs";
 import { certify } from "./certify.mjs";
 import { readManifest, materializeUnit } from "./snapshot.mjs";
 
@@ -213,8 +213,12 @@ export function scanUnit(slug, assembled, { now = new Date().toISOString(), allo
 
 export function scan(slug, { now = new Date().toISOString(), allowMissing = false } = {}) {
   const cfg = loadConfig(slug);
-  const assembled = assembleUnit(cfg);
-  return scanUnit(slug, assembled, { now, allowMissing });
+  const assembled = assembleUnit(cfg); // into .scan-work/<slug>
+  try {
+    return scanUnit(slug, assembled, { now, allowMissing });
+  } finally {
+    rmSync(join(WORK, slug), { recursive: true, force: true }); // never leave a local unit tree
+  }
 }
 
 // Re-verify a skill from its committed SNAPSHOT — no upstream fetch. This is what
