@@ -28,6 +28,7 @@
     "snapshot:selftest": "node scripts/snapshot-selftest.mjs",
     "workflow:lint": "node scripts/workflow-lint.mjs",
     "bloat:guard": "node scripts/bloat-guard.mjs",
+    "clean": "rm -rf .scan-work .r2-staging",
     "gate": "node scripts/gate.mjs",
     "revoke": "node scripts/revoke.mjs",
     "revoke:selftest": "node scripts/revoke-selftest.mjs",

@@ -13,7 +13,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
-import { loadConfig, assembleUnit } from "./fetch.mjs";
+import { loadConfig, assembleUnit, WORK } from "./fetch.mjs";
 import { hexOf, blobKey, fetchUnitFromCdn } from "./r2.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -94,7 +94,7 @@ export function materializeUnit(slug, manifest, { snapDir = SNAP_DIR } = {}) {
   if (forceR2) throw new Error(`${slug}: unit absent on the CDN (${blobKey(hex)}); SKILLS_FORCE_R2 forbids upstream fallback`);
   const assembled = assembleUnit(loadConfig(slug)); // network fetch of the pinned SHA
   const dir = assembled.unitDir;
-  const cleanup = () => rmSync(dir, { recursive: true, force: true });
+  const cleanup = () => rmSync(join(WORK, slug), { recursive: true, force: true }); // whole work tree
   const h = contentHash(dir);
   if (h !== manifest.contentHash) {
     cleanup();
@@ -105,29 +105,34 @@ export function materializeUnit(slug, manifest, { snapDir = SNAP_DIR } = {}) {
 
 export function snapshot(slug, { write = false } = {}) {
   const cfg = loadConfig(slug);
-  const assembled = assembleUnit(cfg); // live fetch of the pinned SHA
-  const unit = assembled.unitDir;
-  const byteSizeTotal = byteSize(unit);
-  if (byteSizeTotal > MAX_BYTES) {
-    throw new Error(`ESCALATE: ${slug} unit is ${byteSizeTotal} bytes (> 5 MB) — needs a storage decision, not committed inline`);
+  const assembled = assembleUnit(cfg); // live fetch of the pinned SHA (into .scan-work/<slug>)
+  try {
+    const unit = assembled.unitDir;
+    const byteSizeTotal = byteSize(unit);
+    if (byteSizeTotal > MAX_BYTES) {
+      throw new Error(`ESCALATE: ${slug} unit is ${byteSizeTotal} bytes (> 5 MB) — needs a storage decision, not committed inline`);
+    }
+    const manifest = {
+      slug,
+      upstream: { repo: cfg.upstream.repo, sha: cfg.upstream.sha, path: cfg.upstream.path || null },
+      contentHash: contentHash(unit),
+      byteSize: byteSizeTotal,
+      fileCount: walkFiles(unit).length,
+    };
+    if (write) {
+      // Manifest-only: the unit BYTES live in R2 (content-addressed), never in git —
+      // the anti-bloat guard rejects a committed snapshots/*/unit tree. We keep just the
+      // tiny trust anchor; the blob is uploaded to R2 (from upstream) on merge.
+      const dest = join(SNAP_DIR, slug);
+      rmSync(dest, { recursive: true, force: true });
+      mkdirSync(dest, { recursive: true });
+      writeFileSync(join(dest, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n");
+    }
+    return manifest;
+  } finally {
+    // Never leave a local unit tree behind — the assembled bytes are transient scratch.
+    rmSync(join(WORK, slug), { recursive: true, force: true });
   }
-  const manifest = {
-    slug,
-    upstream: { repo: cfg.upstream.repo, sha: cfg.upstream.sha, path: cfg.upstream.path || null },
-    contentHash: contentHash(unit),
-    byteSize: byteSizeTotal,
-    fileCount: walkFiles(unit).length,
-  };
-  if (write) {
-    // Manifest-only: the unit BYTES live in R2 (content-addressed), never in git —
-    // the anti-bloat guard rejects a committed snapshots/*/unit tree. We keep just the
-    // tiny trust anchor; the blob is uploaded to R2 (from upstream) on merge.
-    const dest = join(SNAP_DIR, slug);
-    rmSync(dest, { recursive: true, force: true });
-    mkdirSync(dest, { recursive: true });
-    writeFileSync(join(dest, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n");
-  }
-  return manifest;
 }
 
 function main() {
