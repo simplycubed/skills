@@ -1,0 +1,11 @@
+{
+  "slug": "phoenix-evals",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/phoenix-evals"
+  },
+  "contentHash": "sha256:e5c0b3b3e8cb14a428a53e39370a1018462a7518f1037235180ec1a32b02fdb1",
+  "byteSize": 93607,
+  "fileCount": 36
+}

@@ -1,0 +1,11 @@
+{
+  "slug": "qdrant-monitoring",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/qdrant-monitoring"
+  },
+  "contentHash": "sha256:b105205857daf5da026d26cb638d48c1e2e2e4a3f9ba43edfe859f093dbbd86e",
+  "byteSize": 9083,
+  "fileCount": 4
+}

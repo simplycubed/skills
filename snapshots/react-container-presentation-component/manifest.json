@@ -1,0 +1,11 @@
+{
+  "slug": "react-container-presentation-component",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/react-container-presentation-component"
+  },
+  "contentHash": "sha256:82c0397b5a42e6d52c57afbc5c6610ff968c7e3257e4d2cc33a492645d0dd6ad",
+  "byteSize": 11795,
+  "fileCount": 4
+}

@@ -1,0 +1,11 @@
+{
+  "slug": "playwright-generate-test",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/playwright-generate-test"
+  },
+  "contentHash": "sha256:dfb5d283bf233a2dad25ea922d732df57fcbc0fab85f557212a910218b90fc23",
+  "byteSize": 1936,
+  "fileCount": 2
+}

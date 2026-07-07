@@ -1,0 +1,21 @@
+slug: create-github-issues-for-unmet-specification-requirements
+name: Create GitHub Issues For Unmet Specification Requirements
+description: Create GitHub Issues for unimplemented requirements from specification files using feature_request.yml template.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/create-github-issues-for-unmet-specification-requirements
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: integration
+tags:
+  - github
+  - issues
+  - unmet
+  - specification
+  - requirements

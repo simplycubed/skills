@@ -1,0 +1,11 @@
+{
+  "slug": "react19-test-patterns",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/react19-test-patterns"
+  },
+  "contentHash": "sha256:1e7c446a05e9148e5f28df5f295e6e5a78a02a0b11cce5743ea842ac070a3827",
+  "byteSize": 4222,
+  "fileCount": 2
+}

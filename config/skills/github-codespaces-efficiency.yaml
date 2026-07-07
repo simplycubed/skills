@@ -1,0 +1,22 @@
+slug: github-codespaces-efficiency
+name: GitHub Codespaces Efficiency
+description: >-
+  Audit and improve GitHub Codespaces efficiency. Use this skill when a user wants faster Codespaces startup, lower
+  Codespaces spend, slim devcontainers, right-size machines, tune idle timeout, or scope prebuilds to branches with
+  sustained usage.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/github-codespaces-efficiency
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - github
+  - codespaces
+  - efficiency

@@ -1,0 +1,11 @@
+{
+  "slug": "create-github-issue-feature-from-specification",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/create-github-issue-feature-from-specification"
+  },
+  "contentHash": "sha256:fd8e1877131203e6ce4d1952061e1e582adb6536a68a40fc98f693d8840ffb16",
+  "byteSize": 1971,
+  "fileCount": 2
+}

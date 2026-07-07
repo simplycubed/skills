@@ -1,0 +1,21 @@
+slug: phoenix-cli
+name: Phoenix CLI
+description: >-
+  Debug LLM applications using the Phoenix CLI. Fetch traces, analyze errors, structure trace review with open coding
+  and axial coding, inspect datasets, review experiments, query annotation configs, and use the GraphQL API. Use
+  whenever the user is analyzing traces or spans, investigating…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/phoenix-cli
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - phoenix
+  - cli

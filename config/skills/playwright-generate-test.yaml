@@ -1,0 +1,18 @@
+slug: playwright-generate-test
+name: Playwright Generate Test
+description: Generate a Playwright test based on a scenario using Playwright MCP
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/playwright-generate-test
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: coding
+tags:
+  - playwright
+  - test

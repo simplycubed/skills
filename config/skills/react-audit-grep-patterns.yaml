@@ -1,0 +1,23 @@
+slug: react-audit-grep-patterns
+name: React Audit Grep Patterns
+description: >-
+  Provides the complete, verified grep scan command library for auditing React codebases before a React 18.3.1 or React
+  19 upgrade. Use this skill whenever running a migration audit - for both the react18-auditor and react19-auditor
+  agents. Contains every grep pattern needed to find deprecated…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/react-audit-grep-patterns
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: coding
+tags:
+  - react
+  - audit
+  - grep
+  - patterns

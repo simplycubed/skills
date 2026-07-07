@@ -1,0 +1,11 @@
+{
+  "slug": "react-audit-grep-patterns",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/react-audit-grep-patterns"
+  },
+  "contentHash": "sha256:46e21c8943c5b5bddcd545b25fb33d7f220b5b6bbdb6529bb3c6a7c270c064e7",
+  "byteSize": 21383,
+  "fileCount": 6
+}
