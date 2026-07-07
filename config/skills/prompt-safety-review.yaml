@@ -1,0 +1,22 @@
+slug: prompt-safety-review
+name: AI Prompt Safety Review
+description: >-
+  Review AI prompts for safety, bias, and security vulnerabilities, with improvement recommendations, testing
+  methodologies, and frameworks for hardening prompt-driven systems.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/ai-prompt-engineering-safety-review
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: coding
+tags:
+  - ai
+  - prompt-security
+  - safety
+  - review

@@ -273,6 +273,95 @@
       }
     },
     {
+      "slug": "audit-integrity",
+      "name": "Audit Integrity",
+      "description": "A shared audit-integrity framework for AppSec agents: output-quality gates, anti-rationalization guards, self-critique loops, retry protocols, and a lesson/memory governance system for security-analysis agents.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "security",
+        "audit",
+        "appsec",
+        "quality"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/audit-integrity"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+audit-integrity&skill=audit-integrity&upstream=github%2Fawesome-copilot",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install audit-integrity@simplycubed"
+        },
+        "folder": {
+          "dirName": "audit-integrity",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/5351efc6a518f6c2a4bab8557f373a36e13a422d3ae68bc78197aef02c40efd3/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-06T13:44:06.077Z",
+        "record": {
+          "slug": "audit-integrity",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/audit-integrity"
+          },
+          "scanned_at": "2026-07-06T13:44:06.077Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
       "slug": "aws-cdk-development",
       "name": "AWS CDK Development",
       "description": "AWS CDK expert for infrastructure-as-code in TypeScript/Python — CDK stacks, constructs, stack composition, and deployment workflows. Use for CDK, CloudFormation, cdk synth/deploy, or defining AWS infrastructure programmatically.",
@@ -362,6 +451,95 @@
       }
     },
     {
+      "slug": "aws-cloudwatch-investigation",
+      "name": "AWS CloudWatch Investigation",
+      "description": "Reusable investigation patterns for AWS CloudWatch: Logs Insights query templates, alarm-to-deployment correlation, blast-radius narrowing decision tree, and PromQL-style metric query patterns for structured incident triage.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "aws",
+        "cloudwatch",
+        "observability",
+        "incident-response"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/aws-cloudwatch-investigation"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+aws-cloudwatch-investigation&skill=aws-cloudwatch-investigation&upstream=github%2Fawesome-copilot",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install aws-cloudwatch-investigation@simplycubed"
+        },
+        "folder": {
+          "dirName": "aws-cloudwatch-investigation",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/b3636a60531fedb93ae188b61d18a18eab92ccb3ec917aab387451a730b1410b/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-06T13:42:53.780Z",
+        "record": {
+          "slug": "aws-cloudwatch-investigation",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/aws-cloudwatch-investigation"
+          },
+          "scanned_at": "2026-07-06T13:42:53.780Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
       "slug": "aws-cost-operations",
       "name": "AWS Cost & Operations",
       "description": "AWS cost optimization, monitoring, and operational excellence — analyze bills, estimate costs, set CloudWatch alarms, query logs, audit CloudTrail, and assess security posture. Use for AWS costs, budgets, observability, or auditing.",
@@ -421,6 +599,362 @@
             "path": "plugins/aws-cost-ops/skills/aws-cost-operations"
           },
           "scanned_at": "2026-07-04T04:59:10.910Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "aws-resource-health",
+      "name": "AWS Resource Health Diagnose",
+      "description": "Analyze AWS resource health, diagnose issues from CloudWatch logs and metrics, and create a remediation plan for identified problems.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "aws",
+        "diagnostics",
+        "incident-response",
+        "remediation"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/aws-resource-health-diagnose"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+aws-resource-health&skill=aws-resource-health&upstream=github%2Fawesome-copilot",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install aws-resource-health@simplycubed"
+        },
+        "folder": {
+          "dirName": "aws-resource-health",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/c6831175067e4c4f8d2e20f2a19ce7fafa5a42dc556ca6d9675e1b982153141d/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-06T13:43:26.032Z",
+        "record": {
+          "slug": "aws-resource-health",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/aws-resource-health-diagnose"
+          },
+          "scanned_at": "2026-07-06T13:43:26.032Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "aws-well-architected-review",
+      "name": "AWS Well-Architected Review",
+      "description": "Perform an AWS Well-Architected Framework review of a workload's IaC and architecture, generating findings and GitHub issues for improvements.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "aws",
+        "architecture",
+        "security",
+        "review"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/aws-well-architected-review"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+aws-well-architected-review&skill=aws-well-architected-review&upstream=github%2Fawesome-copilot",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install aws-well-architected-review@simplycubed"
+        },
+        "folder": {
+          "dirName": "aws-well-architected-review",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/2f5cb90e18231d57d183f52fa2766884b29ba6902621fcd6f5cb88ce45a5df77/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-06T13:44:35.180Z",
+        "record": {
+          "slug": "aws-well-architected-review",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/aws-well-architected-review"
+          },
+          "scanned_at": "2026-07-06T13:44:35.180Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "azure-resource-health",
+      "name": "Azure Resource Health Diagnose",
+      "description": "Analyze Azure resource health, diagnose issues from logs and telemetry, and create a remediation plan for identified problems.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "azure",
+        "diagnostics",
+        "incident-response",
+        "remediation"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/azure-resource-health-diagnose"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+azure-resource-health&skill=azure-resource-health&upstream=github%2Fawesome-copilot",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install azure-resource-health@simplycubed"
+        },
+        "folder": {
+          "dirName": "azure-resource-health",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/36bb78f525dddfa1f915db89263a2c8b3a13ab0a891be7a36dee5a7e3834115c/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-06T13:43:39.555Z",
+        "record": {
+          "slug": "azure-resource-health",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/azure-resource-health-diagnose"
+          },
+          "scanned_at": "2026-07-06T13:43:39.555Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "centos-linux-triage",
+      "name": "CentOS Linux Triage",
+      "description": "Triage and resolve CentOS issues using RHEL-compatible tooling, SELinux-aware practices, and firewalld.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "linux",
+        "sysadmin",
+        "triage",
+        "incident-response"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/centos-linux-triage"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+centos-linux-triage&skill=centos-linux-triage&upstream=github%2Fawesome-copilot",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install centos-linux-triage@simplycubed"
+        },
+        "folder": {
+          "dirName": "centos-linux-triage",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/6bd7ff45f1eeb732418361b8a4e8cb4761a21ae3ca8a9f45c320895257bc64c1/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-06T13:43:53.031Z",
+        "record": {
+          "slug": "centos-linux-triage",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/centos-linux-triage"
+          },
+          "scanned_at": "2026-07-06T13:43:53.031Z",
           "unit": {
             "licenseSource": "repo-root",
             "declaredLicense": "MIT",
@@ -1160,6 +1694,95 @@
           "passed": true,
           "finding_count": 0,
           "review_count": 1,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "prompt-safety-review",
+      "name": "AI Prompt Safety Review",
+      "description": "Review AI prompts for safety, bias, and security vulnerabilities, with improvement recommendations, testing methodologies, and frameworks for hardening prompt-driven systems.",
+      "version": "1.0.0",
+      "category": "coding",
+      "tags": [
+        "ai",
+        "prompt-security",
+        "safety",
+        "review"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/ai-prompt-engineering-safety-review"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+prompt-safety-review&skill=prompt-safety-review&upstream=github%2Fawesome-copilot",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install prompt-safety-review@simplycubed"
+        },
+        "folder": {
+          "dirName": "prompt-safety-review",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/50f0c921a046a453db0b434c0406bdc2e639c0459ac52799e8729f4bd93c5bed/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-06T13:44:20.621Z",
+        "record": {
+          "slug": "prompt-safety-review",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/ai-prompt-engineering-safety-review"
+          },
+          "scanned_at": "2026-07-06T13:44:20.621Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
           "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
         }
       }

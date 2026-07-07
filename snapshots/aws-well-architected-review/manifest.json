@@ -1,0 +1,11 @@
+{
+  "slug": "aws-well-architected-review",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/aws-well-architected-review"
+  },
+  "contentHash": "sha256:2f5cb90e18231d57d183f52fa2766884b29ba6902621fcd6f5cb88ce45a5df77",
+  "byteSize": 8679,
+  "fileCount": 2
+}
