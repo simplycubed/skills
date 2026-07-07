@@ -1,0 +1,23 @@
+slug: reviewing-oracle-to-postgres-migration
+name: Reviewing Oracle To Postgres Migration
+description: >-
+  Identifies Oracle-to-PostgreSQL migration risks by cross-referencing code against known behavioral differences (empty
+  strings, refcursors, type coercion, sorting, timestamps, concurrent transactions, etc.). Use when planning a database
+  migration, reviewing migration artifacts, or validating that…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/reviewing-oracle-to-postgres-migration
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: data
+tags:
+  - reviewing
+  - oracle
+  - postgres
+  - migration

@@ -1,0 +1,23 @@
+slug: react-container-presentation-component
+name: React Container Presentation Component
+description: >-
+  Create a React component using the Container/Presentation pattern in src/components by asking for the component name
+  and type (ui or features), then scaffold files that follow this repository's TypeScript, Storybook, and SCSS
+  conventions. Use when the user explicitly asks for a…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/react-container-presentation-component
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: coding
+tags:
+  - react
+  - container
+  - presentation
+  - component

@@ -683,6 +683,29 @@
       ]
     },
     {
+      "name": "create-architectural-decision-record",
+      "description": "Create an Architectural Decision Record (ADR) document for AI-optimized decision documentation.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/create-architectural-decision-record",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "coding",
+      "keywords": [
+        "architectural",
+        "decision",
+        "record"
+      ]
+    },
+    {
       "name": "create-github-action-workflow-specification",
       "description": "Create a formal specification for an existing GitHub Actions CI/CD workflow, optimized for AI consumption and workflow maintenance.",
       "version": "1.0.0",
@@ -703,6 +726,100 @@
         "github",
         "action",
         "workflow",
+        "specification"
+      ]
+    },
+    {
+      "name": "create-github-issue-feature-from-specification",
+      "description": "Create GitHub Issue for feature request from specification file using feature_request.yml template.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/create-github-issue-feature-from-specification",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "integration",
+      "keywords": [
+        "github",
+        "issue",
+        "feature",
+        "specification"
+      ]
+    },
+    {
+      "name": "create-github-issues-feature-from-implementation-plan",
+      "description": "Create GitHub Issues from implementation plan phases using feature_request.yml or chore_request.yml templates.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/create-github-issues-feature-from-implementation-plan",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "integration",
+      "keywords": [
+        "github",
+        "issues",
+        "feature",
+        "implementation"
+      ]
+    },
+    {
+      "name": "create-github-issues-for-unmet-specification-requirements",
+      "description": "Create GitHub Issues for unimplemented requirements from specification files using feature_request.yml template.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/create-github-issues-for-unmet-specification-requirements",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "integration",
+      "keywords": [
+        "github",
+        "issues",
+        "unmet",
+        "specification",
+        "requirements"
+      ]
+    },
+    {
+      "name": "create-specification",
+      "description": "Create a new specification file for the solution, optimized for Generative AI consumption.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/create-specification",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "integration",
+      "keywords": [
         "specification"
       ]
     },
@@ -754,6 +871,31 @@
         "postgres",
         "migration",
         "bug"
+      ]
+    },
+    {
+      "name": "creating-oracle-to-postgres-migration-integration-tests",
+      "description": "Creates integration test cases for.NET data access artifacts during Oracle-to-PostgreSQL database migrations. Generates DB-agnostic xUnit tests with deterministic seed data that validate behavior consistency across both database systems. Use when creating integration tests for a migrated…",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/creating-oracle-to-postgres-migration-integration-tests",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "data",
+      "keywords": [
+        "creating",
+        "oracle",
+        "postgres",
+        "migration",
+        "integration"
       ]
     },
     {
@@ -983,6 +1125,51 @@
         "runtime",
         "upgrade",
         "conventions"
+      ]
+    },
+    {
+      "name": "github-codespaces-efficiency",
+      "description": "Audit and improve GitHub Codespaces efficiency. Use this skill when a user wants faster Codespaces startup, lower Codespaces spend, slim devcontainers, right-size machines, tune idle timeout, or scope prebuilds to branches with sustained usage.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/github-codespaces-efficiency",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "devops",
+      "keywords": [
+        "github",
+        "codespaces",
+        "efficiency"
+      ]
+    },
+    {
+      "name": "github-issues",
+      "description": "Create, update, and manage GitHub issues using MCP tools. Use this skill when users want to create bug reports, feature requests, or task issues, update existing issues, add labels/assignees/milestones, set issue fields (dates, priority, custom fields), set issue types, manage issue workflows…",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/github-issues",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "integration",
+      "keywords": [
+        "github",
+        "issues"
       ]
     },
     {
@@ -1308,6 +1495,95 @@
       ]
     },
     {
+      "name": "pester-should-migration",
+      "description": "Experimental (preview) Pester skill for migrating classic Should -Be (v5) assertion syntax to the new Should-* (v6) assertions (note the hyphen, no space), e.g. `Should -Be` - `Should-Be`, `Should -Not -Be` - `Should-NotBe`. Tracks Pester 6, which is still a release candidate, so this guidance…",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/pester-should-migration",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "coding",
+      "keywords": [
+        "pester",
+        "should",
+        "migration"
+      ]
+    },
+    {
+      "name": "phoenix-cli",
+      "description": "Debug LLM applications using the Phoenix CLI. Fetch traces, analyze errors, structure trace review with open coding and axial coding, inspect datasets, review experiments, query annotation configs, and use the GraphQL API. Use whenever the user is analyzing traces or spans, investigating…",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/phoenix-cli",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "devops",
+      "keywords": [
+        "phoenix",
+        "cli"
+      ]
+    },
+    {
+      "name": "phoenix-evals",
+      "description": "Build and run evaluators for AI/LLM applications using Phoenix.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/phoenix-evals",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "devops",
+      "keywords": [
+        "phoenix",
+        "evals"
+      ]
+    },
+    {
+      "name": "phoenix-tracing",
+      "description": "OpenInference semantic conventions and instrumentation for Phoenix AI observability. Use when implementing LLM tracing, creating custom spans, or deploying to production.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/phoenix-tracing",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "devops",
+      "keywords": [
+        "phoenix",
+        "tracing"
+      ]
+    },
+    {
       "name": "planning-oracle-to-postgres-migration-integration-testing",
       "description": "Creates an integration testing plan for.NET data access artifacts during Oracle-to-PostgreSQL database migrations. Analyzes a single project to identify repositories, DAOs, and service layers that interact with the database, then produces a structured testing plan. Use when planning integration…",
       "version": "1.0.0",
@@ -1401,6 +1677,28 @@
         "playwright",
         "explore",
         "website"
+      ]
+    },
+    {
+      "name": "playwright-generate-test",
+      "description": "Generate a Playwright test based on a scenario using Playwright MCP",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/playwright-generate-test",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "coding",
+      "keywords": [
+        "playwright",
+        "test"
       ]
     },
     {
@@ -1609,6 +1907,28 @@
       ]
     },
     {
+      "name": "qdrant-monitoring",
+      "description": "Guides Qdrant monitoring and observability setup. Use when someone asks 'how to monitor Qdrant', 'what metrics to track', 'is Qdrant healthy', 'optimizer stuck', 'why is memory growing', 'requests are slow', or needs to set up Prometheus, Grafana, or health checks. Also use when debugging…",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/qdrant-monitoring",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "data",
+      "keywords": [
+        "qdrant",
+        "monitoring"
+      ]
+    },
+    {
       "name": "qdrant-performance-optimization",
       "description": "Different techniques to optimize the performance of Qdrant, including indexing strategies, query optimization, and hardware considerations. Use when you want to improve the speed and efficiency of your Qdrant deployment.",
       "version": "1.0.0",
@@ -1629,6 +1949,99 @@
         "qdrant",
         "performance",
         "optimization"
+      ]
+    },
+    {
+      "name": "qdrant-scaling",
+      "description": "Guides Qdrant scaling decisions. Use when someone asks 'how many nodes do I need', 'data doesn't fit on one node', 'need more throughput', 'cluster is slow', 'too many tenants', 'vertical or horizontal', 'how to shard', or 'need to add capacity'.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/qdrant-scaling",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "data",
+      "keywords": [
+        "qdrant",
+        "scaling"
+      ]
+    },
+    {
+      "name": "react-audit-grep-patterns",
+      "description": "Provides the complete, verified grep scan command library for auditing React codebases before a React 18.3.1 or React 19 upgrade. Use this skill whenever running a migration audit - for both the react18-auditor and react19-auditor agents. Contains every grep pattern needed to find deprecated…",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/react-audit-grep-patterns",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "coding",
+      "keywords": [
+        "react",
+        "audit",
+        "grep",
+        "patterns"
+      ]
+    },
+    {
+      "name": "react-container-presentation-component",
+      "description": "Create a React component using the Container/Presentation pattern in src/components by asking for the component name and type (ui or features), then scaffold files that follow this repository's TypeScript, Storybook, and SCSS conventions. Use when the user explicitly asks for a…",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/react-container-presentation-component",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "coding",
+      "keywords": [
+        "react",
+        "container",
+        "presentation",
+        "component"
+      ]
+    },
+    {
+      "name": "react19-test-patterns",
+      "description": "Provides before/after patterns for migrating test files to React 19 compatibility, including act() imports, Simulate removal, and StrictMode call count changes.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/react19-test-patterns",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "coding",
+      "keywords": [
+        "react19",
+        "test",
+        "patterns"
       ]
     },
     {
@@ -1717,6 +2130,30 @@
       "keywords": [
         "review",
         "refactor"
+      ]
+    },
+    {
+      "name": "reviewing-oracle-to-postgres-migration",
+      "description": "Identifies Oracle-to-PostgreSQL migration risks by cross-referencing code against known behavioral differences (empty strings, refcursors, type coercion, sorting, timestamps, concurrent transactions, etc.). Use when planning a database migration, reviewing migration artifacts, or validating that…",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/github/awesome-copilot",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/github/awesome-copilot.git",
+        "path": "skills/reviewing-oracle-to-postgres-migration",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77"
+      },
+      "category": "data",
+      "keywords": [
+        "reviewing",
+        "oracle",
+        "postgres",
+        "migration"
       ]
     },
     {

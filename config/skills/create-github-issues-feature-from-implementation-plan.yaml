@@ -1,0 +1,20 @@
+slug: create-github-issues-feature-from-implementation-plan
+name: Create GitHub Issues Feature From Implementation Plan
+description: Create GitHub Issues from implementation plan phases using feature_request.yml or chore_request.yml templates.
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/create-github-issues-feature-from-implementation-plan
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: integration
+tags:
+  - github
+  - issues
+  - feature
+  - implementation

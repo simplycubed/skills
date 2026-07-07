@@ -1,0 +1,11 @@
+{
+  "slug": "qdrant-scaling",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/qdrant-scaling"
+  },
+  "contentHash": "sha256:d719b857e7f0ae4d7771a2f63a498d7086aca08ffe23dff3e4ff2cae019df7e6",
+  "byteSize": 27047,
+  "fileCount": 10
+}

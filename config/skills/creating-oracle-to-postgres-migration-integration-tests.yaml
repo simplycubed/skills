@@ -1,0 +1,24 @@
+slug: creating-oracle-to-postgres-migration-integration-tests
+name: Creating Oracle To Postgres Migration Integration Tests
+description: >-
+  Creates integration test cases for .NET data access artifacts during Oracle-to-PostgreSQL database migrations.
+  Generates DB-agnostic xUnit tests with deterministic seed data that validate behavior consistency across both database
+  systems. Use when creating integration tests for a migrated…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/creating-oracle-to-postgres-migration-integration-tests
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: data
+tags:
+  - creating
+  - oracle
+  - postgres
+  - migration
+  - integration

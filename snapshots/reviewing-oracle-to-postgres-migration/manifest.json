@@ -1,0 +1,11 @@
+{
+  "slug": "reviewing-oracle-to-postgres-migration",
+  "upstream": {
+    "repo": "github/awesome-copilot",
+    "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+    "path": "skills/reviewing-oracle-to-postgres-migration"
+  },
+  "contentHash": "sha256:60a304a911141c6c71a88c1af0bba76570767f420b9bf38e111a50a4e69333e5",
+  "byteSize": 51010,
+  "fileCount": 12
+}

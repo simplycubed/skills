@@ -1,0 +1,21 @@
+slug: github-issues
+name: GitHub Issues
+description: >-
+  Create, update, and manage GitHub issues using MCP tools. Use this skill when users want to create bug reports,
+  feature requests, or task issues, update existing issues, add labels/assignees/milestones, set issue fields (dates,
+  priority, custom fields), set issue types, manage issue workflows…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/github-issues
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: integration
+tags:
+  - github
+  - issues

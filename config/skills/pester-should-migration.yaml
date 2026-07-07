@@ -1,0 +1,22 @@
+slug: pester-should-migration
+name: Pester Should Migration
+description: >-
+  Experimental (preview) Pester skill for migrating classic Should -Be (v5) assertion syntax to the new Should-* (v6)
+  assertions (note the hyphen, no space), e.g. `Should -Be` -> `Should-Be`, `Should -Not -Be` -> `Should-NotBe`. Tracks
+  Pester 6, which is still a release candidate, so this guidance…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/pester-should-migration
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: coding
+tags:
+  - pester
+  - should
+  - migration
