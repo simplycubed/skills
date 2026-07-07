@@ -1,0 +1,23 @@
+slug: github-actions-hardening
+name: GitHub Actions Hardening
+description: >-
+  Security hardening reviewer for GitHub Actions workflow files (.github/workflows/*.yml). Reasons about the Actions
+  threat model that pattern matchers and general code linters miss — untrusted-input script injection, privileged
+  triggers running fork code, mutable action references, and…
+version: 1.0.0
+status: active
+upstream:
+  repo: github/awesome-copilot
+  sha: e986f49695491311df2774030ebe11efabd0fb77
+  path: skills/github-actions-hardening
+author:
+  name: GitHub awesome-copilot contributors
+  url: https://github.com/github/awesome-copilot
+license: MIT
+homepage: https://github.com/github/awesome-copilot
+category: devops
+tags:
+  - github-actions
+  - security
+  - hardening
+  - ci

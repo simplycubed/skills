@@ -2656,6 +2656,95 @@
       }
     },
     {
+      "slug": "cosmosdb-datamodeling",
+      "name": "CosmosDB Data Modeling",
+      "description": "Step-by-step guide for capturing key application requirements for NoSQL use-case and produce Azure Cosmos DB Data NoSQL Model design using best practices and common patterns, artifacts_produced: \"cosmosdb_requirements.md\" file and \"cosmosdb_data_model.md\" file",
+      "version": "1.0.0",
+      "category": "data",
+      "tags": [
+        "cosmosdb",
+        "database",
+        "modeling",
+        "azure"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/cosmosdb-datamodeling"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+cosmosdb-datamodeling&skill=cosmosdb-datamodeling&upstream=github%2Fawesome-copilot",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install cosmosdb-datamodeling@simplycubed"
+        },
+        "folder": {
+          "dirName": "cosmosdb-datamodeling",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/fae23b0d013203320ee10f4c98fd69bb387cf2bb7167d1a3172d6d8566a0914d/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-07T13:41:00.068Z",
+        "record": {
+          "slug": "cosmosdb-datamodeling",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/cosmosdb-datamodeling"
+          },
+          "scanned_at": "2026-07-07T13:41:00.068Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
       "slug": "create-architectural-decision-record",
       "name": "Create Architectural Decision Record",
       "description": "Create an Architectural Decision Record (ADR) document for AI-optimized decision documentation.",
@@ -4243,6 +4332,100 @@
           "passed": true,
           "finding_count": 0,
           "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "github-actions-hardening",
+      "name": "GitHub Actions Hardening",
+      "description": "Security hardening reviewer for GitHub Actions workflow files (.github/workflows/*.yml). Reasons about the Actions threat model that pattern matchers and general code linters miss — untrusted-input script injection, privileged triggers running fork code, mutable action references, and…",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "github-actions",
+        "security",
+        "hardening",
+        "ci"
+      ],
+      "author": {
+        "name": "GitHub awesome-copilot contributors",
+        "url": "https://github.com/github/awesome-copilot"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "github/awesome-copilot",
+        "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+        "path": "skills/github-actions-hardening"
+      },
+      "sourceUrl": "https://github.com/github/awesome-copilot",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+github-actions-hardening&skill=github-actions-hardening&upstream=github%2Fawesome-copilot",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install github-actions-hardening@simplycubed"
+        },
+        "folder": {
+          "dirName": "github-actions-hardening",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/6818b180d596df5de780fa8c216d8757e0a4ca0754e9c66f93a299f582c11e2a/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-07T13:40:59.821Z",
+        "record": {
+          "slug": "github-actions-hardening",
+          "upstream": {
+            "repo": "github/awesome-copilot",
+            "sha": "e986f49695491311df2774030ebe11efabd0fb77",
+            "path": "skills/github-actions-hardening"
+          },
+          "scanned_at": "2026-07-07T13:40:59.821Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [
+            "injection.md: reference to secret/credential files",
+            "report-format.md: exfiltration vocabulary",
+            "supply-chain.md: exfiltration vocabulary",
+            "triggers-and-privilege.md: posting secrets to a remote (defensive mention)"
+          ],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 4,
           "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
         }
       }
