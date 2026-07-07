@@ -30,6 +30,12 @@ const cases = [
   // An install-time lifecycle hook must PASS but be surfaced as review, not blocked.
   { dir: "fixtures/install-hook-skill", expect: 0, label: "install-hook fixture passes with the hook surfaced",
     installHook: true },
+  // "Posting secrets to a remote" is negation-aware: a DEFENSIVE mention passes (review),
+  // an INSTRUCTION to exfiltrate blocks. Guards against false-positives on security skills.
+  { dir: "fixtures/exfil-defensive", expect: 0, label: "defensive POST-secret mention passes (surfaced)",
+    review: true },
+  { dir: "fixtures/exfil-malicious", expect: 1, label: "malicious POST-secret instruction is blocked",
+    exfilBlock: true },
 ];
 
 let ok = true;
@@ -50,6 +56,11 @@ for (const c of cases) {
     const flagged = verdict && verdict.finding_count === 0 && (verdict.review || []).some((s) => /lifecycle script/i.test(s));
     pass = pass && flagged;
     console.log(`${pass ? "✓" : "✗"} ${c.label} (exit ${status}, hook flagged ${flagged})`);
+  } else if (c.exfilBlock) {
+    // Must block for the RIGHT reason — a posting-secrets finding in the injection tier.
+    const flagged = (verdict?.checks?.injection || []).some((s) => /posting secrets to a remote/i.test(s));
+    pass = pass && flagged;
+    console.log(`${pass ? "✓" : "✗"} ${c.label} (exit ${status}, exfil blocked ${flagged})`);
   } else {
     console.log(`${pass ? "✓" : "✗"} ${c.label} (exit ${status}, expected ${c.expect})`);
   }

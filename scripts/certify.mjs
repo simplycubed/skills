@@ -42,7 +42,6 @@ const INJECTION_BLOCK = [
   [/disregard\s+(the\s+)?(system|previous|prior|above)/i, "disregard-instructions phrasing"],
   [/curl[^\n]*\|\s*(sh|bash|zsh)\b|wget[^\n]*\|\s*(sh|bash|zsh)\b/i, "pipe-to-shell download"],
   [/base64\s+(-d|--decode)[^\n]*\|\s*(sh|bash|python)/i, "decode-and-execute"],
-  [/POST\s+[^\n]*\b(token|secret|key|password|credential)/i, "posting secrets to a remote"],
 ];
 const INJECTION_REVIEW = [
   [/\bid_rsa\b|\bid_ed25519\b|\.ssh\/|\.aws\/credentials|\.env\b/i, "reference to secret/credential files"],
@@ -171,18 +170,42 @@ function scanText(dir, patterns) {
   return findings;
 }
 
+// "Posting secrets to a remote" is BLOCK-worthy as an INSTRUCTION, but security /
+// hardening skills legitimately DESCRIBE it as something to prevent. So scan line by
+// line: a match in a defensive / negated context (the line or its neighbours warning
+// against it) is surfaced as REVIEW, not blocked — avoiding false positives on
+// defensive-security vocabulary while still blocking a genuine exfil instruction.
+const POST_SECRET = /POST\s+[^\n]*\b(token|secret|key|password|credential)/i;
+const DEFENSIVE = /\b(do ?n['’]?t|do not|never|avoid|prevent|must ?not|should ?not|no longer|instead of|rather than|attacker|malicious|adversar|exfiltrat|vulnerab|threat|unsafe|insecure|mitigat|harden)\b/i;
+function exfilScan(dir) {
+  const block = [], review = [];
+  const files = walk(dir, resolve(dir)).filter((f) => !f.symlink && /\.(md|markdown|txt)$/i.test(f.name));
+  for (const f of files) {
+    let text; try { text = readFileSync(f.full, "utf8"); } catch { continue; }
+    const lines = text.split("\n");
+    for (let i = 0; i < lines.length; i++) {
+      if (!POST_SECRET.test(lines[i])) continue;
+      const ctx = `${lines[i - 1] || ""} ${lines[i]} ${lines[i + 1] || ""}`;
+      if (DEFENSIVE.test(ctx)) review.push(`${basename(f.full)}: posting secrets to a remote (defensive mention)`);
+      else block.push(`${basename(f.full)}: posting secrets to a remote`);
+    }
+  }
+  return { block: [...new Set(block)], review: [...new Set(review)] };
+}
+
 // Exported so the scan orchestrator can reuse the built-in tier without shelling
 // out to this file.
 export function certify(dir) {
   const obf = obfuscationScan(dir);
+  const exfil = exfilScan(dir);
   const checks = {
     structure: structureGuard(dir),
     license: licenseCheck(dir),
     // Blocking injection tier + bidi-obfuscation BLOCK findings (folded in, no new
     // record key — keeps the certification record shape and catalog.json stable).
-    injection: [...scanText(dir, INJECTION_BLOCK), ...obf.block],
+    injection: [...scanText(dir, INJECTION_BLOCK), ...obf.block, ...exfil.block],
   };
-  const review = [...scanText(dir, INJECTION_REVIEW), ...obf.review, ...installHookScan(dir)]; // surfaced, non-blocking
+  const review = [...scanText(dir, INJECTION_REVIEW), ...obf.review, ...exfil.review, ...installHookScan(dir)]; // surfaced, non-blocking
   // Only blocking checks decide pass/fail; review findings are flagged, not fatal.
   const blocking = Object.values(checks).flat();
   return {
