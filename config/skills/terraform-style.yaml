@@ -1,0 +1,20 @@
+slug: terraform-style
+name: Terraform Style Guide
+description: 'Style guide for generating and maintaining Terraform/OpenTofu code — consistent file organization, provider/version-constraint-first generation, resources built in dependency order, and alphabetized variables and outputs.'
+version: 1.0.0
+status: active
+upstream:
+  repo: atkozhuharov/iac-ai
+  sha: "726f3dd137e31ab1826778e534f21a13bf12c7d3"
+  path: skills/terraform-style
+author:
+  name: atkozhuharov
+  url: https://github.com/atkozhuharov/iac-ai
+license: MIT
+homepage: https://github.com/atkozhuharov/iac-ai
+category: devops
+tags:
+  - terraform
+  - opentofu
+  - iac
+  - style

@@ -1,0 +1,11 @@
+{
+  "slug": "terraform-cloud",
+  "upstream": {
+    "repo": "atkozhuharov/iac-ai",
+    "sha": "726f3dd137e31ab1826778e534f21a13bf12c7d3",
+    "path": "skills/terraform-cloud"
+  },
+  "contentHash": "sha256:795a9ad7b29a56484cc6773aa05eb1c74fd3a32506d43305312393e25fd235c6",
+  "byteSize": 7881,
+  "fileCount": 2
+}

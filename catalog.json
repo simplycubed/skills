@@ -4783,6 +4783,95 @@
       }
     },
     {
+      "slug": "iac-module-scaffold",
+      "name": "IaC Module Scaffold",
+      "description": "Scaffold a registry-ready Terraform/OpenTofu module — standard file layout (main/variables/outputs/versions), typed/validated/described variables, documented outputs, an examples/ usage, native.tftest.hcl tests, a terraform-docs README, and a fmt/validate check.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "terraform",
+        "opentofu",
+        "iac",
+        "modules"
+      ],
+      "author": {
+        "name": "atkozhuharov",
+        "url": "https://github.com/atkozhuharov/iac-ai"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "atkozhuharov/iac-ai",
+        "sha": "726f3dd137e31ab1826778e534f21a13bf12c7d3",
+        "path": "skills/iac-module-scaffold"
+      },
+      "sourceUrl": "https://github.com/atkozhuharov/iac-ai",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+iac-module-scaffold&skill=iac-module-scaffold&upstream=atkozhuharov%2Fiac-ai",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install iac-module-scaffold@simplycubed"
+        },
+        "folder": {
+          "dirName": "iac-module-scaffold",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/236be144cd62509247b14d4f19d5cb8dce9d01c2ce05fe821942495c51d85d92/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-08T08:50:02.447Z",
+        "record": {
+          "slug": "iac-module-scaffold",
+          "upstream": {
+            "repo": "atkozhuharov/iac-ai",
+            "sha": "726f3dd137e31ab1826778e534f21a13bf12c7d3",
+            "path": "skills/iac-module-scaffold"
+          },
+          "scanned_at": "2026-07-08T08:50:02.447Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
       "slug": "incident-postmortem",
       "name": "Incident Postmortem",
       "description": "Use when an outage, production incident, or significant service degradation has occurred and the team needs to write a structured blameless post-mortem. Triggers on phrases like \"write a post-mortem\", \"incident review\", \"what went wrong\", \"outage report\", \"root cause analysis\", or \"RCA\". Covers…",
@@ -9093,6 +9182,184 @@
             "gitleaks": "8.18.4",
             "osv-scanner": "2.4.0",
             "semgrep": "1.168.0"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "terraform-cloud",
+      "name": "Terraform Cloud Runs",
+      "description": "Trigger Terraform Cloud / TFE remote runs and poll their status and logs over the JSON:API with curl — kick off a plan/apply against a remote backend, watch a run, and stream its output. Works against app.terraform.io and any TFE-compatible host.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "terraform",
+        "terraform-cloud",
+        "tfe",
+        "iac"
+      ],
+      "author": {
+        "name": "atkozhuharov",
+        "url": "https://github.com/atkozhuharov/iac-ai"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "atkozhuharov/iac-ai",
+        "sha": "726f3dd137e31ab1826778e534f21a13bf12c7d3",
+        "path": "skills/terraform-cloud"
+      },
+      "sourceUrl": "https://github.com/atkozhuharov/iac-ai",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+terraform-cloud&skill=terraform-cloud&upstream=atkozhuharov%2Fiac-ai",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install terraform-cloud@simplycubed"
+        },
+        "folder": {
+          "dirName": "terraform-cloud",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/795a9ad7b29a56484cc6773aa05eb1c74fd3a32506d43305312393e25fd235c6/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-08T08:50:03.075Z",
+        "record": {
+          "slug": "terraform-cloud",
+          "upstream": {
+            "repo": "atkozhuharov/iac-ai",
+            "sha": "726f3dd137e31ab1826778e534f21a13bf12c7d3",
+            "path": "skills/terraform-cloud"
+          },
+          "scanned_at": "2026-07-08T08:50:03.075Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "terraform-style",
+      "name": "Terraform Style Guide",
+      "description": "Style guide for generating and maintaining Terraform/OpenTofu code — consistent file organization, provider/version-constraint-first generation, resources built in dependency order, and alphabetized variables and outputs.",
+      "version": "1.0.0",
+      "category": "devops",
+      "tags": [
+        "terraform",
+        "opentofu",
+        "iac",
+        "style"
+      ],
+      "author": {
+        "name": "atkozhuharov",
+        "url": "https://github.com/atkozhuharov/iac-ai"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "atkozhuharov/iac-ai",
+        "sha": "726f3dd137e31ab1826778e534f21a13bf12c7d3",
+        "path": "skills/terraform-style"
+      },
+      "sourceUrl": "https://github.com/atkozhuharov/iac-ai",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+terraform-style&skill=terraform-style&upstream=atkozhuharov%2Fiac-ai",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install terraform-style@simplycubed"
+        },
+        "folder": {
+          "dirName": "terraform-style",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/8ba84260dae9cf6607c846f8ac3f6f3cf9d0a951614112659ce490eb26b90481/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-07-08T08:50:01.674Z",
+        "record": {
+          "slug": "terraform-style",
+          "upstream": {
+            "repo": "atkozhuharov/iac-ai",
+            "sha": "726f3dd137e31ab1826778e534f21a13bf12c7d3",
+            "path": "skills/terraform-style"
+          },
+          "scanned_at": "2026-07-08T08:50:01.674Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.18.4",
+            "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
           },
           "checks": {
             "structure": [],
