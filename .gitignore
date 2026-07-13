@@ -17,3 +17,5 @@ pnpm-debug.log*
 /.scan-work/
 # R2 upload staging (snapshot blobs are packed here, then uploaded to R2 by the sync Action)
 /.r2-staging/
+# Miner dry-run output (discover → phase1 candidate list; uploaded as a CI artifact, not committed)
+/candidates.json
