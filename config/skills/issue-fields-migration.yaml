@@ -4,7 +4,6 @@ description: >-
   Bulk-migrate metadata to GitHub issue fields from two sources: repo labels (e.g. priority labels to a Priority field)
   and Project V2 fields. Use when users say "migrate my labels to issue fields", "migrate project fields to issue
   fields", "convert labels to issue fields", "copy project field…
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

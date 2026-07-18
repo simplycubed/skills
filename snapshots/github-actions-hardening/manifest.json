@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/github-actions-hardening"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:6818b180d596df5de780fa8c216d8757e0a4ca0754e9c66f93a299f582c11e2a",
   "byteSize": 24944,
   "fileCount": 7

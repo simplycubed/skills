@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/audit-integrity"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:5351efc6a518f6c2a4bab8557f373a36e13a422d3ae68bc78197aef02c40efd3",
   "byteSize": 18806,
   "fileCount": 9

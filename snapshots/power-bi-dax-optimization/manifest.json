@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/power-bi-dax-optimization"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:e64f2519566a03edb41dfc159faf7395d01eaca7e0f3de0706a9b2d876521657",
   "byteSize": 6617,
   "fileCount": 2

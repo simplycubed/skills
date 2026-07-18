@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/bigquery-pipeline-audit"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:4deef88418aee9e061ac356303e0c922889f4f628b1178375a0436c47816d220",
   "byteSize": 6062,
   "fileCount": 2

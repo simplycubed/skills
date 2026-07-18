@@ -1,7 +1,6 @@
 slug: playwright-automation-fill-in-form
 name: Playwright Automation Fill In Form
 description: Automate filling in a form using Playwright MCP
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

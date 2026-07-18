@@ -4,7 +4,6 @@ description: >-
   Creates structured bug reports for defects found during Oracle-to-PostgreSQL migration. Use when documenting
   behavioral differences between Oracle and PostgreSQL as actionable bug reports with severity, root cause, and
   remediation steps.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

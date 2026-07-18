@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/postgresql-code-review"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:04597ff9f05dcf5a93a01c1bb6a92fe240773c5aef0b3388bdd3f23a05807fc5",
   "byteSize": 8498,
   "fileCount": 2

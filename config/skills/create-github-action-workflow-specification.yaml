@@ -3,7 +3,6 @@ name: Create Github Action Workflow Specification
 description: >-
   Create a formal specification for an existing GitHub Actions CI/CD workflow, optimized for AI consumption and workflow
   maintenance.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

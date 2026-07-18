@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/refactor-plan"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:51e18f0951ed7038802931d9fccd539ae60968d2055685efc0a6c0d676a58425",
   "byteSize": 3348,
   "fileCount": 2

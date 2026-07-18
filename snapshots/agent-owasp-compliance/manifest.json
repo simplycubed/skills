@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/agent-owasp-compliance"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:17815bf5783ce364776ac8c17306650038cf8d7191eac5662f618782eb1459c5",
   "byteSize": 12953,
   "fileCount": 2

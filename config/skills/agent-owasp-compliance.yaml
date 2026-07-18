@@ -1,7 +1,6 @@
 slug: agent-owasp-compliance
 name: Agent OWASP Compliance
 description: 'Checks an AI-agent codebase against the OWASP Agentic Security Initiative (ASI) Top 10 risks. Use to evaluate an agent system security posture, run a compliance check, map controls to the 10 agentic risks, or generate an audit report.'
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

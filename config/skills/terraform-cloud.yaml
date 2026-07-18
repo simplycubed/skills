@@ -1,7 +1,6 @@
 slug: terraform-cloud
 name: Terraform Cloud Runs
 description: 'Trigger Terraform Cloud / TFE remote runs and poll their status and logs over the JSON:API with curl — kick off a plan/apply against a remote backend, watch a run, and stream its output. Works against app.terraform.io and any TFE-compatible host.'
-version: 1.0.0
 status: active
 upstream:
   repo: atkozhuharov/iac-ai

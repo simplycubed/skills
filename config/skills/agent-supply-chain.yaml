@@ -1,7 +1,6 @@
 slug: agent-supply-chain
 name: Agent Supply Chain Integrity
 description: 'Verifies supply-chain integrity for AI-agent plugins, tools, and dependencies — SHA-256 integrity manifests, tamper detection, dependency-pinning audits, and dev-to-prod provenance chains for agent components.'
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

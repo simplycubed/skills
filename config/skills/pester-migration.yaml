@@ -4,7 +4,6 @@ description: >-
   Experimental (preview) Pester migration skill for upgrading PowerShell Pester test suites across major versions —
   v3→v4, v4→v5, and v5→v6. The v5→v6 path tracks Pester 6, which is still a release candidate, so that guidance may
   change. Covers the Discovery/Run two-phase model, moving setup into…
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

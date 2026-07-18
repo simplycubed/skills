@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/ai-prompt-engineering-safety-review"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:50f0c921a046a453db0b434c0406bdc2e639c0459ac52799e8729f4bd93c5bed",
   "byteSize": 11226,
   "fileCount": 2

@@ -1,7 +1,6 @@
 slug: openapi-to-application-code
 name: OpenAPI To Application Code
 description: Generate a complete, production-ready application from an OpenAPI specification
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

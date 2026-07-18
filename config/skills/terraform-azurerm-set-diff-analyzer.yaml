@@ -4,7 +4,6 @@ description: >-
   Analyze Terraform plan JSON output for AzureRM Provider to distinguish between false-positive diffs (order-only
   changes in Set-type attributes) and actual resource changes. Use when reviewing terraform plan output for Azure
   resources like Application Gateway, Load Balancer, Firewall, Front Door…
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

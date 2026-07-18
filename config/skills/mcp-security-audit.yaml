@@ -4,7 +4,6 @@ description: >-
   Audit MCP (Model Context Protocol) server configurations for security issues. Use this skill when: - Reviewing
   .mcp.json files for security risks - Checking MCP server args for hardcoded secrets or shell injection patterns -
   Validating that MCP servers use pinned versions (not @latest) -…
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

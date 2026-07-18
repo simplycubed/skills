@@ -3,7 +3,6 @@ name: Containerize ASP.NET Framework
 description: >-
   Containerize an ASP.NET .NET Framework project by creating Dockerfile and .dockerfile files customized for the
   project.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

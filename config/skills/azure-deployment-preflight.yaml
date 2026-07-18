@@ -4,7 +4,6 @@ description: >-
   Performs comprehensive preflight validation of Bicep deployments to Azure, including template syntax validation,
   what-if analysis, and permission checks. Use this skill before any deployment to Azure to preview changes, identify
   potential issues, and ensure the deployment will succeed. Activate…
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

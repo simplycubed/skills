@@ -45,8 +45,12 @@ const subSkill = {
 
 const configs = [rootSkill, subSkill];
 
+// Version is DERIVED from upstream (via the snapshot manifest), not from the YAML.
+// Inject a resolver: root-skill declares an upstream version; sub-skill is unversioned.
+const versionFor = (slug) => (slug === "root-skill" ? "2.8.2" : null);
+
 // --- marketplace.json ---
-const mkt = buildMarketplace(configs);
+const mkt = buildMarketplace(configs, versionFor);
 assert.equal(mkt.name, "simplycubed", "marketplace name");
 assert.equal(mkt.plugins.length, 2, "two plugins");
 
@@ -56,7 +60,7 @@ assert.deepEqual(
   { source: "github", repo: "acme/root", sha: "a".repeat(40) },
   "root skill uses github source with repo+sha, no path"
 );
-assert.equal(root.version, "1.0.0");
+assert.equal(root.version, "2.8.2", "declared upstream version is surfaced verbatim");
 assert.equal(root.license, "MIT");
 assert.deepEqual(root.author, { name: "Acme", url: "https://github.com/acme" });
 assert.deepEqual(root.keywords, ["example"], "tags map to keywords");
@@ -67,6 +71,11 @@ assert.deepEqual(
   { source: "git-subdir", url: "https://github.com/acme/mono.git", path: "skills/sub", sha: "b".repeat(40) },
   "subdir skill uses git-subdir source with url+path+sha"
 );
+// An unversioned skill OMITS version entirely (Claude Code falls back to the commit SHA).
+assert.ok(!("version" in sub), "unversioned skill omits version key in the plugin manifest");
+// With no upstream version anywhere, no plugin carries a version.
+const mktUnver = buildMarketplace(configs, () => null);
+assert.ok(mktUnver.plugins.every((p) => !("version" in p)), "all-unversioned => no version keys");
 
 // --- catalog.json ---
 // folderSource: CDN tarball when a snapshot hash exists, else the pinned upstream tree
@@ -77,9 +86,12 @@ assert.equal(folderSource(rootSkill, null),
 assert.equal(folderSource(subSkill, null),
   `https://github.com/acme/mono/tree/${"b".repeat(40)}/skills/sub`, "no hash => pinned upstream tree (subdir)");
 
-const cat = buildCatalog(configs, () => null);
-assert.equal(cat.schemaVersion, 2, "catalog carries schemaVersion 2");
+const cat = buildCatalog(configs, () => null, versionFor);
+assert.equal(cat.schemaVersion, 3, "catalog carries schemaVersion 3");
 const catRoot = cat.skills.find((s) => s.slug === "root-skill");
+// version is the upstream-declared value, or null when unversioned — never a default.
+assert.equal(catRoot.version, "2.8.2", "declared upstream version in catalog");
+assert.equal(cat.skills.find((s) => s.slug === "sub-skill").version, null, "unversioned => version null");
 // Claude Code install commands
 assert.equal(catRoot.install.claudeCode.marketplaceAdd, "/plugin marketplace add simplycubed/skills");
 assert.equal(catRoot.install.claudeCode.command, "/plugin install root-skill@simplycubed");

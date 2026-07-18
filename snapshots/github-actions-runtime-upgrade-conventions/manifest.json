@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/github-actions-runtime-upgrade-conventions"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:a1ef890b6961ad24ef655a49ead8d6d5ac5083b891309c7e1ae8579517f49a0a",
   "byteSize": 3946,
   "fileCount": 2

@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/issue-fields-migration"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:01238fc08d45fa687c475dfa919864c0b8a0d88b3457136486a4d6ea06a4978d",
   "byteSize": 34308,
   "fileCount": 5

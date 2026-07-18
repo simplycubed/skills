@@ -14,10 +14,16 @@ certified in CI. This repo produces three artifacts:
   `simplycubed/skills` before acting; if HEAD/branch moves without your action,
   another session may have strayed in — stop and flag it.
 - **Gate-first.** Scripts: `pnpm validate` · `gate:selftest` · `scan <slug> [--write]`
-  · `scan:selftest` · `certify:active` · `generate` · `generate:check` ·
+  · `scan:selftest` · `certify:active` · `snapshot [--write]` · `snapshot:check` ·
+  `versions:check` · `versions:selftest` · `generate` · `generate:check` ·
   `generate:selftest` · `catalog:check`.
 - **Add a skill:** write `config/skills/<slug>.yaml` (pinned SHA) → `pnpm scan <slug> --write`
-  → `pnpm generate` → commit. CI re-verifies on the live upstream bytes.
+  → `pnpm snapshot <slug> --write` → `pnpm generate` → commit. CI re-verifies on the live
+  upstream bytes. **Do NOT hand-set a version** — there is no `version` field in the YAML.
+  The listing version is DERIVED from the upstream `SKILL.md`'s `version:` at the pinned SHA
+  (captured into the snapshot manifest by `snapshot`; must be strict semver or `versions:check`
+  fails). A skill whose upstream declares no version is **unversioned** (catalog `version: null`;
+  the plugin manifest omits `version`, so Claude Code falls back to the commit SHA).
 - **Never hand-edit** `marketplace.json` / `catalog.json` (generated) or
   `<slug>.scan.json` (produced by `scan.mjs`) — CI's no-drift + re-scan gates reject it.
 - Certification methodology: [`METHODOLOGY.md`](METHODOLOGY.md).
@@ -48,16 +54,25 @@ in this repo is part of the contract.
 
 ## Top-level shape
 ```json
-{ "schemaVersion": 2, "marketplace": "simplycubed", "skills": [ /* Skill */ ] }
+{ "schemaVersion": 3, "marketplace": "simplycubed", "skills": [ /* Skill */ ] }
 ```
-`schemaVersion` is bumped on any breaking shape change. **v2 (current)** changed
-`install.folder.source` from a browsable upstream tree to a durable, content-addressed
-**CDN tarball** (see `install` below) — the only shape change from v1.
+`schemaVersion` is bumped on any breaking shape change. **v3 (current)** made `version`
+**`string | null`**: it is now the UPSTREAM-declared version at the pinned SHA, or `null`
+for an **unversioned** skill (upstream declares none) — never a fabricated default. (v2
+changed `install.folder.source` to a durable content-addressed CDN tarball; v1 was the
+initial shape.)
 
 ## Each `Skill`
-`slug`, `name`, `description`, `version`, `category` (string|null), `tags` (string[]),
-`author` ({name, url?}), `license` (SPDX id), `upstream` ({repo, sha, path?}),
+`slug`, `name`, `description`, `version` (**string | null**), `category` (string|null),
+`tags` (string[]), `author` ({name, url?}), `license` (SPDX id), `upstream` ({repo, sha, path?}),
 `sourceUrl`, `tier` (`"free"` | `"premium"`), `removalUrl`, `install`, `certification`.
+
+**`version`** — the SemVer version declared by the upstream `SKILL.md` at the pinned
+`upstream.sha`, or **`null`** when the skill is unversioned. We never invent one. **Render
+the string when present; when `null`, show no version (e.g. an "Unversioned" badge) and
+SORT/secondary-sort that skill by `certification.scannedAt`** rather than by version. A
+skill's version changes only when its pinned SHA moves to an upstream release that declares
+a new version.
 
 **`removalUrl`** — a deep link to a pre-filled GitHub issue form for the skill's
 author/rights-holder to request removal (the form collects ownership proof).
@@ -110,6 +125,13 @@ For the "what we checked" detail, read from `record`:
   There is deliberately **no top-level `generatedAt`** (it would break the repo's
   no-drift gate).
 - A `revoked` skill must be delisted or clearly badged — never shown as certified.
+
+## Now available (v3)
+- **Upstream-sourced version (BREAKING — schemaVersion 3)** — `version` is now the
+  version declared by the upstream `SKILL.md` at the pinned SHA, or **`null`** for an
+  unversioned skill. **The web receiver must:** accept `schemaVersion: 3`; render a `null`
+  `version` as no-version / an "Unversioned" badge; and sort (or secondary-sort) unversioned
+  skills by `certification.scannedAt` instead of by version. No other shape change.
 
 ## Now available (v2)
 - **Snapshot download** — the durable content-addressed snapshot is **live**:

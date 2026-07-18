@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/diagnose"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:2eab1ed280a673db6fc22b3aec70c1c96f9ccb15221e1d76432f727859a78278",
   "byteSize": 5501,
   "fileCount": 2

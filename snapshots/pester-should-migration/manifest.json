@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/pester-should-migration"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:aa1603ca87f305c69c56fd0ffc89cd7d30fe78898a2ef5c52ade0f80069f5c4d",
   "byteSize": 18545,
   "fileCount": 3

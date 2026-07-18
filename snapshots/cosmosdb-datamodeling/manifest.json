@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/cosmosdb-datamodeling"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:fae23b0d013203320ee10f4c98fd69bb387cf2bb7167d1a3172d6d8566a0914d",
   "byteSize": 48927,
   "fileCount": 2

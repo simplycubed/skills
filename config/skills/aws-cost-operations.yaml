@@ -1,7 +1,6 @@
 slug: aws-cost-operations
 name: AWS Cost & Operations
 description: 'AWS cost optimization, monitoring, and operational excellence — analyze bills, estimate costs, set CloudWatch alarms, query logs, audit CloudTrail, and assess security posture. Use for AWS costs, budgets, observability, or auditing.'
-version: 1.0.0
 status: active
 upstream:
   repo: zxkane/aws-skills

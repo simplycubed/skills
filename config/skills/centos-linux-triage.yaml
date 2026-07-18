@@ -1,7 +1,6 @@
 slug: centos-linux-triage
 name: CentOS Linux Triage
 description: Triage and resolve CentOS issues using RHEL-compatible tooling, SELinux-aware practices, and firewalld.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/typespec-api-operations"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:9b359e0c7ca8fbc58bb730f98dd218775c95f395a6421cee925fb141c85948a4",
   "byteSize": 10216,
   "fileCount": 2

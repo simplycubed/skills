@@ -10,7 +10,6 @@
     {
       "name": "agent-governance",
       "description": "Patterns for adding governance, safety, and trust controls to AI-agent systems — policy-based tool access, intent classification, trust scoring, audit trails, rate limits, and content filters for agents that call external tools.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -34,7 +33,6 @@
     {
       "name": "agent-owasp-compliance",
       "description": "Checks an AI-agent codebase against the OWASP Agentic Security Initiative (ASI) Top 10 risks. Use to evaluate an agent system security posture, run a compliance check, map controls to the 10 agentic risks, or generate an audit report.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -58,7 +56,6 @@
     {
       "name": "agent-supply-chain",
       "description": "Verifies supply-chain integrity for AI-agent plugins, tools, and dependencies — SHA-256 integrity manifests, tamper detection, dependency-pinning audits, and dev-to-prod provenance chains for agent components.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -81,7 +78,6 @@
     {
       "name": "appinsights-instrumentation",
       "description": "Instrument a webapp to send useful telemetry data to Azure App Insights",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -103,7 +99,6 @@
     {
       "name": "arch-linux-triage",
       "description": "Triage and resolve Arch Linux issues with pacman, systemd, and rolling-release best practices.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -126,7 +121,6 @@
     {
       "name": "architecture-blueprint-generator",
       "description": "Comprehensive project architecture blueprint generator that analyzes codebases to create detailed architectural documentation. Automatically detects technology stacks and architectural patterns, generates visual diagrams, documents implementation patterns, and provides extensible blueprints for…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -149,7 +143,6 @@
     {
       "name": "audit-integrity",
       "description": "A shared audit-integrity framework for AppSec agents: output-quality gates, anti-rationalization guards, self-critique loops, retry protocols, and a lesson/memory governance system for security-analysis agents.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -173,7 +166,6 @@
     {
       "name": "aws-cdk-development",
       "description": "AWS CDK expert for infrastructure-as-code in TypeScript/Python — CDK stacks, constructs, stack composition, and deployment workflows. Use for CDK, CloudFormation, cdk synth/deploy, or defining AWS infrastructure programmatically.",
-      "version": "1.0.0",
       "author": {
         "name": "Mengxin Zhu",
         "url": "https://github.com/zxkane"
@@ -197,7 +189,6 @@
     {
       "name": "aws-cdk-python-setup",
       "description": "Setup and initialization guide for developing AWS CDK (Cloud Development Kit) applications in Python. This skill enables users to configure environment prerequisites, create new CDK projects, manage dependencies, and deploy to AWS.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -221,7 +212,6 @@
     {
       "name": "aws-cloudwatch-investigation",
       "description": "Reusable investigation patterns for AWS CloudWatch: Logs Insights query templates, alarm-to-deployment correlation, blast-radius narrowing decision tree, and PromQL-style metric query patterns for structured incident triage.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -245,7 +235,6 @@
     {
       "name": "aws-cost-operations",
       "description": "AWS cost optimization, monitoring, and operational excellence — analyze bills, estimate costs, set CloudWatch alarms, query logs, audit CloudTrail, and assess security posture. Use for AWS costs, budgets, observability, or auditing.",
-      "version": "1.0.0",
       "author": {
         "name": "Mengxin Zhu",
         "url": "https://github.com/zxkane"
@@ -269,7 +258,6 @@
     {
       "name": "aws-cost-optimize",
       "description": "Analyze AWS resources used in the app (IaC files and/or resources in a target account/region) and optimize costs - creating GitHub issues for identified optimizations.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -292,7 +280,6 @@
     {
       "name": "aws-resource-health",
       "description": "Analyze AWS resource health, diagnose issues from CloudWatch logs and metrics, and create a remediation plan for identified problems.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -316,7 +303,6 @@
     {
       "name": "aws-resource-query",
       "description": "Query AWS resources using natural language. Covers EC2, S3, RDS, Lambda, ECS, EKS, Secrets Manager, IAM, VPC, networking, messaging, and more. Strictly read-only — no writes, deletes, or mutations.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -339,7 +325,6 @@
     {
       "name": "aws-well-architected-review",
       "description": "Perform an AWS Well-Architected Framework review of a workload's IaC and architecture, generating findings and GitHub issues for improvements.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -363,7 +348,6 @@
     {
       "name": "az-cost-optimize",
       "description": "Analyze Azure resources used in the app (IaC files and/or resources in a target rg) and optimize costs - creating GitHub issues for identified optimizations.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -385,7 +369,6 @@
     {
       "name": "azure-deployment-preflight",
       "description": "Performs comprehensive preflight validation of Bicep deployments to Azure, including template syntax validation, what-if analysis, and permission checks. Use this skill before any deployment to Azure to preview changes, identify potential issues, and ensure the deployment will succeed. Activate…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -408,7 +391,6 @@
     {
       "name": "azure-devops-cli",
       "description": "Manage Azure DevOps resources via CLI including projects, repos, pipelines, builds, pull requests, work items, artifacts, and service endpoints. Use when working with Azure DevOps, az commands, devops automation, CI/CD, or when user mentions Azure DevOps CLI.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -431,7 +413,6 @@
     {
       "name": "azure-pricing",
       "description": "Fetches real-time Azure retail pricing using the Azure Retail Prices API (prices.azure.com) and estimates Copilot Studio agent credit consumption. Use when the user asks about the cost of any Azure service, wants to compare SKU prices, needs pricing data for a cost estimate, mentions Azure…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -453,7 +434,6 @@
     {
       "name": "azure-resource-health",
       "description": "Analyze Azure resource health, diagnose issues from logs and telemetry, and create a remediation plan for identified problems.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -477,7 +457,6 @@
     {
       "name": "azure-resource-visualizer",
       "description": "Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources. Use this skill when the user asks for a diagram of their Azure resources or help in understanding how the resources relate to each other.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -500,7 +479,6 @@
     {
       "name": "azure-role-selector",
       "description": "When user is asking for guidance for which role to assign to an identity given desired permissions, this agent helps them understand the role that will meet the requirements with least privilege access and how to apply that role.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -523,7 +501,6 @@
     {
       "name": "azure-static-web-apps",
       "description": "Helps create, configure, and deploy Azure Static Web Apps using the SWA CLI. Use when deploying static sites to Azure, setting up SWA local development, configuring staticwebapp.config.json, adding Azure Functions APIs to SWA, or setting up GitHub Actions CI/CD for Static Web Apps.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -547,7 +524,6 @@
     {
       "name": "bigquery-pipeline-audit",
       "description": "Audits Python + BigQuery pipelines for cost safety, idempotency, and production readiness. Returns a structured report with exact patch locations.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -570,7 +546,6 @@
     {
       "name": "centos-linux-triage",
       "description": "Triage and resolve CentOS issues using RHEL-compatible tooling, SELinux-aware practices, and firewalld.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -594,7 +569,6 @@
     {
       "name": "ci-cd-automation",
       "description": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines, automating quality gates, configuring test runners in CI, or establishing deployment strategies.",
-      "version": "1.0.0",
       "author": {
         "name": "Addy Osmani",
         "url": "https://github.com/addyosmani"
@@ -617,7 +591,6 @@
     {
       "name": "cloud-design-patterns",
       "description": "Cloud design patterns for distributed systems architecture covering 42 industry-standard patterns across reliability, performance, messaging, security, and deployment categories. Use when designing, reviewing, or implementing distributed system architectures.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -640,7 +613,6 @@
     {
       "name": "code-review",
       "description": "Conducts multi-axis code review before merging any change. Use when reviewing code written by yourself, another agent, or a human, to assess quality across multiple dimensions before it enters the main branch.",
-      "version": "1.0.0",
       "author": {
         "name": "Addy Osmani",
         "url": "https://github.com/addyosmani"
@@ -662,7 +634,6 @@
     {
       "name": "containerize-aspnet-framework",
       "description": "Containerize an ASP.NET.NET Framework project by creating Dockerfile and.dockerfile files customized for the project.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -685,7 +656,6 @@
     {
       "name": "containerize-aspnetcore",
       "description": "Containerize an ASP.NET Core project by creating Dockerfile and.dockerfile files customized for the project.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -707,7 +677,6 @@
     {
       "name": "cosmosdb-datamodeling",
       "description": "Step-by-step guide for capturing key application requirements for NoSQL use-case and produce Azure Cosmos DB Data NoSQL Model design using best practices and common patterns, artifacts_produced: \"cosmosdb_requirements.md\" file and \"cosmosdb_data_model.md\" file",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -731,7 +700,6 @@
     {
       "name": "create-architectural-decision-record",
       "description": "Create an Architectural Decision Record (ADR) document for AI-optimized decision documentation.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -754,7 +722,6 @@
     {
       "name": "create-github-action-workflow-specification",
       "description": "Create a formal specification for an existing GitHub Actions CI/CD workflow, optimized for AI consumption and workflow maintenance.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -778,7 +745,6 @@
     {
       "name": "create-github-issue-feature-from-specification",
       "description": "Create GitHub Issue for feature request from specification file using feature_request.yml template.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -802,7 +768,6 @@
     {
       "name": "create-github-issues-feature-from-implementation-plan",
       "description": "Create GitHub Issues from implementation plan phases using feature_request.yml or chore_request.yml templates.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -826,7 +791,6 @@
     {
       "name": "create-github-issues-for-unmet-specification-requirements",
       "description": "Create GitHub Issues for unimplemented requirements from specification files using feature_request.yml template.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -851,7 +815,6 @@
     {
       "name": "create-specification",
       "description": "Create a new specification file for the solution, optimized for Generative AI consumption.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -872,7 +835,6 @@
     {
       "name": "creating-oracle-to-postgres-master-migration-plan",
       "description": "Discovers all projects in a.NET solution, classifies each for Oracle-to-PostgreSQL migration eligibility, and produces a persistent master migration plan. Use when starting a multi-project Oracle-to-PostgreSQL migration, creating a migration inventory, or assessing which.NET projects contain…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -897,7 +859,6 @@
     {
       "name": "creating-oracle-to-postgres-migration-bug-report",
       "description": "Creates structured bug reports for defects found during Oracle-to-PostgreSQL migration. Use when documenting behavioral differences between Oracle and PostgreSQL as actionable bug reports with severity, root cause, and remediation steps.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -922,7 +883,6 @@
     {
       "name": "creating-oracle-to-postgres-migration-integration-tests",
       "description": "Creates integration test cases for.NET data access artifacts during Oracle-to-PostgreSQL database migrations. Generates DB-agnostic xUnit tests with deterministic seed data that validate behavior consistency across both database systems. Use when creating integration tests for a migrated…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -947,7 +907,6 @@
     {
       "name": "debian-linux-triage",
       "description": "Triage and resolve Debian Linux issues with apt, systemd, and AppArmor-aware guidance.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -970,7 +929,6 @@
     {
       "name": "devops-rollout-plan",
       "description": "Generate comprehensive rollout plans with preflight checks, step-by-step deployment, verification signals, rollback procedures, and communication plans for infrastructure and application changes",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -992,7 +950,6 @@
     {
       "name": "diagnose",
       "description": "Perform a systematic diagnostic scan of an AI workflow across 5 quality dimensions — prompt quality, context efficiency, tool health, architecture fitness, and safety — producing a scored report with prioritized remediation actions.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1013,7 +970,6 @@
     {
       "name": "docs-adrs",
       "description": "Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or recording context that future engineers and agents need to understand the codebase.",
-      "version": "1.0.0",
       "author": {
         "name": "Addy Osmani",
         "url": "https://github.com/addyosmani"
@@ -1036,7 +992,6 @@
     {
       "name": "documentation-writer",
       "description": "Diátaxis Documentation Expert. An expert technical writer specializing in creating high-quality software documentation, guided by the principles and structure of the Diátaxis technical documentation authoring framework.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1057,7 +1012,6 @@
     {
       "name": "dotnet-design-pattern-review",
       "description": "Review the C#/.NET code for design pattern implementation and suggest improvements.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1081,7 +1035,6 @@
     {
       "name": "fedora-linux-triage",
       "description": "Triage and resolve Fedora issues with dnf, systemd, and SELinux-aware guidance.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1104,7 +1057,6 @@
     {
       "name": "flowstudio-power-automate-debug",
       "description": "Debug failing Power Automate cloud flows using the FlowStudio MCP server. The Graph API only shows top-level status codes. This skill gives your agent action-level inputs and outputs to find the actual root cause. Load this skill when asked to: debug a flow, investigate a failed run, why is this…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1128,7 +1080,6 @@
     {
       "name": "github-actions-efficiency",
       "description": "Audit GitHub Actions workflow efficiency and recommend fixes to reduce CI minutes and costs.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1151,7 +1102,6 @@
     {
       "name": "github-actions-hardening",
       "description": "Security hardening reviewer for GitHub Actions workflow files (.github/workflows/*.yml). Reasons about the Actions threat model that pattern matchers and general code linters miss — untrusted-input script injection, privileged triggers running fork code, mutable action references, and…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1175,7 +1125,6 @@
     {
       "name": "github-actions-runtime-upgrade-conventions",
       "description": "Upgrade GitHub Actions to supported runtimes by selecting safe action versions, preserving workflow behavior, and validating post-upgrade execution.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1200,7 +1149,6 @@
     {
       "name": "github-codespaces-efficiency",
       "description": "Audit and improve GitHub Codespaces efficiency. Use this skill when a user wants faster Codespaces startup, lower Codespaces spend, slim devcontainers, right-size machines, tune idle timeout, or scope prebuilds to branches with sustained usage.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1223,7 +1171,6 @@
     {
       "name": "github-issues",
       "description": "Create, update, and manage GitHub issues using MCP tools. Use this skill when users want to create bug reports, feature requests, or task issues, update existing issues, add labels/assignees/milestones, set issue fields (dates, priority, custom fields), set issue types, manage issue workflows…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1245,7 +1192,7 @@
     {
       "name": "humanizer",
       "description": "Removes signs of AI-generated writing so text reads naturally — detects and fixes inflated symbolism, promotional language, vague attributions, rule-of-three, and other tells from Wikipedia's \"Signs of AI writing\" guide. Use when editing or reviewing text.",
-      "version": "1.0.0",
+      "version": "2.8.2",
       "author": {
         "name": "Siqi Chen",
         "url": "https://github.com/blader"
@@ -1267,7 +1214,6 @@
     {
       "name": "iac-module-scaffold",
       "description": "Scaffold a registry-ready Terraform/OpenTofu module — standard file layout (main/variables/outputs/versions), typed/validated/described variables, documented outputs, an examples/ usage, native.tftest.hcl tests, a terraform-docs README, and a fmt/validate check.",
-      "version": "1.0.0",
       "author": {
         "name": "atkozhuharov",
         "url": "https://github.com/atkozhuharov/iac-ai"
@@ -1291,7 +1237,6 @@
     {
       "name": "incident-postmortem",
       "description": "Use when an outage, production incident, or significant service degradation has occurred and the team needs to write a structured blameless post-mortem. Triggers on phrases like \"write a post-mortem\", \"incident review\", \"what went wrong\", \"outage report\", \"root cause analysis\", or \"RCA\". Covers…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1313,7 +1258,6 @@
     {
       "name": "issue-fields-migration",
       "description": "Bulk-migrate metadata to GitHub issue fields from two sources: repo labels (e.g. priority labels to a Priority field) and Project V2 fields. Use when users say \"migrate my labels to issue fields\", \"migrate project fields to issue fields\", \"convert labels to issue fields\", \"copy project field…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1336,7 +1280,6 @@
     {
       "name": "javax-to-jakarta-migration",
       "description": "Migrate Java code from javax.* to jakarta.* namespace. Use when upgrading to Tomcat 11, Jakarta EE 10, or when javax imports are detected in the codebase.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1359,7 +1302,6 @@
     {
       "name": "linus-level",
       "description": "A 1.0–10.0 \"engineering working-mode\" dial for coding agents — tunes agency, assumption budget, verification, and security posture from fast prototyping to maintainer-grade rigor. Triggers on \"Linus Level\", \"LL n\", or set-rigor / maintainer-mode requests.",
-      "version": "1.0.0",
       "author": {
         "name": "Ron Soffer",
         "url": "https://github.com/rsoffer"
@@ -1383,7 +1325,6 @@
     {
       "name": "mcp-deploy-manage-agents",
       "description": "Skill converted from mcp-deploy-manage-agents.prompt.md",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1407,7 +1348,6 @@
     {
       "name": "mcp-security-audit",
       "description": "Audit MCP (Model Context Protocol) server configurations for security issues. Use this skill when: - Reviewing.mcp.json files for security risks - Checking MCP server args for hardcoded secrets or shell injection patterns - Validating that MCP servers use pinned versions (not @latest) -…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1430,7 +1370,6 @@
     {
       "name": "migrating-oracle-to-postgres-stored-procedures",
       "description": "Migrates Oracle PL/SQL stored procedures to PostgreSQL PL/pgSQL. Translates Oracle-specific syntax, preserves method signatures and type-anchored parameters, leverages orafce where appropriate, and applies COLLATE \"C\" for Oracle-compatible text sorting. Use when converting Oracle stored…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1455,7 +1394,6 @@
     {
       "name": "multi-stage-dockerfile",
       "description": "Create optimized multi-stage Dockerfiles for any language or framework",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1478,7 +1416,7 @@
     {
       "name": "nothing-design",
       "description": "Applies the Nothing design system to UI work. Use when the user explicitly asks for \"Nothing style\", \"Nothing design\", or to apply the Nothing design system — never automatically for generic UI tasks.",
-      "version": "1.0.0",
+      "version": "3.0.0",
       "author": {
         "name": "Dominik Martin",
         "url": "https://github.com/dominikmartn"
@@ -1501,7 +1439,6 @@
     {
       "name": "observability",
       "description": "Instruments code so production behavior is visible and diagnosable — logging, metrics, tracing, alerting. Use when shipping features that run in production or when you cannot tell what happened from available data.",
-      "version": "1.0.0",
       "author": {
         "name": "Addy Osmani",
         "url": "https://github.com/addyosmani"
@@ -1524,7 +1461,6 @@
     {
       "name": "oo-component-documentation",
       "description": "Create or update standardized object-oriented component documentation using a shared template plus mode-specific guidance for new and existing docs.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1546,7 +1482,6 @@
     {
       "name": "openapi-to-application-code",
       "description": "Generate a complete, production-ready application from an OpenAPI specification",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1569,7 +1504,6 @@
     {
       "name": "pester-migration",
       "description": "Experimental (preview) Pester migration skill for upgrading PowerShell Pester test suites across major versions — v3→v4, v4→v5, and v5→v6. The v5→v6 path tracks Pester 6, which is still a release candidate, so that guidance may change. Covers the Discovery/Run two-phase model, moving setup into…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1591,7 +1525,6 @@
     {
       "name": "pester-should-migration",
       "description": "Experimental (preview) Pester skill for migrating classic Should -Be (v5) assertion syntax to the new Should-* (v6) assertions (note the hyphen, no space), e.g. `Should -Be` - `Should-Be`, `Should -Not -Be` - `Should-NotBe`. Tracks Pester 6, which is still a release candidate, so this guidance…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1614,7 +1547,6 @@
     {
       "name": "phoenix-cli",
       "description": "Debug LLM applications using the Phoenix CLI. Fetch traces, analyze errors, structure trace review with open coding and axial coding, inspect datasets, review experiments, query annotation configs, and use the GraphQL API. Use whenever the user is analyzing traces or spans, investigating…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1636,7 +1568,6 @@
     {
       "name": "phoenix-evals",
       "description": "Build and run evaluators for AI/LLM applications using Phoenix.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1658,7 +1589,6 @@
     {
       "name": "phoenix-tracing",
       "description": "OpenInference semantic conventions and instrumentation for Phoenix AI observability. Use when implementing LLM tracing, creating custom spans, or deploying to production.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1680,7 +1610,6 @@
     {
       "name": "planning-oracle-to-postgres-migration-integration-testing",
       "description": "Creates an integration testing plan for.NET data access artifacts during Oracle-to-PostgreSQL database migrations. Analyzes a single project to identify repositories, DAOs, and service layers that interact with the database, then produces a structured testing plan. Use when planning integration…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1705,7 +1634,6 @@
     {
       "name": "playwright",
       "description": "Browser automation with Playwright: auto-detects dev servers, writes test scripts, fills forms, takes screenshots, checks responsive design, validates UX, and tests login flows and links. Use to test websites or automate browser interactions.",
-      "version": "1.0.0",
       "author": {
         "name": "Bryan Lackey",
         "url": "https://github.com/lackeyjb"
@@ -1729,7 +1657,6 @@
     {
       "name": "playwright-automation-fill-in-form",
       "description": "Automate filling in a form using Playwright MCP",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1753,7 +1680,6 @@
     {
       "name": "playwright-explore-website",
       "description": "Website exploration for testing using Playwright MCP",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1776,7 +1702,6 @@
     {
       "name": "playwright-generate-test",
       "description": "Generate a Playwright test based on a scenario using Playwright MCP",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1798,7 +1723,6 @@
     {
       "name": "postgresql-code-review",
       "description": "PostgreSQL-specific code review assistant focusing on PostgreSQL best practices, anti-patterns, and unique quality standards. Covers JSONB operations, array usage, custom types, schema design, function optimization, and PostgreSQL-exclusive security features like Row Level Security (RLS).",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1821,7 +1745,6 @@
     {
       "name": "postgresql-optimization",
       "description": "PostgreSQL-specific development assistant focusing on unique PostgreSQL features, advanced data types, and PostgreSQL-exclusive capabilities. Covers JSONB operations, array types, custom types, range/geometric types, full-text search, window functions, and PostgreSQL extensions ecosystem.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1843,7 +1766,6 @@
     {
       "name": "power-bi-dax-optimization",
       "description": "Comprehensive Power BI DAX formula optimization prompt for improving performance, readability, and maintainability of DAX calculations.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1866,7 +1788,6 @@
     {
       "name": "power-bi-performance-troubleshooting",
       "description": "Systematic Power BI performance troubleshooting prompt for identifying, diagnosing, and resolving performance issues in Power BI models, reports, and queries.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1889,7 +1810,6 @@
     {
       "name": "prompt-optimizer",
       "description": "Turn any rough prompt, half-formed idea, or task description into a finished, ready-to-send prompt optimized for any LLM model inside a chat interface — NOT the API. Use this skill whenever the user wants to write, rewrite, optimize, improve, sharpen, or polish a prompt for chat. Trigger phrases…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1911,7 +1831,6 @@
     {
       "name": "prompt-safety-review",
       "description": "Review AI prompts for safety, bias, and security vulnerabilities, with improvement recommendations, testing methodologies, and frameworks for hardening prompt-driven systems.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1935,7 +1854,6 @@
     {
       "name": "pytest-coverage",
       "description": "Run pytest tests with coverage, discover lines missing coverage, and increase coverage to 100%.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1957,7 +1875,6 @@
     {
       "name": "qdrant-deployment-options",
       "description": "Guides Qdrant deployment selection. Use when someone asks 'how to deploy Qdrant', 'Docker vs Cloud', 'local mode', 'embedded Qdrant', 'Qdrant EDGE', 'which deployment option', 'self-hosted vs cloud', or 'need lowest latency deployment'. Also use when choosing between deployment types for a new…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -1980,7 +1897,6 @@
     {
       "name": "qdrant-model-migration",
       "description": "Guides embedding model migration in Qdrant without downtime. Use when someone asks 'how to switch embedding models', 'how to migrate vectors', 'how to update to a new model', 'zero-downtime model change', 'how to re-embed my data', or 'can I use two models at once'. Also use when upgrading model…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2003,7 +1919,6 @@
     {
       "name": "qdrant-monitoring",
       "description": "Guides Qdrant monitoring and observability setup. Use when someone asks 'how to monitor Qdrant', 'what metrics to track', 'is Qdrant healthy', 'optimizer stuck', 'why is memory growing', 'requests are slow', or needs to set up Prometheus, Grafana, or health checks. Also use when debugging…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2025,7 +1940,6 @@
     {
       "name": "qdrant-performance-optimization",
       "description": "Different techniques to optimize the performance of Qdrant, including indexing strategies, query optimization, and hardware considerations. Use when you want to improve the speed and efficiency of your Qdrant deployment.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2048,7 +1962,6 @@
     {
       "name": "qdrant-scaling",
       "description": "Guides Qdrant scaling decisions. Use when someone asks 'how many nodes do I need', 'data doesn't fit on one node', 'need more throughput', 'cluster is slow', 'too many tenants', 'vertical or horizontal', 'how to shard', or 'need to add capacity'.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2070,7 +1983,6 @@
     {
       "name": "react-audit-grep-patterns",
       "description": "Provides the complete, verified grep scan command library for auditing React codebases before a React 18.3.1 or React 19 upgrade. Use this skill whenever running a migration audit - for both the react18-auditor and react19-auditor agents. Contains every grep pattern needed to find deprecated…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2094,7 +2006,6 @@
     {
       "name": "react-container-presentation-component",
       "description": "Create a React component using the Container/Presentation pattern in src/components by asking for the component name and type (ui or features), then scaffold files that follow this repository's TypeScript, Storybook, and SCSS conventions. Use when the user explicitly asks for a…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2118,7 +2029,6 @@
     {
       "name": "react19-test-patterns",
       "description": "Provides before/after patterns for migrating test files to React 19 compatibility, including act() imports, Simulate removal, and StrictMode call count changes.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2141,7 +2051,6 @@
     {
       "name": "refactor",
       "description": "Surgical code refactoring to improve maintainability without changing behavior. Covers extracting functions, renaming variables, breaking down god functions, improving type safety, eliminating code smells, and applying design patterns. Less drastic than repo-rebuilder; use for gradual improvements.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2162,7 +2071,6 @@
     {
       "name": "refactor-method-complexity-reduce",
       "description": "Refactor given method `${input:methodName}` to reduce its cognitive complexity to `${input:complexityThreshold}` or below, by extracting helper methods.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2186,7 +2094,6 @@
     {
       "name": "refactor-plan",
       "description": "Create a concrete plan before starting a multi-file refactor. Use when the user asks to plan, sequence, scope, or safely execute a refactor across multiple files; always investigate first, output the plan, and wait for confirmation before making code changes.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2207,7 +2114,6 @@
     {
       "name": "review-and-refactor",
       "description": "Review and refactor code in your project according to defined instructions",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2229,7 +2135,6 @@
     {
       "name": "reviewing-oracle-to-postgres-migration",
       "description": "Identifies Oracle-to-PostgreSQL migration risks by cross-referencing code against known behavioral differences (empty strings, refcursors, type coercion, sorting, timestamps, concurrent transactions, etc.). Use when planning a database migration, reviewing migration artifacts, or validating that…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2253,7 +2158,6 @@
     {
       "name": "scaffolding-oracle-to-postgres-migration-test-project",
       "description": "Scaffolds an xUnit integration test project for validating Oracle-to-PostgreSQL database migration behavior in.NET solutions. Creates the test project, transaction-rollback base class, and seed data manager. Use when setting up test infrastructure before writing migration integration tests, or…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2278,7 +2182,6 @@
     {
       "name": "secret-scanning",
       "description": "Guide for configuring and managing GitHub secret scanning, push protection, custom patterns, and secret alert remediation. For pre-commit secret scanning in AI coding agents via the GitHub MCP Server, this skill references the Advanced Security plugin (`advanced-security@copilot-plugins`). Use…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2300,7 +2203,6 @@
     {
       "name": "security-hardening",
       "description": "Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations, or building any feature that accepts untrusted data, manages sessions, or calls third-party services.",
-      "version": "1.0.0",
       "author": {
         "name": "Addy Osmani",
         "url": "https://github.com/addyosmani"
@@ -2324,7 +2226,6 @@
     {
       "name": "sql-code-review",
       "description": "Universal SQL code review assistant that performs comprehensive security, maintainability, and code quality analysis across all SQL databases (MySQL, PostgreSQL, SQL Server, Oracle). Focuses on SQL injection prevention, access control, code standards, and anti-pattern detection. Complements SQL…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2347,7 +2248,6 @@
     {
       "name": "sql-optimization",
       "description": "Universal SQL performance optimization assistant for comprehensive query tuning, indexing strategies, and database performance analysis across all SQL databases (MySQL, PostgreSQL, SQL Server, Oracle). Provides execution plan analysis, pagination optimization, batch operations, and performance…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2369,7 +2269,6 @@
     {
       "name": "sql-server-table-reconciliation",
       "description": "Use when: comparing SQL Server tables across instances, data migration validation, ETL verification, row mismatch detection, schema drift, reconciliation report, production vs staging comparison. Uses mssql-python driver with Apache Arrow for fast columnar data transfer and comparison.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2393,7 +2292,6 @@
     {
       "name": "terraform-azurerm-set-diff-analyzer",
       "description": "Analyze Terraform plan JSON output for AzureRM Provider to distinguish between false-positive diffs (order-only changes in Set-type attributes) and actual resource changes. Use when reviewing terraform plan output for Azure resources like Application Gateway, Load Balancer, Firewall, Front Door…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2417,7 +2315,6 @@
     {
       "name": "terraform-cloud",
       "description": "Trigger Terraform Cloud / TFE remote runs and poll their status and logs over the JSON:API with curl — kick off a plan/apply against a remote backend, watch a run, and stream its output. Works against app.terraform.io and any TFE-compatible host.",
-      "version": "1.0.0",
       "author": {
         "name": "atkozhuharov",
         "url": "https://github.com/atkozhuharov/iac-ai"
@@ -2441,7 +2338,6 @@
     {
       "name": "terraform-style",
       "description": "Style guide for generating and maintaining Terraform/OpenTofu code — consistent file organization, provider/version-constraint-first generation, resources built in dependency order, and alphabetized variables and outputs.",
-      "version": "1.0.0",
       "author": {
         "name": "atkozhuharov",
         "url": "https://github.com/atkozhuharov/iac-ai"
@@ -2465,7 +2361,6 @@
     {
       "name": "threat-model-analyst",
       "description": "Full STRIDE-A threat model analysis and incremental update skill for repositories and systems. Supports two modes: (1) Single analysis — full STRIDE-A threat model of a repository, producing architecture overviews, DFD diagrams, STRIDE-A analysis, prioritized findings, and executive assessments.…",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2488,7 +2383,6 @@
     {
       "name": "typespec-api-operations",
       "description": "Add GET, POST, PATCH, and DELETE operations to a TypeSpec API plugin with proper routing, parameters, and adaptive cards",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2511,7 +2405,6 @@
     {
       "name": "update-avm-modules-in-bicep",
       "description": "Update Azure Verified Modules (AVM) to latest versions in Bicep files.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"
@@ -2535,7 +2428,6 @@
     {
       "name": "webapp-testing",
       "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
-      "version": "1.0.0",
       "author": {
         "name": "GitHub awesome-copilot contributors",
         "url": "https://github.com/github/awesome-copilot"

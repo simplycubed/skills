@@ -1,7 +1,6 @@
 slug: create-github-issues-for-unmet-specification-requirements
 name: Create GitHub Issues For Unmet Specification Requirements
 description: Create GitHub Issues for unimplemented requirements from specification files using feature_request.yml template.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

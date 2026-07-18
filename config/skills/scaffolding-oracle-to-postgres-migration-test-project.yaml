@@ -4,7 +4,6 @@ description: >-
   Scaffolds an xUnit integration test project for validating Oracle-to-PostgreSQL database migration behavior in .NET
   solutions. Creates the test project, transaction-rollback base class, and seed data manager. Use when setting up test
   infrastructure before writing migration integration tests, or…
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

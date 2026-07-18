@@ -1,7 +1,6 @@
 slug: arch-linux-triage
 name: Arch Linux Triage
 description: Triage and resolve Arch Linux issues with pacman, systemd, and rolling-release best practices.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

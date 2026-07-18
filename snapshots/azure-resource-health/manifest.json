@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/azure-resource-health-diagnose"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:36bb78f525dddfa1f915db89263a2c8b3a13ab0a891be7a36dee5a7e3834115c",
   "byteSize": 12560,
   "fileCount": 2

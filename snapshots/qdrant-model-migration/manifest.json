@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/qdrant-model-migration"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:480e0a5fa5476ca909b65f61aa96852ce125263b6e4db38a9992f3d55f05d7ca",
   "byteSize": 6573,
   "fileCount": 2

@@ -4,7 +4,6 @@ description: >-
   Create, update, and manage GitHub issues using MCP tools. Use this skill when users want to create bug reports,
   feature requests, or task issues, update existing issues, add labels/assignees/milestones, set issue fields (dates,
   priority, custom fields), set issue types, manage issue workflows…
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

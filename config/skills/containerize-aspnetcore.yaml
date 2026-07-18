@@ -1,7 +1,6 @@
 slug: containerize-aspnetcore
 name: Containerize ASP.NET Core
 description: Containerize an ASP.NET Core project by creating Dockerfile and .dockerfile files customized for the project.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

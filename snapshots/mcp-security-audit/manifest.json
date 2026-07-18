@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/mcp-security-audit"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:ceba396dfb65b5696a27ba7c7572d54fb6db05717ea39047c4198366d1bc5ad8",
   "byteSize": 9984,
   "fileCount": 2

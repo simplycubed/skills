@@ -1,7 +1,6 @@
 slug: create-specification
 name: Create Specification
 description: Create a new specification file for the solution, optimized for Generative AI consumption.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

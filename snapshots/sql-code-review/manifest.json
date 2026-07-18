@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/sql-code-review"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:52be2beef9d29da581d6b20779f146ef91647b6ff5c99359f0d28367fa7fc09b",
   "byteSize": 9984,
   "fileCount": 2

@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/azure-pricing"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:df2ea8be97f7fa0b9894ae863e04f20bb4a1dde08d34d58ab84bb6c698001592",
   "byteSize": 26468,
   "fileCount": 6

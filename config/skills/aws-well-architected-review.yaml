@@ -3,7 +3,6 @@ name: AWS Well-Architected Review
 description: >-
   Perform an AWS Well-Architected Framework review of a workload's IaC and architecture, generating findings and GitHub
   issues for improvements.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

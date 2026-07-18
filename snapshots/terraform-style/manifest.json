@@ -5,6 +5,7 @@
     "sha": "726f3dd137e31ab1826778e534f21a13bf12c7d3",
     "path": "skills/terraform-style"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:8ba84260dae9cf6607c846f8ac3f6f3cf9d0a951614112659ce490eb26b90481",
   "byteSize": 11059,
   "fileCount": 2

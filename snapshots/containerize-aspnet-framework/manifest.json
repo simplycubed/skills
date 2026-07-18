@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/containerize-aspnet-framework"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:168426984203de104cb3aef37bfbe112d01221c572cbc4f532a7d256ac895b7c",
   "byteSize": 21884,
   "fileCount": 2

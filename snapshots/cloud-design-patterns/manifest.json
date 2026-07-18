@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/cloud-design-patterns"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:dc7cc1341a1d4ac1b72e4c915a8151cd00eff384de6ca580352643089be0413d",
   "byteSize": 36089,
   "fileCount": 11

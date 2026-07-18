@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/devops-rollout-plan"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:2f4e1869881f8f52419af34b30bf80c3b9be33ddfb4be4ef3469dcc72b6f3ef7",
   "byteSize": 5053,
   "fileCount": 2

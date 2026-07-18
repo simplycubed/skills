@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/create-specification"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:440a25874803059d5bbf39650fa67cd9a5d703052691372ce3cd97552e5cec8b",
   "byteSize": 6577,
   "fileCount": 2

@@ -5,6 +5,7 @@
     "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
     "path": "skills/security-and-hardening"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:d7415af33296a7b8ccbc556bcbf83c13311dffb97bd556ec9007c76702a76858",
   "byteSize": 19946,
   "fileCount": 2

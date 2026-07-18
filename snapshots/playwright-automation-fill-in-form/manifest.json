@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/playwright-automation-fill-in-form"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:f0677639a7d83d6125bfaab9fad6fd42b46923fa944eeeea669ebc7de7bbafef",
   "byteSize": 1709,
   "fileCount": 2

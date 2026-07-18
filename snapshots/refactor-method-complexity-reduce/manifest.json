@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/refactor-method-complexity-reduce"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:4dfd7d6c1cf67cc8121bcab8e7f352fa14be74c0634f14bc2b46f828b366659b",
   "byteSize": 5489,
   "fileCount": 2

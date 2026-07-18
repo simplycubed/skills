@@ -4,7 +4,6 @@ description: >-
   Use when: comparing SQL Server tables across instances, data migration validation, ETL verification, row mismatch
   detection, schema drift, reconciliation report, production vs staging comparison. Uses mssql-python driver with Apache
   Arrow for fast columnar data transfer and comparison.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/github-actions-efficiency"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:f4d6a00ae587d13f553293083620aa81ef2829b81c330ae2c8a20640d194692f",
   "byteSize": 12166,
   "fileCount": 6

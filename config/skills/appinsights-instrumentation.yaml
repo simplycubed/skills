@@ -1,7 +1,6 @@
 slug: appinsights-instrumentation
 name: App Insights Instrumentation
 description: Instrument a webapp to send useful telemetry data to Azure App Insights
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

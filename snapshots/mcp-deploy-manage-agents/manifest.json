@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/mcp-deploy-manage-agents"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:c4274feef25cf0de573d3c629f3ef34f4013955ab169c2b969336942255f8518",
   "byteSize": 10942,
   "fileCount": 2

@@ -1,7 +1,6 @@
 slug: dotnet-design-pattern-review
 name: .NET Design Pattern Review
 description: Review the C#/.NET code for design pattern implementation and suggest improvements.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

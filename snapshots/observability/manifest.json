@@ -5,6 +5,7 @@
     "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
     "path": "skills/observability-and-instrumentation"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:fa0c773037d824f5a05a1d338dda4580fe2410ee94e68899431a7eb9971b2b82",
   "byteSize": 12115,
   "fileCount": 2

@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/qdrant-deployment-options"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:01c52884a864f7e72f32c131ac6c20811f5e0f1bce1b43fcb4385aee818a11fe",
   "byteSize": 4156,
   "fileCount": 2

@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/aws-cost-optimize"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:9d25cdee36c38f0e85b8cf2186d8464b870439cd68714bdaad0d9363cfd91638",
   "byteSize": 9313,
   "fileCount": 2

@@ -1,7 +1,6 @@
 slug: code-review
 name: Code Review & Quality
 description: 'Conducts multi-axis code review before merging any change. Use when reviewing code written by yourself, another agent, or a human, to assess quality across multiple dimensions before it enters the main branch.'
-version: 1.0.0
 status: active
 upstream:
   repo: addyosmani/agent-skills

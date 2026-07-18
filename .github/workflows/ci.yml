@@ -55,6 +55,12 @@ jobs:
       - name: Snapshot integrity (every active skill verifies from R2/local vs its manifest)
         run: pnpm snapshot:check
 
+      - name: "Version gate self-test (upstream-semver classify + SKILL.md frontmatter parse)"
+        run: pnpm versions:selftest
+
+      - name: Versions (every listing version is upstream-sourced strict semver or unversioned)
+        run: pnpm versions:check
+
       - name: Anti-bloat guard (no snapshot unit bytes tracked in git — they live in R2)
         run: pnpm bloat:guard
 

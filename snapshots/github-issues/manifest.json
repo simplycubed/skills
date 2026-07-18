@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/github-issues"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:14c57a9b42a3e629ea44907125e3e0e51f96b929fd0dbb361635f25a934ba91b",
   "byteSize": 46392,
   "fileCount": 10

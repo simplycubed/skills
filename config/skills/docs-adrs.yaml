@@ -1,7 +1,6 @@
 slug: docs-adrs
 name: Documentation & ADRs
 description: 'Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or recording context that future engineers and agents need to understand the codebase.'
-version: 1.0.0
 status: active
 upstream:
   repo: addyosmani/agent-skills

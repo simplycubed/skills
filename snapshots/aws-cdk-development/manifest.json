@@ -5,6 +5,7 @@
     "sha": "68530c6f296ccd2f5e99c79782f3e0fbf962c51a",
     "path": "plugins/aws-iac/skills/aws-cdk-development"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:e7a5511175dfefe20fb3093c591bc8bb09f622d711d09141b509cc6c72438e90",
   "byteSize": 28197,
   "fileCount": 4
