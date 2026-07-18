@@ -1,7 +1,6 @@
 slug: create-github-issue-feature-from-specification
 name: Create GitHub Issue Feature From Specification
 description: Create GitHub Issue for feature request from specification file using feature_request.yml template.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

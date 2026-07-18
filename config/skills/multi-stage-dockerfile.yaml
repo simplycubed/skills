@@ -1,7 +1,6 @@
 slug: multi-stage-dockerfile
 name: Multi Stage Dockerfile
 description: Create optimized multi-stage Dockerfiles for any language or framework
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

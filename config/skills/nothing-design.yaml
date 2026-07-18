@@ -1,7 +1,6 @@
 slug: nothing-design
 name: Nothing Design System
 description: 'Applies the Nothing design system to UI work. Use when the user explicitly asks for "Nothing style", "Nothing design", or to apply the Nothing design system — never automatically for generic UI tasks.'
-version: 1.0.0
 status: active
 
 upstream:

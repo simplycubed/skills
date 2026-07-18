@@ -3,7 +3,6 @@ name: Azure Cost Optimize
 description: >-
   Analyze Azure resources used in the app (IaC files and/or resources in a target rg) and optimize costs - creating
   GitHub issues for identified optimizations.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

@@ -6,7 +6,6 @@
 slug: example
 name: Example Skill
 description: A template entry showing the shape of a skill config. Not a real listing.
-version: 0.0.0
 status: draft
 
 upstream:

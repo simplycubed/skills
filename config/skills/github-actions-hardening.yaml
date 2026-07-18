@@ -4,7 +4,6 @@ description: >-
   Security hardening reviewer for GitHub Actions workflow files (.github/workflows/*.yml). Reasons about the Actions
   threat model that pattern matchers and general code linters miss — untrusted-input script injection, privileged
   triggers running fork code, mutable action references, and…
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

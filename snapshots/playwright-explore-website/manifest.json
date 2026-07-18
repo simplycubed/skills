@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/playwright-explore-website"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:f17371f7a06f67511ba1dfbd99bcbc8c3c2c109377d8a07f526c43061e44ba85",
   "byteSize": 1740,
   "fileCount": 2

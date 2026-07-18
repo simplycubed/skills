@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/azure-devops-cli"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:fa09e7eb651f2ed6ad3e9c4482c21edba893d007da62fdf97f39894a333f3835",
   "byteSize": 61086,
   "fileCount": 10

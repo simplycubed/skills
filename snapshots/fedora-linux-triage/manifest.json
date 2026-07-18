@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/fedora-linux-triage"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:8fc2c96c014359fb58349f032e49da96eda501434d7974c95b6f6109091c2a70",
   "byteSize": 1979,
   "fileCount": 2

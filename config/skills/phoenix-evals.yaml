@@ -1,7 +1,6 @@
 slug: phoenix-evals
 name: Phoenix Evals
 description: Build and run evaluators for AI/LLM applications using Phoenix.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

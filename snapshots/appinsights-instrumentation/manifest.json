@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/appinsights-instrumentation"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:9253722952554bc8143652240976d594d6ddb375f830f4929182d412b3ac9e61",
   "byteSize": 11749,
   "fileCount": 8

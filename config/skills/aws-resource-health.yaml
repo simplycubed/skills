@@ -3,7 +3,6 @@ name: AWS Resource Health Diagnose
 description: >-
   Analyze AWS resource health, diagnose issues from CloudWatch logs and metrics, and create a remediation plan for
   identified problems.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

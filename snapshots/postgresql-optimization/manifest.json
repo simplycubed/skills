@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/postgresql-optimization"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:49be0a66471e8b8e1668e69e82c2c2a10eeaebf3db8d9b7e2de66f7d9bdd264d",
   "byteSize": 12427,
   "fileCount": 2

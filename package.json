@@ -26,6 +26,8 @@
     "snapshot": "node scripts/snapshot.mjs",
     "snapshot:check": "node scripts/snapshot-check.mjs",
     "snapshot:selftest": "node scripts/snapshot-selftest.mjs",
+    "versions:check": "node scripts/versions-check.mjs",
+    "versions:selftest": "node scripts/versions-selftest.mjs",
     "workflow:lint": "node scripts/workflow-lint.mjs",
     "bloat:guard": "node scripts/bloat-guard.mjs",
     "clean": "rm -rf .scan-work .r2-staging",

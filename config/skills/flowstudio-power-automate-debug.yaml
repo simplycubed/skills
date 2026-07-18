@@ -4,7 +4,6 @@ description: >-
   Debug failing Power Automate cloud flows using the FlowStudio MCP server. The Graph API only shows top-level status
   codes. This skill gives your agent action-level inputs and outputs to find the actual root cause. Load this skill when
   asked to: debug a flow, investigate a failed run, why is this…
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

@@ -4,7 +4,6 @@ description: >-
   Full STRIDE-A threat model analysis and incremental update skill for repositories and systems. Supports two modes: (1)
   Single analysis — full STRIDE-A threat model of a repository, producing architecture overviews, DFD diagrams, STRIDE-A
   analysis, prioritized findings, and executive assessments.…
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

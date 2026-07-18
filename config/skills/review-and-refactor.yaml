@@ -1,7 +1,6 @@
 slug: review-and-refactor
 name: Review And Refactor
 description: Review and refactor code in your project according to defined instructions
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

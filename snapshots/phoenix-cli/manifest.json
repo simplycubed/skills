@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/phoenix-cli"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:71685bb316e6b54ab0874b2fd9f5e980c26aaa7917d7052b3b6f2f1ce3c2ec72",
   "byteSize": 52882,
   "fileCount": 4

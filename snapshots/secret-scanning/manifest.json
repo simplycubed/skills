@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/secret-scanning"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:d535aee743392bcb07dcbaa29ebf5ae27e88c0929b68e3ec13a6511e2fe6538e",
   "byteSize": 29838,
   "fileCount": 5

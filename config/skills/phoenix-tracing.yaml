@@ -3,7 +3,6 @@ name: Phoenix Tracing
 description: >-
   OpenInference semantic conventions and instrumentation for Phoenix AI observability. Use when implementing LLM
   tracing, creating custom spans, or deploying to production.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

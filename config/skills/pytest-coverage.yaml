@@ -1,7 +1,6 @@
 slug: pytest-coverage
 name: pytest Coverage
 description: Run pytest tests with coverage, discover lines missing coverage, and increase coverage to 100%.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

@@ -1,7 +1,6 @@
 slug: linus-level
 name: Linus Level
 description: 'A 1.0–10.0 "engineering working-mode" dial for coding agents — tunes agency, assumption budget, verification, and security posture from fast prototyping to maintainer-grade rigor. Triggers on "Linus Level", "LL <n>", or set-rigor / maintainer-mode requests.'
-version: 1.0.0
 status: active
 
 upstream:

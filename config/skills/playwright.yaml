@@ -1,7 +1,6 @@
 slug: playwright
 name: Playwright Browser Automation
 description: 'Browser automation with Playwright: auto-detects dev servers, writes test scripts, fills forms, takes screenshots, checks responsive design, validates UX, and tests login flows and links. Use to test websites or automate browser interactions.'
-version: 1.0.0
 status: active
 
 upstream:

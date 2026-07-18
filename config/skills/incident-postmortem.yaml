@@ -4,7 +4,6 @@ description: >-
   Use when an outage, production incident, or significant service degradation has occurred and the team needs to write a
   structured blameless post-mortem. Triggers on phrases like "write a post-mortem", "incident review", "what went
   wrong", "outage report", "root cause analysis", or "RCA". Covers…
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

@@ -1,7 +1,6 @@
 slug: agent-governance
 name: Agent Governance
 description: 'Patterns for adding governance, safety, and trust controls to AI-agent systems — policy-based tool access, intent classification, trust scoring, audit trails, rate limits, and content filters for agents that call external tools.'
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

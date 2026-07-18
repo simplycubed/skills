@@ -3,7 +3,6 @@ name: AWS Cost Optimize
 description: >-
   Analyze AWS resources used in the app (IaC files and/or resources in a target account/region) and optimize costs -
   creating GitHub issues for identified optimizations.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

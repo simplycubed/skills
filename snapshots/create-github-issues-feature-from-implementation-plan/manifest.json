@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/create-github-issues-feature-from-implementation-plan"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:1a8f8ef1b09e1477fe5b6f3990091b725d75a0103d1e578c8a3a74b70d02b3ca",
   "byteSize": 2004,
   "fileCount": 2

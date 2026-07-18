@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/creating-oracle-to-postgres-master-migration-plan"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:a16f0f7af2c094cb144b9db445944ac7783d28cf62cc0295ff0aefd202074c7b",
   "byteSize": 4227,
   "fileCount": 2

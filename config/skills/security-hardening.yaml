@@ -1,7 +1,6 @@
 slug: security-hardening
 name: Security & Hardening
 description: 'Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations, or building any feature that accepts untrusted data, manages sessions, or calls third-party services.'
-version: 1.0.0
 status: active
 upstream:
   repo: addyosmani/agent-skills

@@ -85,9 +85,12 @@ console.log("  ✓ 1c passed");
 
 console.log("— 1d: validateConfig rejects bad configs —");
 {
-  const good = { slug: "ok", name: "Ok", description: "d", version: "1.0.0", status: "active",
+  // No `version` field: the listing version is derived from upstream, not authored
+  // here (the input schema forbids unknown keys, so a stray version would be rejected).
+  const good = { slug: "ok", name: "Ok", description: "d", status: "active",
     upstream: { repo: "a/b", sha: SHA }, author: { name: "A" }, license: "MIT" };
   assert.equal(validateConfig(good, "ok").ok, true, "valid config passes");
+  assert.equal(validateConfig({ ...good, version: "1.0.0" }, "ok").ok, false, "author-set version is rejected (derived from upstream)");
   assert.equal(validateConfig({ ...good, license: "GPL-3.0" }, "ok").ok, false, "copyleft license rejected");
   assert.equal(validateConfig({ ...good, slug: "Bad_Slug" }, "Bad_Slug").ok, false, "bad slug pattern rejected");
   const { name, ...missingName } = good;

@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/azure-static-web-apps"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:3b66c7ec027f70e83e51f3ed42ff1558c5de68ebcacfed8e2db84573cf7f9750",
   "byteSize": 10558,
   "fileCount": 2

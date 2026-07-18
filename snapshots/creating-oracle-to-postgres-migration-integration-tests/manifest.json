@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/creating-oracle-to-postgres-migration-integration-tests"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:e60ce61858466c9f14d45b5d9cfe3de160f0885eaf95bb066a2b36e73239aa2e",
   "byteSize": 4112,
   "fileCount": 2

@@ -3,7 +3,6 @@ name: AI Prompt Safety Review
 description: >-
   Review AI prompts for safety, bias, and security vulnerabilities, with improvement recommendations, testing
   methodologies, and frameworks for hardening prompt-driven systems.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

@@ -1,7 +1,6 @@
 slug: terraform-style
 name: Terraform Style Guide
 description: 'Style guide for generating and maintaining Terraform/OpenTofu code — consistent file organization, provider/version-constraint-first generation, resources built in dependency order, and alphabetized variables and outputs.'
-version: 1.0.0
 status: active
 upstream:
   repo: atkozhuharov/iac-ai

@@ -1,7 +1,6 @@
 slug: playwright-explore-website
 name: Playwright Explore Website
 description: Website exploration for testing using Playwright MCP
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

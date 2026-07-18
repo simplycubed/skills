@@ -3,7 +3,6 @@ name: OO Component Documentation
 description: >-
   Create or update standardized object-oriented component documentation using a shared template plus mode-specific
   guidance for new and existing docs.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

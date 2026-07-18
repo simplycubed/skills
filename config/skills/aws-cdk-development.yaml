@@ -1,7 +1,6 @@
 slug: aws-cdk-development
 name: AWS CDK Development
 description: 'AWS CDK expert for infrastructure-as-code in TypeScript/Python — CDK stacks, constructs, stack composition, and deployment workflows. Use for CDK, CloudFormation, cdk synth/deploy, or defining AWS infrastructure programmatically.'
-version: 1.0.0
 status: active
 upstream:
   repo: zxkane/aws-skills

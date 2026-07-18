@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/create-github-issues-for-unmet-specification-requirements"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:96de9e0cb177c28fe38af93291bc47de9a7816d3b32cf4617a7e3e8968c6ea86",
   "byteSize": 2334,
   "fileCount": 2

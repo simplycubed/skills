@@ -5,6 +5,7 @@
     "sha": "8c6530305396f341b5da7201cf1f7e390fdb863f",
     "path": "skills/ci-cd-and-automation"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:3f425aa84b61ad87bd9a8b44cd5f68ac810dde48f5e12a0c1fff250876933332",
   "byteSize": 12400,
   "fileCount": 2

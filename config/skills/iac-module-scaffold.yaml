@@ -1,7 +1,6 @@
 slug: iac-module-scaffold
 name: IaC Module Scaffold
 description: 'Scaffold a registry-ready Terraform/OpenTofu module — standard file layout (main/variables/outputs/versions), typed/validated/described variables, documented outputs, an examples/ usage, native .tftest.hcl tests, a terraform-docs README, and a fmt/validate check.'
-version: 1.0.0
 status: active
 upstream:
   repo: atkozhuharov/iac-ai

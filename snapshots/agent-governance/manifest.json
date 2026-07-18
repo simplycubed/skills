@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/agent-governance"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:12b7bf6cfb48ee5ee088c8b0eb9448929b9e63eacb7fd0fa15be47734b05d4e9",
   "byteSize": 19602,
   "fileCount": 2

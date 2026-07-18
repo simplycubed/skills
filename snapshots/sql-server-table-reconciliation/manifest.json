@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/sql-server-table-reconciliation"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:c9dc7fed2c68b7fcc8566ff0cbee78a0836063f0e513d328b9f0ad8a2fe96a3a",
   "byteSize": 20078,
   "fileCount": 3

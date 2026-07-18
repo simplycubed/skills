@@ -3,7 +3,6 @@ name: Power BI DAX Optimization
 description: >-
   Comprehensive Power BI DAX formula optimization prompt for improving performance, readability, and maintainability of
   DAX calculations.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

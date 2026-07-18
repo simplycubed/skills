@@ -3,7 +3,6 @@ name: Github Actions Runtime Upgrade Conventions
 description: >-
   Upgrade GitHub Actions to supported runtimes by selecting safe action versions, preserving workflow behavior, and
   validating post-upgrade execution.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

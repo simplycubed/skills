@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/create-architectural-decision-record"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:606023638cac5f65618a7a768a7e0353d75d9c78b865aedab4c90714b27dab5f",
   "byteSize": 4120,
   "fileCount": 2

@@ -3,7 +3,6 @@ name: React 19 Test Patterns
 description: >-
   Provides before/after patterns for migrating test files to React 19 compatibility, including act() imports, Simulate
   removal, and StrictMode call count changes.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

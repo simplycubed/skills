@@ -1,7 +1,6 @@
 slug: create-github-issues-feature-from-implementation-plan
 name: Create GitHub Issues Feature From Implementation Plan
 description: Create GitHub Issues from implementation plan phases using feature_request.yml or chore_request.yml templates.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

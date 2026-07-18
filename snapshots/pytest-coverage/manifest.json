@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/pytest-coverage"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:8224d3df5304e4eaf9ec2e0bba90468e6ffdccd00858e5c656adaa915d768468",
   "byteSize": 2185,
   "fileCount": 2

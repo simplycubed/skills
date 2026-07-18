@@ -45,6 +45,24 @@ function byteSize(unitDir) {
   return walkFiles(unitDir).reduce((n, rel) => n + statSync(join(unitDir, rel)).size, 0);
 }
 
+// The skill's own declared version, read from the published SKILL.md's YAML
+// frontmatter at the pinned SHA. This is the SINGLE SOURCE OF TRUTH for a
+// listing's version — upstream owns it, we never invent one. Returns the RAW
+// declared string (validated as semver later by versions:check) or null when the
+// skill declares no version (an "unversioned" skill — the storefront sorts those
+// by scan date). Only the leading frontmatter block is scanned, so a stray
+// "version:" in the body can't be mistaken for a declaration.
+export function skillVersion(unitDir) {
+  const p = join(unitDir, "SKILL.md");
+  if (!existsSync(p)) return null;
+  let md = readFileSync(p, "utf8");
+  if (md.charCodeAt(0) === 0xfeff) md = md.slice(1); // strip a leading BOM (mirrors certify.mjs)
+  const m = md.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!m) return null; // no frontmatter block => no declared version
+  const v = m[1].match(/^version:\s*["']?([^\s"'#]+)/mi);
+  return v ? v[1] : null;
+}
+
 export function readManifest(slug) {
   const p = join(SNAP_DIR, slug, "manifest.json");
   return existsSync(p) ? JSON.parse(readFileSync(p, "utf8")) : null;
@@ -115,6 +133,10 @@ export function snapshot(slug, { write = false } = {}) {
     const manifest = {
       slug,
       upstream: { repo: cfg.upstream.repo, sha: cfg.upstream.sha, path: cfg.upstream.path || null },
+      // The upstream-declared version at the pinned SHA (null = unversioned). Byte-derived
+      // here so it can't drift: bumping the SHA forces a re-snapshot (snapshot:check ties
+      // manifest.sha to config.sha), which recaptures the version from the new bytes.
+      upstreamVersion: skillVersion(unit),
       contentHash: contentHash(unit),
       byteSize: byteSizeTotal,
       fileCount: walkFiles(unit).length,

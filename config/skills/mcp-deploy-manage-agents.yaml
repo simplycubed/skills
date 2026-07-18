@@ -1,7 +1,6 @@
 slug: mcp-deploy-manage-agents
 name: MCP Deploy Manage Agents
 description: Skill converted from mcp-deploy-manage-agents.prompt.md
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

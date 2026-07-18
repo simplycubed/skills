@@ -4,7 +4,7 @@
   "description": "Authored metadata for one listed Agent Skill (the open, cross-tool SKILL.md format read by Claude Code, OpenAI Codex, Gemini CLI, and others). The skill source is referenced (not vendored) at an immutable upstream commit SHA. Certification/scan results are produced by CI into <slug>.scan.json and are NOT authored here.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["slug", "name", "description", "version", "status", "upstream", "author", "license"],
+  "required": ["slug", "name", "description", "status", "upstream", "author", "license"],
   "properties": {
     "slug": {
       "type": "string",
@@ -22,11 +22,6 @@
       "minLength": 1,
       "maxLength": 300,
       "description": "One-line description shown in the catalog."
-    },
-    "version": {
-      "type": "string",
-      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
-      "description": "SemVer label for this listing. The upstream SHA is the true identity; bump this only on a re-certified change."
     },
     "status": {
       "type": "string",

@@ -3,7 +3,6 @@ name: BigQuery Pipeline Audit
 description: >-
   Audits Python + BigQuery pipelines for cost safety, idempotency, and production readiness. Returns a structured report
   with exact patch locations.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

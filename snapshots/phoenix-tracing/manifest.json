@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/phoenix-tracing"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:817276cd6f448197a1d5652aa81f64d4d89298491855a53aed701497edf5ef5f",
   "byteSize": 88597,
   "fileCount": 33

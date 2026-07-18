@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/containerize-aspnetcore"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:912e21f633423c271ba7b32c37d955d149442ecbdf91d32f58cb44141e3b078d",
   "byteSize": 17029,
   "fileCount": 2

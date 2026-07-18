@@ -4,7 +4,6 @@ description: >-
   Create a React component using the Container/Presentation pattern in src/components by asking for the component name
   and type (ui or features), then scaffold files that follow this repository's TypeScript, Storybook, and SCSS
   conventions. Use when the user explicitly asks for a…
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

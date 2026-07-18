@@ -3,7 +3,6 @@ name: Azure Resource Health Diagnose
 description: >-
   Analyze Azure resource health, diagnose issues from logs and telemetry, and create a remediation plan for identified
   problems.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

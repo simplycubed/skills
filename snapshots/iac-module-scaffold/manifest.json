@@ -5,6 +5,7 @@
     "sha": "726f3dd137e31ab1826778e534f21a13bf12c7d3",
     "path": "skills/iac-module-scaffold"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:236be144cd62509247b14d4f19d5cb8dce9d01c2ce05fe821942495c51d85d92",
   "byteSize": 7229,
   "fileCount": 2

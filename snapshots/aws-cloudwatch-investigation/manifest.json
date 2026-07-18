@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/aws-cloudwatch-investigation"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:b3636a60531fedb93ae188b61d18a18eab92ccb3ec917aab387451a730b1410b",
   "byteSize": 11646,
   "fileCount": 2

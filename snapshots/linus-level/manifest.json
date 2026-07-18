@@ -5,6 +5,7 @@
     "sha": "6837cd8bf844863aab887017f006fbd67036ccad",
     "path": "skills/linus-level"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:5e043dc357a1418104d1b0f10318ac1500e262362b471f0b318942bd62d81bd8",
   "byteSize": 427763,
   "fileCount": 14

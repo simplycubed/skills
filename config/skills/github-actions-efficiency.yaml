@@ -1,7 +1,6 @@
 slug: github-actions-efficiency
 name: Github Actions Efficiency
 description: Audit GitHub Actions workflow efficiency and recommend fixes to reduce CI minutes and costs.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot

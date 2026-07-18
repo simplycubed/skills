@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/flowstudio-power-automate-debug"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:0b9505d7b0536556e95dbac0850b6564080862c86dfd4a06f37fa931224d72ee",
   "byteSize": 32940,
   "fileCount": 4

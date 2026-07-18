@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/power-bi-performance-troubleshooting"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:10a30c9f647674b6a30c430299cb6922f081dcdd25cff70631d7a65a897beb07",
   "byteSize": 11563,
   "fileCount": 2

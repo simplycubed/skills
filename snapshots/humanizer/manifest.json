@@ -5,6 +5,7 @@
     "sha": "1b48564898e999219882660237fde01bf4843a0f",
     "path": null
   },
+  "upstreamVersion": "2.8.2",
   "contentHash": "sha256:8504cc461e02bd3cad69c482d23dc097ddc3f31c46818e2cfad8fc42300e1ce5",
   "byteSize": 50763,
   "fileCount": 6

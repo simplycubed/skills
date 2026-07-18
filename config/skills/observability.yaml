@@ -1,7 +1,6 @@
 slug: observability
 name: Observability & Instrumentation
 description: 'Instruments code so production behavior is visible and diagnosable — logging, metrics, tracing, alerting. Use when shipping features that run in production or when you cannot tell what happened from available data.'
-version: 1.0.0
 status: active
 upstream:
   repo: addyosmani/agent-skills

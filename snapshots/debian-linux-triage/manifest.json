@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/debian-linux-triage"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:c7c598f01d714315a758c516ca95327c965b39100c4209f97532ffc0f3f9f1c9",
   "byteSize": 2020,
   "fileCount": 2

@@ -24,7 +24,10 @@ const CATALOG_PATH = join(ROOT, "catalog.json");
 
 // Bump when catalog.json's shape changes in a way consumers (the storefront)
 // must adapt to. Validated against config/catalog.schema.json in CI.
-const CATALOG_SCHEMA_VERSION = 2;
+// v3: `version` is now string|null — the UPSTREAM-declared version at the pinned
+// SHA, or null for an "unversioned" skill (upstream declares none). The storefront
+// sorts unversioned skills by certification.scannedAt.
+const CATALOG_SCHEMA_VERSION = 3;
 
 // Where an agent drops a skill folder, mirroring the README install table. Every
 // listed skill is a plain SKILL.md folder, so it installs into any compatible
@@ -59,6 +62,20 @@ function contentHexOf(slug) {
 
 function folderSourceUrl(c) {
   return folderSource(c, contentHexOf(c.slug));
+}
+
+// The upstream-declared version from a skill's committed snapshot manifest — the
+// single source of truth for a listing's version. null when the skill declares no
+// version ("unversioned"): the catalog emits version:null and the plugin manifest
+// omits version entirely (Claude Code then falls back to the commit SHA for update
+// detection). A manifest predating this field (no upstreamVersion key) also reads
+// as null. Enforced strict-semver by versions:check; the catalog schema rejects a
+// non-semver string, so a bad value can't ship.
+export function upstreamVersionOf(slug) {
+  const p = join(ROOT, "snapshots", slug, "manifest.json");
+  if (!existsSync(p)) return null;
+  try { return JSON.parse(readFileSync(p, "utf8")).upstreamVersion ?? null; }
+  catch { return null; }
 }
 
 // Deep link to a pre-filled GitHub issue form for authors/rights-holders to
@@ -106,14 +123,17 @@ function readScan(slug, dir = SKILLS_DIR) {
 // Map a skill config to a Claude Code marketplace plugin entry.
 // Root skills use the "github" source (no subdirectory support); skills in a
 // subfolder use "git-subdir". The full commit SHA is the pin in both cases.
-export function pluginEntry(c) {
+export function pluginEntry(c, version = null) {
   const source = c.upstream.path
     ? { source: "git-subdir", url: `https://github.com/${c.upstream.repo}.git`, path: c.upstream.path, sha: c.upstream.sha }
     : { source: "github", repo: c.upstream.repo, sha: c.upstream.sha };
   const entry = {
     name: c.slug,
     description: sanitizeDescription(c.description),
-    version: c.version,
+    // OMIT version for an unversioned skill: Claude Code's plugin manifest treats
+    // version as optional and falls back to the commit SHA (source.sha) for update
+    // detection when it's absent — exactly what we want for a SHA-pinned listing.
+    ...(version ? { version } : {}),
     author: c.author.url ? { name: c.author.name, url: c.author.url } : { name: c.author.name },
     license: c.license,
     homepage: c.homepage || `https://github.com/${c.upstream.repo}`,
@@ -124,7 +144,7 @@ export function pluginEntry(c) {
   return entry;
 }
 
-export function buildMarketplace(configs) {
+export function buildMarketplace(configs, versionFor = upstreamVersionOf) {
   return {
     $schema: "https://anthropic.com/claude-code/marketplace.schema.json",
     name: MARKETPLACE_NAME,
@@ -132,7 +152,9 @@ export function buildMarketplace(configs) {
     owner: OWNER,
     // Only FREE skills go in the public plugin manifest — premium skills are
     // gated (a paid skill can't be freely installable from a public marketplace).
-    plugins: configs.filter((c) => (c.tier || "free") === "free").map(pluginEntry),
+    plugins: configs
+      .filter((c) => (c.tier || "free") === "free")
+      .map((c) => pluginEntry(c, versionFor(c.slug))),
   };
 }
 
@@ -142,12 +164,15 @@ function certStatus(scan) {
   return scan.passed ? "certified" : "revoked";
 }
 
-export function catalogEntry(c, scan) {
+export function catalogEntry(c, scan, version = null) {
   return {
     slug: c.slug,
     name: c.name,
     description: sanitizeDescription(c.description),
-    version: c.version,
+    // The upstream-declared version at the pinned SHA, or null when unversioned.
+    // Never a fabricated default — a null here tells the storefront to sort this
+    // skill by certification.scannedAt instead of a version.
+    version,
     category: c.category || null,
     tags: c.tags || [],
     author: c.author,
@@ -177,11 +202,11 @@ export function catalogEntry(c, scan) {
   };
 }
 
-export function buildCatalog(configs, scanFor = readScan) {
+export function buildCatalog(configs, scanFor = readScan, versionFor = upstreamVersionOf) {
   return {
     schemaVersion: CATALOG_SCHEMA_VERSION,
     marketplace: MARKETPLACE_NAME,
-    skills: configs.map((c) => catalogEntry(c, scanFor(c.slug))),
+    skills: configs.map((c) => catalogEntry(c, scanFor(c.slug), versionFor(c.slug))),
   };
 }
 

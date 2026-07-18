@@ -5,6 +5,7 @@
     "sha": "bb7e920d376022958214e349ef25498a2644e189",
     "path": "skills/playwright-skill"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:3fd72906cba7387b747e08122f76a5df50cf5f323ac591cb33d0686b9a7651f2",
   "byteSize": 50406,
   "fileCount": 6

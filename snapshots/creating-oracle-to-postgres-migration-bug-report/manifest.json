@@ -5,6 +5,7 @@
     "sha": "e986f49695491311df2774030ebe11efabd0fb77",
     "path": "skills/creating-oracle-to-postgres-migration-bug-report"
   },
+  "upstreamVersion": null,
   "contentHash": "sha256:22d12780d96efa53250745c63bae798753b9fa7ac024d93d3705f6980281725f",
   "byteSize": 5588,
   "fileCount": 3

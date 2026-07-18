@@ -3,7 +3,6 @@ name: AWS CDK Python Setup
 description: >-
   Setup and initialization guide for developing AWS CDK (Cloud Development Kit) applications in Python. This skill
   enables users to configure environment prerequisites, create new CDK projects, manage dependencies, and deploy to AWS.
-version: 1.0.0
 status: active
 upstream:
   repo: github/awesome-copilot
