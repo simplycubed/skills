@@ -1,11 +1,8 @@
 # The loop, the gate, and the goal — the SimplyCubed harness standard
 
-> This file is copied byte-identical into every SimplyCubed repo. The canonical copy and the
-> reference implementation live in [`simplycubed/agents`](https://github.com/simplycubed/agents) —
-> its [`docs/loop.md`](https://github.com/simplycubed/agents/blob/main/docs/loop.md) is the fully
-> worked example. Propose changes there first, then re-copy. Repo-specific detail (what this
-> repo's gate command is, what its synthetics cover) belongs in the repo's own `CLAUDE.md`,
-> never in this file.
+> This file is the SimplyCubed harness standard, carried identically in every SimplyCubed
+> repo. Repo-specific detail (what this repo's gate command is, what its synthetics cover)
+> belongs in the repo's own `CLAUDE.md`, never in this file.
 
 Every SimplyCubed repo is developed the same way: a machine-gradable **goal**, a **gate** that
 decides — with something other than optimism — whether the work is done, and a **loop** that runs
@@ -36,8 +33,7 @@ missing gate.
    example, the post-deploy synthetic job steps). A check that _should_ run but can't yet is a
    **gap**, and a gap must name the GitHub issue tracking its closure. Gate output is PASS,
    FAIL, and tracked gaps: a standing "SKIPPED: N" line reads as something missed and buries
-   the one real gap under the ones that are not. (Established 2026-07-28; the audit that
-   produced this rule is [agents#149](https://github.com/simplycubed/agents/issues/149).)
+   the one real gap under the ones that are not.
 3. **A new check must be seen to go red.** When you add one, break the thing it guards, confirm
    the failure, then revert. A check only ever observed green is indistinguishable from no
    check at all.
