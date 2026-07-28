@@ -17,6 +17,9 @@ certified in CI. This repo produces three artifacts:
   · `scan:selftest` · `certify:active` · `snapshot [--write]` · `snapshot:check` ·
   `versions:check` · `versions:selftest` · `generate` · `generate:check` ·
   `generate:selftest` · `catalog:check`.
+- **The standard:** the full loop/gate/goal doc is [`docs/loop.md`](docs/loop.md) — a
+  byte-identical copy; canonical original and worked example in
+  [`simplycubed/agents`](https://github.com/simplycubed/agents/blob/main/docs/loop.md).
 - **Add a skill:** write `config/skills/<slug>.yaml` (pinned SHA) → `pnpm scan <slug> --write`
   → `pnpm snapshot <slug> --write` → `pnpm generate` → commit. CI re-verifies on the live
   upstream bytes. **Do NOT hand-set a version** — there is no `version` field in the YAML.
