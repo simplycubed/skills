@@ -37,10 +37,12 @@
     "generate": "node scripts/generate.mjs",
     "generate:check": "node scripts/generate.mjs --check",
     "generate:selftest": "node scripts/generate-selftest.mjs",
-    "catalog:check": "node scripts/validate-catalog.mjs"
+    "catalog:check": "node scripts/validate-catalog.mjs",
+    "coverage": "node scripts/coverage.mjs"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
+    "c8": "^12.0.0",
     "js-yaml": "^4.1.0"
   }
 }

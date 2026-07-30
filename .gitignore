@@ -17,3 +17,6 @@ pnpm-debug.log*
 /.scan-work/
 # R2 upload staging (snapshot blobs are packed here, then uploaded to R2 by the sync Action)
 /.r2-staging/
+
+# Coverage output (scripts/coverage.mjs -> Codecov)
+.coverage/
