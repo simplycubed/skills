@@ -29,7 +29,7 @@ import { hexOf, blobKey, recordKey, packUnit, fetchUnitFromCdn, cdnUrl } from ".
 const SYNC = process.argv.includes("--sync");
 const DRY = process.argv.includes("--dry-run");
 const VERIFY = process.argv.includes("--verify");
-const BUCKET = process.env.R2_BUCKET || "simplycubed-skills";
+const BUCKET = process.env.R2_BUCKET || "skills-cdn-prod";
 const ROOT = process.cwd();
 
 function wranglerPut(key, file, contentType) {
