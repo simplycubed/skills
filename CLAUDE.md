@@ -1,4 +1,4 @@
-# SimplyCubed Skills — repo guide
+# Certified Agent Skills — repo guide
 
 Curated marketplace of **Agent Skills** (the open, cross-tool `SKILL.md` format). Skills are
 *referenced, not vendored*: each entry pins an upstream repo at a commit SHA and is certified
@@ -7,6 +7,29 @@ in CI. This repo produces three artifacts:
 - **`catalog.json`** — the storefront's data source (simplycubed.com/skills).
 - **`.claude-plugin/marketplace.json`** — what Claude Code reads on `/plugin marketplace add`.
 - **`config/skills/<slug>.scan.json`** — each skill's certification record.
+
+## Naming (ratified 2026-07-30)
+
+The `SimplyCubed` prefix names a thing SimplyCubed **authored** — a product, or the certification
+program itself. It never attaches to goods SimplyCubed did not write. Third-party goods carry the
+**Certified** mark, which names SimplyCubed as verifier, not author. The test before putting the
+name on anything: *if this turned out to be bad, would a customer be right to blame us?* If yes,
+our name belongs on it; if the blame lands upstream, our name goes on the check.
+
+Applied here:
+
+- This catalog is **Certified Agent Skills**: third-party work, certified by SimplyCubed. All 110
+  current entries are authored upstream, and every listing names its author and pinned SHA.
+- **SimplyCubed Certified** names the certification program, which *is* ours: the fail-closed
+  pipeline, the published scan record, and the mark.
+- **SimplyCubed Skills** is reserved for the premium line SimplyCubed authors itself
+  ([`simplycubed/premium-skills`](https://github.com/simplycubed/premium-skills)). Do not spend
+  that name on this catalog.
+- One word for the mark: **certified**, matching `certification.status`. Not "verified".
+
+Addresses are not product names and do not change: the repo path `simplycubed/skills`, the npm
+name `@simplycubed/skills`, and the marketplace namespace `simplycubed` are load-bearing in the
+install command, every `removalUrl`, and the storefront's catalog fetch.
 
 ## Working in this repo
 

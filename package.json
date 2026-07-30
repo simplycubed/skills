@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "SimplyCubed Skills marketplace: schema, validation, and generators for certified Agent Skills (the open, cross-tool SKILL.md format).",
+  "description": "Certified Agent Skills: schema, validation, and generators for third-party Agent Skills certified by SimplyCubed (the open, cross-tool SKILL.md format).",
   "license": "MIT",
   "packageManager": "pnpm@10.17.0",
   "engines": {

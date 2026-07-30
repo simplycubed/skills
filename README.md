@@ -1,6 +1,6 @@
-# SimplyCubed Skills
+# Certified Agent Skills
 
-A curated marketplace of [Agent Skills](https://agentskills.io) — the open, cross-tool `SKILL.md` format read by Claude Code, OpenAI Codex, Gemini CLI, and a growing set of agents. We scan and verify each skill before listing it, and it's free to install.
+A curated marketplace of [Agent Skills](https://agentskills.io) — the open, cross-tool `SKILL.md` format read by Claude Code, OpenAI Codex, Gemini CLI, and a growing set of agents. We do not write these skills. Each is authored upstream, and every listing names its author and the commit it was pinned at. What we build is the certification: each skill is scanned and certified before it gets listed, and it's free to install.
 
 > **Status: early and curated.** We import a small, hand-picked set of popular open-source skills, scan each one, and publish the ones that pass. We are not taking open developer submissions yet.
 

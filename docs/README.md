@@ -1,4 +1,4 @@
-# SimplyCubed Skills — documentation
+# Certified Agent Skills — documentation
 
 Operational + architectural docs for the certified Agent Skills marketplace.
 
