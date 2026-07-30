@@ -37,7 +37,9 @@
     "generate": "node scripts/generate.mjs",
     "generate:check": "node scripts/generate.mjs --check",
     "generate:selftest": "node scripts/generate-selftest.mjs",
-    "catalog:check": "node scripts/validate-catalog.mjs"
+    "catalog:check": "node scripts/validate-catalog.mjs",
+    "r2:copy": "node scripts/r2-copy.mjs",
+    "r2:copy:dry": "node scripts/r2-copy.mjs --dry-run"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
