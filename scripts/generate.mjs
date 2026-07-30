@@ -148,7 +148,7 @@ export function buildMarketplace(configs, versionFor = upstreamVersionOf) {
   return {
     $schema: "https://anthropic.com/claude-code/marketplace.schema.json",
     name: MARKETPLACE_NAME,
-    description: "SimplyCubed certified Agent Skills — scanned and verified. https://simplycubed.com/skills",
+    description: "SimplyCubed certified Agent Skills — scanned and certified. https://simplycubed.com/skills",
     owner: OWNER,
     // Only FREE skills go in the public plugin manifest — premium skills are
     // gated (a paid skill can't be freely installable from a public marketplace).
