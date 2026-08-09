@@ -1,5 +1,11 @@
 # Certified Agent Skills
 
+> **This project is sunset (August 2026) and the repository is archived.**
+> The catalog is frozen as of its last update: no new skills will be added,
+> no re-certifications will run, and pinned versions will not be refreshed.
+> The content remains MIT-licensed and readable, but treat every listing as
+> a historical snapshot rather than a current assessment.
+
 A curated marketplace of [Agent Skills](https://agentskills.io) — the open, cross-tool `SKILL.md` format read by Claude Code, OpenAI Codex, Gemini CLI, and a growing set of agents. We do not write these skills. Each is authored upstream, and every listing names its author and the commit it was pinned at. What we build is the certification: each skill is scanned and certified before it gets listed, and it's free to install.
 
 > **Status: early and curated.** We import a small, hand-picked set of popular open-source skills, scan each one, and publish the ones that pass. We are not taking open developer submissions yet.
