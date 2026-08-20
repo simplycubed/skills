@@ -11,8 +11,8 @@
 // content-addressed off the manifest's contentHash, so the active manifests name
 // all objects without ever listing the bucket.
 //
-// Fail-closed, matching the rest of the R2 tooling: every blob is re-hashed and
-// checked against the git manifest AFTER the read and BEFORE the write, so a
+// Fail-closed, matching the rest of the R2 tooling: every blob is extracted and
+// tree-hashed against the git manifest AFTER the read and BEFORE the write, so a
 // corrupt or truncated source object is never propagated into the new bucket.
 //
 // Idempotent: an object already present in the destination is skipped, so a
@@ -26,13 +26,12 @@
 // read on the source and write on the destination. It never deletes anything:
 // dropping the old bucket stays a separate, deliberate human step.
 import { spawnSync } from "node:child_process";
-import { readFileSync, rmSync, mkdtempSync, existsSync } from "node:fs";
+import { rmSync, mkdtempSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
-import { createHash } from "node:crypto";
-import { hexOf, blobKey, recordKey } from "./r2.mjs";
+import { hexOf, blobKey, recordKey, unpackToTmp } from "./r2.mjs";
 import { readActiveSkills } from "./generate.mjs";
-import { readManifest } from "./snapshot.mjs";
+import { contentHash, readManifest } from "./snapshot.mjs";
 
 const SOURCE = process.env.R2_SOURCE_BUCKET;
 const DEST = process.env.R2_BUCKET;
@@ -46,8 +45,6 @@ if (SOURCE === DEST) {
   console.error("✗ R2_SOURCE_BUCKET and R2_BUCKET are the same bucket");
   process.exit(1);
 }
-
-const sha256 = (buf) => `sha256:${createHash("sha256").update(buf).digest("hex")}`;
 
 function objectGet(bucket, key, file) {
   const r = spawnSync("wrangler", ["r2", "object", "get", `${bucket}/${key}`, "--file", file, "--remote"], {
@@ -94,6 +91,7 @@ for (const cfg of skills) {
     { key: blobKey(hex), type: "application/gzip", verify: true },
     { key: recordKey(hex), type: "application/json", verify: false },
   ];
+  let blobVerified = false;
 
   const tmp = mkdtempSync(join(tmpdir(), "r2-copy-"));
   try {
@@ -118,16 +116,30 @@ for (const cfg of skills) {
         continue;
       }
 
-      // The blob is content-addressed, so the bytes we just read must re-hash to
-      // exactly what the committed manifest attests. Anything else is a corrupt
-      // source object and must not reach the new bucket.
+      // The blob is content-addressed by the EXTRACTED unit tree, not the tarball
+      // transport bytes. Recreate that same tree hash before copying.
       if (verify) {
-        const got = sha256(readFileSync(file));
-        if (got !== manifest.contentHash) {
-          console.log(`✗ ${slug}: ${key} hash mismatch (git says ${manifest.contentHash}, ${SOURCE} gave ${got})`);
+        let extracted;
+        try {
+          extracted = unpackToTmp(spawnSync("cat", [file], { encoding: null }).stdout);
+          const got = contentHash(extracted);
+          if (got !== manifest.contentHash) {
+            console.log(`✗ ${slug}: ${key} hash mismatch (git says ${manifest.contentHash}, ${SOURCE} gave ${got})`);
+            failed++;
+            continue;
+          }
+          blobVerified = true;
+        } catch (error) {
+          console.log(`✗ ${slug}: ${key} could not be extracted for verification (${error.message})`);
           failed++;
           continue;
+        } finally {
+          if (extracted) rmSync(extracted, { recursive: true, force: true });
         }
+      } else if (!blobVerified) {
+        console.log(`✗ ${slug}: skipping ${key} because the blob did not verify`);
+        failed++;
+        continue;
       }
 
       objectPut(DEST, key, file, type);
