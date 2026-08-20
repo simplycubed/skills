@@ -3983,6 +3983,95 @@
       }
     },
     {
+      "slug": "domain-modeling",
+      "name": "Domain Modeling",
+      "description": "Build and sharpen a project's domain model by tightening ubiquitous language, maintaining `CONTEXT.md`, and recording only the architectural decisions that are genuinely worth preserving.",
+      "version": null,
+      "category": "coding",
+      "tags": [
+        "domain-modeling",
+        "architecture",
+        "adr",
+        "glossary"
+      ],
+      "author": {
+        "name": "Jacob Stephens",
+        "url": "https://github.com/JacobStephens2/skills"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "JacobStephens2/skills",
+        "sha": "bcd49f9248274cd3f0baebd76f825125fbc9a87f",
+        "path": "domain-modeling"
+      },
+      "sourceUrl": "https://github.com/JacobStephens2/skills",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+domain-modeling&skill=domain-modeling&upstream=JacobStephens2%2Fskills",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install domain-modeling@simplycubed"
+        },
+        "folder": {
+          "dirName": "domain-modeling",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/7daf7f86fcfc5b143c5bc97d5cd62c9210cd7126151640d645f386d932780e7b/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-08-20T16:07:42.758Z",
+        "record": {
+          "slug": "domain-modeling",
+          "upstream": {
+            "repo": "JacobStephens2/skills",
+            "sha": "bcd49f9248274cd3f0baebd76f825125fbc9a87f",
+            "path": "domain-modeling"
+          },
+          "scanned_at": "2026-08-20T16:07:42.758Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.30.1",
+            "osv-scanner": "2.5.1",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
       "slug": "dotnet-design-pattern-review",
       "name": ".NET Design Pattern Review",
       "description": "Review the C#/.NET code for design pattern implementation and suggest improvements.",
@@ -4675,6 +4764,95 @@
             "certify": "builtin",
             "gitleaks": "8.18.4",
             "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "handoff",
+      "name": "Handoff",
+      "description": "Create a structured session handoff document that captures decisions, code changes, progress, and next steps so later sessions can resume work cleanly.",
+      "version": null,
+      "category": "productivity",
+      "tags": [
+        "handoff",
+        "continuity",
+        "workflow",
+        "documentation"
+      ],
+      "author": {
+        "name": "valtterimelkko",
+        "url": "https://github.com/valtterimelkko/agent-workflow-skills"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "valtterimelkko/agent-workflow-skills",
+        "sha": "cfa6a206a7f28e5abeb81297f5072b2b488c6aa3",
+        "path": "skills/handoff"
+      },
+      "sourceUrl": "https://github.com/valtterimelkko/agent-workflow-skills",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+handoff&skill=handoff&upstream=valtterimelkko%2Fagent-workflow-skills",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install handoff@simplycubed"
+        },
+        "folder": {
+          "dirName": "handoff",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/e1840ea66b7966da223ce1f949803b130966cdec3b88435ba950453fb390114d/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-08-20T16:07:54.571Z",
+        "record": {
+          "slug": "handoff",
+          "upstream": {
+            "repo": "valtterimelkko/agent-workflow-skills",
+            "sha": "cfa6a206a7f28e5abeb81297f5072b2b488c6aa3",
+            "path": "skills/handoff"
+          },
+          "scanned_at": "2026-08-20T16:07:54.571Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.30.1",
+            "osv-scanner": "2.5.1",
             "semgrep": "n/a (no code)"
           },
           "checks": {
@@ -9108,6 +9286,98 @@
           "passed": true,
           "finding_count": 0,
           "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "systematic-debugging",
+      "name": "Systematic Debugging",
+      "description": "Enforce a root-cause-first debugging process for bugs, test failures, and unexpected behavior, with explicit guidance for evidence gathering, hypothesis testing, and verifying fixes before moving on.",
+      "version": null,
+      "category": "coding",
+      "tags": [
+        "debugging",
+        "troubleshooting",
+        "root-cause-analysis",
+        "testing"
+      ],
+      "author": {
+        "name": "valtterimelkko",
+        "url": "https://github.com/valtterimelkko/agent-workflow-skills"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "valtterimelkko/agent-workflow-skills",
+        "sha": "cfa6a206a7f28e5abeb81297f5072b2b488c6aa3",
+        "path": "skills/systematic-debugging"
+      },
+      "sourceUrl": "https://github.com/valtterimelkko/agent-workflow-skills",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+systematic-debugging&skill=systematic-debugging&upstream=valtterimelkko%2Fagent-workflow-skills",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install systematic-debugging@simplycubed"
+        },
+        "folder": {
+          "dirName": "systematic-debugging",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/0f2cf0f45cd27c1525bbaa18709db2d7737d26fb8a774cfaaaa4f389bd13e424/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-08-20T16:07:44.194Z",
+        "record": {
+          "slug": "systematic-debugging",
+          "upstream": {
+            "repo": "valtterimelkko/agent-workflow-skills",
+            "sha": "cfa6a206a7f28e5abeb81297f5072b2b488c6aa3",
+            "path": "skills/systematic-debugging"
+          },
+          "scanned_at": "2026-08-20T16:07:44.194Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.30.1",
+            "osv-scanner": "2.5.1",
+            "semgrep": "1.172.0"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [
+            "defense-in-depth.md: reference to secret/credential files",
+            "root-cause-tracing.md: reference to secret/credential files"
+          ],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 2,
           "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
         }
       }

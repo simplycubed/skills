@@ -1,0 +1,12 @@
+{
+  "slug": "domain-modeling",
+  "upstream": {
+    "repo": "JacobStephens2/skills",
+    "sha": "bcd49f9248274cd3f0baebd76f825125fbc9a87f",
+    "path": "domain-modeling"
+  },
+  "upstreamVersion": null,
+  "contentHash": "sha256:7daf7f86fcfc5b143c5bc97d5cd62c9210cd7126151640d645f386d932780e7b",
+  "byteSize": 9664,
+  "fileCount": 5
+}

@@ -1,0 +1,21 @@
+slug: handoff
+name: Handoff
+description: >-
+  Create a structured session handoff document that captures decisions, code changes,
+  progress, and next steps so later sessions can resume work cleanly.
+status: active
+upstream:
+  repo: valtterimelkko/agent-workflow-skills
+  sha: cfa6a206a7f28e5abeb81297f5072b2b488c6aa3
+  path: skills/handoff
+author:
+  name: valtterimelkko
+  url: https://github.com/valtterimelkko/agent-workflow-skills
+license: MIT
+homepage: https://github.com/valtterimelkko/agent-workflow-skills
+category: productivity
+tags:
+  - handoff
+  - continuity
+  - workflow
+  - documentation

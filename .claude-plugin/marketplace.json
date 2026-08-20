@@ -1010,6 +1010,29 @@
       ]
     },
     {
+      "name": "domain-modeling",
+      "description": "Build and sharpen a project's domain model by tightening ubiquitous language, maintaining `CONTEXT.md`, and recording only the architectural decisions that are genuinely worth preserving.",
+      "author": {
+        "name": "Jacob Stephens",
+        "url": "https://github.com/JacobStephens2/skills"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/JacobStephens2/skills",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/JacobStephens2/skills.git",
+        "path": "domain-modeling",
+        "sha": "bcd49f9248274cd3f0baebd76f825125fbc9a87f"
+      },
+      "category": "coding",
+      "keywords": [
+        "domain-modeling",
+        "architecture",
+        "adr",
+        "glossary"
+      ]
+    },
+    {
       "name": "dotnet-design-pattern-review",
       "description": "Review the C#/.NET code for design pattern implementation and suggest improvements.",
       "author": {
@@ -1187,6 +1210,29 @@
       "keywords": [
         "github",
         "issues"
+      ]
+    },
+    {
+      "name": "handoff",
+      "description": "Create a structured session handoff document that captures decisions, code changes, progress, and next steps so later sessions can resume work cleanly.",
+      "author": {
+        "name": "valtterimelkko",
+        "url": "https://github.com/valtterimelkko/agent-workflow-skills"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/valtterimelkko/agent-workflow-skills",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/valtterimelkko/agent-workflow-skills.git",
+        "path": "skills/handoff",
+        "sha": "cfa6a206a7f28e5abeb81297f5072b2b488c6aa3"
+      },
+      "category": "productivity",
+      "keywords": [
+        "handoff",
+        "continuity",
+        "workflow",
+        "documentation"
       ]
     },
     {
@@ -2287,6 +2333,29 @@
         "server",
         "table",
         "reconciliation"
+      ]
+    },
+    {
+      "name": "systematic-debugging",
+      "description": "Enforce a root-cause-first debugging process for bugs, test failures, and unexpected behavior, with explicit guidance for evidence gathering, hypothesis testing, and verifying fixes before moving on.",
+      "author": {
+        "name": "valtterimelkko",
+        "url": "https://github.com/valtterimelkko/agent-workflow-skills"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/valtterimelkko/agent-workflow-skills",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/valtterimelkko/agent-workflow-skills.git",
+        "path": "skills/systematic-debugging",
+        "sha": "cfa6a206a7f28e5abeb81297f5072b2b488c6aa3"
+      },
+      "category": "coding",
+      "keywords": [
+        "debugging",
+        "troubleshooting",
+        "root-cause-analysis",
+        "testing"
       ]
     },
     {
