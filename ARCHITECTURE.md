@@ -81,7 +81,7 @@ Git history is permanent: commit GBs once and every clone carries them forever. 
 history. Only tiny **trust anchors** stay in git.
 
 - **Git keeps:** skill configs + `snapshots/<slug>/manifest.json` (holds `contentHash`).
-- **R2 holds** (one bucket `simplycubed-skills`, prefixed, custom domain
+- **R2 holds** (one bucket `skills-cdn-prod`, prefixed, custom domain
   `cdn.simplycubed.com`): `blobs/sha256/<hex>/unit.tar.gz` (the bytes) +
   `records/sha256/<hex>.json` (the full scan record). Content-addressed → immutable +
   deduped. **Zero egress.**
