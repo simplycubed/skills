@@ -38,6 +38,8 @@ jobs:
         with:
           node-version: 24
           package-manager-cache: false
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
       - run: npm install -g "wrangler@${WRANGLER_VERSION}"
 
       # Fail fast + diagnostic: print which account the token resolves to BEFORE
