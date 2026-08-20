@@ -1,0 +1,21 @@
+slug: systematic-debugging
+name: Systematic Debugging
+description: >-
+  Enforce a root-cause-first debugging process for bugs, test failures, and unexpected behavior, with explicit
+  guidance for evidence gathering, hypothesis testing, and verifying fixes before moving on.
+status: active
+upstream:
+  repo: valtterimelkko/agent-workflow-skills
+  sha: cfa6a206a7f28e5abeb81297f5072b2b488c6aa3
+  path: skills/systematic-debugging
+author:
+  name: valtterimelkko
+  url: https://github.com/valtterimelkko/agent-workflow-skills
+license: MIT
+homepage: https://github.com/valtterimelkko/agent-workflow-skills
+category: coding
+tags:
+  - debugging
+  - troubleshooting
+  - root-cause-analysis
+  - testing

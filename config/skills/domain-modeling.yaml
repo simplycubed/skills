@@ -1,0 +1,21 @@
+slug: domain-modeling
+name: Domain Modeling
+description: >-
+  Build and sharpen a project's domain model by tightening ubiquitous language, maintaining
+  `CONTEXT.md`, and recording only the architectural decisions that are genuinely worth preserving.
+status: active
+upstream:
+  repo: JacobStephens2/skills
+  sha: bcd49f9248274cd3f0baebd76f825125fbc9a87f
+  path: domain-modeling
+author:
+  name: Jacob Stephens
+  url: https://github.com/JacobStephens2/skills
+license: MIT
+homepage: https://github.com/JacobStephens2/skills
+category: coding
+tags:
+  - domain-modeling
+  - architecture
+  - adr
+  - glossary

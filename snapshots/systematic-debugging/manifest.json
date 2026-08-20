@@ -1,0 +1,12 @@
+{
+  "slug": "systematic-debugging",
+  "upstream": {
+    "repo": "valtterimelkko/agent-workflow-skills",
+    "sha": "cfa6a206a7f28e5abeb81297f5072b2b488c6aa3",
+    "path": "skills/systematic-debugging"
+  },
+  "upstreamVersion": null,
+  "contentHash": "sha256:0f2cf0f45cd27c1525bbaa18709db2d7737d26fb8a774cfaaaa4f389bd13e424",
+  "byteSize": 41827,
+  "fileCount": 12
+}

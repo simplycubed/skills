@@ -1,0 +1,35 @@
+{
+  "slug": "domain-modeling",
+  "upstream": {
+    "repo": "JacobStephens2/skills",
+    "sha": "bcd49f9248274cd3f0baebd76f825125fbc9a87f",
+    "path": "domain-modeling"
+  },
+  "scanned_at": "2026-08-20T16:07:42.758Z",
+  "unit": {
+    "licenseSource": "repo-root",
+    "declaredLicense": "MIT",
+    "licenseMatches": true
+  },
+  "tools": {
+    "certify": "builtin",
+    "gitleaks": "8.30.1",
+    "osv-scanner": "2.5.1",
+    "semgrep": "n/a (no code)"
+  },
+  "checks": {
+    "structure": [],
+    "license": [],
+    "injection": [],
+    "secrets": [],
+    "vulnerabilities": [],
+    "sast": []
+  },
+  "review": [],
+  "scan_errors": [],
+  "incomplete": false,
+  "passed": true,
+  "finding_count": 0,
+  "review_count": 0,
+  "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+}

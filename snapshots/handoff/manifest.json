@@ -1,0 +1,12 @@
+{
+  "slug": "handoff",
+  "upstream": {
+    "repo": "valtterimelkko/agent-workflow-skills",
+    "sha": "cfa6a206a7f28e5abeb81297f5072b2b488c6aa3",
+    "path": "skills/handoff"
+  },
+  "upstreamVersion": null,
+  "contentHash": "sha256:e1840ea66b7966da223ce1f949803b130966cdec3b88435ba950453fb390114d",
+  "byteSize": 10523,
+  "fileCount": 3
+}

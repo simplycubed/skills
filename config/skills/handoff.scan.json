@@ -1,0 +1,35 @@
+{
+  "slug": "handoff",
+  "upstream": {
+    "repo": "valtterimelkko/agent-workflow-skills",
+    "sha": "cfa6a206a7f28e5abeb81297f5072b2b488c6aa3",
+    "path": "skills/handoff"
+  },
+  "scanned_at": "2026-08-20T16:07:54.571Z",
+  "unit": {
+    "licenseSource": "repo-root",
+    "declaredLicense": "MIT",
+    "licenseMatches": true
+  },
+  "tools": {
+    "certify": "builtin",
+    "gitleaks": "8.30.1",
+    "osv-scanner": "2.5.1",
+    "semgrep": "n/a (no code)"
+  },
+  "checks": {
+    "structure": [],
+    "license": [],
+    "injection": [],
+    "secrets": [],
+    "vulnerabilities": [],
+    "sast": []
+  },
+  "review": [],
+  "scan_errors": [],
+  "incomplete": false,
+  "passed": true,
+  "finding_count": 0,
+  "review_count": 0,
+  "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+}
