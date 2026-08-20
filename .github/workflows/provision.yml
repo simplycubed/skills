@@ -1,6 +1,7 @@
 # Provision the Cloudflare infra for the snapshot store, as code (IaC).
-# Creates the R2 bucket and deploys the CDN Worker (which also creates the
-# cdn.simplycubed.com DNS record + route). Idempotent + safe to re-run.
+# Creates the R2 bucket, can optionally copy objects from an old bucket during a
+# rename, and deploys the CDN Worker (which also creates the cdn.simplycubed.com
+# DNS record + route). Idempotent + safe to re-run.
 #
 # Manual only (workflow_dispatch) so it never runs before the token exists.
 # Runs under the `prod` GitHub Environment, which holds the single skills-scoped
@@ -8,7 +9,16 @@
 name: Provision Cloudflare (R2 bucket + CDN Worker)
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      copy_from_bucket:
+        description: "Optional: copy objects FROM this bucket before deploy (e.g. simplycubed-skills)"
+        required: false
+        default: ""
+      copy_dry_run:
+        description: "If copying, derive the key set and verify source blobs without writing"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -38,6 +48,12 @@ jobs:
 
       - name: Create the R2 bucket (idempotent)
         run: node scripts/r2-bootstrap.mjs
+
+      - name: Copy objects from the old bucket before cutover
+        if: ${{ inputs.copy_from_bucket != '' }}
+        env:
+          R2_SOURCE_BUCKET: ${{ inputs.copy_from_bucket }}
+        run: node scripts/r2-copy.mjs ${{ inputs.copy_dry_run && '--dry-run' || '' }}
 
       - name: Deploy the CDN Worker (creates cdn.simplycubed.com DNS + route)
         working-directory: workers/cdn

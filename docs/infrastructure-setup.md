@@ -96,10 +96,11 @@ it is a PR, and prod credentials never reach a PR (they live only in the Environ
 1. **Create the two Cloudflare tokens** (scopes above); note the account ID.
 2. **Create the GitHub Environments** `prod` and `r2-write`; add `CLOUDFLARE_API_TOKEN` +
    `CLOUDFLARE_ACCOUNT_ID` to each (broad token in `prod`, narrow in `r2-write`).
-3. **For a bucket rename, copy first**: run `r2-copy.yml` with `source_bucket=simplycubed-skills`,
-   `dest_bucket=skills-cdn-prod`, dry-run on; then again with dry-run off.
+3. **For a bucket rename, copy first**: run `provision.yml` on `main` with `copy_from_bucket=simplycubed-skills`
+   and `copy_dry_run=true`, then again with `copy_dry_run=false`.
 4. **Run `provision.yml`** (`gh workflow run provision.yml --ref main`, approve the `prod` gate):
-   creates the R2 bucket if needed, deploys the CDN Worker, brings up `cdn.simplycubed.com`, smoke-tests it.
+   creates the R2 bucket if needed, optionally copies from the old bucket, deploys the CDN Worker, brings up
+   `cdn.simplycubed.com`, and smoke-tests it.
 5. **Backfill existing blobs**: `gh workflow run r2-upload.yml --ref main` (idempotent).
 6. **Enable auto-upload**: set the repo variable `R2_AUTOUPLOAD=true`. New skills' blobs now upload
    on merge via `r2-sync.yml`.

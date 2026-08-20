@@ -38,8 +38,6 @@
     "generate:check": "node scripts/generate.mjs --check",
     "generate:selftest": "node scripts/generate-selftest.mjs",
     "catalog:check": "node scripts/validate-catalog.mjs",
-    "r2:copy": "node scripts/r2-copy.mjs",
-    "r2:copy:dry": "node scripts/r2-copy.mjs --dry-run",
     "coverage": "node scripts/coverage.mjs"
   },
   "devDependencies": {
