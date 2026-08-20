@@ -18,7 +18,7 @@ Actions, reading credentials from GitHub **Environments** — never from a devel
 
 | Resource | Name / value | Created by |
 |---|---|---|
-| **R2 bucket** | `simplycubed-skills` | `scripts/r2-bootstrap.mjs` (idempotent), run by `provision.yml` |
+| **R2 bucket** | `skills-cdn-prod` | `scripts/r2-bootstrap.mjs` (idempotent), run by `provision.yml` |
 | **CDN Worker** | `skills-cdn` (`workers/cdn/`) | `wrangler deploy` in `provision.yml` |
 | **Custom domain** | `cdn.simplycubed.com` → the Worker | the Worker's `wrangler.jsonc` route (`custom_domain: true`) |
 
@@ -96,12 +96,14 @@ it is a PR, and prod credentials never reach a PR (they live only in the Environ
 1. **Create the two Cloudflare tokens** (scopes above); note the account ID.
 2. **Create the GitHub Environments** `prod` and `r2-write`; add `CLOUDFLARE_API_TOKEN` +
    `CLOUDFLARE_ACCOUNT_ID` to each (broad token in `prod`, narrow in `r2-write`).
-3. **Run `provision.yml`** (`gh workflow run provision.yml --ref main`, approve the `prod` gate):
-   creates the R2 bucket, deploys the CDN Worker, brings up `cdn.simplycubed.com`, smoke-tests it.
-4. **Backfill existing blobs**: `gh workflow run r2-upload.yml --ref main` (idempotent).
-5. **Enable auto-upload**: set the repo variable `R2_AUTOUPLOAD=true`. New skills' blobs now upload
+3. **For a bucket rename, copy first**: run `r2-copy.yml` with `source_bucket=simplycubed-skills`,
+   `dest_bucket=skills-cdn-prod`, dry-run on; then again with dry-run off.
+4. **Run `provision.yml`** (`gh workflow run provision.yml --ref main`, approve the `prod` gate):
+   creates the R2 bucket if needed, deploys the CDN Worker, brings up `cdn.simplycubed.com`, smoke-tests it.
+5. **Backfill existing blobs**: `gh workflow run r2-upload.yml --ref main` (idempotent).
+6. **Enable auto-upload**: set the repo variable `R2_AUTOUPLOAD=true`. New skills' blobs now upload
    on merge via `r2-sync.yml`.
-6. Add `WEB_DISPATCH_TOKEN` so storefront rebuilds are triggered on catalog changes.
+7. Add `WEB_DISPATCH_TOKEN` so storefront rebuilds are triggered on catalog changes.
 
 ## Cost
 

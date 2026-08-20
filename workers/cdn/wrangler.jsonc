@@ -7,7 +7,7 @@
   "main": "src/index.ts",
   "compatibility_date": "2026-07-01",
   "r2_buckets": [
-    { "binding": "BUCKET", "bucket_name": "simplycubed-skills" }
+    { "binding": "BUCKET", "bucket_name": "skills-cdn-prod" }
   ],
   // wrangler creates the DNS record + attaches the Worker to the whole hostname.
   "routes": [

@@ -5,7 +5,7 @@
 // so the workflow is safe to re-run.
 import { spawnSync } from "node:child_process";
 
-const bucket = process.env.R2_BUCKET || "simplycubed-skills";
+const bucket = process.env.R2_BUCKET || "skills-cdn-prod";
 const r = spawnSync("wrangler", ["r2", "bucket", "create", bucket], { encoding: "utf8" });
 const out = `${r.stdout || ""}${r.stderr || ""}`;
 
