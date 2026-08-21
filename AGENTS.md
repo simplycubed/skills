@@ -6,7 +6,7 @@
 ## Purpose
 
 - Curated marketplace of **Agent Skills** using the open, cross-tool `SKILL.md` format.
-- Skills are referenced, not vendored: each listing pins an upstream repo at a commit SHA and is certified in CI.
+- Each listing pins an upstream repo at a commit SHA and is certified in CI.
 - This repo produces three primary artifacts:
 - `catalog.json` for the storefront data source.
 - `.claude-plugin/marketplace.json` for Claude Code's marketplace installer.
@@ -40,8 +40,8 @@
 ## Adding Or Updating Skills
 
 1. Write or edit `config/skills/<slug>.yaml` with a pinned upstream commit SHA.
-2. Run `pnpm scan <slug> --write`.
-3. Run `pnpm snapshot <slug> --write`.
+2. Run `pnpm snapshot <slug> --write`.
+3. Run `pnpm scan <slug> --write`.
 4. Run `pnpm generate`.
 
 - Do not hand-set a version in YAML. The listing version is derived from the upstream `SKILL.md` `version:` field at the pinned SHA.
@@ -49,64 +49,15 @@
 - A skill whose upstream declares no version is intentionally unversioned: `version: null` in the catalog, and the plugin manifest omits `version`.
 - Full runbook: `docs/adding-skills.md`.
 
-## Current Slack Import Coordination
-
-- Parallel-session split for the `slackapi/slack-skills-plugin` import is active.
-- Charles re-read `AGENTS.md` in the live repo and, for this work, the session note below is the coordination source to follow.
-- Session A lane: scanner/policy/catalog-system changes only.
-- Files touched or intended by Session A:
-  - `scripts/scan.mjs`
-  - `scripts/unit-selftest.mjs`
-  - `config/skill.schema.json`
-  - `scripts/generate.mjs`
-  - `config/catalog.schema.json`
-  - `scripts/certify-active.mjs`
-  - `scripts/generate-selftest.mjs`
-  - `README.md`
-  - `docs/adding-skills.md` (possible)
-- Session A is implementing:
-  - a warning-exception system for explicitly approved edge-case skills
-  - the narrow `slack-api` placeholder bearer-token false-positive fix
-- Session A should avoid editing the per-skill Slack import artifact files while Session B is active.
-- Session B lane: Slack import artifact files only.
-- Files owned by Session B:
-  - `config/skills/block-kit.yaml`
-  - `config/skills/block-kit.scan.json`
-  - `config/skills/create-slack-app.yaml`
-  - `config/skills/create-slack-app.scan.json`
-  - `config/skills/slack-api.yaml`
-  - `config/skills/slack-api.scan.json`
-  - `config/skills/slack-cli.yaml`
-  - `config/skills/slack-cli.scan.json`
-  - `config/skills/slack-messaging.yaml`
-  - `config/skills/slack-messaging.scan.json`
-  - `config/skills/slack-search.yaml`
-  - `config/skills/slack-search.scan.json`
-  - `snapshots/block-kit/manifest.json`
-  - `snapshots/create-slack-app/manifest.json`
-  - `snapshots/slack-api/manifest.json`
-  - `snapshots/slack-cli/manifest.json`
-  - `snapshots/slack-messaging/manifest.json`
-  - `snapshots/slack-search/manifest.json`
-- Generated outputs should only be regenerated once the owning session is ready, to avoid churn:
-  - `catalog.json`
-  - `.claude-plugin/marketplace.json`
-- Current known state from Session A:
-  - `slack-api` now certifies cleanly after the narrow placeholder-token filter
-  - `slack-cli` remains blocked on `SKILL.md: pipe-to-shell download`
-  - Session A stopped before finishing docs
-  - Session A stopped before wiring warning text into plugin descriptions
-
 ## Cross-Repo Contract
 
-- `catalog.json` is the authoritative artifact consumed by `simplycubed/web` for the storefront.
+- `catalog.json` is the authoritative artifact for storefront consumers.
 - Treat `config/catalog.schema.json` as the compatibility contract for catalog consumers.
 - If you need a breaking catalog shape change, coordinate it through `schemaVersion` rather than shipping silent shape drift.
-- A `catalog.json` change on `main` triggers `.github/workflows/notify-web.yml`, which notifies `simplycubed/web` to rebuild the storefront.
 
 ## Reference
 
 - Certification methodology: `METHODOLOGY.md`.
-- Architecture, infrastructure, and CI docs: `docs/README.md`.
+- Public docs index: `docs/README.md`.
 - Catalog consumer contract: `config/catalog.schema.json`.
 - Skill onboarding runbook: `docs/adding-skills.md`.
