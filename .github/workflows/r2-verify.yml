@@ -8,9 +8,9 @@
 # committed bytes entirely — proving the no-local read path works WHILE the git
 # bytes still exist. That green run is PR-7's precondition (safe to delete local).
 #
-# NOTE (see ESCALATIONS.md): a red run surfaces in the Actions tab + GitHub's default
-# failure email. A one-time "demonstrate it goes red" dispatch against a tampered hex,
-# and a Slack/webhook failure notification, are recommended follow-ups.
+# NOTE: a red run surfaces in the Actions tab and through GitHub's default failure
+# email. A one-time "demonstrate it goes red" dispatch against a tampered hex, and
+# a Slack or webhook failure notification, remain recommended follow-ups.
 name: R2 drift monitor
 
 on:
