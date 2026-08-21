@@ -1,0 +1,12 @@
+{
+  "slug": "block-kit",
+  "upstream": {
+    "repo": "slackapi/slack-skills-plugin",
+    "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+    "path": "skills/block-kit"
+  },
+  "upstreamVersion": null,
+  "contentHash": "sha256:e2c7f109f4f3bbd72a3d3066f69ef7bd1fe8bf185c25e9ecb5d9d15da1542cc9",
+  "byteSize": 30129,
+  "fileCount": 3
+}

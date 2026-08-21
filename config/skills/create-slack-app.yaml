@@ -1,0 +1,21 @@
+slug: create-slack-app
+name: Create Slack App
+description: >-
+  Create and bootstrap a new Slack app or agent with the Slack CLI, including
+  auth, sandbox setup, template selection, and local run guidance.
+status: active
+upstream:
+  repo: slackapi/slack-skills-plugin
+  sha: "1251c73cb0ef34d4ce66cada7d045751fc1d1edc"
+  path: skills/create-slack-app
+author:
+  name: Slack
+  url: https://github.com/slackapi
+license: MIT
+homepage: https://github.com/slackapi/slack-skills-plugin
+category: integration
+tags:
+  - slack
+  - bolt
+  - cli
+  - app-development

@@ -1,0 +1,12 @@
+{
+  "slug": "create-slack-app",
+  "upstream": {
+    "repo": "slackapi/slack-skills-plugin",
+    "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+    "path": "skills/create-slack-app"
+  },
+  "upstreamVersion": null,
+  "contentHash": "sha256:8e542b86854a435bcf96dc961d29982f5e41e119eb111d573ba110256f49ce76",
+  "byteSize": 9482,
+  "fileCount": 2
+}

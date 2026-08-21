@@ -1,0 +1,12 @@
+{
+  "slug": "slack-api",
+  "upstream": {
+    "repo": "slackapi/slack-skills-plugin",
+    "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+    "path": "skills/slack-api"
+  },
+  "upstreamVersion": null,
+  "contentHash": "sha256:e0e8c901f3c37e47d713631bd9b263fd1ddb934333a51b0b05fd276454acae18",
+  "byteSize": 14371,
+  "fileCount": 2
+}

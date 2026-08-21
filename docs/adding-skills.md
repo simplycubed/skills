@@ -39,7 +39,7 @@ The post-migration flow. A skill is **referenced** at a pinned SHA; its bytes go
    pnpm snapshot <slug> --write   # writes snapshots/<slug>/manifest.json (manifest-only)
    pnpm scan <slug> --write       # writes config/skills/<slug>.scan.json (needs scanners)
    ```
-   The scan must come back **certified** (0 blocking findings) and `licenseMatches: true`.
+   The scan should normally come back **certified** (0 blocking findings) and `licenseMatches: true`.
 
 4. **Regenerate + gate:**
    ```sh
@@ -64,6 +64,38 @@ The post-migration flow. A skill is **referenced** at a pinned SHA; its bytes go
   adding skills does **not** change the shape, so no coordination is needed.
 - To source many candidates safely, prefer already-vetted collections (e.g. `github/awesome-copilot`)
   at a single pinned SHA.
+
+## Warning exceptions
+
+The default rule is still simple: a listed skill should pass clean certification. But a small number of named, high-value skills may stay listed with a public warning when all of these hold:
+
+- the blocking finding is specific and understood;
+- we want to preserve the upstream bytes rather than silently rewrite them;
+- the risk is acceptable as a visible warning, not a hidden bypass;
+- the config explicitly names the exact blocking finding(s) allowed for that one skill.
+
+Use the optional `warning` block in `config/skills/<slug>.yaml` only for those exception cases:
+
+```yaml
+warning:
+  title: Install manually
+  summary: Install the prerequisite directly from the vendor docs before using this skill.
+  message: >-
+    This upstream skill includes installation guidance we recommend handling manually.
+    Install the prerequisite directly from the vendor's official documentation before using this skill.
+  recommendation: Confirm the prerequisite is installed, then use the skill.
+  allowedFindings:
+    injection:
+      - SKILL.md: pipe-to-shell download
+```
+
+Rules for this lane:
+
+- it is per-skill, never global;
+- the warning text is public and intended for both the storefront and compact plugin UIs;
+- `allowedFindings` must match the live blocking finding(s) exactly;
+- the catalog will mark the skill `warning`, not `certified`;
+- any extra or changed blocking finding still fails the gate.
 
 ## Revoking a skill
 

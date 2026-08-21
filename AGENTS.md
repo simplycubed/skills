@@ -49,6 +49,54 @@
 - A skill whose upstream declares no version is intentionally unversioned: `version: null` in the catalog, and the plugin manifest omits `version`.
 - Full runbook: `docs/adding-skills.md`.
 
+## Current Slack Import Coordination
+
+- Parallel-session split for the `slackapi/slack-skills-plugin` import is active.
+- Charles re-read `AGENTS.md` in the live repo and, for this work, the session note below is the coordination source to follow.
+- Session A lane: scanner/policy/catalog-system changes only.
+- Files touched or intended by Session A:
+  - `scripts/scan.mjs`
+  - `scripts/unit-selftest.mjs`
+  - `config/skill.schema.json`
+  - `scripts/generate.mjs`
+  - `config/catalog.schema.json`
+  - `scripts/certify-active.mjs`
+  - `scripts/generate-selftest.mjs`
+  - `README.md`
+  - `docs/adding-skills.md` (possible)
+- Session A is implementing:
+  - a warning-exception system for explicitly approved edge-case skills
+  - the narrow `slack-api` placeholder bearer-token false-positive fix
+- Session A should avoid editing the per-skill Slack import artifact files while Session B is active.
+- Session B lane: Slack import artifact files only.
+- Files owned by Session B:
+  - `config/skills/block-kit.yaml`
+  - `config/skills/block-kit.scan.json`
+  - `config/skills/create-slack-app.yaml`
+  - `config/skills/create-slack-app.scan.json`
+  - `config/skills/slack-api.yaml`
+  - `config/skills/slack-api.scan.json`
+  - `config/skills/slack-cli.yaml`
+  - `config/skills/slack-cli.scan.json`
+  - `config/skills/slack-messaging.yaml`
+  - `config/skills/slack-messaging.scan.json`
+  - `config/skills/slack-search.yaml`
+  - `config/skills/slack-search.scan.json`
+  - `snapshots/block-kit/manifest.json`
+  - `snapshots/create-slack-app/manifest.json`
+  - `snapshots/slack-api/manifest.json`
+  - `snapshots/slack-cli/manifest.json`
+  - `snapshots/slack-messaging/manifest.json`
+  - `snapshots/slack-search/manifest.json`
+- Generated outputs should only be regenerated once the owning session is ready, to avoid churn:
+  - `catalog.json`
+  - `.claude-plugin/marketplace.json`
+- Current known state from Session A:
+  - `slack-api` now certifies cleanly after the narrow placeholder-token filter
+  - `slack-cli` remains blocked on `SKILL.md: pipe-to-shell download`
+  - Session A stopped before finishing docs
+  - Session A stopped before wiring warning text into plugin descriptions
+
 ## Cross-Repo Contract
 
 - `catalog.json` is the authoritative artifact consumed by `simplycubed/web` for the storefront.

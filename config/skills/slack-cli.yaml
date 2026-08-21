@@ -1,0 +1,30 @@
+slug: slack-cli
+name: Slack CLI
+description: >-
+  Use the Slack CLI to authenticate, search docs, call Web API methods, run apps
+  locally, and manage app manifests and workspace targets.
+status: active
+upstream:
+  repo: slackapi/slack-skills-plugin
+  sha: "1251c73cb0ef34d4ce66cada7d045751fc1d1edc"
+  path: skills/slack-cli
+author:
+  name: Slack
+  url: https://github.com/slackapi
+license: MIT
+homepage: https://github.com/slackapi/slack-skills-plugin
+category: integration
+tags:
+  - slack
+  - cli
+  - developer-tools
+  - app-development
+warning:
+  title: Install Command Review
+  summary: Review the documented Slack CLI install command before running it.
+  message: >-
+    This official Slack skill includes a documented pipe-to-shell install command for the
+    Slack CLI. Review that command before running it in your environment.
+  allowedFindings:
+    injection:
+      - "SKILL.md: pipe-to-shell download"

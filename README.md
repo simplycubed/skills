@@ -1,6 +1,6 @@
 # Certified Agent Skills
 
-A curated marketplace of [Agent Skills](https://agentskills.io) — the open, cross-tool `SKILL.md` format read by Claude Code, OpenAI Codex, Gemini CLI, and a growing set of agents. We do not write these skills. Each is authored upstream, and every listing names its author and the commit it was pinned at. What we build is the certification: each skill is scanned and certified before it gets listed, and it's free to install.
+A curated marketplace of [Agent Skills](https://agentskills.io) — the open, cross-tool `SKILL.md` format read by Claude Code, OpenAI Codex, Gemini CLI, and a growing set of agents. We do not write these skills. Each is authored upstream, and every listing names its author and the commit it was pinned at. What we build is the certification: each skill is scanned before it gets listed, and it's free to install.
 
 > **Status: early and curated.** We import a small, hand-picked set of popular open-source skills, scan each one, and publish the ones that pass. We are not taking open developer submissions yet.
 
@@ -37,6 +37,20 @@ Each listed skill carries an evidence-backed certification, not an absolute guar
 **Safety.** The skill passed our automated static scan on a stated date: secret scanning, static analysis, dependency and license checks, and a review of `SKILL.md` for prompt injection. This is a point-in-time review, re-run on every new version. It lowers risk. It does not prove a skill is safe to run. Skills can still execute code and make network calls, so review anything before you trust it with sensitive access.
 
 Our [full methodology](METHODOLOGY.md) is published and versioned, and it describes only the checks we actually run.
+
+## Warning Exceptions
+
+Most listed skills are cleanly certified. A small number of high-value skills may instead be listed with a **warning** when they contain a specific, understood instruction we want to keep visible rather than silently rewrite or pretend passed clean certification.
+
+When that happens:
+
+- the skill page carries a public warning explaining the issue and our recommendation;
+- the plugin metadata carries a short warning line in the description so tool users can still see the risk in compact UIs;
+- the catalog marks the skill as `warning`, not `certified`;
+- the exception is narrow and explicit: only the named finding(s) for that one skill are allowed;
+- certification still runs on the exact published bytes.
+
+This lane exists for edge cases such as a useful upstream skill that includes an instruction we recommend handling manually instead. It is not a general bypass for failed scans.
 
 ## How it works
 

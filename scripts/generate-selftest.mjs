@@ -87,7 +87,7 @@ assert.equal(folderSource(subSkill, null),
   `https://github.com/acme/mono/tree/${"b".repeat(40)}/skills/sub`, "no hash => pinned upstream tree (subdir)");
 
 const cat = buildCatalog(configs, () => null, versionFor);
-assert.equal(cat.schemaVersion, 3, "catalog carries schemaVersion 3");
+assert.equal(cat.schemaVersion, 4, "catalog carries schemaVersion 4");
 const catRoot = cat.skills.find((s) => s.slug === "root-skill");
 // version is the upstream-declared value, or null when unversioned — never a default.
 assert.equal(catRoot.version, "2.8.2", "declared upstream version in catalog");
@@ -128,5 +128,30 @@ assert.equal(mixed.skills.find((s) => s.slug === "paid-skill").tier, "premium", 
 const mktMixed = buildMarketplace([rootSkill, premium]);
 assert.ok(!mktMixed.plugins.some((p) => p.name === "paid-skill"), "premium skill excluded from public plugin manifest");
 assert.ok(mktMixed.plugins.some((p) => p.name === "root-skill"), "free skill still in plugin manifest");
+
+// warning exception: explicit config can publish a warned skill without pretending it is certified.
+const warnedSkill = {
+  ...rootSkill,
+  slug: "warned-skill",
+  warning: {
+    title: "Install manually",
+    summary: "Install the prerequisite directly before using this skill.",
+    message: "Install the prerequisite directly before using this skill.",
+    recommendation: "Install it from the vendor docs first.",
+    allowedFindings: { injection: ["SKILL.md: pipe-to-shell download"] },
+  },
+};
+const warned = buildCatalog([warnedSkill], () => ({
+  passed: false,
+  incomplete: false,
+  scanned_at: "2026-08-21T03:00:00Z",
+  checks: { structure: [], license: [], injection: ["SKILL.md: pipe-to-shell download"], secrets: [], vulnerabilities: [], sast: [] },
+}));
+assert.equal(warned.skills[0].certification.status, "warning", "warning exception publishes warning status");
+assert.equal(warned.skills[0].certification.warning.title, "Install manually");
+assert.equal(warned.skills[0].certification.warning.summary, "Install the prerequisite directly before using this skill.");
+assert.equal(warned.skills[0].certification.warning.recommendation, "Install it from the vendor docs first.");
+assert.equal(warned.skills[0].certification.warning.active, true, "warning is active when the scan still needs it");
+assert.match(buildMarketplace([warnedSkill]).plugins[0].description, /^Warning: Install the prerequisite directly before using this skill\./, "warning summary is surfaced in plugin descriptions");
 
 console.log("✓ generate self-test passed (source shapes, install strings, certification mapping)");
