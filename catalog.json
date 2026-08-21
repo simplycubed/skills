@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "marketplace": "simplycubed",
   "skills": [
     {
@@ -2127,6 +2127,95 @@
       }
     },
     {
+      "slug": "block-kit",
+      "name": "Block Kit",
+      "description": "Build and validate Slack Block Kit layouts for messages, modals, and Home tabs, including sections, actions, inputs, tables, and interactive components.",
+      "version": null,
+      "category": "integration",
+      "tags": [
+        "slack",
+        "block-kit",
+        "ui",
+        "messaging"
+      ],
+      "author": {
+        "name": "Slack",
+        "url": "https://github.com/slackapi"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "slackapi/slack-skills-plugin",
+        "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+        "path": "skills/block-kit"
+      },
+      "sourceUrl": "https://github.com/slackapi/slack-skills-plugin",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+block-kit&skill=block-kit&upstream=slackapi%2Fslack-skills-plugin",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install block-kit@simplycubed"
+        },
+        "folder": {
+          "dirName": "block-kit",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/e2c7f109f4f3bbd72a3d3066f69ef7bd1fe8bf185c25e9ecb5d9d15da1542cc9/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-08-21T02:09:28.979Z",
+        "record": {
+          "slug": "block-kit",
+          "upstream": {
+            "repo": "slackapi/slack-skills-plugin",
+            "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+            "path": "skills/block-kit"
+          },
+          "scanned_at": "2026-08-21T02:09:28.979Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.30.1",
+            "osv-scanner": "2.5.1",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
       "slug": "centos-linux-triage",
       "name": "CentOS Linux Triage",
       "description": "Triage and resolve CentOS issues using RHEL-compatible tooling, SELinux-aware practices, and firewalld.",
@@ -3169,6 +3258,95 @@
             "certify": "builtin",
             "gitleaks": "8.18.4",
             "osv-scanner": "2.4.0",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "create-slack-app",
+      "name": "Create Slack App",
+      "description": "Create and bootstrap a new Slack app or agent with the Slack CLI, including auth, sandbox setup, template selection, and local run guidance.",
+      "version": null,
+      "category": "integration",
+      "tags": [
+        "slack",
+        "bolt",
+        "cli",
+        "app-development"
+      ],
+      "author": {
+        "name": "Slack",
+        "url": "https://github.com/slackapi"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "slackapi/slack-skills-plugin",
+        "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+        "path": "skills/create-slack-app"
+      },
+      "sourceUrl": "https://github.com/slackapi/slack-skills-plugin",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+create-slack-app&skill=create-slack-app&upstream=slackapi%2Fslack-skills-plugin",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install create-slack-app@simplycubed"
+        },
+        "folder": {
+          "dirName": "create-slack-app",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/8e542b86854a435bcf96dc961d29982f5e41e119eb111d573ba110256f49ce76/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-08-21T02:09:29.385Z",
+        "record": {
+          "slug": "create-slack-app",
+          "upstream": {
+            "repo": "slackapi/slack-skills-plugin",
+            "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+            "path": "skills/create-slack-app"
+          },
+          "scanned_at": "2026-08-21T02:09:29.385Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.30.1",
+            "osv-scanner": "2.5.1",
             "semgrep": "n/a (no code)"
           },
           "checks": {
@@ -9022,6 +9200,375 @@
           "passed": true,
           "finding_count": 0,
           "review_count": 2,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "slack-api",
+      "name": "Slack Web API",
+      "description": "Discover, validate, and call Slack Web API methods with the right scopes, token type, pagination, and rate-limit handling.",
+      "version": null,
+      "category": "integration",
+      "tags": [
+        "slack",
+        "api",
+        "web-api",
+        "oauth"
+      ],
+      "author": {
+        "name": "Slack",
+        "url": "https://github.com/slackapi"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "slackapi/slack-skills-plugin",
+        "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+        "path": "skills/slack-api"
+      },
+      "sourceUrl": "https://github.com/slackapi/slack-skills-plugin",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+slack-api&skill=slack-api&upstream=slackapi%2Fslack-skills-plugin",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install slack-api@simplycubed"
+        },
+        "folder": {
+          "dirName": "slack-api",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/e0e8c901f3c37e47d713631bd9b263fd1ddb934333a51b0b05fd276454acae18/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-08-21T02:33:06.428Z",
+        "record": {
+          "slug": "slack-api",
+          "upstream": {
+            "repo": "slackapi/slack-skills-plugin",
+            "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+            "path": "skills/slack-api"
+          },
+          "scanned_at": "2026-08-21T02:33:06.428Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.30.1",
+            "osv-scanner": "2.5.1",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "slack-cli",
+      "name": "Slack CLI",
+      "description": "Use the Slack CLI to authenticate, search docs, call Web API methods, run apps locally, and manage app manifests and workspace targets.",
+      "version": null,
+      "category": "integration",
+      "tags": [
+        "slack",
+        "cli",
+        "developer-tools",
+        "app-development"
+      ],
+      "author": {
+        "name": "Slack",
+        "url": "https://github.com/slackapi"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "slackapi/slack-skills-plugin",
+        "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+        "path": "skills/slack-cli"
+      },
+      "sourceUrl": "https://github.com/slackapi/slack-skills-plugin",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+slack-cli&skill=slack-cli&upstream=slackapi%2Fslack-skills-plugin",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install slack-cli@simplycubed"
+        },
+        "folder": {
+          "dirName": "slack-cli",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/2c6a944f1e94eb725491c9d173d112145ed2480bab7b43af1e6c1acbd62e579b/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "warning",
+        "scannedAt": "2026-08-21T02:33:07.003Z",
+        "record": {
+          "slug": "slack-cli",
+          "upstream": {
+            "repo": "slackapi/slack-skills-plugin",
+            "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+            "path": "skills/slack-cli"
+          },
+          "scanned_at": "2026-08-21T02:33:07.003Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.30.1",
+            "osv-scanner": "2.5.1",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [
+              "SKILL.md: pipe-to-shell download"
+            ],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": false,
+          "finding_count": 1,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        },
+        "warning": {
+          "title": "Install Command Review",
+          "summary": "Review the documented Slack CLI install command before running it.",
+          "message": "This official Slack skill includes a documented pipe-to-shell install command for the Slack CLI. Review that command before running it in your environment.",
+          "allowedFindings": {
+            "injection": [
+              "SKILL.md: pipe-to-shell download"
+            ]
+          },
+          "active": true
+        }
+      }
+    },
+    {
+      "slug": "slack-messaging",
+      "name": "Slack Messaging",
+      "description": "Draft, format, schedule, and improve Slack messages, replies, and announcements using Slack-aware markdown, thread etiquette, and message structure guidance.",
+      "version": null,
+      "category": "integration",
+      "tags": [
+        "slack",
+        "messaging",
+        "communication",
+        "writing"
+      ],
+      "author": {
+        "name": "Slack",
+        "url": "https://github.com/slackapi"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "slackapi/slack-skills-plugin",
+        "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+        "path": "skills/slack-messaging"
+      },
+      "sourceUrl": "https://github.com/slackapi/slack-skills-plugin",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+slack-messaging&skill=slack-messaging&upstream=slackapi%2Fslack-skills-plugin",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install slack-messaging@simplycubed"
+        },
+        "folder": {
+          "dirName": "slack-messaging",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/5846b8b94553c4b28522e397d453ed90606c05a2ac506e237d65a412ea969c33/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-08-21T02:09:28.176Z",
+        "record": {
+          "slug": "slack-messaging",
+          "upstream": {
+            "repo": "slackapi/slack-skills-plugin",
+            "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+            "path": "skills/slack-messaging"
+          },
+          "scanned_at": "2026-08-21T02:09:28.176Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.30.1",
+            "osv-scanner": "2.5.1",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
+          "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
+        }
+      }
+    },
+    {
+      "slug": "slack-search",
+      "name": "Slack Search",
+      "description": "Search Slack messages, files, channels, and people effectively using Slack search operators, filters, and follow-up read tools for context.",
+      "version": null,
+      "category": "integration",
+      "tags": [
+        "slack",
+        "search",
+        "messaging",
+        "workplace"
+      ],
+      "author": {
+        "name": "Slack",
+        "url": "https://github.com/slackapi"
+      },
+      "license": "MIT",
+      "upstream": {
+        "repo": "slackapi/slack-skills-plugin",
+        "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+        "path": "skills/slack-search"
+      },
+      "sourceUrl": "https://github.com/slackapi/slack-skills-plugin",
+      "tier": "free",
+      "removalUrl": "https://github.com/simplycubed/skills/issues/new?template=skill-removal.yml&title=Remove+skill%3A+slack-search&skill=slack-search&upstream=slackapi%2Fslack-skills-plugin",
+      "install": {
+        "claudeCode": {
+          "marketplaceAdd": "/plugin marketplace add simplycubed/skills",
+          "command": "/plugin install slack-search@simplycubed"
+        },
+        "folder": {
+          "dirName": "slack-search",
+          "source": "https://cdn.simplycubed.com/blobs/sha256/12cc8f1e93ec8f8f487e333506710ecd40ae7ed9bd0bf2b650df68d98a637038/unit.tar.gz",
+          "targets": [
+            {
+              "agent": "Vendor-neutral (Codex, Gemini CLI, …)",
+              "dir": ".agents/skills/"
+            },
+            {
+              "agent": "Claude Code",
+              "dir": "~/.claude/skills/"
+            },
+            {
+              "agent": "Gemini CLI",
+              "dir": "~/.gemini/skills/"
+            }
+          ]
+        }
+      },
+      "certification": {
+        "status": "certified",
+        "scannedAt": "2026-08-21T02:09:28.579Z",
+        "record": {
+          "slug": "slack-search",
+          "upstream": {
+            "repo": "slackapi/slack-skills-plugin",
+            "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+            "path": "skills/slack-search"
+          },
+          "scanned_at": "2026-08-21T02:09:28.579Z",
+          "unit": {
+            "licenseSource": "repo-root",
+            "declaredLicense": "MIT",
+            "licenseMatches": true
+          },
+          "tools": {
+            "certify": "builtin",
+            "gitleaks": "8.30.1",
+            "osv-scanner": "2.5.1",
+            "semgrep": "n/a (no code)"
+          },
+          "checks": {
+            "structure": [],
+            "license": [],
+            "injection": [],
+            "secrets": [],
+            "vulnerabilities": [],
+            "sast": []
+          },
+          "review": [],
+          "scan_errors": [],
+          "incomplete": false,
+          "passed": true,
+          "finding_count": 0,
+          "review_count": 0,
           "note": "built-in static tier + gitleaks (secrets) + osv-scanner (deps) + semgrep SAST (pinned rules, code-only). REVIEW findings are surfaced, not auto-failed. SKILL.md LLM-judge is a planned follow-up."
         }
       }

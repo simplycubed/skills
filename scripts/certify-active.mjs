@@ -10,6 +10,24 @@
 import { readActiveSkills } from "./generate.mjs";
 import { scanSnapshot } from "./scan.mjs";
 
+function equalSet(actual = [], expected = []) {
+  if (actual.length !== expected.length) return false;
+  const left = [...actual].sort();
+  const right = [...expected].sort();
+  return left.every((value, index) => value === right[index]);
+}
+
+function warningAllows(cfg, scan) {
+  const warning = cfg.warning;
+  if (!warning || scan.passed || scan.scan_errors.length || scan.incomplete) return false;
+  const allowed = warning.allowedFindings || {};
+  const keys = ["injection", "secrets", "vulnerabilities", "sast"];
+  const actualBlocking = keys.filter((key) => (scan.checks[key] || []).length > 0);
+  const allowedBlocking = keys.filter((key) => (allowed[key] || []).length > 0);
+  if (!equalSet(actualBlocking, allowedBlocking)) return false;
+  return actualBlocking.every((key) => equalSet(scan.checks[key] || [], allowed[key] || []));
+}
+
 const skills = readActiveSkills();
 if (skills.length === 0) {
   console.log("no active skills to certify");
@@ -26,8 +44,9 @@ for (const cfg of skills) {
     console.log(`✗ ${cfg.slug}: scan threw — ${e.message}`);
     continue;
   }
-  console.log(`${r.passed ? "✓" : "✗"} ${cfg.slug}: ${r.finding_count} blocking, ${r.review_count} review [${Object.keys(r.tools).join(", ")}]`);
-  if (!r.passed) {
+  const warned = warningAllows(cfg, r);
+  console.log(`${r.passed || warned ? "✓" : "✗"} ${cfg.slug}: ${r.finding_count} blocking, ${r.review_count} review [${Object.keys(r.tools).join(", ")}]${warned ? " warning-exception" : ""}`);
+  if (!r.passed && !warned) {
     ok = false;
     if (r.scan_errors.length) console.log(`    scan errors: ${r.scan_errors.join("; ")}`);
     for (const [k, v] of Object.entries(r.checks)) if (v.length) console.log(`    ${k}: ${v.join(", ")}`);

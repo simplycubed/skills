@@ -8,8 +8,8 @@
   "properties": {
     "schemaVersion": {
       "type": "integer",
-      "const": 3,
-      "description": "Contract version. A consumer should refuse a schemaVersion it does not understand. v3: `version` is string|null — the upstream-declared version at the pinned SHA, or null for an unversioned skill (sort those by certification.scannedAt)."
+      "const": 4,
+      "description": "Contract version. A consumer should refuse a schemaVersion it does not understand. v4: certification may carry `status: \"warning\"` plus a public `warning` object for explicitly-approved listed skills that retain named blocking findings and must show a storefront warning."
     },
     "marketplace": {
       "type": "string",
@@ -109,16 +109,30 @@
           "properties": {
             "status": {
               "type": "string",
-              "enum": ["certified", "revoked", "pending", "incomplete"],
-              "description": "certified = passed the scan; revoked = a prior pass now fails; pending = not yet scanned; incomplete = a required scanner was skipped, never certifiable."
-            },
-            "scannedAt": { "type": ["string", "null"], "description": "ISO-8601 timestamp of the scan, or null when pending." },
-            "record": {
-              "type": ["object", "null"],
-              "description": "The full scan record (structure/license/injection + gitleaks + osv), or null when pending. Shape is the <slug>.scan.json produced by scripts/scan.mjs; consumers should read `tools`, `checks`, and `review` to render the 'what we checked' detail."
+            "enum": ["certified", "warning", "revoked", "pending", "incomplete"],
+            "description": "certified = passed the scan; warning = explicitly-approved exception skill with named blocking findings and a required storefront warning; revoked = failed and not approved for listing; pending = not yet scanned; incomplete = a required scanner was skipped, never certifiable."
+          },
+          "scannedAt": { "type": ["string", "null"], "description": "ISO-8601 timestamp of the scan, or null when pending." },
+          "record": {
+            "type": ["object", "null"],
+            "description": "The full scan record (structure/license/injection + gitleaks + osv), or null when pending. Shape is the <slug>.scan.json produced by scripts/scan.mjs; consumers should read `tools`, `checks`, and `review` to render the 'what we checked' detail."
+          },
+          "warning": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["title", "message", "allowedFindings", "active"],
+            "description": "Public storefront warning for a listed exception skill. Present only when certification.status is warning, or when a config carries dormant warning metadata.",
+            "properties": {
+              "title": { "type": "string" },
+              "summary": { "type": "string" },
+              "message": { "type": "string" },
+              "recommendation": { "type": "string" },
+              "allowedFindings": { "type": "object" },
+              "active": { "type": "boolean", "description": "True when the current scan still relies on the warning exception." }
             }
           }
         }
+      }
       }
     }
   }

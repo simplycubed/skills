@@ -1,0 +1,21 @@
+slug: slack-search
+name: Slack Search
+description: >-
+  Search Slack messages, files, channels, and people effectively using Slack
+  search operators, filters, and follow-up read tools for context.
+status: active
+upstream:
+  repo: slackapi/slack-skills-plugin
+  sha: "1251c73cb0ef34d4ce66cada7d045751fc1d1edc"
+  path: skills/slack-search
+author:
+  name: Slack
+  url: https://github.com/slackapi
+license: MIT
+homepage: https://github.com/slackapi/slack-skills-plugin
+category: integration
+tags:
+  - slack
+  - search
+  - messaging
+  - workplace

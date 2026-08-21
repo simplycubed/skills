@@ -1,0 +1,12 @@
+{
+  "slug": "slack-search",
+  "upstream": {
+    "repo": "slackapi/slack-skills-plugin",
+    "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+    "path": "skills/slack-search"
+  },
+  "upstreamVersion": null,
+  "contentHash": "sha256:12cc8f1e93ec8f8f487e333506710ecd40ae7ed9bd0bf2b650df68d98a637038",
+  "byteSize": 6961,
+  "fileCount": 2
+}

@@ -6,11 +6,11 @@
 // (validate-skills.mjs), and the structure guards (certify.mjs). Synthesizes
 // throwaway trees in a temp dir; asserts with node:assert.
 import assert from "node:assert/strict";
-import { mkdtempSync, mkdirSync, writeFileSync, symlinkSync, rmSync, existsSync, lstatSync } from "node:fs";
+import { mkdtempSync, mkdirSync, writeFileSync, symlinkSync, rmSync, existsSync, lstatSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { assembleFromSrc } from "./fetch.mjs";
-import { scanUnit } from "./scan.mjs";
+import { scanUnit, filterSecretFindings } from "./scan.mjs";
 import { validateConfig } from "./validate-skills.mjs";
 import { certify } from "./certify.mjs";
 
@@ -143,6 +143,19 @@ console.log("— 1f: assembleFromSrc dereferences in-repo symlinks, rejects esca
   assert.equal(existsSync(join(r.unitDir, "evil")), false, "escaping symlink NOT copied into the unit");
 }
 console.log("  ✓ 1f passed");
+
+console.log("— 1g: placeholder bearer examples are not treated as leaked secrets —");
+{
+  const d = scratch();
+  writeFileSync(join(d, "SKILL.md"), "Authorization: Bearer xoxb-YOUR-TOKEN\n");
+  const kept = filterSecretFindings(d, ["SKILL.md: curl-auth-header"]);
+  assert.deepEqual(kept, [], "placeholder bearer example is filtered out");
+
+  writeFileSync(join(d, "SKILL.md"), "Authorization: Bearer xoxb-1234567890-real\n");
+  const retained = filterSecretFindings(d, ["SKILL.md: curl-auth-header"]);
+  assert.deepEqual(retained, ["SKILL.md: curl-auth-header"], "non-placeholder bearer token remains blocking");
+}
+console.log("  ✓ 1g passed");
 
 rmSync(tmp, { recursive: true, force: true });
 console.log("✓ unit self-test passed (assembly/license, fail-closed scanner, validator, structure guards, symlinks)");

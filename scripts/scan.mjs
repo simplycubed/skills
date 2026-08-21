@@ -15,7 +15,7 @@
 // the freshly fetched bytes and fails if the live verdict isn't a pass, so a
 // hand-edited scan.json cannot smuggle a failing skill through.
 import { writeFileSync, readFileSync, existsSync, mkdtempSync, readdirSync, lstatSync, rmSync } from "node:fs";
-import { join, dirname, basename } from "node:path";
+import { join, dirname, basename, isAbsolute } from "node:path";
 import { tmpdir } from "node:os";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { spawnSync } from "node:child_process";
@@ -53,6 +53,25 @@ function toolVersion(path, args) {
   return m ? m[0] : (out.split("\n")[0] || "unknown");
 }
 
+const PLACEHOLDER_BEARER = /authorization:\s*bearer\s+(?:xox[baprs]-)?(?:your[-_ ]token|<token>|redacted|example)\b/i;
+
+export function filterSecretFindings(unit, findings) {
+  return findings.filter((finding) => {
+    const [file] = String(finding).split(": ");
+    const label = String(finding).slice(String(file).length + 2);
+    if (label !== "curl-auth-header") return true;
+    const full = isAbsolute(file) ? file : join(unit, file);
+    if (!existsSync(full)) return true;
+    let text;
+    try {
+      text = readFileSync(full, "utf8");
+    } catch {
+      return true;
+    }
+    return !PLACEHOLDER_BEARER.test(text);
+  });
+}
+
 // gitleaks: scan the unit as a plain directory (no git history). We force
 // exit-code 0 and read the JSON report so a "leaks found" exit doesn't look like
 // a tool crash; findings are counted from the report itself.
@@ -68,7 +87,10 @@ export function runGitleaks(path, unit, work) {
   }
   let leaks = [];
   try { leaks = JSON.parse(readFileSync(report, "utf8")) || []; } catch { leaks = []; }
-  const findings = leaks.map((l) => `${l.File || l.file || "?"}: ${l.RuleID || l.Description || "secret"}`);
+  const findings = filterSecretFindings(
+    unit,
+    leaks.map((l) => `${l.File || l.file || "?"}: ${l.RuleID || l.Description || "secret"}`),
+  );
   return { ran: true, findings };
 }
 

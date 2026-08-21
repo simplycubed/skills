@@ -1,0 +1,21 @@
+slug: slack-messaging
+name: Slack Messaging
+description: >-
+  Draft, format, schedule, and improve Slack messages, replies, and announcements
+  using Slack-aware markdown, thread etiquette, and message structure guidance.
+status: active
+upstream:
+  repo: slackapi/slack-skills-plugin
+  sha: "1251c73cb0ef34d4ce66cada7d045751fc1d1edc"
+  path: skills/slack-messaging
+author:
+  name: Slack
+  url: https://github.com/slackapi
+license: MIT
+homepage: https://github.com/slackapi/slack-skills-plugin
+category: integration
+tags:
+  - slack
+  - messaging
+  - communication
+  - writing

@@ -1,0 +1,12 @@
+{
+  "slug": "slack-messaging",
+  "upstream": {
+    "repo": "slackapi/slack-skills-plugin",
+    "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc",
+    "path": "skills/slack-messaging"
+  },
+  "upstreamVersion": null,
+  "contentHash": "sha256:5846b8b94553c4b28522e397d453ed90606c05a2ac506e237d65a412ea969c33",
+  "byteSize": 6267,
+  "fileCount": 2
+}

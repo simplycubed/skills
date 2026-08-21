@@ -1,0 +1,21 @@
+slug: slack-api
+name: Slack Web API
+description: >-
+  Discover, validate, and call Slack Web API methods with the right scopes,
+  token type, pagination, and rate-limit handling.
+status: active
+upstream:
+  repo: slackapi/slack-skills-plugin
+  sha: "1251c73cb0ef34d4ce66cada7d045751fc1d1edc"
+  path: skills/slack-api
+author:
+  name: Slack
+  url: https://github.com/slackapi
+license: MIT
+homepage: https://github.com/slackapi/slack-skills-plugin
+category: integration
+tags:
+  - slack
+  - api
+  - web-api
+  - oauth

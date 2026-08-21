@@ -84,6 +84,65 @@
       "type": "string",
       "enum": ["free", "premium"],
       "description": "Optional; defaults to 'free'. 'premium' = subscription-gated (excluded from the public plugin manifest; delivered through the entitlement service, not this repo)."
+    },
+    "warning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "message", "allowedFindings"],
+      "description": "Optional, narrow exception lane for a specifically approved skill that stays listed with a warning on the storefront despite known, named blocking findings. The warning text is public; the allowed findings are the exact blocking findings this one skill is permitted to carry.",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "Optional short warning heading for the storefront."
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180,
+          "description": "Short public warning line suitable for compact UIs such as plugin descriptions."
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500,
+          "description": "Public warning shown on the skill page."
+        },
+        "recommendation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300,
+          "description": "Optional public recommendation for the safer path a user should take instead."
+        },
+        "allowedFindings": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "injection": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            },
+            "secrets": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            },
+            "vulnerabilities": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            },
+            "sast": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            }
+          }
+        }
+      }
     }
   }
 }

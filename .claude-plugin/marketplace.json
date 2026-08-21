@@ -544,6 +544,29 @@
       ]
     },
     {
+      "name": "block-kit",
+      "description": "Build and validate Slack Block Kit layouts for messages, modals, and Home tabs, including sections, actions, inputs, tables, and interactive components.",
+      "author": {
+        "name": "Slack",
+        "url": "https://github.com/slackapi"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/slackapi/slack-skills-plugin",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/slackapi/slack-skills-plugin.git",
+        "path": "skills/block-kit",
+        "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc"
+      },
+      "category": "integration",
+      "keywords": [
+        "slack",
+        "block-kit",
+        "ui",
+        "messaging"
+      ]
+    },
+    {
       "name": "centos-linux-triage",
       "description": "Triage and resolve CentOS issues using RHEL-compatible tooling, SELinux-aware practices, and firewalld.",
       "author": {
@@ -810,6 +833,29 @@
         "unmet",
         "specification",
         "requirements"
+      ]
+    },
+    {
+      "name": "create-slack-app",
+      "description": "Create and bootstrap a new Slack app or agent with the Slack CLI, including auth, sandbox setup, template selection, and local run guidance.",
+      "author": {
+        "name": "Slack",
+        "url": "https://github.com/slackapi"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/slackapi/slack-skills-plugin",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/slackapi/slack-skills-plugin.git",
+        "path": "skills/create-slack-app",
+        "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc"
+      },
+      "category": "integration",
+      "keywords": [
+        "slack",
+        "bolt",
+        "cli",
+        "app-development"
       ]
     },
     {
@@ -2267,6 +2313,98 @@
         "hardening",
         "code-review",
         "appsec"
+      ]
+    },
+    {
+      "name": "slack-api",
+      "description": "Discover, validate, and call Slack Web API methods with the right scopes, token type, pagination, and rate-limit handling.",
+      "author": {
+        "name": "Slack",
+        "url": "https://github.com/slackapi"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/slackapi/slack-skills-plugin",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/slackapi/slack-skills-plugin.git",
+        "path": "skills/slack-api",
+        "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc"
+      },
+      "category": "integration",
+      "keywords": [
+        "slack",
+        "api",
+        "web-api",
+        "oauth"
+      ]
+    },
+    {
+      "name": "slack-cli",
+      "description": "Warning: Review the documented Slack CLI install command before running it. Use the Slack CLI to authenticate, search docs, call Web API methods, run apps locally, and manage app manifests and workspace targets.",
+      "author": {
+        "name": "Slack",
+        "url": "https://github.com/slackapi"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/slackapi/slack-skills-plugin",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/slackapi/slack-skills-plugin.git",
+        "path": "skills/slack-cli",
+        "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc"
+      },
+      "category": "integration",
+      "keywords": [
+        "slack",
+        "cli",
+        "developer-tools",
+        "app-development"
+      ]
+    },
+    {
+      "name": "slack-messaging",
+      "description": "Draft, format, schedule, and improve Slack messages, replies, and announcements using Slack-aware markdown, thread etiquette, and message structure guidance.",
+      "author": {
+        "name": "Slack",
+        "url": "https://github.com/slackapi"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/slackapi/slack-skills-plugin",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/slackapi/slack-skills-plugin.git",
+        "path": "skills/slack-messaging",
+        "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc"
+      },
+      "category": "integration",
+      "keywords": [
+        "slack",
+        "messaging",
+        "communication",
+        "writing"
+      ]
+    },
+    {
+      "name": "slack-search",
+      "description": "Search Slack messages, files, channels, and people effectively using Slack search operators, filters, and follow-up read tools for context.",
+      "author": {
+        "name": "Slack",
+        "url": "https://github.com/slackapi"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/slackapi/slack-skills-plugin",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/slackapi/slack-skills-plugin.git",
+        "path": "skills/slack-search",
+        "sha": "1251c73cb0ef34d4ce66cada7d045751fc1d1edc"
+      },
+      "category": "integration",
+      "keywords": [
+        "slack",
+        "search",
+        "messaging",
+        "workplace"
       ]
     },
     {

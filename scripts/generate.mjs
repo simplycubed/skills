@@ -27,7 +27,7 @@ const CATALOG_PATH = join(ROOT, "catalog.json");
 // v3: `version` is now string|null — the UPSTREAM-declared version at the pinned
 // SHA, or null for an "unversioned" skill (upstream declares none). The storefront
 // sorts unversioned skills by certification.scannedAt.
-const CATALOG_SCHEMA_VERSION = 3;
+const CATALOG_SCHEMA_VERSION = 4;
 
 // Where an agent drops a skill folder, mirroring the README install table. Every
 // listed skill is a plain SKILL.md folder, so it installs into any compatible
@@ -120,6 +120,24 @@ function readScan(slug, dir = SKILLS_DIR) {
   try { return JSON.parse(readFileSync(p, "utf8")); } catch { return null; }
 }
 
+export function warningState(config, scan) {
+  if (!config?.warning) return null;
+  return {
+    title: config.warning.title || "Warning",
+    summary: config.warning.summary,
+    message: config.warning.message,
+    ...(config.warning.recommendation ? { recommendation: config.warning.recommendation } : {}),
+    allowedFindings: config.warning.allowedFindings,
+    active: !!scan && !scan.passed,
+  };
+}
+
+function descriptionWithWarning(config) {
+  const base = sanitizeDescription(config.description);
+  if (!config.warning?.summary) return base;
+  return sanitizeDescription(`Warning: ${config.warning.summary} ${base}`);
+}
+
 // Map a skill config to a Claude Code marketplace plugin entry.
 // Root skills use the "github" source (no subdirectory support); skills in a
 // subfolder use "git-subdir". The full commit SHA is the pin in both cases.
@@ -129,7 +147,7 @@ export function pluginEntry(c, version = null) {
     : { source: "github", repo: c.upstream.repo, sha: c.upstream.sha };
   const entry = {
     name: c.slug,
-    description: sanitizeDescription(c.description),
+    description: descriptionWithWarning(c),
     // OMIT version for an unversioned skill: Claude Code's plugin manifest treats
     // version as optional and falls back to the commit SHA (source.sha) for update
     // detection when it's absent — exactly what we want for a SHA-pinned listing.
@@ -159,12 +177,15 @@ export function buildMarketplace(configs, versionFor = upstreamVersionOf) {
 }
 
 // A scan that skipped a required scanner (incomplete) is NEVER "certified".
-function certStatus(scan) {
+function publishedCertStatus(config, scan) {
+  if (!scan) return "pending";
   if (scan.incomplete) return "incomplete";
-  return scan.passed ? "certified" : "revoked";
+  if (scan.passed) return "certified";
+  return config.warning ? "warning" : "revoked";
 }
 
 export function catalogEntry(c, scan, version = null) {
+  const warning = warningState(c, scan);
   return {
     slug: c.slug,
     name: c.name,
@@ -197,7 +218,12 @@ export function catalogEntry(c, scan, version = null) {
       },
     },
     certification: scan
-      ? { status: certStatus(scan), scannedAt: scan.scanned_at || null, record: scan }
+      ? {
+          status: publishedCertStatus(c, scan),
+          scannedAt: scan.scanned_at || null,
+          record: scan,
+          ...(warning ? { warning } : {}),
+        }
       : { status: "pending", scannedAt: null, record: null },
   };
 }

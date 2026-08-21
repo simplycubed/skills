@@ -1,0 +1,21 @@
+slug: block-kit
+name: Block Kit
+description: >-
+  Build and validate Slack Block Kit layouts for messages, modals, and Home tabs,
+  including sections, actions, inputs, tables, and interactive components.
+status: active
+upstream:
+  repo: slackapi/slack-skills-plugin
+  sha: "1251c73cb0ef34d4ce66cada7d045751fc1d1edc"
+  path: skills/block-kit
+author:
+  name: Slack
+  url: https://github.com/slackapi
+license: MIT
+homepage: https://github.com/slackapi/slack-skills-plugin
+category: integration
+tags:
+  - slack
+  - block-kit
+  - ui
+  - messaging
